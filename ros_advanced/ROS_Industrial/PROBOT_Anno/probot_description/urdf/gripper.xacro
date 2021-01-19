@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<robot name="gripper" xmlns:xacro="http://ros.org/wiki/xacro">
+
+   <xacro:property name="PI" value="3.14159"/>
+   <xacro:property name="DYNAMIXEL_MESH_SCALE" value="0.001"/>
+   <xacro:include filename="$(find probot_description)/urdf/dynamixel_arm_hardware.xacro" />
+
+   <xacro:macro name="gripper" params="parent color xyz rpy"> 
+
+    <!-- gripper joint -->
+    <dynamixel_AX12_fixed parent="${parent}" name="gripper_base">
+      <origin xyz="${xyz}" rpy="${rpy}" />
+    </dynamixel_AX12_fixed>
+
+    <!-- finger 1 -->
+    <joint name="gripper_finger_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="1.0" velocity="3.14" lower="-0.8" upper="0.5" />
+      <parent link="gripper_base_link"/>
+      <child link="gripper_active_finger_bracket_link" />
+    </joint>
+    
+    <link name="gripper_active_finger_bracket_link">
+      <inertial>
+        <mass value="0.00001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+          iyy="1.0" iyz="0.0"
+          izz="1.0" />
+      </inertial>
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://probot_description/meshes/gripper/F2.stl" scale="${DYNAMIXEL_MESH_SCALE} ${DYNAMIXEL_MESH_SCALE} ${DYNAMIXEL_MESH_SCALE}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+      
+      <collision>
+        <origin xyz="0.0 0.0 0.00775" rpy="0 0 0" />
+        <geometry>
+          <box size="0.025 0.0485 0.0375"/>
+        </geometry>
+      </collision>
+    </link>
+    
+    <finger parent="gripper_active_finger_bracket" name="gripper_active_finger" color="${color}">
+      <origin xyz="0 0 ${F2_DEPTH + 0.002}" rpy="0 0 0" />
+    </finger>
+
+    <!-- finger 2 -->
+    <bioloid_F3_fixed parent="gripper_base" name="gripper_static_finger_bracket" color="${color}">
+      <origin xyz="0 0 ${-AX12_HEIGHT-F10_HEIGHT}" rpy="0 ${PI} 0" />
+    </bioloid_F3_fixed>
+    
+    <finger parent="gripper_static_finger_bracket" name="gripper_static_finger" color="${color}">
+      <origin xyz="0 0 0" rpy="0 0 ${PI}" />
+    </finger>
+    
+    <!-- Fake gripper link and joint for grasp planning -->
+    <joint name="gripper_joint" type="fixed">
+      <origin xyz="0.05 0 -0.008" rpy="${-PI/2} 0 0"/>
+      <parent link="gripper_base_link"/>
+      <child link="gripper_link"/>
+    </joint>
+    <link name="gripper_link">
+      <visual>
+        <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+        <geometry>
+           <box size="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+        <geometry>
+           <box size="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+      <!--inertial>
+         <mass value="0.0012" />
+         <origin xyz="0 0 0"/>
+         <inertia ixx="2e-8" ixy="0.0" ixz="0.0"
+          iyy="2e-8" iyz="0.0"
+          izz="2e-8" />
+      </inertial -->
+    </link>
+
+   </xacro:macro>
+</robot>

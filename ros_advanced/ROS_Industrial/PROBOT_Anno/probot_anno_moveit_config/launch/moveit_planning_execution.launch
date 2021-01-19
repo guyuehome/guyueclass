@@ -1,0 +1,23 @@
+<launch>
+ <arg name="gazebo" default="false" />
+
+ # The planning and execution components of MoveIt! configured to 
+ # publish the current configuration of the robot (simulated or real)
+ # and the current state of the world as seen by the planner
+ <include file="$(find probot_anno_moveit_config)/launch/move_group.launch">
+  <arg name="publish_monitored_planning_scene" value="true" />
+  <arg name="gazebo" value="$(arg gazebo)" />
+ </include>
+
+ # The visualization component of MoveIt!
+ <include file="$(find probot_anno_moveit_config)/launch/moveit_rviz.launch">
+  <arg name="config" value="true" />
+ </include>
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <rosparam param="/source_list">[/probot_anno/joint_states]</rosparam>
+  </node>
+
+</launch>

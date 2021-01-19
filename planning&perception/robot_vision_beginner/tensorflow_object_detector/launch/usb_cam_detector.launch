@@ -1,0 +1,14 @@
+<launch>
+	<node pkg= "tensorflow_object_detector" name="detect_ros" type="detect_ros.py"  output="screen"> 
+    <remap from="image" to="/usb_cam_node/image_raw"/>
+	</node>
+
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam_node" output="screen">
+    <param name="pixel_format" value="yuyv"/>
+    <param name="video_device" value="/dev/video0"/>
+  </node>
+
+  <node pkg="image_view" type="image_view" name="image_view">
+    <remap from="image" to="debug_image"/>
+  </node>
+</launch>

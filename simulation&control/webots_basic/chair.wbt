@@ -1,0 +1,135 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.6432013291311541 0.7490743722318278 0.1586809221973765 0.636315960370501
+  position 1.110199745815946 1.696948900086181 2.0845068290880144
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+}
+DEF chair Solid {
+  translation -0.0019635 0.417343 -4.84514e-17
+  rotation 1.2579165323887023e-14 2.5043901271382892e-14 1 0.005215695669606133
+  children [
+    DEF base Solid {
+      translation 0 0.335 0
+      children [
+        DEF backrest Solid {
+          translation -0.205 0.245 0
+          children [
+            DEF backrest Shape {
+              appearance PBRAppearance {
+                emissiveColorMap ImageTexture {
+                  url [
+                    "textures/desktop_wood.jpg"
+                  ]
+                }
+              }
+              geometry Box {
+                size 0.06 0.44 0.44
+              }
+            }
+          ]
+          boundingObject USE backrest
+          physics Physics {
+          }
+        }
+        DEF base Shape {
+          appearance PBRAppearance {
+            emissiveColorMap ImageTexture {
+              url [
+                "textures/desktop_wood.jpg"
+              ]
+            }
+          }
+          geometry Box {
+            size 0.47 0.05 0.44
+          }
+        }
+      ]
+      boundingObject USE base
+      physics Physics {
+      }
+    }
+    DEF chair Group {
+      children [
+        DEF leg Transform {
+          translation 0.205 0.155 0.19
+          children [
+            DEF leg Shape {
+              appearance PBRAppearance {
+                emissiveColorMap ImageTexture {
+                  url [
+                    "textures/desktop_wood.jpg"
+                  ]
+                }
+              }
+              geometry Box {
+                size 0.06 0.31 0.06
+              }
+            }
+          ]
+        }
+        DEF leg Transform {
+          translation 0.205 0.155 -0.19
+          children [
+            DEF leg Shape {
+              appearance PBRAppearance {
+                emissiveColorMap ImageTexture {
+                  url [
+                    "textures/desktop_wood.jpg"
+                  ]
+                }
+              }
+              geometry Box {
+                size 0.06 0.31 0.06
+              }
+            }
+          ]
+        }
+        DEF leg Transform {
+          translation -0.205 0.155 0.19
+          children [
+            DEF leg Shape {
+              appearance PBRAppearance {
+                emissiveColorMap ImageTexture {
+                  url [
+                    "textures/desktop_wood.jpg"
+                  ]
+                }
+              }
+              geometry Box {
+                size 0.06 0.31 0.06
+              }
+            }
+          ]
+        }
+        DEF leg Transform {
+          translation -0.205 0.155 -0.19
+          children [
+            DEF leg Shape {
+              appearance PBRAppearance {
+                emissiveColorMap ImageTexture {
+                  url [
+                    "textures/desktop_wood.jpg"
+                  ]
+                }
+              }
+              geometry Box {
+                size 0.06 0.31 0.06
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE chair
+  physics Physics {
+  }
+}

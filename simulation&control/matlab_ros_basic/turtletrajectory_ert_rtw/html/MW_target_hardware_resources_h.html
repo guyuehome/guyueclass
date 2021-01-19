@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#ifndef</span> <a id="1c9" class="tk">PORTABLE_WORDSIZES</a></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="pp">#ifdef</span> <a id="2c8" class="tk">__MW_TARGET_USE_HARDWARE_RESOURCES_H__</a></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="pp">#ifndef</span> <a id="3c9" class="tk">__MW_TARGET_HARDWARE_RESOURCES_H__</a></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="pp">#define</span> <a id="4c9" class="tk">__MW_TARGET_HARDWARE_RESOURCES_H__</a></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="pp">#define</span> <a id="6c9" class="tk">MW_MULTI_TASKING_MODE</a> 0</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="pp">#define</span> <a id="8c9" class="tk">MW_USECODERTARGET</a> 1</td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="pp">#define</span> <a id="9c9" class="tk">MW_TARGETHARDWARE</a> <a id="9c27" class="tk">Robot</a> <a id="9c33" class="tk">Operating</a> <a id="9c43" class="tk">System</a> (<a id="9c51" class="tk">ROS</a>)</td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="pp">#define</span> <a id="10c9" class="tk">MW_CONNECTIONINFO_TCPIP_IPADDRESS</a> <a id="10c43" class="tk">robotics</a>.<a id="10c52" class="tk">codertarget</a>.<a id="10c64" class="tk">internal</a>.<a id="10c73" class="tk">DeviceParameters</a>.<a id="10c90" class="tk">getDeviceAddress</a></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="pp">#define</span> <a id="11c9" class="tk">MW_CONNECTIONINFO_TCPIP_PORT</a> 17725</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="pp">#define</span> <a id="12c9" class="tk">MW_CONNECTIONINFO_TCPIP_VERBOSE</a> 0</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="pp">#define</span> <a id="13c9" class="tk">MW_CONNECTIONINFO_TCPIP_RUNINBACKGROUND</a> 1</td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="pp">#define</span> <a id="14c9" class="tk">MW_EXTMODE_CONFIGURATION</a> <a id="14c34" class="tk">TCP</a><a id="14c37" class="tk">/</a><a id="14c38" class="tk">IP</a></td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="pp">#define</span> <a id="15c9" class="tk">MW_RTOS</a> <a id="15c17" class="tk">Linux</a></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="pp">#define</span> <a id="16c9" class="tk">MW_RTOSBASERATETASKPRIORITY</a> 40</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="pp">#define</span> <a id="17c9" class="tk">MW_DETECTTASKOVERRUNS</a> 0.000000</td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="pp">#define</span> <a id="18c9" class="tk">MW_SCHEDULER_INTERRUPT_SOURCE</a> 0</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="pp">#define</span> <a id="19c9" class="tk">MW_PACKAGING_MAINTAINERNAME</a> <a id="19c37" class="tk">ROS</a> <a id="19c41" class="tk">User</a></td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="pp">#define</span> <a id="20c9" class="tk">MW_PACKAGING_MAINTAINEREMAIL</a> <a id="20c38" class="tk">rosuser</a>@<a id="20c46" class="tk">test</a>.<a id="20c51" class="tk">com</a></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="pp">#define</span> <a id="21c9" class="tk">MW_PACKAGING_LICENSE</a> <a id="21c30" class="tk">BSD</a></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><span class="pp">#define</span> <a id="22c9" class="tk">MW_PACKAGING_VERSION</a> 1.0.0</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="pp">#define</span> <a id="23c9" class="tk">MW_BOARDPARAMETERS_DEVICEADDRESS</a> </td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td><span class="pp">#define</span> <a id="24c9" class="tk">MW_BOARDPARAMETERS_USERNAME</a> </td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="pp">#define</span> <a id="25c9" class="tk">MW_RUNTIME_BUILDACTION</a> 0</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="pp">#define</span> <a id="26c9" class="tk">MW_ROS_INSTALL</a> <a id="26c24" class="tk">/</a><a id="26c25" class="tk">opt</a><a id="26c28" class="tk">/</a><a id="26c29" class="tk">ros</a><a id="26c32" class="tk">/</a><a id="26c33" class="tk">indigo</a></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td><span class="pp">#define</span> <a id="27c9" class="tk">MW_ROS_CATKINWS</a> <a id="27c25" class="tk">~</a><a id="27c26" class="tk">/</a><a id="27c27" class="tk">catkin_ws</a></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td><span class="pp">#define</span> <a id="28c9" class="tk">MW_ROS_ROSTIMESTEPPING</a> 48</td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><span class="pp">#define</span> <a id="29c9" class="tk">MW_ROS_ROSTIMENOTIFICATION</a> 48</td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><span class="pp">#define</span> <a id="30c9" class="tk">MW_ROS_STEPNOTIFY</a> <a id="30c27" class="tk">/</a><a id="30c28" class="tk">step_notify</a></td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><span class="pp">#define</span> <a id="31c9" class="tk">MW_DATAVERSION</a> 2016.02</td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><span class="pp">#endif</span> <span class="ct">/* __MW_TARGET_HARDWARE_RESOURCES_H__ */</span></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td></td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td></td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<launch>
+  <!-- voice -->
+    <node pkg="xfei_robot" name="iat_publish"    type="iat_publish_speak" output="screen">
+  </node>
+
+  <!--voice_to_cmd -->
+    <node pkg="xfei_robot" name="voiceToCmd"    type="voice_cmd_vel.py" output="screen">
+  </node>
+
+  <!--turtlesim-->
+    <node pkg="turtlesim" name="myTurtle"    type="turtlesim_node" output="screen">
+    <remap from="/turtle1/cmd_vel" to="/cmd_vel"/>
+  </node>
+</launch>

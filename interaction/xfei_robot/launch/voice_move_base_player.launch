@@ -1,0 +1,14 @@
+<launch>
+  <!-- voice -->
+    <node pkg="xfei_robot" name="iat_publish"    type="iat_publish_speak" output="screen">
+  </node>
+
+  <!--voice_control_output_voice -->
+	<node pkg="xfei_robot" name="voice_control"    type="voice_move_base_player.py" output="screen">
+  </node>
+
+  <!--voice_player -->
+  <node pkg="xfei_robot" type="tts_subscribe_speak" name="tts_subscribe_speak"  output="screen">
+  </node>
+
+</launch>

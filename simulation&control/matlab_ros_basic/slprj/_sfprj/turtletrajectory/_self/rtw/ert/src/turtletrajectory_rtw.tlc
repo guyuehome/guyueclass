@@ -1,0 +1,49 @@
+%implements "machineSource" "C"
+%function CacheMachineDefinitions(block,system) void
+%openfile tmpFcnBuf
+%closefile tmpFcnBuf
+%<SLibCacheCodeToFile("sf_machine_data_defn",tmpFcnBuf)>\
+
+%endfunction
+%function DumpMachineInitializer(block) Output
+
+%openfile tmpFcnBuf
+
+%closefile tmpFcnBuf
+%if !WHITE_SPACE(tmpFcnBuf)
+
+  /* Machine initializer */
+  %<tmpFcnBuf>\
+%endif
+%endfunction
+%function GlobalMachineInitializer(block) void
+  %openfile tmpFcnBuf
+  %<DumpMachineInitializer(block)>\
+  %closefile tmpFcnBuf
+  %return tmpFcnBuf              
+%endfunction %% GlobalMachineInitializer
+
+%function DumpMachineTerminator(block) Output
+%openfile tmpFcnBuf
+
+%closefile tmpFcnBuf
+%if !WHITE_SPACE(tmpFcnBuf)
+
+  /* Machine initializer */
+  %<tmpFcnBuf>\
+%endif
+%endfunction
+%function GlobalMachineTerminator(block) void
+  %openfile tmpFcnBuf
+  %<DumpMachineTerminator(block)>\
+  %closefile tmpFcnBuf
+  %return tmpFcnBuf              
+%endfunction %% GlobalMachineTerminator
+
+%function CacheMachineFunctions(block,system) void
+  %openfile tmpFcnBuf
+            
+            
+  %closefile tmpFcnBuf
+  %<SLibCacheCodeToFile("sf_machine_fcn_defn",tmpFcnBuf)>
+%endfunction

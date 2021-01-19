@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e02157d5-214b-479b-b9a0-c43d0b7e21f8" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="JupyterTrust" id="08607849-3ed0-4b66-af8b-c5206ba34ba5" />
+  <component name="ProjectId" id="1ddUANejaiJ7HyU6b8ou5tTOP24" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/Python/Python36" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PycharmProjects\untitled" />
+      <recent name="D:\PycharmProjects\Num_distinguish\image" />
+      <recent name="D:\PycharmProjects\Num_distinguish\include" />
+      <recent name="D:\PycharmProjects\Num_distinguish\src" />
+      <recent name="D:\PycharmProjects\Num_distinguish" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="CNN_h (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Num_distinguish" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/include" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/include/CNN_h.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IMG_h" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Num_distinguish" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/include" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/include/IMG_h.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MAIN (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Num_distinguish" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/MAIN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UI_h" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Num_distinguish" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/include" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/include/UI_h.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Num_distinguish" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.MAIN (1)" />
+        <item itemvalue="Python.IMG_h" />
+        <item itemvalue="Python.UI_h" />
+        <item itemvalue="Python.CNN_h (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e02157d5-214b-479b-b9a0-c43d0b7e21f8" name="默认更改列表" comment="" />
+      <created>1592754319317</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592754319317</updated>
+      <workItem from="1592754327711" duration="109083000" />
+      <workItem from="1593271347407" duration="3399000" />
+      <workItem from="1593617335245" duration="2551000" />
+      <workItem from="1593770353526" duration="3693000" />
+      <workItem from="1594133588055" duration="12000" />
+      <workItem from="1599438899687" duration="537000" />
+      <workItem from="1599440817046" duration="101000" />
+      <workItem from="1599440926855" duration="3841000" />
+      <workItem from="1599889131581" duration="2142000" />
+      <workItem from="1600327503193" duration="744000" />
+      <workItem from="1600329323183" duration="903000" />
+      <workItem from="1600510967700" duration="5119000" />
+      <workItem from="1600930955683" duration="1114000" />
+      <workItem from="1602215078019" duration="2189000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="15" key="#MAIN_(1)" timestamp="1599441079412">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="15" key="#MAIN_(1)/0.0.1536.824@0.0.1536.824" timestamp="1599441079412" />
+    <state x="546" y="227" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1599441867661">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="546" y="227" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1536.824@0.0.1536.824" timestamp="1599441867661" />
+    <state x="469" y="219" key="FileChooserDialogImpl" timestamp="1599443410702">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="469" y="219" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599443410702" />
+    <state width="540" height="176" key="GridCell.Tab.0.bottom" timestamp="1600514351536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="540" height="176" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600514351536" />
+    <state width="540" height="176" key="GridCell.Tab.0.center" timestamp="1600514351536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="540" height="176" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600514351536" />
+    <state width="540" height="176" key="GridCell.Tab.0.left" timestamp="1600514351536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="540" height="176" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600514351536" />
+    <state width="540" height="176" key="GridCell.Tab.0.right" timestamp="1600514351536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="540" height="176" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600514351536" />
+    <state x="272" y="82" width="996" height="718" key="SettingsEditor" timestamp="1600330229710">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="82" width="996" height="718" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600330229710" />
+    <state x="479" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1599440930388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="479" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1599440930388" />
+    <state x="168" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593165965548">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="168" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593165965548" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Num_distinguish$UI_h.coverage" NAME="UI_h Coverage Results" MODIFIED="1593171430840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/include" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$test.coverage" NAME="test Coverage Results" MODIFIED="1602217867334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$MAIN__1_.coverage" NAME="MAIN (1) Coverage Results" MODIFIED="1600511743834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$test6.coverage" NAME="test6 Coverage Results" MODIFIED="1592905215143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../untitled" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$test10.coverage" NAME="test10 Coverage Results" MODIFIED="1592907177701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../untitled" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$test7.coverage" NAME="test7 Coverage Results" MODIFIED="1592900681089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../untitled" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$CNN_h__1_.coverage" NAME="CNN_h (1) Coverage Results" MODIFIED="1593165257907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/include" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$MAIN.coverage" NAME="MAIN Coverage Results" MODIFIED="1592755565954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$TRAIN_SET_H.coverage" NAME="CNN_h Coverage Results" MODIFIED="1593164799249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/include" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$test9.coverage" NAME="test9 Coverage Results" MODIFIED="1592928376169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../untitled" />
+    <SUITE FILE_PATH="coverage/Num_distinguish$IMG_h.coverage" NAME="IMG_h Coverage Results" MODIFIED="1593182569181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/include" />
+  </component>
+</project>

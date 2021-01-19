@@ -1,0 +1,579 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript">function rtwTableShrink(o) {var t = o.nextSibling;if (t.nodeType != 1) {t = t.nextSibling;}if (t.style.display == "none") {t.style.display = "";o.innerHTML = "[-]"} else {t.style.display = "none";o.innerHTML = "[+] ... "}}</script><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+Code Interface Report for turtletrajectory
+</title>
+
+</head>
+<body ONLOAD="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdCodeInterface'); else local_onload();}} catch(err) {};">
+<h1>
+Code Interface Report for turtletrajectory
+</h1>
+<h3>
+Table of Contents
+</h3>
+<ul>
+<li>
+<a href="#sec_Entry-Point_Functions">
+Entry-Point Functions
+</a>
+
+</li>
+<li>
+<a href="#sec_Inports">
+Inports
+</a>
+
+</li>
+<li>
+<a href="#sec_Outports">
+Outports
+</a>
+
+</li>
+<li>
+<a href="#sec_Interface_Parameters">
+Interface Parameters
+</a>
+
+</li>
+<li>
+<a href="#sec_Data_Stores">
+Data Stores
+</a>
+
+</li>
+
+</ul>
+<h3>
+<a name="sec_Entry-Point_Functions">
+Entry-Point Functions
+</a>
+
+</h3>
+<p>
+Function: <a href="turtletrajectory_cpp.html#fcn_turtletrajectory_initialize">turtletrajectory_initialize</a>
+</p>
+<table width="100%" class="AltRow" cellspacing="0">
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Prototype
+</td>
+<td width="75%" align="left" valign="top">
+<b>
+void turtletrajectory_initialize(void)
+</b>
+
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Description
+</td>
+<td width="75%" align="left" valign="top">
+Initialization entry point of generated code
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Timing
+</td>
+<td width="75%" align="left" valign="top">
+Must be called exactly once
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Arguments
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Return value
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Header file
+</td>
+<td width="75%" align="left" valign="top">
+<a href="turtletrajectory_h.html">turtletrajectory.h</a>
+</td>
+
+</tr>
+
+</table>
+<p>
+Function: <a href="turtletrajectory_cpp.html#fcn_turtletrajectory_step">turtletrajectory_step</a>
+</p>
+<table width="100%" class="AltRow" cellspacing="0">
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Prototype
+</td>
+<td width="75%" align="left" valign="top">
+<b>
+void turtletrajectory_step(void)
+</b>
+
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Description
+</td>
+<td width="75%" align="left" valign="top">
+Output entry point of generated code
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Timing
+</td>
+<td width="75%" align="left" valign="top">
+Must be called periodically, every 0.01 seconds
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Arguments
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Return value
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Header file
+</td>
+<td width="75%" align="left" valign="top">
+<a href="turtletrajectory_h.html">turtletrajectory.h</a>
+</td>
+
+</tr>
+
+</table>
+<p>
+Function: <a href="turtletrajectory_cpp.html#fcn_turtletrajectory_terminate">turtletrajectory_terminate</a>
+</p>
+<table width="100%" class="AltRow" cellspacing="0">
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Prototype
+</td>
+<td width="75%" align="left" valign="top">
+<b>
+void turtletrajectory_terminate(void)
+</b>
+
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Description
+</td>
+<td width="75%" align="left" valign="top">
+Termination entry point of generated code
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Timing
+</td>
+<td width="75%" align="left" valign="top">
+Must be called exactly once
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Arguments
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+Return value
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+Header file
+</td>
+<td width="75%" align="left" valign="top">
+<a href="turtletrajectory_h.html">turtletrajectory.h</a>
+</td>
+
+</tr>
+
+</table>
+<h3>
+<a name="sec_Inports">
+Inports
+</a>
+
+</h3>
+<p>
+No Inports in model.
+</p>
+<h3>
+<a name="sec_Outports">
+Outports
+</a>
+
+</h3>
+<p>
+No Outports in model.
+</p>
+<h3>
+<a name="sec_Interface_Parameters">
+Interface Parameters
+</a>
+
+</h3>
+<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th width="42%" align="left" valign="top">
+<b>
+Parameter Source
+</b>
+
+</th>
+<th width="26%" align="left" valign="top">
+<b>
+Code Identifier
+</b>
+
+</th>
+<th width="21%" align="left" valign="top">
+<b>
+Data Type
+</b>
+
+</th>
+<th width="10%" align="right" valign="top">
+<b>
+Dimension
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:43')" name="code2model" class="code2model">&lt;S8&gt;/Repeating Sequence Stair</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.RepeatingSequenceStair_OutValue
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+[4  1]
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:43:2')" name="code2model" class="code2model">&lt;S10&gt;/LimitedCounter</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.LimitedCounter_uplimit
+</td>
+<td width="21%" align="left" valign="top">
+uint8_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:111:33')" name="code2model" class="code2model">&lt;S1&gt;/Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant_Value
+</td>
+<td width="21%" align="left" valign="top">
+SL_Bus_turtletrajectory_geometry_msgs_Twist
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:108:55')" name="code2model" class="code2model">&lt;S18&gt;/Out1</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Out1_Y0
+</td>
+<td width="21%" align="left" valign="top">
+SL_Bus_turtletrajectory_turtlesim_Pose
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:108:51')" name="code2model" class="code2model">&lt;S5&gt;/Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant_Value_g
+</td>
+<td width="21%" align="left" valign="top">
+SL_Bus_turtletrajectory_turtlesim_Pose
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:41')" name="code2model" class="code2model">&lt;S8&gt;/wz</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.wz_Y0
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:42')" name="code2model" class="code2model">&lt;S8&gt;/Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant_Value_b
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:76')" name="code2model" class="code2model">&lt;S4&gt;/Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant_Value_m
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:8')" name="code2model" class="code2model">&lt;S14&gt;/Unit Delay</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.UnitDelay_InitialCondition
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:9')" name="code2model" class="code2model">&lt;S14&gt;/Gain</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Gain_Gain
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:21')" name="code2model" class="code2model">&lt;S15&gt;/Unit Delay</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.UnitDelay_InitialCondition_d
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:20')" name="code2model" class="code2model">&lt;S15&gt;/Gain</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Gain_Gain_m
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:27')" name="code2model" class="code2model">&lt;S16&gt;/Unit Delay</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.UnitDelay_InitialCondition_e
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:26')" name="code2model" class="code2model">&lt;S16&gt;/Gain</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Gain_Gain_i
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:87')" name="code2model" class="code2model">&lt;S4&gt;/Constant1</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant1_Value
+</td>
+<td width="21%" align="left" valign="top">
+real_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:43:2:5:4')" name="code2model" class="code2model">&lt;S13&gt;/Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Constant_Value_c
+</td>
+<td width="21%" align="left" valign="top">
+uint8_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:43:2:4')" name="code2model" class="code2model">&lt;S11&gt;/Output</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.Output_InitialCondition
+</td>
+<td width="21%" align="left" valign="top">
+uint8_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('turtletrajectory:43:2:3:2')" name="code2model" class="code2model">&lt;S12&gt;/FixPt Constant</a>
+</td>
+<td width="26%" align="left" valign="top">
+turtletrajectory_P.FixPtConstant_Value
+</td>
+<td width="21%" align="left" valign="top">
+uint8_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+
+</table>
+<h3>
+<a name="sec_Data_Stores">
+Data Stores
+</a>
+
+</h3>
+<p>
+No data stores in the model; note that this report lists only data stores with non-auto storage class and global data stores
+</p>
+
+</body>
+
+</html>

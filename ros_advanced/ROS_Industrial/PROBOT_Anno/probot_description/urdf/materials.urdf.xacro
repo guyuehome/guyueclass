@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- Put all the color definitions in a separate file -->
+
+  <material name="Black">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+  
+   <material name="TransparentBlack">
+    <color rgba="0.2 0.2 0.2 0.8"/>
+  </material>
+
+  <material name="Orange">
+    <color rgba="1.0  0.55 0.0 1.0"/>
+  </material>
+
+  <material name="Grey">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+  
+  <material name="DarkGrey">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+
+  <material name="Red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+
+  <material name="White">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  
+  <material name="OffWhite">
+    <color rgba="0.8 0.8 0.8 1.0"/>
+  </material>
+
+  <material name="Blue">
+    <color rgba="0.0 0.0 0.8 1.0"/>
+  </material>
+  
+  <material name="Green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+  
+  <material name="TransparentGreen">
+    <color rgba="0.0 0.8 0.0 0.5"/>
+  </material>
+
+</robot>

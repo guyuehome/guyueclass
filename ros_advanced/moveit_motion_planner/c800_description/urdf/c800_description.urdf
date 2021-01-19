@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="c800_description">
+
+    <joint name="bottom_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="bottom_link"/>
+    </joint>
+    <link name="bottom_link">
+        <visual>
+              <origin xyz=" 0 0 -0.01"  rpy="0 0 0"/>
+                  <geometry>
+                       <box size="0.2 0.2 0.02" />
+                  </geometry>
+              <material name="Brown" />
+        </visual>
+        <collision>
+            <origin xyz=" 0 0 -0.01"  rpy="0 0 0"/>
+            <geometry>
+                <box size="0.2 0.2 0.02" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="500" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0" />
+        </inertial>
+    </link>
+
+
+    <link name="base_link">
+        
+<inertial>
+            <origin xyz="5.1159E-06 -0.00045852 0.01511" rpy="0 0 0" />
+            <mass value="0.47731" />
+            <inertia ixx="0.00060819" ixy="-1.4211E-07" ixz="2.912E-08" iyy="0.00062131" iyz="-2.5797E-06" izz="0.0011481" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_1">
+        
+<inertial>
+            <origin xyz="0.009995 0.00010952 -0.088076" rpy="0 0 0" />
+            <mass value="1.8893" />
+            <inertia ixx="0.0041014" ixy="-5.8451E-06" ixz="0.0003739" iyy="0.0046287" iyz="4.1148E-06" izz="0.0033533" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_1" type="revolute">
+        <origin xyz="0 0 0.0317" rpy="3.1416 0 -1.5598" />
+        <parent link="base_link" />
+        <child link="link_1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+    <link name="link_2">
+        
+<inertial>
+            <origin xyz="0.087798 0.00096966 -0.1742" rpy="0 0 0" />
+            <mass value="5.0587" />
+            <inertia ixx="0.012152" ixy="-2.8164E-05" ixz="-3.968E-10" iyy="0.014702" iyz="-4.2598E-08" izz="0.0095763" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_2" type="revolute">
+        <origin xyz="0.075695 0.00083599 -0.087" rpy="0 0 0" />
+        <parent link="link_1" />
+        <child link="link_2" />
+        <axis xyz="0.99994 0.011043 0" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+    <link name="link_3">
+        
+<inertial>
+            <origin xyz="-0.074461 -0.00081729 -0.18595" rpy="0 0 0" />
+            <mass value="2.4785" />
+            <inertia ixx="0.0066463" ixy="-2.7745E-06" ixz="-0.00025133" iyy="0.0069332" iyz="-2.9588E-06" izz="0.0024538" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_3" type="revolute">
+        <origin xyz="0 0 -0.3484" rpy="0 0 0" />
+        <parent link="link_2" />
+        <child link="link_3" />
+        <axis xyz="0.99994 0.011043 0" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+    <link name="link_4">
+        
+<inertial>
+            <origin xyz="0.03744 0.00041334 0.011039" rpy="0 0 0" />
+            <mass value="0.69512" />
+            <inertia ixx="0.0007079" ixy="-9.1282E-07" ixz="-1.3418E-11" iyy="0.00079063" iyz="-9.8306E-11" izz="0.00062854" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_4.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_4.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_4" type="revolute">
+        <origin xyz="-0.017899 -0.00019768 -0.3495" rpy="0 0 0" />
+        <parent link="link_3" />
+        <child link="link_4" />
+        <axis xyz="-0.99994 -0.011043 0" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+    <link name="link_5">
+        
+<inertial>
+            <origin xyz="-0.011486 -0.00012684 -0.045406" rpy="0 0 0" />
+            <mass value="0.69038" />
+            <inertia ixx="0.00062179" ixy="-1.8272E-06" ixz="1.9143E-11" iyy="0.00078721" iyz="5.7484E-12" izz="0.00070448" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_5.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_5.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_5" type="revolute">
+        <origin xyz="0.042397 0.00046824 -0.0501" rpy="0 0 0" />
+        <parent link="link_4" />
+        <child link="link_5" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+    <link name="link_6">
+        
+<inertial>
+            <origin xyz="0.01497 0.00016533 -6.0527E-10" rpy="0 0 0" />
+            <mass value="0.13891" />
+            <inertia ixx="0.00011411" ixy="5.0377E-07" ixz="1.0257E-12" iyy="6.8505E-05" iyz="-1.0223E-10" izz="6.85E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_6.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://c800_description/meshes/link_6.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_6" type="revolute">
+        <origin xyz="0.050097 0.00055327 -0.0504" rpy="0 0 0" />
+        <parent link="link_5" />
+        <child link="link_6" />
+        <axis xyz="1 0 0" />
+        <limit lower="-3" upper="3" effort="100" velocity="3" />
+    </joint>
+
+  <link name="tool0"/>
+  <joint name="joint_tool0" type="fixed">
+    <origin xyz="0.03328 0 0" rpy="0 0 0" />
+    <parent link="link_6" />
+    <child link="tool0" />
+  </joint>
+    
+<transmission name="trans_joint_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_4_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_5">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_5_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_6">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_6_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

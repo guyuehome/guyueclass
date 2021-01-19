@@ -1,0 +1,20 @@
+<launch>
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="rgb_topic"               value="/kinect/rgb/image_raw" />
+        <arg name="depth_topic"             value="/kinect/depth/image_raw" />
+        <arg name="camera_info_topic"       value="/kinect/rgb/camera_info" />
+        <arg name="depth_camera_info_topic" value="/kinect/depth/camera_info" />
+
+        <arg name="frame_id"                value="base_footprint"/>
+
+        <arg name="visual_odometry"         value="false"/>
+        <arg name="odom_topic"              value="/odom"/>
+
+        <arg name="rtabmap_args"            value="--delete_db_on_start"/>
+
+        <arg name="rviz"                    value="true"/>
+        <arg name="rtabmapviz"              value="true"/>
+    </include>
+
+</launch>

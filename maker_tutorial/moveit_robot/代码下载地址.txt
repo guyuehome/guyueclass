@@ -1,0 +1,9 @@
+Github：
+https://github.com/Xueming10wu/Leaf_robot_ros
+https://github.com/Xueming10wu/Simple_MoveIt_Demo/tree/kawasaka_7axies
+https://github.com/Xueming10wu/guyue_lessones_code
+
+码云：
+https://gitee.com/wuxueming/Leaf_robot_ros
+https://gitee.com/wuxueming/Simple_MoveIt_Demo/tree/kawasaka_7axies
+https://gitee.com/wuxueming/guyue_lessones_code

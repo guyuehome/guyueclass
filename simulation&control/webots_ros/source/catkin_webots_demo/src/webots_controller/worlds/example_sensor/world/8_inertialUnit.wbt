@@ -1,0 +1,38 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.011948521866119957 0.999637081947972 0.024144092854325755 4.060396748000129
+  position -6.594690640110128 1.080044201041753 -4.320151953365872
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+DEF IU_test Robot {
+  translation 0 0.62 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        emissiveColor 0.45098 0.823529 0.0862745
+      }
+      geometry Box {
+        size 1 0.1 0.2
+      }
+    }
+    InertialUnit {
+      name "my_iu"
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=rpy_rbt"
+}

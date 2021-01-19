@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: marm_description
+    relative_path: urdf/marm.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/marm.srdf
+  CONFIG:
+    author_name: Hu Chunxu
+    author_email: huchunxu@ps-micro.com
+    generated_timestamp: 1582953852

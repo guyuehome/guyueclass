@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: c800_description
+    relative_path: urdf/c800_description.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/c800_description.srdf
+  CONFIG:
+    author_name: Hu Chunxu
+    author_email: huchunxu@ps-micro.com
+    generated_timestamp: 1582954913

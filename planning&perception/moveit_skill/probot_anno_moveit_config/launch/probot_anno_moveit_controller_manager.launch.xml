@@ -1,0 +1,17 @@
+<launch>
+    <arg name="gazebo" default="false" />
+
+    <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
+    <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+
+    <group if="$(arg gazebo)">
+        <!-- gazebo Controller -->
+        <rosparam file="$(find probot_anno_moveit_config)/config/controllers_gazebo.yaml"/>
+    </group>
+    <group unless="$(arg gazebo)">
+        <!-- ROS-I Controller -->
+        <rosparam file="$(find probot_anno_moveit_config)/config/controllers.yaml"/>
+    </group>
+
+</launch>
+

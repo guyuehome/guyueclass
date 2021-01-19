@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#ifndef</span> <a id="1c9" class="tk">_MW_CUSTOM_RTOS_HEADER_H_</a></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="pp">#define</span> <a id="2c9" class="tk">_MW_CUSTOM_RTOS_HEADER_H_</a></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="pp">#define</span> <a id="3c9" class="tk">MW_BASERATE_PRIORITY</a>           40</td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="pp">#define</span> <a id="4c9" class="tk">MW_BASERATE_PERIOD</a>             0.01</td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="pp">#define</span> <a id="5c9" class="tk">MW_NUMBER_SUBRATES</a>             0</td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="pp">#define</span> <a id="6c9" class="tk">MW_NUMBER_APERIODIC_TASKS</a>      0</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="pp">#define</span> <a id="7c9" class="tk">MW_IS_CONCURRENT</a>               0</td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="pp">#define</span> <a id="8c9" class="tk">MW_NUMBER_TIMER_DRIVEN_TASKS</a>   0</td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="10c13" class="tk">exitFcn</a>(<span class="kw">int</span> <a id="10c25" class="tk">sig</a>);</td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="11c13" class="tk">*</a><a id="11c14" class="tk">terminateTask</a>(<span class="kw">void</span> <a id="11c33" class="tk">*</a><a id="11c34" class="tk">arg</a>);</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="12c13" class="tk">*</a><a id="12c14" class="tk">baseRateTask</a>(<span class="kw">void</span> <a id="12c32" class="tk">*</a><a id="12c33" class="tk">arg</a>);</td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="13c13" class="tk">*</a><a id="13c14" class="tk">subrateTask</a>(<span class="kw">void</span> <a id="13c31" class="tk">*</a><a id="13c32" class="tk">arg</a>);</td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="kw">extern</span> <a id="14c8" class="tk">pthread_t</a> <a id="14c18" class="tk">schedulerThread</a>;</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="kw">extern</span> <a id="15c8" class="tk">pthread_t</a> <a id="15c18" class="tk">baseRateThread</a>;</td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><span class="kw">extern</span> <a id="16c8" class="tk">pthread_t</a> <a id="16c18" class="tk">subRateThread</a>[];</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><span class="kw">extern</span> <a id="17c8" class="tk">sem_t</a> <a id="17c14" class="tk">stopSem</a>;</td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><span class="kw">extern</span> <a id="18c8" class="tk">sem_t</a> <a id="18c14" class="tk">baserateTaskSem</a>;</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td><span class="kw">extern</span> <a id="19c8" class="tk">sem_t</a> <a id="19c14" class="tk">subrateTaskSem</a>[];</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="kw">extern</span> <span class="kw">int</span> <a id="20c12" class="tk">taskId</a>[];</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><span class="kw">extern</span> <span class="kw">int</span> <a id="21c12" class="tk">subratePriority</a>[];</td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="pp">#endif</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="pp">#define</span> <a id="25c9" class="tk">MW_MAX_TASKNAME</a>                16</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

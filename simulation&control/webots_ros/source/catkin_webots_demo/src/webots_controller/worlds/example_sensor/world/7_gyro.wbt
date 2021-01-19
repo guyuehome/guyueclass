@@ -1,0 +1,91 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2867987560535477 -0.8600946451383125 -0.42188111468817585 4.199780374714249
+  position 1.7963250414004632 2.6293283829472456 -0.8450070434380271
+}
+Floor {
+}
+DEF include Robot {
+  children [
+    DEF shafts Solid {
+      translation 0 0.4 0
+      rotation 1 0 0 0
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position 7.903999076400962
+            axis 0 1 0
+          }
+          device [
+            RotationalMotor {
+              name "my_Rmotor"
+            }
+          ]
+          endPoint Solid {
+            translation -0.014998976967318644 0 -0.29962481654551554
+            rotation 0 -1 0 4.662371537958212
+            children [
+              Gyro {
+                name "my_gyro"
+              }
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0.333333 1 0
+                  }
+                }
+                geometry Box {
+                  size 0.1 0.1 0.1
+                }
+              }
+            ]
+            boundingObject Shape {
+              appearance Appearance {
+                material Material {
+                  emissiveColor 0.333333 1 0
+                }
+              }
+              geometry Box {
+                size 0.1 0.1 0.1
+              }
+            }
+            physics Physics {
+            }
+          }
+        }
+        DEF shafts Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 1 0.666667 0
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            radius 0.1
+          }
+        }
+      ]
+      boundingObject DEF shafts Shape {
+        appearance Appearance {
+          material Material {
+            emissiveColor 1 0.666667 0
+          }
+        }
+        geometry Cylinder {
+          height 0.5
+          radius 0.1
+        }
+      }
+      physics Physics {
+      }
+    }
+  ]
+  name "robot(1)"
+  controller "ros"
+  controllerArgs "--name=gyro_rbt"
+}
+DirectionalLight {
+  direction 0 -1 0
+}

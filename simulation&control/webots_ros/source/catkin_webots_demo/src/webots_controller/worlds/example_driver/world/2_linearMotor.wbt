@@ -1,0 +1,59 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2768462257661992 0.9499767833475268 0.14456928574111663 5.277962124290514
+  position -3.907438549220609 1.9126195723148323 2.910702252312422
+}
+Floor {
+}
+DEF parallel_linear Robot {
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+      }
+      device [
+        LinearMotor {
+          name "my_lMotor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.3 0.3 0
+        children [
+          Shape {
+            appearance Appearance {
+              material Material {
+                emissiveColor 0.333333 1 0
+              }
+            }
+            geometry Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+        name "solid(2)"
+      }
+    }
+    DEF shafts Solid {
+      translation 0 0.25 0
+      children [
+        DEF shafts Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 1 0.666667 0
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            radius 0.1
+          }
+        }
+      ]
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=linear_rbt"
+}
+DirectionalLight {
+  direction 0 -1 0
+}

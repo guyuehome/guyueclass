@@ -1,0 +1,47 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.009975393399519968 0.9949148314729761 0.10022459599132481 2.9441876853727873
+  position 0.7947843787322628 1.4214934006865654 -5.005708459025696
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+WoodenBox {
+  translation 0.6 0.3 0
+}
+DEF distsensor_test Robot {
+  translation 0 0.3 0
+  children [
+    DistanceSensor {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            emissiveColor 0.666667 0 1
+          }
+          geometry Sphere {
+            radius 0.02
+          }
+        }
+      ]
+      name "my_dist"
+      lookupTable [
+        0 0 0
+        1 1000 0
+      ]
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=distance_test_rbt"
+}

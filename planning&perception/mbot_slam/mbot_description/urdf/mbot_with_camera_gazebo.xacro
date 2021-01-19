@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find mbot_description)/urdf/mbot_base_gazebo.xacro" />
+    <xacro:include filename="$(find mbot_description)/urdf/sensors/camera_gazebo.xacro" />
+
+    <xacro:property name="camera_offset_x" value="0.17" />
+    <xacro:property name="camera_offset_y" value="0" />
+    <xacro:property name="camera_offset_z" value="0.10" />
+
+    <!-- Camera -->
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="${camera_offset_x} ${camera_offset_y} ${camera_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+
+    <xacro:usb_camera prefix="camera"/>
+
+    <mbot_base_gazebo/>
+
+</robot>

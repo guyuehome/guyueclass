@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="ares_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0077575 -0.00011309 0.021218"
+        rpy="0 0 0" />
+      <mass
+        value="0.33417" />
+      <inertia
+        ixx="0.00012497"
+        ixy="8.285E-20"
+        ixz="9.2609E-22"
+        iyy="0.00049563"
+        iyz="-1.1379E-20"
+        izz="0.00060045" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.10196 0.10196 0.10196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_lf_link">
+    <inertial>
+      <origin
+        xyz="-3.4398E-08 -0.0084293 1.0408E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.073425" />
+      <inertia
+        ixx="1.2869E-05"
+        ixy="3.7322E-21"
+        ixz="-1.8502E-20"
+        iyy="2.0516E-05"
+        iyz="1.936E-12"
+        izz="1.2869E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_lf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_lf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_lf_joint"
+    type="continuous">
+    <origin
+      xyz="0.061557 0.0744 0.01625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_lf_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_lb_link">
+    <inertial>
+      <origin
+        xyz="3.4434E-05 -0.0084764 -1.9999E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.073424" />
+      <inertia
+        ixx="1.2869E-05"
+        ixy="-4.166E-11"
+        ixz="-9.5074E-11"
+        iyy="2.0516E-05"
+        iyz="3.4508E-11"
+        izz="1.2869E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_lb_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_lb_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_lb_joint"
+    type="continuous">
+    <origin
+      xyz="-0.061486 0.0744 0.01625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_lb_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_rf_link">
+    <inertial>
+      <origin
+        xyz="-0.0090763 0.017871 -0.0022561"
+        rpy="0 0 0" />
+      <mass
+        value="0.079025" />
+      <inertia
+        ixx="1.3208E-05"
+        ixy="-1.7537E-07"
+        ixz="3.0339E-08"
+        iyy="2.085E-05"
+        iyz="3.0959E-08"
+        izz="1.3376E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_rf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_rf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_rf_joint"
+    type="continuous">
+    <origin
+      xyz="0.061557 -0.0744 0.01625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_rf_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="wheel_rb_link">
+    <inertial>
+      <origin
+        xyz="-3.4398E-08 0.0085707 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.073425" />
+      <inertia
+        ixx="1.2869E-05"
+        ixy="-5.2942E-22"
+        ixz="3.254E-20"
+        iyy="2.0516E-05"
+        iyz="1.936E-12"
+        izz="1.2869E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_rb_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/wheel_rb_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_rb_joint"
+    type="continuous">
+    <origin
+      xyz="-0.061486 -0.0744 0.01625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_rb_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="controller_link">
+    <inertial>
+      <origin
+        xyz="-0.03 0.0425 0.0099913"
+        rpy="0 0 0" />
+      <mass
+        value="0.10207" />
+      <inertia
+        ixx="6.4887E-05"
+        ixy="9.3927E-21"
+        ixz="-1.7097E-22"
+        iyy="3.4011E-05"
+        iyz="6.4964E-22"
+        izz="9.2076E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/controller_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.28627 0.66275 0.32941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/controller_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="controller_joint"
+    type="fixed">
+    <origin
+      xyz="-0.019964 -0.0425 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="controller_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="laser_link">
+    <inertial>
+      <origin
+        xyz="0.0073485 -8.0231E-18 -0.0159"
+        rpy="0 0 0" />
+      <mass
+        value="0.1509" />
+      <inertia
+        ixx="5.6077E-05"
+        ixy="2.8165E-20"
+        ixz="8.9824E-06"
+        iyy="9.0691E-05"
+        iyz="-7.5496E-21"
+        izz="9.0202E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/laser_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ares_description/meshes/laser_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_joint"
+    type="fixed">
+    <origin
+      xyz="0.040036 0 0.089"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

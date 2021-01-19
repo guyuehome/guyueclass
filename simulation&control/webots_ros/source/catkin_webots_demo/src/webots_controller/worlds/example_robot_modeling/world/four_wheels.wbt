@@ -1,0 +1,186 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.10539008702498488 0.9791735400765776 0.17352840681216702 4.214600927219324
+  position -0.4898290748222431 0.2292712549179517 -0.2223447830273729
+  follow "robot"
+  followType "Pan and Tilt Shot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+}
+DEF fourWheels Robot {
+  children [
+    DEF Joint4 Transform {
+      translation -0.06175 0.034 -0.0675
+      children [
+        DEF Joint4 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 -1
+          }
+          device [
+            RotationalMotor {
+              name "wheel4"
+            }
+          ]
+          endPoint Solid {
+            rotation -0.9999999999999999 -1.0243070011778952e-10 1.0244192681959825e-10 1.5706999999999907
+            children [
+              DEF wheel Shape {
+                appearance PBRAppearance {
+                  emissiveColor 1 0.666667 0
+                }
+                geometry Cylinder {
+                  height 0.025
+                  radius 0.034
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE wheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    DEF Joint3 Transform {
+      translation -0.06175 0.034 0.0675
+      children [
+        DEF Joint3 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 -1
+          }
+          device [
+            RotationalMotor {
+              name "wheel3"
+            }
+          ]
+          endPoint Solid {
+            rotation -0.9999999999999999 1.3980146992635157e-09 -1.3981483205675606e-09 1.5706999999999913
+            children [
+              DEF wheel Shape {
+                appearance PBRAppearance {
+                  emissiveColor 1 0.666667 0
+                }
+                geometry Cylinder {
+                  height 0.025
+                  radius 0.034
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE wheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    DEF Joint2 Transform {
+      translation 0.06175 0.034 0.0675
+      children [
+        DEF Joint2 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 -1
+          }
+          device [
+            RotationalMotor {
+              name "wheel2"
+            }
+          ]
+          endPoint Solid {
+            rotation -0.9999999999999999 6.550835461266111e-11 -6.551353616734205e-11 1.5706999999999893
+            children [
+              DEF wheel Shape {
+                appearance PBRAppearance {
+                  emissiveColor 1 0.666667 0
+                }
+                geometry Cylinder {
+                  height 0.025
+                  radius 0.034
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE wheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    DEF Joint1 Transform {
+      translation 0.06175 0.034 -0.0675
+      children [
+        DEF Joint1 HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 -1
+          }
+          device [
+            RotationalMotor {
+              name "wheel1"
+            }
+          ]
+          endPoint Solid {
+            rotation -0.9999999999999999 1.194311455007531e-10 -1.1944213667734902e-10 1.5706999999999929
+            children [
+              DEF wheel Shape {
+                appearance PBRAppearance {
+                  emissiveColor 1 0.666667 0
+                }
+                geometry Cylinder {
+                  height 0.025
+                  radius 0.034
+                }
+              }
+            ]
+            boundingObject USE wheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    DEF base Transform {
+      translation 0 0.034 0
+      children [
+        DEF base Shape {
+          appearance PBRAppearance {
+            transparency 0.05
+          }
+          geometry Box {
+            size 0.2 0.05 0.1
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject DEF base Transform {
+    translation 0 0.034 0
+    children [
+      DEF base Shape {
+        appearance PBRAppearance {
+          transparency 0.05
+        }
+        geometry Box {
+          size 0.2 0.05 0.1
+        }
+      }
+    ]
+  }
+  physics Physics {
+  }
+  controller "ros"
+  controllerArgs "--name=four_wheels_rbt"
+}
+DEF supervisor Robot {
+  name "robot(1)"
+  controller "four_wheels_path_controller"
+  supervisor TRUE
+}

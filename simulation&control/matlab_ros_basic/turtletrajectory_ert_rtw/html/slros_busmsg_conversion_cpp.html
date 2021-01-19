@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include "slros_busmsg_conversion.h"</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="ct">// Conversions between SL_Bus_turtletrajectory_geometry_msgs_Twist and geometry_msgs::Twist</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="kw">void</span> <a id="6c6" class="tk">convertFromBus</a>(<a id="6c21" class="tk">geometry_msgs</a>::<a id="6c36" class="tk">Twist</a><a id="6c41" class="tk">*</a> <a id="6c43" class="tk">msgPtr</a>, <a id="6c51" class="tk">SL_Bus_turtletrajectory_geometry_msgs_Twist</a> <span class="kw">const</span><a id="6c100" class="tk">*</a> <a id="6c102" class="tk">busPtr</a>)</td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="br">{</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td>  <span class="kw">const</span> <a id="8c9" class="tk">std</a>::<a id="8c14" class="tk">string</a> <a id="8c21" class="tk">rosMessageType</a>("geometry_msgs/Twist");</td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td></td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td>  <a id="10c3" class="tk">convertFromBus</a>(<a id="10c18" class="tk">&amp;</a><a id="10c19" class="tk">msgPtr</a>-&gt;<a id="10c27" class="tk">angular</a>, <a id="10c36" class="tk">&amp;</a><a id="10c37" class="tk">busPtr</a>-&gt;<a id="10c45" class="tk">Angular</a>);</td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td>  <a id="11c3" class="tk">convertFromBus</a>(<a id="11c18" class="tk">&amp;</a><a id="11c19" class="tk">msgPtr</a>-&gt;<a id="11c27" class="tk">linear</a>, <a id="11c35" class="tk">&amp;</a><a id="11c36" class="tk">busPtr</a>-&gt;<a id="11c44" class="tk">Linear</a>);</td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><span class="br">}</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><span class="kw">void</span> <a id="14c6" class="tk">convertToBus</a>(<a id="14c19" class="tk">SL_Bus_turtletrajectory_geometry_msgs_Twist</a><a id="14c62" class="tk">*</a> <a id="14c64" class="tk">busPtr</a>, <a id="14c72" class="tk">geometry_msgs</a>::<a id="14c87" class="tk">Twist</a> <span class="kw">const</span><a id="14c98" class="tk">*</a> <a id="14c100" class="tk">msgPtr</a>)</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><span class="br">{</span></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td>  <span class="kw">const</span> <a id="16c9" class="tk">std</a>::<a id="16c14" class="tk">string</a> <a id="16c21" class="tk">rosMessageType</a>("geometry_msgs/Twist");</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td>  <a id="18c3" class="tk">convertToBus</a>(<a id="18c16" class="tk">&amp;</a><a id="18c17" class="tk">busPtr</a>-&gt;<a id="18c25" class="tk">Angular</a>, <a id="18c34" class="tk">&amp;</a><a id="18c35" class="tk">msgPtr</a>-&gt;<a id="18c43" class="tk">angular</a>);</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td>  <a id="19c3" class="tk">convertToBus</a>(<a id="19c16" class="tk">&amp;</a><a id="19c17" class="tk">busPtr</a>-&gt;<a id="19c25" class="tk">Linear</a>, <a id="19c33" class="tk">&amp;</a><a id="19c34" class="tk">msgPtr</a>-&gt;<a id="19c42" class="tk">linear</a>);</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><span class="br">}</span></td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td></td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td></td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><span class="ct">// Conversions between SL_Bus_turtletrajectory_geometry_msgs_Vector3 and geometry_msgs::Vector3</span></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td><span class="kw">void</span> <a id="25c6" class="tk">convertFromBus</a>(<a id="25c21" class="tk">geometry_msgs</a>::<a id="25c36" class="tk">Vector3</a><a id="25c43" class="tk">*</a> <a id="25c45" class="tk">msgPtr</a>, <a id="25c53" class="tk">SL_Bus_turtletrajectory_geometry_msgs_Vector3</a> <span class="kw">const</span><a id="25c104" class="tk">*</a> <a id="25c106" class="tk">busPtr</a>)</td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><span class="br">{</span></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td>  <span class="kw">const</span> <a id="27c9" class="tk">std</a>::<a id="27c14" class="tk">string</a> <a id="27c21" class="tk">rosMessageType</a>("geometry_msgs/Vector3");</td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td></td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td>  <a id="29c3" class="tk">msgPtr</a>-&gt;<a id="29c11" class="tk">x</a> =  <a id="29c16" class="tk">busPtr</a>-&gt;<a id="29c24" class="tk">X</a>;</td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td>  <a id="30c3" class="tk">msgPtr</a>-&gt;<a id="30c11" class="tk">y</a> =  <a id="30c16" class="tk">busPtr</a>-&gt;<a id="30c24" class="tk">Y</a>;</td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td>  <a id="31c3" class="tk">msgPtr</a>-&gt;<a id="31c11" class="tk">z</a> =  <a id="31c16" class="tk">busPtr</a>-&gt;<a id="31c24" class="tk">Z</a>;</td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><span class="br">}</span></td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td><span class="kw">void</span> <a id="34c6" class="tk">convertToBus</a>(<a id="34c19" class="tk">SL_Bus_turtletrajectory_geometry_msgs_Vector3</a><a id="34c64" class="tk">*</a> <a id="34c66" class="tk">busPtr</a>, <a id="34c74" class="tk">geometry_msgs</a>::<a id="34c89" class="tk">Vector3</a> <span class="kw">const</span><a id="34c102" class="tk">*</a> <a id="34c104" class="tk">msgPtr</a>)</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td><span class="br">{</span></td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td>  <span class="kw">const</span> <a id="36c9" class="tk">std</a>::<a id="36c14" class="tk">string</a> <a id="36c21" class="tk">rosMessageType</a>("geometry_msgs/Vector3");</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td></td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td>  <a id="38c3" class="tk">busPtr</a>-&gt;<a id="38c11" class="tk">X</a> =  <a id="38c16" class="tk">msgPtr</a>-&gt;<a id="38c24" class="tk">x</a>;</td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td>  <a id="39c3" class="tk">busPtr</a>-&gt;<a id="39c11" class="tk">Y</a> =  <a id="39c16" class="tk">msgPtr</a>-&gt;<a id="39c24" class="tk">y</a>;</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td>  <a id="40c3" class="tk">busPtr</a>-&gt;<a id="40c11" class="tk">Z</a> =  <a id="40c16" class="tk">msgPtr</a>-&gt;<a id="40c24" class="tk">z</a>;</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><span class="br">}</span></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td></td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td></td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td><span class="ct">// Conversions between SL_Bus_turtletrajectory_turtlesim_Pose and turtlesim::Pose</span></td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td></td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><span class="kw">void</span> <a id="46c6" class="tk">convertFromBus</a>(<a id="46c21" class="tk">turtlesim</a>::<a id="46c32" class="tk">Pose</a><a id="46c36" class="tk">*</a> <a id="46c38" class="tk">msgPtr</a>, <a id="46c46" class="tk">SL_Bus_turtletrajectory_turtlesim_Pose</a> <span class="kw">const</span><a id="46c90" class="tk">*</a> <a id="46c92" class="tk">busPtr</a>)</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td><span class="br">{</span></td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td>  <span class="kw">const</span> <a id="48c9" class="tk">std</a>::<a id="48c14" class="tk">string</a> <a id="48c21" class="tk">rosMessageType</a>("turtlesim/Pose");</td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td>  <a id="50c3" class="tk">msgPtr</a>-&gt;<a id="50c11" class="tk">angular_velocity</a> =  <a id="50c31" class="tk">busPtr</a>-&gt;<a id="50c39" class="tk">AngularVelocity</a>;</td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td>  <a id="51c3" class="tk">msgPtr</a>-&gt;<a id="51c11" class="tk">linear_velocity</a> =  <a id="51c30" class="tk">busPtr</a>-&gt;<a id="51c38" class="tk">LinearVelocity</a>;</td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>  <a id="52c3" class="tk">msgPtr</a>-&gt;<a id="52c11" class="tk">theta</a> =  <a id="52c20" class="tk">busPtr</a>-&gt;<a id="52c28" class="tk">Theta</a>;</td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td>  <a id="53c3" class="tk">msgPtr</a>-&gt;<a id="53c11" class="tk">x</a> =  <a id="53c16" class="tk">busPtr</a>-&gt;<a id="53c24" class="tk">X</a>;</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td>  <a id="54c3" class="tk">msgPtr</a>-&gt;<a id="54c11" class="tk">y</a> =  <a id="54c16" class="tk">busPtr</a>-&gt;<a id="54c24" class="tk">Y</a>;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="br">}</span></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><span class="kw">void</span> <a id="57c6" class="tk">convertToBus</a>(<a id="57c19" class="tk">SL_Bus_turtletrajectory_turtlesim_Pose</a><a id="57c57" class="tk">*</a> <a id="57c59" class="tk">busPtr</a>, <a id="57c67" class="tk">turtlesim</a>::<a id="57c78" class="tk">Pose</a> <span class="kw">const</span><a id="57c88" class="tk">*</a> <a id="57c90" class="tk">msgPtr</a>)</td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td><span class="br">{</span></td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td>  <span class="kw">const</span> <a id="59c9" class="tk">std</a>::<a id="59c14" class="tk">string</a> <a id="59c21" class="tk">rosMessageType</a>("turtlesim/Pose");</td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td>  <a id="61c3" class="tk">busPtr</a>-&gt;<a id="61c11" class="tk">AngularVelocity</a> =  <a id="61c30" class="tk">msgPtr</a>-&gt;<a id="61c38" class="tk">angular_velocity</a>;</td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td>  <a id="62c3" class="tk">busPtr</a>-&gt;<a id="62c11" class="tk">LinearVelocity</a> =  <a id="62c29" class="tk">msgPtr</a>-&gt;<a id="62c37" class="tk">linear_velocity</a>;</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td>  <a id="63c3" class="tk">busPtr</a>-&gt;<a id="63c11" class="tk">Theta</a> =  <a id="63c20" class="tk">msgPtr</a>-&gt;<a id="63c28" class="tk">theta</a>;</td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td>  <a id="64c3" class="tk">busPtr</a>-&gt;<a id="64c11" class="tk">X</a> =  <a id="64c16" class="tk">msgPtr</a>-&gt;<a id="64c24" class="tk">x</a>;</td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td>  <a id="65c3" class="tk">busPtr</a>-&gt;<a id="65c11" class="tk">Y</a> =  <a id="65c16" class="tk">msgPtr</a>-&gt;<a id="65c24" class="tk">y</a>;</td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><span class="br">}</span></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td></td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

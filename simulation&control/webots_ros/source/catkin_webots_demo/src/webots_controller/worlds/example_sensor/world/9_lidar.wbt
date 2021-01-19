@@ -1,0 +1,177 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.05880084478307945 0.8892792897891809 0.4535689643316065 3.371152188301437
+  position -1.5451154648945526 9.57390565950149 -6.572305419878265
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+WoodenBox {
+  translation 2.13775 0.3 -3.20288
+  rotation 0 1 0 0.523599
+  name "wooden box(1)"
+}
+DEF wall Solid {
+  children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.1 5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.1 -5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0.1 5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.1 -5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation -5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+WoodenBox {
+  translation 1.13651 0.3 0.873546
+}
+WoodenBox {
+  translation 2.48342 0.3 -0.910762
+  rotation 0 1 0 -0.785395307179586
+  name "wooden box(2)"
+}
+CardboardBox {
+  translation 1.79198 0.3 2.22082
+  rotation 0 1 0 1.309
+}
+OilBarrel {
+  translation 2.28408 0.44 0.761953
+}
+OilBarrel {
+  translation 1.6551 0.44 -0.418445
+  name "oil barrel(1)"
+}
+DEF Lidar_rbt Robot {
+  translation 0 0.3 0
+  children [
+    Lidar {
+      rotation 0 1 0 -1.5707
+      name "my_lidar"
+      maxRange 2
+    }
+    Shape {
+      appearance PBRAppearance {
+        emissiveColor 0.666667 0.333333 1
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.1
+      }
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=lidar_rbt"
+}

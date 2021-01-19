@@ -1,0 +1,189 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.5057783646801641 0.8445301483967211 0.17594622550788475 0.7814661256965023
+  position 5.49358968959753 4.693828047950206 7.319875604308406
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+WoodenBox {
+  translation 1.85364 0.3 -2.1688
+  rotation 0 1 0 0.523599
+  name "wooden box(1)"
+}
+DEF wall Solid {
+  children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.1 5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.1 -5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0.1 5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.1 -5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation -5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+WoodenBox {
+  translation -2.50234 0.3 1.90064
+}
+WoodenBox {
+  translation 0.656613 0.3 3.33527
+  rotation 0 1 0 -0.785395307179586
+  name "wooden box(2)"
+}
+CardboardBox {
+  translation -0.505225 0.3 -1.47116
+  rotation 0 1 0 1.309
+}
+OilBarrel {
+  translation 2.88701 0.44 0.49069
+}
+OilBarrel {
+  translation -3.15807 0.44 -2.22472
+  name "oil barrel(1)"
+}
+DEF camera Robot {
+  children [
+    Transform {
+      rotation 0 1 0 -1.5707
+      children [
+        Camera {
+          children [
+            Transform {
+              translation 0 0.25 0
+              rotation 1 0 0 1.5707
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    emissiveColor 0.666667 0.333333 1
+                  }
+                  geometry Cone {
+                    bottomRadius 0.15
+                    height 0.4
+                  }
+                }
+              ]
+            }
+          ]
+          name "my_camera"
+          width 256
+          height 256
+        }
+      ]
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=camera_rbt"
+}

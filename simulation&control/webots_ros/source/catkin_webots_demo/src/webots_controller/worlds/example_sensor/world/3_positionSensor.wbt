@@ -1,0 +1,65 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.4458564605414264 0.8770795690169535 0.1787272956392135 5.425794862352568
+  position -2.1161000207753227 2.2373840963577702 3.4664541679312117
+}
+Floor {
+}
+DEF include Robot {
+  translation 1.5 0 0
+  children [
+    DEF shafts Solid {
+      translation 0 0.25 0
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+          }
+          device [
+            PositionSensor {
+              name "my_positionSensor"
+            }
+            RotationalMotor {
+              name "my_Rmotor"
+            }
+          ]
+          endPoint Solid {
+            translation 0.3 0 0
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0.333333 1 0
+                  }
+                }
+                geometry Box {
+                  size 0.1 0.1 0.1
+                }
+              }
+            ]
+            name "solid(1)"
+          }
+        }
+        DEF shafts Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 1 0.666667 0
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            radius 0.1
+          }
+        }
+      ]
+    }
+  ]
+  name "robot(1)"
+  controller "ros"
+  controllerArgs "--name=position_test_rbt"
+}
+DirectionalLight {
+  direction 0 -1 0
+}

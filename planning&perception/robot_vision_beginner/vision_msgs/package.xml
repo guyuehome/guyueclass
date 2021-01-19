@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vision_msgs</name>
+  <version>0.0.1</version>
+  <description>
+    Messages for interfacing with various computer vision pipelines, such as
+    object detectors.
+  </description>
+
+  <author email="adam.d.allevato@gmail.com">Adam Allevato</author>
+  <maintainer email="adam.d.allevato@gmail.com">Adam Allevato</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <exec_depend>message_runtime</exec_depend>
+
+  <test_depend>rosunit</test_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

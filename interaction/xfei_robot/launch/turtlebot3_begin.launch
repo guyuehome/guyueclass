@@ -1,0 +1,6 @@
+<launch>
+
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"/>
+  <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch"/>
+  <rosparam file="$(find xfei_robot)/map/map.yaml" command="load" ns="map" />
+</launch>

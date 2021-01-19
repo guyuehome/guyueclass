@@ -1,0 +1,24 @@
+%implements "machineHeader" "C"
+%function CacheOutputs(block,system) void
+%openfile typedefsBuf   
+            
+%closefile typedefsBuf
+%<SLibCacheCodeToFile("sf_machine_typedef",typedefsBuf)>
+%openfile definesBuf   
+%closefile definesBuf
+%<SLibCacheCodeToFile("sf_machine_data_define",definesBuf)>
+%openfile externDataBuf
+%closefile externDataBuf
+%<SLibCacheCodeToFile("sf_machine_extern_data_decl",externDataBuf)>
+%openfile externDataBuf
+%closefile externDataBuf
+%<SLibCacheCodeToFile("sf_machine_public_extern_data_decl",externDataBuf)>
+%openfile externDataBuf
+
+            
+            
+%closefile externDataBuf
+%<SLibCacheCodeToFile("sf_machine_extern_fcn_decl",externDataBuf)>
+%endfunction %% CacheOutputs
+ 
+

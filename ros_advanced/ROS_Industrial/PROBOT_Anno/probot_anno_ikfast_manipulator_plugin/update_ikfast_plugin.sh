@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py probot_anno manipulator probot_anno_ikfast_manipulator_plugin /home/hcx/probot_ws/src/probot_6axis_ros/packages/ros_driver/probot_anno_ikfast_manipulator_plugin/src/probot_anno_manipulator_ikfast_solver.cpp

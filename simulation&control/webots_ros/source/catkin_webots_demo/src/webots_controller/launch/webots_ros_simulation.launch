@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start Webots -->
+  <arg name="no-gui" default="false," doc="Start Webots with minimal GUI"/>
+  <include file="$(find webots_ros)/launch/webots.launch">
+    <arg name="mode" value="realtime"/>
+    <arg name="no-gui" value="$(arg no-gui)"/>
+    <arg name="world" value="$(find webots_controller)/worlds/example_robot_modeling/world/four_wheels.wbt"/>
+  </include>
+
+  <node name="webots_ros_simulation_controller_node" pkg="webots_controller" type="0_four_wheels_ros_controller.py" />
+  <node name="keyboard_controller_node" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py"/>
+</launch>

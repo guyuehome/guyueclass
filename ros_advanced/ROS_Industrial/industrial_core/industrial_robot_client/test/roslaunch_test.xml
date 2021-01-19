@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_ip" value="127.0.0.1" />
+
+  <group ns="robot_interface_download_">
+    <include file="$(find industrial_robot_client)/launch/robot_interface_download.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)" />
+    </include>
+  </group>
+
+  <group ns="robot_interface_streaming_">
+    <include file="$(find industrial_robot_client)/launch/robot_interface_streaming.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)" />
+    </include>
+  </group>
+
+</launch>
+

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="lib/libprobot_anno_manipulator_moveit_ikfast_plugin">
+  <class name="probot_anno_manipulator_kinematics/IKFastKinematicsPlugin" type="ikfast_kinematics_plugin::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics</description>
+  </class>
+</library>

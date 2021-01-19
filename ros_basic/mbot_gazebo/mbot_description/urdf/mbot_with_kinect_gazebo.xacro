@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find mbot_description)/urdf/mbot_base_gazebo.xacro" />
+    <xacro:include filename="$(find mbot_description)/urdf/sensors/kinect_gazebo.xacro" />
+
+    <xacro:property name="kinect_offset_x" value="0.15" />
+    <xacro:property name="kinect_offset_y" value="0" />
+    <xacro:property name="kinect_offset_z" value="0.11" />
+
+    <!-- kinect -->
+    <joint name="kinect_joint" type="fixed">
+        <origin xyz="${kinect_offset_x} ${kinect_offset_y} ${kinect_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="kinect_link"/>
+    </joint>
+
+    <xacro:kinect_camera prefix="kinect"/>
+
+    <mbot_base_gazebo/>
+
+</robot>

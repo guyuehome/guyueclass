@@ -1,0 +1,6 @@
+<launch>
+  <node name="mbot_teleop" pkg="mbot_teleop" type="mbot_teleop.py" output="screen">
+    <param name="scale_linear" value="0.1" type="double"/>
+    <param name="scale_angular" value="0.4" type="double"/>
+  </node>
+</launch>

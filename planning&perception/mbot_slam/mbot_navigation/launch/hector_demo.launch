@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find mbot_navigation)/launch/hector.launch"/>
+
+    <!-- 启动rviz-->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mbot_navigation)/rviz/gmapping.rviz"/>
+
+</launch>

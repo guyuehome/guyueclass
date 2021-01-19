@@ -1,0 +1,182 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        0.5
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.27637585757511185 -0.9427612763585589 -0.18659464394350206 1.2429511925236976
+  position -3.579616977393689 2.2566140881820362 0.903946639712657
+  follow "robot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+WoodenBox {
+  translation 1.85364 0.3 -2.1688
+  rotation 0 1 0 0.523599
+  name "wooden box(1)"
+}
+DEF wall Solid {
+  children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.1 5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.1 -5
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -5 0.1 0
+          rotation 0 1 0 1.5707
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Box {
+                size 10 0.2 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0.1 5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.1 -5
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation -5 0.1 0
+        rotation 0 1 0 1.5707
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 10 0.2 0.1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+WoodenBox {
+  translation -2.50234 0.3 1.90064
+}
+WoodenBox {
+  translation 0.656613 0.3 3.33527
+  rotation 0 1 0 -0.785395307179586
+  name "wooden box(2)"
+}
+OilBarrel {
+  translation 2.88701 0.44 0.49069
+}
+OilBarrel {
+  translation -3.15807 0.44 -2.22472
+  name "oil barrel(1)"
+}
+SoccerBall {
+  translation 1.97386 0.1 2.25538
+}
+DEF gps_rbt Robot {
+  rotation 0 1 0 3.1416
+  children [
+    GPS {
+      translation 0 0.2 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "textures/webots_billboard.jpg"
+              ]
+            }
+            IBLStrength 8
+          }
+          geometry Box {
+            size 0.1 0.1 0.1
+          }
+        }
+      ]
+      name "my_gps"
+    }
+  ]
+  controller "ros"
+  controllerArgs "--name=gps_rbt"
+}
