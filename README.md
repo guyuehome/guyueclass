@@ -31,7 +31,7 @@
 4. [《ROS Rviz组件开发方法》](https://class.guyuehome.com/detail/p_5edf2d27a1942_foy4nqci/6) ：rviz_plugin_develop
 5. [《如何实现windows ROS人机交互软件》](https://class.guyuehome.com/detail/p_5fc5ab97e4b04db7c091f475/6) ：windows_ros_hmi
 
-### 仿真控制
+### 仿真控制（simulation&control）
 
 1. [《如何入门webots机器人仿真神器》](https://class.guyuehome.com/detail/v_5f213a94e4b074dda144b2e2/3) ：webots_basic
 2. [《如何实现ROS与Webots联合仿真》](https://class.guyuehome.com/detail/p_5f586de6e4b0b5edf0a12687/6) ：webots_ros
@@ -39,7 +39,7 @@
 4. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
 5. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
-### 创客教程
+### 创客教程（maker_tutorial）
 
 1. [《自主导航机器人制作十日谈》](https://class.guyuehome.com/detail/p_5eec150263469_medAkMqy/6) 
 2. [《如何让机械臂实物动起来》](https://class.guyuehome.com/detail/p_5f4deecde4b06a37e038f7b2/6) ：make_arm_moving
@@ -55,7 +55,7 @@
 
 
 
-***声明：**
+**声明：**
 
 古月居网站的所有作品，包括但不限于课程、视频、课件和源码等均为武汉精锋微控科技有限公司合法拥有版权或依法有权使用的作品，仅限被授权用户的个人学习使用。
 
