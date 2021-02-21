@@ -1,0 +1,3 @@
+<launch>
+<node name="marm_standardfirmata_driver" pkg="marm_standardfirmata_driver" type="marm_standardfirmata_driver.py" />
+</launch>

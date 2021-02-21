@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_manipulator_controller
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+initial:  # Define initial robot poses.
+  - group: manipulator
+    pose: home

@@ -1,0 +1,289 @@
+{
+  "uuid": "b90b7c735829c460e43f59c14e105356",
+  "path": "Offline/机械臂驱动板（古月居2.0）",
+  "name": "机械臂驱动板（古月居2.0）",
+  "content": "",
+  "created_at": "2021-01-05 20:32:03",
+  "updated_at": "2021-02-06 14:10:41",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "e863f5b57d613dc7555fd8682bb5e2d3",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "32f24e17b29e499285586bd90a701e38": 1,
+        "116901cde4004670b419bd9bd63ba38a": 2,
+        "2fa53d590f544429ab8fcbd581d715c1": 1,
+        "af91c5d4b3fa4cf99103f010cfac4128": 1,
+        "512b6198a2934965a737422be392f818": 1,
+        "d080c148ba274306adbb1b7db7d01555": 1,
+        "eaa76950fd7343a1953943ee7b9978d3": 1,
+        "9e36a65467ed4895a2efb84e4d079403": 1,
+        "7809ed3ba7c24a14936ce2a66b37ccdb": 1,
+        "a7291ceaee5442a999df26c55c7e675d": 15,
+        "6ecb9237e406457ca43a8cfa4b81ef9a": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "1K/1206",
+          1,
+          "R1206",
+          "R1",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "0610c91ea88544ecbdf889657d55abcb",
+            "uuid": "2fa53d590f544429ab8fcbd581d715c1"
+          }
+        ],
+        [
+          "USB-MINI-POWER",
+          1,
+          "MINI-USB-SMD_C105424",
+          "USB2",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C105424",
+            "BOM_Manufacturer": "LCSC",
+            "BOM_Manufacturer Part": "USB-MINI-SMD-9.2X9.4-H3.7",
+            "puuid": "6bef3b34b8ed4b4dba882dac16318c3b",
+            "uuid": "6ecb9237e406457ca43a8cfa4b81ef9a"
+          }
+        ],
+        [
+          "OLED-1.3-4P",
+          1,
+          "OLED_1.3_I2C",
+          "OLED1",
+          {
+            "BOM_Manufacturer Part": "OLED-1.3",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "a21918defc514077bffbcd57a9e0b3dc",
+            "uuid": "9e36a65467ed4895a2efb84e4d079403"
+          }
+        ],
+        [
+          "3.3有源蜂鸣器9*5.5",
+          1,
+          "3.3V有源9*5.5",
+          "U4",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "845067840dcb4dbd86d7169e75c5d83f",
+            "uuid": "32f24e17b29e499285586bd90a701e38"
+          }
+        ],
+        [
+          "18650-5V",
+          1,
+          "18650-5-2.54",
+          "U2",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "puuid": "1b7f15df0a47416d99ee185f3de41f5d",
+            "uuid": "512b6198a2934965a737422be392f818"
+          }
+        ],
+        [
+          "HDR2.54",
+          1,
+          "MPU6050",
+          "MPU6050",
+          {
+            "BOM_Supplier Part": "C225505",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "16e321ed36e14152bb21b4969783bec9",
+            "uuid": "7809ed3ba7c24a14936ce2a66b37ccdb"
+          }
+        ],
+        [
+          "18650 COPY",
+          2,
+          "18650电池座-贴片",
+          "BAT2,BAT1",
+          {
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "TOAD",
+            "puuid": "abc33dfed1e842898e0cb12e24ffa553",
+            "uuid": "116901cde4004670b419bd9bd63ba38a"
+          }
+        ],
+        [
+          "HDR2.54*3",
+          15,
+          "HDR-F-2.54_1X3",
+          "A1,D4,D2,D9,D3,A3,D5,A2,D7,D8,D10,D11,D12,A0,D6",
+          {
+            "BOM_Supplier Part": "C146690",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "f83673d09e13450d934ca6be4be5af8f",
+            "uuid": "a7291ceaee5442a999df26c55c7e675d"
+          }
+        ],
+        [
+          "S8050",
+          1,
+          "TO-92-3_L4.8-W3.7-P2.54-L",
+          "Q1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C327517",
+            "BOM_Manufacturer": "ON Semicon",
+            "BOM_Manufacturer Part": "SS8050CTA",
+            "puuid": "619489e674074de888fe8dd8f6b9799e",
+            "uuid": "af91c5d4b3fa4cf99103f010cfac4128"
+          }
+        ],
+        [
+          "ARDUINO-NANO",
+          1,
+          "ARDUINO_NANO",
+          "U1",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "a7b91c5f1acb40e68d7626237b974060",
+            "uuid": "d080c148ba274306adbb1b7db7d01555"
+          }
+        ],
+        [
+          "HDR2.54",
+          1,
+          "HDR-F-2.54_1X4",
+          "TTL1",
+          {
+            "BOM_Supplier Part": "C225501",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "21473b495b6340c992965357d5701779",
+            "uuid": "eaa76950fd7343a1953943ee7b9978d3"
+          }
+        ]
+      ],
+      "updateTime": 1612589818,
+      "createTime": 1609849983,
+      "histories": [],
+      "created_at": "2021-01-05 20:33:03",
+      "updated_at": "2021-02-06 13:36:58"
+    },
+    {
+      "uuid": "65aaccbb76defcc84be527d5abd93e0b",
+      "puuid": "b90b7c735829c460e43f59c14e105356",
+      "title": "PCB_2021-01-05_20-49-04",
+      "filename": "PCB_2021-01-05_20-49-04.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "6bef3b34b8ed4b4dba882dac16318c3b": 1,
+        "abc33dfed1e842898e0cb12e24ffa553": 2,
+        "0610c91ea88544ecbdf889657d55abcb": 1,
+        "a21918defc514077bffbcd57a9e0b3dc": 1,
+        "845067840dcb4dbd86d7169e75c5d83f": 1,
+        "16e321ed36e14152bb21b4969783bec9": 1,
+        "f83673d09e13450d934ca6be4be5af8f": 15,
+        "619489e674074de888fe8dd8f6b9799e": 1,
+        "a7b91c5f1acb40e68d7626237b974060": 1,
+        "21473b495b6340c992965357d5701779": 1,
+        "1b7f15df0a47416d99ee185f3de41f5d": 1
+      },
+      "BOM": [],
+      "updateTime": 1611888962,
+      "createTime": 1609850944,
+      "histories": [],
+      "created_at": "2021-01-05 20:49:04",
+      "updated_at": "2021-01-29 10:56:02"
+    },
+    {
+      "uuid": "a83ac7c4a2ca406b2fe86b1e1de21084",
+      "puuid": "b90b7c735829c460e43f59c14e105356",
+      "title": "PCB_2021-02-04_15-54-25",
+      "filename": "PCB_2021-02-04_15-54-25.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "0610c91ea88544ecbdf889657d55abcb": 1,
+        "6bef3b34b8ed4b4dba882dac16318c3b": 1,
+        "a21918defc514077bffbcd57a9e0b3dc": 1,
+        "845067840dcb4dbd86d7169e75c5d83f": 1,
+        "1b7f15df0a47416d99ee185f3de41f5d": 1,
+        "16e321ed36e14152bb21b4969783bec9": 1,
+        "abc33dfed1e842898e0cb12e24ffa553": 2,
+        "f83673d09e13450d934ca6be4be5af8f": 15,
+        "619489e674074de888fe8dd8f6b9799e": 1,
+        "a7b91c5f1acb40e68d7626237b974060": 1,
+        "21473b495b6340c992965357d5701779": 1
+      },
+      "BOM": [],
+      "updateTime": 1612427705,
+      "createTime": 1612425265,
+      "histories": [],
+      "created_at": "2021-02-04 15:54:25",
+      "updated_at": "2021-02-04 16:35:05"
+    },
+    {
+      "uuid": "adde51db44452c1e1ff57858bb1021a3",
+      "puuid": "b90b7c735829c460e43f59c14e105356",
+      "title": "PCB_2021-02-06_13-48-14",
+      "filename": "PCB_2021-02-06_13-48-14.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "0610c91ea88544ecbdf889657d55abcb": 1,
+        "6bef3b34b8ed4b4dba882dac16318c3b": 1,
+        "a21918defc514077bffbcd57a9e0b3dc": 1,
+        "845067840dcb4dbd86d7169e75c5d83f": 1,
+        "1b7f15df0a47416d99ee185f3de41f5d": 1,
+        "16e321ed36e14152bb21b4969783bec9": 1,
+        "abc33dfed1e842898e0cb12e24ffa553": 2,
+        "f83673d09e13450d934ca6be4be5af8f": 15,
+        "619489e674074de888fe8dd8f6b9799e": 1,
+        "a7b91c5f1acb40e68d7626237b974060": 1,
+        "21473b495b6340c992965357d5701779": 1
+      },
+      "BOM": [],
+      "updateTime": 1612591841,
+      "createTime": 1612590495,
+      "histories": [],
+      "created_at": "2021-02-06 13:48:15",
+      "updated_at": "2021-02-06 14:10:41"
+    }
+  ],
+  "sort": [],
+  "title": "机械臂驱动板（古月居2.0）",
+  "foldername": "机械臂驱动板（古月居2.0）",
+  "schfilename": "机械臂驱动板（古月居2.0）.json",
+  "schfilemtime": 1612589818252
+}

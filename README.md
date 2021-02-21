@@ -44,8 +44,8 @@
 1. [《自主导航机器人制作十日谈》](https://class.guyuehome.com/detail/p_5eec150263469_medAkMqy/6) 
 2. [《如何让机械臂实物动起来》](https://class.guyuehome.com/detail/p_5f4deecde4b06a37e038f7b2/6) ：make_arm_moving
 3. [《如何基于MoveIt开发一款机械臂》](https://class.guyuehome.com/detail/p_5faa57f1e4b04db7c08da8f8/6) ：moveit_robot    
-   
-  
+4. [《软硬结合带你玩转ROS机械臂》](https://class.guyuehome.com/detail/p_6030c2cae4b029faba18eaaa/6) ：ros_arm_tutorial    
+
 **更多内容，欢迎关注古月居**
 
 网站：https://www.guyuehome.com/
@@ -56,9 +56,9 @@
 **声明**
 
 古月居网站的所有作品，包括但不限于课程、视频、课件和源码等均为武汉精锋微控科技有限公司合法拥有版权或依法有权使用的作品，仅限被授权用户的个人学习使用。
- 
+
 未经本公司书面许可，任何单位或个人不得对本网站的作品进行使用、复制、修改、抄录、传播、镜像或与其它产品捆绑使用、销售等。
- 
+
 违反上述声明者，本公司将追究其法律责任。
 
 如需授权请联系brand@guyuehome.com
