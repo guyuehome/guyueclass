@@ -1,0 +1,87 @@
+1.训练数据准备:
+import nump
+
+num_inputs=1     # 输入维度
+num_examples=500 # 训练数据总数
+w=2.0 # 权重
+b=3.0 # 偏置
+train = numpy.random.normal(0,1,(num_examples, num_inputs)).astype('float32') #随机生成训练数据
+labels = train[:,0] * w + b # 生成真实标签
+labels = labels + numpy.random.normal(0,0.001,labels.shape[0])
+labels = labels.astype('float32')
+labels = numpy.expand_dims(labels,axis=-1)  #注意：需要在最后增加一个维度
+
+train_x=paddle.to_tensor(train)     # 将训练数据转化为tensor
+y_true=paddle.to_tensor(labels)    # 将标签数据转化为tensor
+
+2.模型配置准备:
+import paddle
+
+model=paddle.nn.Linear(in_features=1, out_features=1) # 利用paddle内置基本模型--线性变换层
+
+sgd_optimizer=paddle.optimizer.SGD(learning_rate=0.001, parameters=model.parameters())
+ #定义优化方法 SGD
+mse_loss=paddle.nn.MSELoss() # 定义损失函数 这里使用均方差损失函数
+
+3.模型训练:
+for i in range(5000): # 训练5000轮
+    y_predict = model(train_x)
+    loss=mse_loss(y_predict, y_true)
+    loss.backward()  
+    sgd_optimizer.step() #执行一次优化器并进行参数更新。
+    sgd_optimizer.clear_grad() # 清除需要优化的参数的梯度。
+
+4.查看训练效果：
+# 查看训练结束之后模型学习到的参数
+print(model.weight.numpy()) 
+print(model.bias.numpy())
+
+项目链接:https://aistudio.baidu.com/aistudio/projectdetail/1558927
+
+
+数据加载
+data_transform = Compose([Normalize(mean=[127.5],
+                               std=[127.5],
+                               data_format='CHW')])
+#导入paddle内置的MNIST数据
+train_dataset=paddle.vision.datasets.MNIST(mode="train", transform=data_transform)
+val_dataset=paddle.vision.datasets.MNIST(mode="test", transform=data_transform)
+
+
+模型组建
+# 定义前向传播
+    def forward(self, x):
+        x = self.conv1(x)
+        x = F.relu(x)
+        x = self.pool1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = self.pool2(x)
+        x = paddle.flatten(x, start_axis=1,stop_axis=-1)
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.fc2(x)
+        x = F.relu(x)
+        result = self.fc3(x)
+        return result
+
+模型配置
+# 模型配置
+model.prepare(paddle.optimizer.Adam(parameters=model.parameters()),
+              paddle.nn.CrossEntropyLoss(),
+              paddle.metric.Accuracy())
+
+
+模型训练
+# 模型训练，指定数据集，训练轮数为5，bitch_size为64，打印模型信息
+model.fit(train_dataset,
+          epochs=5,
+          batch_size=64,
+          verbose=1)
+
+模型评估
+model.evaluate(val_dataset,verbose=1)
+
+
+项目链接:https://aistudio.baidu.com/aistudio/projectdetail/1558927
+项目链接:https://aistudio.baidu.com/aistudio/projectdetail/1558940

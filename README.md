@@ -12,7 +12,12 @@
 ### ROS进阶（ros_advanced）
 
 1. [《ROS-Industrial应用原理与源码解析》](https://class.guyuehome.com/detail/p_5ecccbfc64888_kwlvlzPK/6) ：ROS_Industrial
+
 2. [《如何在MoveIt中集成自定义运动规划算法》](https://class.guyuehome.com/detail/p_5fa4b3d9e4b0e81f36cd0c79/6) ：moveit_motion_planner
+
+### 机器学习（machine_learning）
+
+1. [《百度飞桨深度学习平台开发入门》](https://class.guyuehome.com/detail/p_60375614e4b0478a0459c9a4/6) ：PaddlePaddle_introduction
 
 ### 规划感知（planning&perception）
 

@@ -1,0 +1,29 @@
+飞桨官网地址
+https://www.paddlepaddle.org.cn/ 
+
+飞桨开源框架项目地址·
+https://github.com/PaddlePaddle/Paddle 
+https://gitee.com/paddlepaddle/Paddle
+
+更多NoteBook的使用请参考:
+https://ai.baidu.com/ai-doc/AISTUDIO/sk3e2z8sb
+
+1.可以通过pip指令安装相应的库
+ https://mirror.baidu.com/pypi/simple
+
+也可通过代码命令方式打开服务，详情参考
+https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/03_VisualDL/visualdl_usage.html
+
+附：
+·Ai  Studio平台链接·
+https://aistudio.baidu.com/
+·PaddleHub官方文档·
+https://www.paddlepaddle.org.cn/hub
+·PaddleX代码GitHub链接·
+https://github.com/PaddlePaddle/PaddleX/tree/develop
+·PaddleX文档链接·
+https://paddlex.readthedocs.io/zh_CN/develop/index.html
+·PaddleX官网链接·
+https://www.paddlepaddle.org.cn/paddle/paddlex
+·PaddleSeg代码GitHub链接·
+https://github.com/PaddlePaddle/PaddleSeg
