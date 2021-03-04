@@ -1,0 +1,28 @@
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/>
+<!--   <arg name="use_sim_time" default="true"/> -->
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <!-- <remap from="robot/laser/scan" to="/scan"/> -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_pkg)/world/race.world"/> 
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+  </include>
+  
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <arg name="model" default="$(find gazebo_pkg)/urdf/waking_robot.xacro" />
+ 
+  <param name="robot_description" command="$(find xacro)/xacro  --inorder $(arg model)" />
+ 
+  <!-- Run a python script to send a service call the gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-urdf -model robot -param robot_description -z 0.05"/> 
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+</launch>

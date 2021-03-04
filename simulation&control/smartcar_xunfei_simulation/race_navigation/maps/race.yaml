@@ -1,0 +1,6 @@
+image: race.pgm
+resolution: 0.050000
+origin: [-1.055782, -7.265406, 0.0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

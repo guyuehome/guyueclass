@@ -41,8 +41,11 @@
 1. [《如何入门webots机器人仿真神器》](https://class.guyuehome.com/detail/v_5f213a94e4b074dda144b2e2/3) ：webots_basic
 2. [《如何实现ROS与Webots联合仿真》](https://class.guyuehome.com/detail/p_5f586de6e4b0b5edf0a12687/6) ：webots_ros
 3. [《MATLAB与ROS联合快速开发控制算法》](https://class.guyuehome.com/detail/p_5f39e38fe4b0dd4d97492948/6) ：matlab_ros_basic
-4. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-5. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+4. [《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/all/4622984)：smartcar_xunfei_simulation
+5. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+6. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+
+------
 
 ### 创客教程（maker_tutorial）
 

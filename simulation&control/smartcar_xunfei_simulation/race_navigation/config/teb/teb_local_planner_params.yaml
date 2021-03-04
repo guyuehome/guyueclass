@@ -1,0 +1,76 @@
+TebLocalPlannerROS:
+  odom_topic: odom
+  map_frame: /map
+
+  acc_lim_x: 2.5
+  acc_lim_theta: 3.2
+  max_vel_x: 1.1
+  max_vel_x_backwards: 1.1
+  max_vel_theta: 2.75
+  min_turning_radius: 0.0
+  is_footprint_dynamic: false
+  footprint_model:
+    type: "polygon"
+    vertices: [[0.165, 0.165], [0.165, -0.165], [-0.165, -0.165], [-0.165, 0.165]]
+
+  yaw_goal_tolerance: 0.2
+  xy_goal_tolerance: 0.1
+  free_goal_vel: false
+
+  dt_ref: 0.3
+  dt_hysteresis: 0.1
+  min_samples: 3
+  global_plan_overwrite_orientation: true
+  global_plan_viapoint_sep: -0.1
+  max_global_plan_lookahead_dist: 2.0
+  force_reinit_new_goal_dist: 1.0
+  feasibility_check_no_poses: 5
+  publish_feedback: false
+  allow_init_with_backwards_motion: false
+  exact_arc_length: false
+  shrink_horizon_backup: true
+  shrink_horizon_min_duration: 10.0
+
+  min_obstacle_dist: 0.15
+  include_costmap_obstacles: true
+  costmap_obstacles_behind_robot_dist: 1.0
+  inflation_dist: 0.6
+  include_dynamic_obstacles: false
+  legacy_obstacle_association: false
+  obstacle_association_force_inclusion_factor: 1.5
+  obstacle_association_cutoff_factor: 5
+  costmap_converter_plugin: ""
+  costmap_converter_spin_thread: true
+  costmap_converter_rate: 5.0
+
+  no_inner_iterations: 5
+  no_outer_iterations: 4
+  penalty_epsilon: 0.1
+  weight_acc_lim_x: 1.0
+  weight_acc_lim_theta: 1.0
+  weight_max_vel_x: 2.0
+  weight_max_vel_theta: 1.0
+  weight_kinematics_nh: 1000.0
+  weight_kinematics_forward_drive: 1000.0
+  weight_kinematics_turning_radius: 1.0
+  weight_optimaltime: 1.0
+  weight_obstacle: 50.0
+  weight_viapoint: 1.0
+  weight_inflation: 0.1
+  weight_adapt_factor: 2.0
+
+  enable_homotopy_class_planning: true
+  enable_multithreading: true
+  max_number_classes: 4
+  selection_cost_hysteresis: 1.0
+  selection_obst_cost_scale: 100.0
+  selection_viapoint_cost_scale: 1.0
+  selection_alternative_time_cost: false
+  roadmap_graph_no_samples: 15
+  roadmap_graph_area_width: 5
+  h_signature_prescaler: 1.0
+  h_signature_threshold: 0.1
+  obstacle_heading_threshold: 0.45
+  visualize_hc_graph: false
+  viapoints_all_candidates: true
+  switching_blocking_period: 0.0

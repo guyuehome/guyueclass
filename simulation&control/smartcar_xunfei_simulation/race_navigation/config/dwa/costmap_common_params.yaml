@@ -1,0 +1,28 @@
+footprint: [[0.165, 0.165], [0.165, -0.165], [-0.165, -0.165], [-0.165, 0.165]]
+
+obstacle_range: 2.5
+raytrace_range: 3.0
+
+static_layer:
+  enabled: true
+
+inflation_layer:
+  enabled: true
+  inflation_radius: 0.4
+  cost_scaling_factor: 10.0
+
+obstacle_layer:
+  enabled: true
+  track_unknown_space: true
+  combination_method: 1
+
+  obstacle_range: 2.5
+  raytrace_range: 3.0
+
+  observation_sources: scan
+  scan: {
+    data_type: LaserScan,
+    topic: /scan,
+    marking: true,
+    clearing: true
+  }
