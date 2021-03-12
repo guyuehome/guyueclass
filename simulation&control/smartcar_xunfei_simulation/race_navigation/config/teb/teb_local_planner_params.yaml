@@ -2,11 +2,11 @@ TebLocalPlannerROS:
   odom_topic: odom
   map_frame: /map
 
-  acc_lim_x: 2.5
-  acc_lim_theta: 3.2
-  max_vel_x: 1.1
-  max_vel_x_backwards: 1.1
-  max_vel_theta: 2.75
+  acc_lim_x: 1
+  acc_lim_theta: 1
+  max_vel_x: 0.5
+  max_vel_x_backwards: 0.4
+  max_vel_theta: 1
   min_turning_radius: 0.0
   is_footprint_dynamic: false
   footprint_model:

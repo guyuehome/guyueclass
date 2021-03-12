@@ -21,7 +21,7 @@ while move_base.wait_for_server(rospy.Duration(5.0)) == 0:
     rospy.loginfo("Connected to move base server")
 
 # 设定目标点
-target = Pose(Point(-0.18, -5.3, 0.000), Quaternion(0.000, 0.000, 1.000, 0.000))
+target = Pose(Point(-0.25, -5.3, 0.000), Quaternion(0.000, 0.000, 1.000, 0.000))
 goal = MoveBaseGoal()
 goal.target_pose.pose = target
 goal.target_pose.header.frame_id = 'map'
