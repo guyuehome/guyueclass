@@ -1,0 +1,28 @@
+命令：
+2
+自定义消息：
+path="..."
+rosgenmag(path)
+Matlab与ROS建立通信：
+setenv('...','...')
+rosinit
+4
+编译生成的功能包
+$ bash build_ros_model.sh CarSimROS.tgz ~/WPLauto2_ws/
+
+
+参考网址：
+ROS System Requirements
+https://ww2.mathworks.cn/help/ros/gs/ros-system-requirements.html
+ROS Toolbox
+https://ww2.mathworks.cn/help/ros/index.html?s_tid=CRUX_lftnav
+Create Custom Messages from ROS Package
+https://ww2.mathworks.cn/help/ros/ug/create-custom-messages-from-ros-package.html
+Matlab quadprog求解器
+https://www.mathworks.com/help/optim/ug/quadprog.html#mw_aabb0615-1665-45e4-b0fc-559bf0e20c32
+CarSim
+https://www.carsim.com/products/carsim/index.php
+MATLAB与ROS联合快速开发控制算法
+http://www.guyuehome.com/ 
+讲解视频网址
+https://www.bilibili.com/video/BV1HQ4y1P7bJ

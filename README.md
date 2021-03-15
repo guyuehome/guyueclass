@@ -15,18 +15,29 @@
 
 2. [《如何在MoveIt中集成自定义运动规划算法》](https://class.guyuehome.com/detail/p_5fa4b3d9e4b0e81f36cd0c79/6) ：moveit_motion_planner
 
-### 机器学习（machine_learning）
-
-1. [《百度飞桨深度学习平台开发入门》](https://class.guyuehome.com/detail/p_60375614e4b0478a0459c9a4/6) ：PaddlePaddle_introduction
-
 ### 规划感知（planning&perception）
 
 1. [《ROS常用SLAM功能包使用指南》](https://class.guyuehome.com/detail/p_5ed700a841cc8_UpE7PGXW/6) ：mbot_slam
+
 2. [《如何实现ROS机器人自主导航》](https://class.guyuehome.com/detail/p_5ee871cc4674f_R75Aafau/6) ：mbot_navigation
+
 3. [《PyTorch入门：一起从零搭建神经网络》](https://class.guyuehome.com/detail/p_5fbb2fd9e4b0231ba88829d0/6) ：number_distinguish
+
 4. [《ROS机器视觉开发入门》](https://class.guyuehome.com/detail/p_5efc3fe2f3a60_JH9Pammo/6) ：robot_vision_beginner
+
 5. [《MoveIt编程入门》](https://class.guyuehome.com/detail/p_5e8e8e85b1e8f_9TdYxswq/6) ：moveit_beginner
+
 6. [《Moveit编程技巧》](https://class.guyuehome.com/detail/p_5e99807f9ac65_rWrEfAGO/6) ：moveit_skill
+
+### 仿真控制（simulation&control）
+
+1. [《如何入门webots机器人仿真神器》](https://class.guyuehome.com/detail/v_5f213a94e4b074dda144b2e2/3) ：webots_basic
+2. [《如何实现ROS与Webots联合仿真》](https://class.guyuehome.com/detail/p_5f586de6e4b0b5edf0a12687/6) ：webots_ros
+3. [《MATLAB与ROS联合快速开发控制算法》](https://class.guyuehome.com/detail/p_5f39e38fe4b0dd4d97492948/6) ：matlab_ros_basic
+4. [《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/detail/p_6041a333e4b015860af3dba3/6)：smartcar_xunfei_simulation
+5. [《MATLAB+ROS开发MPC轨迹跟踪算法》](https://class.guyuehome.com/detail/p_60488679e4b0e51d821cbeb1/6)：matlab_ros_mpc
+6. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+7. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ### 人机交互（interaction）
 
@@ -36,16 +47,9 @@
 4. [《ROS Rviz组件开发方法》](https://class.guyuehome.com/detail/p_5edf2d27a1942_foy4nqci/6) ：rviz_plugin_develop
 5. [《如何实现windows ROS人机交互软件》](https://class.guyuehome.com/detail/p_5fc5ab97e4b04db7c091f475/6) ：windows_ros_hmi
 
-### 仿真控制（simulation&control）
+### 机器学习（machine_learning）
 
-1. [《如何入门webots机器人仿真神器》](https://class.guyuehome.com/detail/v_5f213a94e4b074dda144b2e2/3) ：webots_basic
-2. [《如何实现ROS与Webots联合仿真》](https://class.guyuehome.com/detail/p_5f586de6e4b0b5edf0a12687/6) ：webots_ros
-3. [《MATLAB与ROS联合快速开发控制算法》](https://class.guyuehome.com/detail/p_5f39e38fe4b0dd4d97492948/6) ：matlab_ros_basic
-4. [《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/all/4622984)：smartcar_xunfei_simulation
-5. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-6. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
-
-------
+1. [《百度飞桨深度学习平台开发入门》](https://class.guyuehome.com/detail/p_60375614e4b0478a0459c9a4/6) ：PaddlePaddle_introduction
 
 ### 创客教程（maker_tutorial）
 

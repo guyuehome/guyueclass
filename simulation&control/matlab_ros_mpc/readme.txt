@@ -1,0 +1,11 @@
+Matlab 2020b
+CarSim 8.02
+
+automatic parking #Parallel #UtilityTruck.cpar是CarSim配置文件
+AutomaticParking_Parallel_UtilityTruck.mdl是Simulink与CarSim联合仿真模型（注意本版本是改造后的文件，纯软件仿真要把控制器的注释取消掉）
+
+CarSimROS.slx是对控制器的改造，用于自动代码生成
+CarSimROS.tgz是自动生成的代码包
+build_ros_model.sh是编译ROS功能包的shell脚本
+
+WPL_APA_parallel.slx是为实车应用改造的模型文件，用于生成实车应用的ROS功能包
