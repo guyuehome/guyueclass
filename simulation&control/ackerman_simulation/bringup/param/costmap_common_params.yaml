@@ -1,0 +1,17 @@
+obstacle_range: 2.5 #只有障碍物在这个范围内才会被标记
+raytrace_range: 3.0 ##只有在这个范围内不存在的才会被消除
+# footprint: [[-0.08, -0.15], [-0.08, 0.15],[0.42, 0.15], [0.42, -0.15]]
+robot_radius: 0.2
+inflation_radius: 0.2 #膨胀半径
+
+transform_tolerance: 0.5
+
+observation_sources: scan
+
+scan: 
+  data_type: LaserScan 
+  topic: scan 
+  marking: true 
+  clearing: true
+
+map_type: costmap

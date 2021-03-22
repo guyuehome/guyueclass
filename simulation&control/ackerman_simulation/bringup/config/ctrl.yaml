@@ -1,0 +1,34 @@
+racecar:
+  # Publish all joint states --公布所有--------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  
+  # Velocity Controllers ----速度控制器---------------------
+  left_rear_wheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_rear_axle
+    pid: {p: 1.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+  right_rear_wheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_rear_axle
+    pid: {p: 1.5, i: 0.0, d: 0.0, i_clamp: 0.0}
+  left_front_wheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_front_axle
+    pid: {p: 0.7, i: 0.0, d: 0.0, i_clamp: 0.0}
+  right_front_wheel_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_front_axle
+    pid: {p: 0.7, i: 0.0, d: 0.0, i_clamp: 0.0}
+
+  # Position Controllers ---位置控制器-----------------------
+  left_steering_hinge_position_controller:
+    joint: left_steering_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+  right_steering_hinge_position_controller:
+    joint: right_steering_joint
+    type: effort_controllers/JointPositionController
+    pid: {p: 10.0, i: 0.0, d: 0.5}
+

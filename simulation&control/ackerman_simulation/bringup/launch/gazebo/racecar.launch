@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<launch>
+	    <!-- 设置launch文件的参数 -->
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <!--模型车的起点放置位置-->
+    <arg name="x_pos" default="-0.5"/>
+    <arg name="y_pos" default="0"/>
+    <arg name="z_pos" default="0.0"/>
+
+	<!--运行gazebo仿真环境-->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+        	<arg name="debug" value="$(arg debug)" />
+        	<arg name="gui" value="$(arg gui)" />
+        	<arg name="paused" value="$(arg paused)"/>
+        	<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        	<arg name="headless" value="$(arg headless)"/>
+		<arg name="world_name" value="$(find racecar_description)/worlds/racetrack.world"/>
+               <!-- .world文件的地址-->
+    	</include>
+
+	<!-- 加载机器人模型描述参数 -->
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find racecar_description)/urdf/racecar.urdf.xacro'"/>
+
+
+	<!--运行joint_state_publisher节点，发布机器人关节状态-->
+	<!--<node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "state_publisher">-->
+	<node name= "robot_state_publisher" pkg= "robot_state_publisher" type= "robot_state_publisher">
+		<param name="publish_frequency" type="double" value="20.0" />
+		<remap from="/joint_states" to="/racecar/joint_states"/>
+	</node>
+	    <!-- 在gazebo中加载机器人模型-->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model racecar -param robot_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/> 
+
+
+	 <!-- 从yaml文件加载联合控制器的参数 -->
+	<rosparam file="$(find bringup)/config/ctrl.yaml" command="load"/>
+	
+	<!-- 加载控制器 spawner -->
+	<node name="controller_manager" pkg="controller_manager" type="spawner" 
+	      respawn="false" output="screen" ns="/racecar" 
+	      args="left_rear_wheel_velocity_controller       right_rear_wheel_velocity_controller
+	            left_front_wheel_velocity_controller      right_front_wheel_velocity_controller
+	            left_steering_hinge_position_controller   right_steering_hinge_position_controller
+	            joint_state_controller"/>
+
+
+<node pkg="racecar_description" type="servo_commands.py" name="servo_commands" output="screen">
+</node>
+
+</launch>
+
+
+

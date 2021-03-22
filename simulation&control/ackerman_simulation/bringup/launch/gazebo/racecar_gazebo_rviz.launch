@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find bringup)/launch/gazebo/racecar.launch"></include>
+
+    <!-- Read joint positions from a GUI, then publish them to joint_states. -->
+    <!--<node name="joint_state_publisher" pkg="joint_state_publisher"
+          type="joint_state_publisher">
+        <param name="rate" value="30"/>
+        <param name="use_gui" value="true"/>
+    </node>-->
+
+    <node name="rviz" pkg="rviz" type="rviz"
+          args="-d $(find bringup)/rviz/racecar_urdf.rviz" required="true"/>
+
+
+<node name="gazebo_odometry" pkg="racecar_description" type="gazebo_odometry.py"/>
+
+</launch>
