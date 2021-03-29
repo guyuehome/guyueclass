@@ -37,8 +37,9 @@
 4. [《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/detail/p_6041a333e4b015860af3dba3/6)：smartcar_xunfei_simulation
 5. [《MATLAB+ROS开发MPC轨迹跟踪算法》](https://class.guyuehome.com/detail/p_60488679e4b0e51d821cbeb1/6)：matlab_ros_mpc
 6. [《如何在Gazebo中实现阿克曼转向车的仿真》](https://class.guyuehome.com/detail/p_60541530e4b05a6195c158f0/6)：ackerman_simulation
-7. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-8. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+7. [《四足机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_605af87be4b007b4183a42e7/6)：quadruped_robot_simulation
+8. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+9. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ### 人机交互（interaction）
 

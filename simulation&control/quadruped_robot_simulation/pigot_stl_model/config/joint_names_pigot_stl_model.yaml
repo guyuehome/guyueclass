@@ -1,0 +1,1 @@
+controller_joint_names: ['lf_rot_1', 'lf_rot_2', 'lf_rot_3', 'rf_rot_1', 'rf_rot_2', 'rf_rot_3', 'lb_rot_1', 'lb_rot_2', 'lb_rot_3', 'rb_rot_1', 'rb_rot_2', 'rb_rot_3', ]

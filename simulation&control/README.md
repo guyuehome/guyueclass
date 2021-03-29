@@ -6,6 +6,7 @@
 4. smartcar_xunfei_simulation：[《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/detail/p_6041a333e4b015860af3dba3/6) 
 5. matlab_ros_mpc：[《MATLAB+ROS开发MPC轨迹跟踪算法》](https://class.guyuehome.com/detail/p_60488679e4b0e51d821cbeb1/6)
 6. ackerman_simulation：[《如何在Gazebo中实现阿克曼转向车的仿真》](https://class.guyuehome.com/detail/p_60541530e4b05a6195c158f0/6)
+7. quadruped_robot_simulation：[《四足机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_605af87be4b007b4183a42e7/6)
 
 ------
 

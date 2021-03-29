@@ -1,0 +1,14 @@
+【四足机器人控制与仿真入门】
+官网地址：
+https://www.coppeliarobotics.com/
+
+旋转变换 ：  
+https://zhuanlan.zhihu.com/p/128155013
+
+四足机器人站立控制原理：
+https://zhuanlan.zhihu.com/p/64321561
+
+单腿逆解参考
+https://github.com/richardbloemenkamp/Robotdog
+
+
