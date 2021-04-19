@@ -1,0 +1,20 @@
+<!-- -->
+<launch>
+  <!--  node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node->
+  
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/usb_cam/image_raw"/>
+    <param name="autosize" value="true" />
+  </node-->
+
+  <node pkg="qr_tf" type="qr_tf" name="qr_tf" args="$(find qr_tf)/../data/param/out_camera_data.xml $(find qr_tf)/../data/param/sampleread.txt" output="screen">
+	  <remap from="/image_raw" to="/camera/color/image_raw"/>		
+  </node>
+</launch>

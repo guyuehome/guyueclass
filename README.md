@@ -18,16 +18,12 @@
 ### 规划感知（planning&perception）
 
 1. [《ROS常用SLAM功能包使用指南》](https://class.guyuehome.com/detail/p_5ed700a841cc8_UpE7PGXW/6) ：mbot_slam
-
 2. [《如何实现ROS机器人自主导航》](https://class.guyuehome.com/detail/p_5ee871cc4674f_R75Aafau/6) ：mbot_navigation
-
 3. [《PyTorch入门：一起从零搭建神经网络》](https://class.guyuehome.com/detail/p_5fbb2fd9e4b0231ba88829d0/6) ：number_distinguish
-
 4. [《ROS机器视觉开发入门》](https://class.guyuehome.com/detail/p_5efc3fe2f3a60_JH9Pammo/6) ：robot_vision_beginner
-
 5. [《MoveIt编程入门》](https://class.guyuehome.com/detail/p_5e8e8e85b1e8f_9TdYxswq/6) ：moveit_beginner
-
 6. [《Moveit编程技巧》](https://class.guyuehome.com/detail/p_5e99807f9ac65_rWrEfAGO/6) ：moveit_skill
+7. [《ROS二维码识别应用指南》](https://class.guyuehome.com/detail/p_607927b2e4b071a81eb28e86/6) ：qr_code
 
 ### 仿真控制（simulation&control）
 
