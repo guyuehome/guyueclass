@@ -1,0 +1,60 @@
+C51 COMPILER V9.57.0.0   LPF_DATA                                                          02/13/2020 09:12:16 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LPF_DATA
+OBJECT MODULE PLACED IN .\Objects\LPF_data.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LPF_data.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -LPF_data.lst) TABS(2) OBJECT(.\Objects\LPF_data.obj)
+
+line level    source
+
+   1          /*
+   2           * File: LPF_data.c
+   3           *
+   4           * Code generated for Simulink model 'LPF'.
+   5           *
+   6           * Model version                  : 1.11
+   7           * Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+   8           * C/C++ source code generated on : Thu Feb 13 09:10:53 2020
+   9           *
+  10           * Target selection: ert.tlc
+  11           * Embedded hardware selection: Intel->8051 Compatible
+  12           * Code generation objectives: Unspecified
+  13           * Validation result: Not run
+  14           */
+  15          
+  16          #include "LPF.h"
+  17          #include "LPF_private.h"
+  18          
+  19          /* Block parameters (default storage) */
+  20          P_LPF_T LPF_P = {
+  21            /* Variable: g
+  22             * Referenced by: '<S1>/Gain'
+  23             */
+  24            0.05,
+  25          
+  26            /* Expression: 0
+  27             * Referenced by: '<S1>/Unit Delay'
+  28             */
+  29            0.0
+  30          };
+  31          
+  32          /*
+  33           * File trailer for generated code.
+  34           *
+  35           * [EOF]
+  36           */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

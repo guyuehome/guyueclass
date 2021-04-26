@@ -1,0 +1,102 @@
+C51 COMPILER V9.57.0.0   RT_NONFINITE                                                      02/13/2020 09:12:16 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE RT_NONFINITE
+OBJECT MODULE PLACED IN .\Objects\rt_nonfinite.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE rt_nonfinite.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\rt_nonfinite.lst) TABS(2) OBJECT(.\Objects\rt_nonfinite.obj)
+
+line level    source
+
+   1          /*
+   2           * File: rt_nonfinite.c
+   3           *
+   4           * Code generated for Simulink model 'LPF'.
+   5           *
+   6           * Model version                  : 1.11
+   7           * Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+   8           * C/C++ source code generated on : Thu Feb 13 09:10:53 2020
+   9           *
+  10           * Target selection: ert.tlc
+  11           * Embedded hardware selection: Intel->8051 Compatible
+  12           * Code generation objectives: Unspecified
+  13           * Validation result: Not run
+  14           */
+  15          
+  16          /*
+  17           * Abstract:
+  18           *      Function to initialize non-finites,
+  19           *      (Inf, NaN and -Inf).
+  20           */
+  21          #include "rt_nonfinite.h"
+  22          #include "rtGetNaN.h"
+  23          #include "rtGetInf.h"
+  24          
+  25          real_T rtInf;
+  26          real_T rtMinusInf;
+  27          real_T rtNaN;
+  28          real32_T rtInfF;
+  29          real32_T rtMinusInfF;
+  30          real32_T rtNaNF;
+  31          
+  32          /*
+  33           * Initialize the rtInf, rtMinusInf, and rtNaN needed by the
+  34           * generated code. NaN is initialized as non-signaling. Assumes IEEE.
+  35           */
+  36          void rt_InitInfAndNaN(size_t realSize)
+  37          {
+  38   1        (void) (realSize);
+*** WARNING C275 IN LINE 38 OF rt_nonfinite.c: expression with possibly no effect
+  39   1        rtNaN = rtGetNaN();
+  40   1        rtNaNF = rtGetNaNF();
+  41   1        rtInf = rtGetInf();
+  42   1        rtInfF = rtGetInfF();
+  43   1        rtMinusInf = rtGetMinusInf();
+  44   1        rtMinusInfF = rtGetMinusInfF();
+  45   1      }
+  46          
+  47          /* Test if value is infinite */
+  48          boolean_T rtIsInf(real_T value)
+  49          {
+  50   1        return (boolean_T)((value==rtInf || value==rtMinusInf) ? 1U : 0U);
+  51   1      }
+  52          
+  53          /* Test if single-precision value is infinite */
+C51 COMPILER V9.57.0.0   RT_NONFINITE                                                      02/13/2020 09:12:16 PAGE 2   
+
+  54          boolean_T rtIsInfF(real32_T value)
+  55          {
+  56   1        return (boolean_T)(((value)==rtInfF || (value)==rtMinusInfF) ? 1U : 0U);
+  57   1      }
+  58          
+  59          /* Test if value is not a number */
+  60          boolean_T rtIsNaN(real_T value)
+  61          {
+  62   1        return (boolean_T)((value!=value) ? 1U : 0U);
+  63   1      }
+  64          
+  65          /* Test if single-precision value is not a number */
+  66          boolean_T rtIsNaNF(real32_T value)
+  67          {
+  68   1        return (boolean_T)(((value!=value) ? 1U : 0U));
+  69   1      }
+  70          
+  71          /*
+  72           * File trailer for generated code.
+  73           *
+  74           * [EOF]
+  75           */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    221    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     24      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

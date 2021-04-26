@@ -1,0 +1,97 @@
+C51 COMPILER V9.57.0.0   MAIN                                                              02/13/2020 09:12:16 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include "LPF.h"
+   3          #include "LPF_private.h"
+   4          #define uint unsigned int
+   5          #define uchar unsigned char
+   6          #define y P2
+   7          uint volt;//测量的电压值 
+   8          uchar addr;//测量地址位，指示测量的是哪一个模拟值 (其实就是TLC2543的控制字)
+   9          sbit CLK=P1^7;//定义时钟信号口
+  10          sbit DIN=P1^6;//定义2543数据写入口
+  11          sbit DOUT=P1^5;//定义2543数据读取口
+  12          sbit CS=P1^4;//定义2543片选信号口
+  13          sbit P2_5=P2^5;
+  14          /**********************************************************/
+  15          //函数名：read2543(uchar addr)
+  16          //功能：2543驱动程序
+  17          //调用函数：
+  18          //输入参数：addr
+  19          //输出参数：
+  20          //说明：进行ad转换将结果存于volt变量中 addr为测量位地址
+  21          /**********************************************************/
+  22          void read2543(uchar addr)
+  23          {
+  24   1        uint ad=0;
+  25   1        uchar i;
+  26   1        CLK=0;
+  27   1        CS=0;//片选段，启动2543
+  28   1        addr<<=4;//对地址位预处理
+  29   1        for(i=0;i<12;i++) //12个时钟走完，完成一次读取测量
+  30   1        {
+  31   2          if(DOUT==1)
+  32   2            ad=ad|0x01;//单片机读取ad数据
+  33   2          DIN=addr&0x80;//2543读取测量地址位
+  34   2          CLK=1;
+  35   2          ;;;//很短的延时
+  36   2          CLK=0;//产生下降沿，产生时钟信号
+  37   2          ;;;
+  38   2          addr<<=1;
+  39   2          ad<<=1;//将数据移位准备下一位的读写
+  40   2        }
+  41   1        CS=1;//关2543
+  42   1        ad>>=1;
+  43   1        volt=ad;//取走转换结果
+  44   1        }
+  45          /**********************************************************/
+  46          //主程序
+  47          /**********************************************************/
+  48          void main()
+  49          {
+  50   1        addr=0;
+  51   1        LPF_initialize();
+  52   1        TMOD=0x01;
+  53   1        TH0=0xD8;
+  54   1        TL0=0xF0;
+C51 COMPILER V9.57.0.0   MAIN                                                              02/13/2020 09:12:16 PAGE 2   
+
+  55   1        TR0=1;
+  56   1        EA=1;
+  57   1        ET0=1;
+  58   1        while(1)
+  59   1        {
+  60   2          read2543(addr);//调用2543驱动程序测量地址为0
+  61   2        }
+  62   1      }
+  63          void Timer0_ISR(void) interrupt 1
+  64          {
+  65   1        TH0=0xD8;
+  66   1        TL0=0xF0;
+  67   1        LPF_U.In1=volt;
+  68   1        LPF_step();
+  69   1        y=LPF_Y.Out1/16;
+  70   1        
+  71   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    172    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

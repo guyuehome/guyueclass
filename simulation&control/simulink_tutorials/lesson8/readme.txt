@@ -1,0 +1,4 @@
+Buck、Boost、Buck_boost：电力电子相关模型
+Three_phase_bridge_rectifier_circuit_r：电阻负载的三相桥式整流电路
+DC_Machine、Weak_magnetic、main、plot_initialize：直流电机特性曲线绘制
+PWM_motor：电机PWM控制

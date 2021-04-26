@@ -1,0 +1,9 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\LPF.obj",
+".\Objects\LPF_data.obj",
+".\Objects\rt_nonfinite.obj",
+".\Objects\rtGetInf.obj",
+".\Objects\rtGetNaN.obj" 
+TO ".\Objects\LPF_keil" 
+PRINT(".\Listings\LPF_keil.m51") RAMSIZE(256) 

@@ -1,0 +1,3 @@
+DCmotor_pwm_test：直流电机PWM调压调速
+pid_control、PID_test：使用M语言调节PID参数示例
+sim_test、test：M语言操作simulink模型示例

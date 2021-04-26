@@ -1,0 +1,7 @@
+-IF:/Simulink¿Î³Ì/lesson6
+-IF:/Simulink¿Î³Ì/lesson6/LPF_ert_rtw
+-IE:/Matlab2020a/extern/include
+-IE:/Matlab2020a/simulink/include
+-IE:/Matlab2020a/rtw/c/src
+-IE:/Matlab2020a/rtw/c/src/ext_mode/common
+-IE:/Matlab2020a/rtw/c/ert

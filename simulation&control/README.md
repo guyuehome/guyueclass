@@ -7,6 +7,7 @@
 5. matlab_ros_mpc：[《MATLAB+ROS开发MPC轨迹跟踪算法》](https://class.guyuehome.com/detail/p_60488679e4b0e51d821cbeb1/6)
 6. ackerman_simulation：[《如何在Gazebo中实现阿克曼转向车的仿真》](https://class.guyuehome.com/detail/p_60541530e4b05a6195c158f0/6)
 7. quadruped_robot_simulation：[《四足机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_605af87be4b007b4183a42e7/6)
+8. simulink_tutorials：[《Simulink仿真入门教学》](https://class.guyuehome.com/detail/p_6080f55ee4b071a81eb4598e/6)
 
 ------
 

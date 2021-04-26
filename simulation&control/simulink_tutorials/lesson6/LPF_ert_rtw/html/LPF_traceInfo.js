@@ -1,0 +1,33 @@
+function RTW_rtwnameSIDMap() {
+	this.rtwnameHashMap = new Array();
+	this.sidHashMap = new Array();
+	this.rtwnameHashMap["<Root>"] = {sid: "LPF"};
+	this.sidHashMap["LPF"] = {rtwname: "<Root>"};
+	this.rtwnameHashMap["<S1>"] = {sid: "LPF:55"};
+	this.sidHashMap["LPF:55"] = {rtwname: "<S1>"};
+	this.rtwnameHashMap["<Root>/In1"] = {sid: "LPF:41"};
+	this.sidHashMap["LPF:41"] = {rtwname: "<Root>/In1"};
+	this.rtwnameHashMap["<Root>/Data Type Conversion"] = {sid: "LPF:49"};
+	this.sidHashMap["LPF:49"] = {rtwname: "<Root>/Data Type Conversion"};
+	this.rtwnameHashMap["<Root>/Data Type Conversion1"] = {sid: "LPF:51"};
+	this.sidHashMap["LPF:51"] = {rtwname: "<Root>/Data Type Conversion1"};
+	this.rtwnameHashMap["<Root>/LPF"] = {sid: "LPF:55"};
+	this.sidHashMap["LPF:55"] = {rtwname: "<Root>/LPF"};
+	this.rtwnameHashMap["<Root>/Out1"] = {sid: "LPF:42"};
+	this.sidHashMap["LPF:42"] = {rtwname: "<Root>/Out1"};
+	this.rtwnameHashMap["<S1>/In1"] = {sid: "LPF:56"};
+	this.sidHashMap["LPF:56"] = {rtwname: "<S1>/In1"};
+	this.rtwnameHashMap["<S1>/Add"] = {sid: "LPF:58"};
+	this.sidHashMap["LPF:58"] = {rtwname: "<S1>/Add"};
+	this.rtwnameHashMap["<S1>/Add1"] = {sid: "LPF:59"};
+	this.sidHashMap["LPF:59"] = {rtwname: "<S1>/Add1"};
+	this.rtwnameHashMap["<S1>/Gain"] = {sid: "LPF:65"};
+	this.sidHashMap["LPF:65"] = {rtwname: "<S1>/Gain"};
+	this.rtwnameHashMap["<S1>/Unit Delay"] = {sid: "LPF:61"};
+	this.sidHashMap["LPF:61"] = {rtwname: "<S1>/Unit Delay"};
+	this.rtwnameHashMap["<S1>/Out1"] = {sid: "LPF:62"};
+	this.sidHashMap["LPF:62"] = {rtwname: "<S1>/Out1"};
+	this.getSID = function(rtwname) { return this.rtwnameHashMap[rtwname];}
+	this.getRtwname = function(sid) { return this.sidHashMap[sid];}
+}
+RTW_rtwnameSIDMap.instance = new RTW_rtwnameSIDMap();

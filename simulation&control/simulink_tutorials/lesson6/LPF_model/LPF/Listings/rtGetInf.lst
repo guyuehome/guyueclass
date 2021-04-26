@@ -1,0 +1,173 @@
+C51 COMPILER V9.57.0.0   RTGETINF                                                          02/13/2020 09:12:16 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE RTGETINF
+OBJECT MODULE PLACED IN .\Objects\rtGetInf.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE rtGetInf.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -rtGetInf.lst) TABS(2) OBJECT(.\Objects\rtGetInf.obj)
+
+line level    source
+
+   1          /*
+   2           * File: rtGetInf.c
+   3           *
+   4           * Code generated for Simulink model 'LPF'.
+   5           *
+   6           * Model version                  : 1.11
+   7           * Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+   8           * C/C++ source code generated on : Thu Feb 13 09:10:53 2020
+   9           *
+  10           * Target selection: ert.tlc
+  11           * Embedded hardware selection: Intel->8051 Compatible
+  12           * Code generation objectives: Unspecified
+  13           * Validation result: Not run
+  14           */
+  15          
+  16          /*
+  17           * Abstract:
+  18           *      Function to initialize non-finite, Inf
+  19           */
+  20          #include "rtGetInf.h"
+  21          #define NumBitsPerChar                 8U
+  22          
+  23          /*
+  24           * Initialize rtInf needed by the generated code.
+  25           * Inf is initialized as non-signaling. Assumes IEEE.
+  26           */
+  27          real_T rtGetInf(void)
+  28          {
+  29   1        size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
+  30   1        real_T inf = 0.0;
+  31   1        if (bitsPerReal == 32U) {
+  32   2          inf = rtGetInfF();
+  33   2        } else {
+  34   2          uint16_T one = 1U;
+  35   2          enum {
+  36   2            LittleEndian,
+  37   2            BigEndian
+  38   2          } machByteOrder = (*((uint8_T *) &one) == 1U) ? LittleEndian : BigEndian;
+  39   2          switch (machByteOrder) {
+  40   3           case LittleEndian:
+  41   3            {
+  42   4              union {
+  43   4                LittleEndianIEEEDouble bitVal;
+  44   4                real_T fltVal;
+  45   4              } tmpVal;
+  46   4      
+  47   4              tmpVal.bitVal.words.wordH = 0x7FF00000U;
+  48   4              tmpVal.bitVal.words.wordL = 0x00000000U;
+  49   4              inf = tmpVal.fltVal;
+  50   4              break;
+  51   4            }
+  52   3      
+  53   3           case BigEndian:
+  54   3            {
+C51 COMPILER V9.57.0.0   RTGETINF                                                          02/13/2020 09:12:16 PAGE 2   
+
+  55   4              union {
+  56   4                BigEndianIEEEDouble bitVal;
+  57   4                real_T fltVal;
+  58   4              } tmpVal;
+  59   4      
+  60   4              tmpVal.bitVal.words.wordH = 0x7FF00000U;
+  61   4              tmpVal.bitVal.words.wordL = 0x00000000U;
+  62   4              inf = tmpVal.fltVal;
+  63   4              break;
+  64   4            }
+  65   3          }
+  66   2        }
+  67   1      
+  68   1        return inf;
+  69   1      }
+  70          
+  71          /*
+  72           * Initialize rtInfF needed by the generated code.
+  73           * Inf is initialized as non-signaling. Assumes IEEE.
+  74           */
+  75          real32_T rtGetInfF(void)
+  76          {
+  77   1        IEEESingle infF;
+  78   1        infF.wordL.wordLuint = 0x7F800000U;
+  79   1        return infF.wordL.wordLreal;
+  80   1      }
+  81          
+  82          /*
+  83           * Initialize rtMinusInf needed by the generated code.
+  84           * Inf is initialized as non-signaling. Assumes IEEE.
+  85           */
+  86          real_T rtGetMinusInf(void)
+  87          {
+  88   1        size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
+  89   1        real_T minf = 0.0;
+  90   1        if (bitsPerReal == 32U) {
+  91   2          minf = rtGetMinusInfF();
+  92   2        } else {
+  93   2          uint16_T one = 1U;
+  94   2          enum {
+  95   2            LittleEndian,
+  96   2            BigEndian
+  97   2          } machByteOrder = (*((uint8_T *) &one) == 1U) ? LittleEndian : BigEndian;
+  98   2          switch (machByteOrder) {
+  99   3           case LittleEndian:
+ 100   3            {
+ 101   4              union {
+ 102   4                LittleEndianIEEEDouble bitVal;
+ 103   4                real_T fltVal;
+ 104   4              } tmpVal;
+ 105   4      
+ 106   4              tmpVal.bitVal.words.wordH = 0xFFF00000U;
+ 107   4              tmpVal.bitVal.words.wordL = 0x00000000U;
+ 108   4              minf = tmpVal.fltVal;
+ 109   4              break;
+ 110   4            }
+ 111   3      
+ 112   3           case BigEndian:
+ 113   3            {
+ 114   4              union {
+ 115   4                BigEndianIEEEDouble bitVal;
+ 116   4                real_T fltVal;
+C51 COMPILER V9.57.0.0   RTGETINF                                                          02/13/2020 09:12:16 PAGE 3   
+
+ 117   4              } tmpVal;
+ 118   4      
+ 119   4              tmpVal.bitVal.words.wordH = 0xFFF00000U;
+ 120   4              tmpVal.bitVal.words.wordL = 0x00000000U;
+ 121   4              minf = tmpVal.fltVal;
+ 122   4              break;
+ 123   4            }
+ 124   3          }
+ 125   2        }
+ 126   1      
+ 127   1        return minf;
+ 128   1      }
+ 129          
+ 130          /*
+ 131           * Initialize rtMinusInfF needed by the generated code.
+ 132           * Inf is initialized as non-signaling. Assumes IEEE.
+ 133           */
+ 134          real32_T rtGetMinusInfF(void)
+ 135          {
+ 136   1        IEEESingle minfF;
+ 137   1        minfF.wordL.wordLuint = 0xFF800000U;
+ 138   1        return minfF.wordL.wordLreal;
+ 139   1      }
+ 140          
+ 141          /*
+ 142           * File trailer for generated code.
+ 143           *
+ 144           * [EOF]
+ 145           */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    280    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      38
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
