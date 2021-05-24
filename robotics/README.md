@@ -2,6 +2,7 @@
 
 1. spatial_transformations：[《关节机器人-空间描述和变换》](https://class.guyuehome.com/detail/p_6094a512e4b0d4eb03978506/6)
 2. path_planning：[《基于栅格地图的机器人路径规划算法指南》](https://class.guyuehome.com/detail/p_6098db8ce4b071a81eb8befa/6)
+3. forward_kinematics：[《机器人正运动学》](https://class.guyuehome.com/detail/p_60a7277de4b0c7264217a87d/6) 
 
 ------
 
