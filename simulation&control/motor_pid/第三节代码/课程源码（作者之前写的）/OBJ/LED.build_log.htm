@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 1, 1, LIC=UJWQD-8KCHQ-HLTCL-0S35Q-4BUKK-CFEBJ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.27.1.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.27.1.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+C:\Users\lyy\Desktop\PID¿Î³Ì\STM32´úÂë\USER\LED.uvprojx
+Project File Date:  05/12/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'LED'
+compiling motor.c...
+compiling pid.c...
+compiling main.c...
+main.c(48): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 1 warning, 0 errors
+compiling oled.c...
+..\HARDWARE\OLED\oled.c(174): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if((x1<0)||(x2>128)||(y1<0)||(y2>64)||(x1>x2)||(y1>y2))return;
+..\HARDWARE\OLED\oled.c(174): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	if((x1<0)||(x2>128)||(y1<0)||(y2>64)||(x1>x2)||(y1>y2))return;
+..\HARDWARE\OLED\oled.c(173): warning:  #177-D: variable "y0"  was declared but never referenced
+  	u8 i,k,k1,k2,y0;
+..\HARDWARE\OLED\oled.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=18130 RO-data=6862 RW-data=88 ZI-data=2808  
+FromELF: creating hex file...
+"..\OBJ\LED.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_LED
+  C:\Users\lyy\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

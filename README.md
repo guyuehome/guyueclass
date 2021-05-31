@@ -28,24 +28,16 @@
 ### 仿真控制（simulation&control）
 
 1. [《如何入门webots机器人仿真神器》](https://class.guyuehome.com/detail/v_5f213a94e4b074dda144b2e2/3) ：webots_basic
-
 2. [《如何实现ROS与Webots联合仿真》](https://class.guyuehome.com/detail/p_5f586de6e4b0b5edf0a12687/6) ：webots_ros
-
 3. [《MATLAB与ROS联合快速开发控制算法》](https://class.guyuehome.com/detail/p_5f39e38fe4b0dd4d97492948/6) ：matlab_ros_basic
-
 4. [《讯飞创意组机器人导航原理与仿真指南》](https://class.guyuehome.com/detail/p_6041a333e4b015860af3dba3/6)：smartcar_xunfei_simulation
-
 5. [《MATLAB+ROS开发MPC轨迹跟踪算法》](https://class.guyuehome.com/detail/p_60488679e4b0e51d821cbeb1/6)：matlab_ros_mpc
-
 6. [《如何在Gazebo中实现阿克曼转向车的仿真》](https://class.guyuehome.com/detail/p_60541530e4b05a6195c158f0/6)：ackerman_simulation
-
 7. [《四足机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_605af87be4b007b4183a42e7/6)：quadruped_robot_simulation
-
 8. [《Simulink仿真入门教学》](https://class.guyuehome.com/detail/p_6080f55ee4b071a81eb4598e/6)：simulink_tutorials
-
-9. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-
-10. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+9. [《通过电机控制学习PID算法》](https://class.guyuehome.com/detail/p_60af0706e4b0f120ffc15acd/6)：motor_pid
+10. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+11. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ### 机器人学（robotics）
 1. [《关节机器人-空间描述和变换》](https://class.guyuehome.com/detail/p_6094a512e4b0d4eb03978506/6) ：spatial_transformations
