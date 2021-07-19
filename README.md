@@ -37,8 +37,9 @@
 8. [《Simulink仿真入门教学》](https://class.guyuehome.com/detail/p_6080f55ee4b071a81eb4598e/6)：simulink_tutorials
 9. [《基于Matlab的simulink机械臂可视化仿真教程》](https://class.guyuehome.com/detail/p_60d42a7fe4b0f120ffca3b55/6)：simulink_arm_simulation
 10. [《通过电机控制学习PID算法》](https://class.guyuehome.com/detail/p_60af0706e4b0f120ffc15acd/6)：motor_pid
-11. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-12. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+11. [《通过车道保持来学习PID控制》](https://class.guyuehome.com/detail/p_60ef9e6fe4b0041622bc75c0/6)：simulink_pid_carsim
+12. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+13. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ### 机器人学（robotics）
 1. [《关节机器人-空间描述和变换》](https://class.guyuehome.com/detail/p_6094a512e4b0d4eb03978506/6) ：spatial_transformations
