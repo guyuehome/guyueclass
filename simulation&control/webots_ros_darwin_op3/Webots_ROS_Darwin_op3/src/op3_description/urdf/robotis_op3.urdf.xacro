@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robotis_op3">
+
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.visuals.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.inertia.xacro" />
+
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.structure.rleg.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.structure.lleg.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.structure.rarm.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.structure.larm.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.structure.head.xacro" />
+
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.gazebo.xacro" />
+  <xacro:include filename="$(find op3_description)/urdf/robotis_op3.transmissions.xacro" />
+
+  <!--
+  <xacro:include filename="$(find op3_description)/urdf/gazebo_harness.xacro" />
+  -->
+
+  <!-- harness link -->
+  <!--
+  <xacro:add_sim_harness harnessed_link="body_link"/>
+  -->
+
+  <link name="world">
+  </link>
+
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base"/>
+  </joint>
+
+  <link name="base">
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base"/>
+    <child link="body_link"/>
+  </joint>
+
+  <!-- body link -->
+  <link name="body_link">
+    <visual>
+      <xacro:insert_mesh_body_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_body_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_body_link />
+    </inertial>
+  </link>
+
+  <!-- leg link -->
+  <xacro:robotis_op3_l_leg parent="body_link" />
+  <xacro:robotis_op3_r_leg parent="body_link" />
+
+  <!-- arm link -->
+  <xacro:robotis_op3_l_arm parent="body_link" />
+  <xacro:robotis_op3_r_arm parent="body_link" />
+
+  <!-- head links -->
+  <xacro:robotis_op3_head parent="body_link" />
+
+</robot>

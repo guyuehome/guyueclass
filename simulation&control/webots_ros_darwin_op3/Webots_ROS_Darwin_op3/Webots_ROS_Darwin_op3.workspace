@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Workspace>
+    <Distribution path="/opt/ros/kinetic"/>
+    <DefaultBuildSystem value="0"/>
+    <WatchDirectories>
+        <Directory>src</Directory>
+    </WatchDirectories>
+</Workspace>

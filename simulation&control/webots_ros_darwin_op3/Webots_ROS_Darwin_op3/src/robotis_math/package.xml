@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotis_math</name>
+  <version>0.2.6</version>
+  <description>
+    This package is a set of basic math fuctions for ROBOTIS's robots.
+    We provide some linear algebra and trajectory generation funntions and classes.
+  </description>
+  <license>Apache 2.0</license>
+  <author email="sch@robotis.com">SCH</author>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <author>Jay Song</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="website">http://wiki.ros.org/robotis_math</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-Math</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-Math/issues</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>eigen</depend>
+</package>

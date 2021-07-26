@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>op3_description</name>
+  <version>0.1.1</version>
+  <description>
+    The op3_description package
+  </description>
+  <license>Apache 2.0</license>
+  <author email="sch@robotis.com">SCH</author>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="website">http://wiki.ros.org/op3_description</url>
+  <url type="emanual">http://emanual.robotis.com/docs/en/platform/op3/introduction/</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-OP3-Common</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-OP3-Common/issues</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+</package>

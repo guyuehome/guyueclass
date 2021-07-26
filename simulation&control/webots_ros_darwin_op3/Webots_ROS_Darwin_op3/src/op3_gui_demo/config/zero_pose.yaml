@@ -1,0 +1,20 @@
+# time parameter
+
+mov_time : 3.0		# movement time
+
+# target pose [deg]
+
+tar_pose :
+  r_hip_yaw   : 0.0
+  r_hip_roll  : 0.0
+  r_hip_pitch : 0.0
+  r_knee      : 0.0
+  r_ank_pitch : 0.0
+  r_ank_roll  : 0.0
+  l_hip_yaw   : 0.0
+  l_hip_roll  : 0.0
+  l_hip_pitch : 0.0
+  l_knee      : 0.0
+  l_ank_pitch : 0.0
+  l_ank_roll  : 0.0
+

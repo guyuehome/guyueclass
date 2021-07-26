@@ -1,0 +1,30 @@
+id_joint:
+  1  : r_sho_pitch
+  2  : l_sho_pitch
+  3  : r_sho_roll
+  4  : l_sho_roll
+  5  : r_el
+  6  : l_el
+  7  : r_hip_yaw
+  8  : l_hip_yaw
+  9  : r_hip_roll
+  10 : l_hip_roll
+  11 : r_hip_pitch
+  12 : l_hip_pitch
+  13 : r_knee
+  14 : l_knee
+  15 : r_ank_pitch
+  16 : l_ank_pitch
+  17 : r_ank_roll
+  18 : l_ank_roll
+  19 : head_pan 
+  20 : head_tilt
+  200 : opencr
+module_list: [none, head_control_module, base_module, walking_module, manipulation_module, action_module, walking_module, direct_control_module, online_walking_module]
+module_button:
+  1 : none
+  2 : head_control_module
+  3 : action_module
+  4 : walking_module
+  5 : online_walking_module
+  6 : direct_control_module

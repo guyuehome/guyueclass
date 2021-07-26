@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find op3_description)/urdf/robotis_op3.urdf.xacro'"/>
+
+  <!-- send joint values -->
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="use_gui" value="TRUE"/>
+  </node>
+
+  <!-- Combine joint values -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+
+  <!-- Show in Rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find op3_description)/rviz/op3.rviz"/>
+</launch>

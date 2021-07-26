@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!--
+  <xacro:property name="pi" value="3.141592654" />
+  -->
+
+  <!-- head -->
+  <xacro:macro name="robotis_op3_head" params="parent">
+
+  <!-- head yaw joint -->
+  <joint name="head_pan" type="revolute">
+    <parent link="${parent}"/>
+    <child link="head_pan_link"/>
+    <origin xyz="-0.001 0.0 0.1365" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="1000" velocity="100" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="head_pan" />
+
+  <!-- head yaw link -->
+  <link name="head_pan_link">
+    <visual>
+      <xacro:insert_mesh_head_pan_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_head_pan_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_head_pan_link />
+    </inertial>
+  </link>
+
+  <!-- head pitch joint -->
+  <joint name="head_tilt" type="revolute">
+    <parent link="head_pan_link"/>
+    <child link="head_tilt_link"/>
+    <origin xyz="0.010 0.019 0.0285" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit effort="1000" velocity="100" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="head_tilt" />
+
+  <!-- head yaw link -->
+  <link name="head_tilt_link">
+    <visual>
+      <xacro:insert_mesh_head_tilt_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_head_tilt_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_head_tilt_link />
+    </inertial>
+  </link>
+
+  <!-- camera joint -->
+  <joint name="cam" type="fixed">
+    <origin xyz="0.01425 -0.019 0.04975" rpy="${-pi*0.5} 0 ${-pi*0.5}"/>
+    <parent link="head_tilt_link"/>
+    <child link="cam_link"/>
+  </joint>
+
+<!--  <joint name="cam_gazebo" type="fixed">
+    <origin xyz="0.01425 -0.019 0.04975" rpy="0 0 0"/>
+    <parent link="head_tilt_link"/>
+    <child link="cam_gazebo_link"/>
+  </joint>-->
+
+  <!-- camera link -->
+  <link name="cam_link">
+  </link>
+
+  <!-- camera link -->
+<!--  <link name="cam_gazebo_link">
+  </link>-->
+
+  </xacro:macro>
+
+</robot>

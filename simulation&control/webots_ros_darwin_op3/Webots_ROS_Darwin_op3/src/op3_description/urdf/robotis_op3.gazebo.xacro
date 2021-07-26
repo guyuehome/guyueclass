@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/robotis_op3</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- body link -->
+  <gazebo reference="body_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <!-- left leg links -->
+  <gazebo reference="l_hip_yaw_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_hip_roll_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_hip_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_knee_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_ank_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_ank_roll_link">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+    <fdir1>1 0 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <!-- right leg links -->
+  <gazebo reference="r_hip_yaw_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_hip_roll_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_hip_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_knee_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_ank_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_ank_roll_link">
+    <mu1>9000</mu1>
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+    <fdir1>1 0 0</fdir1>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.001</minDepth>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="r_sho_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_sho_roll_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="r_el_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_sho_pitch_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_sho_roll_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="l_el_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="head_pan_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo reference="head_tilt_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+<!--
+  <gazebo reference="l_hip_yaw">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_hip_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_hip_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_knee">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_ank_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_ank_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_hip_yaw">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_hip_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_hip_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_knee">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_ank_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_ank_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_sho_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_sho_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="r_el">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_sho_pitch">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_sho_roll">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="l_el">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="head_pan">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+
+  <gazebo reference="head_tilt">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+  </gazebo>
+-->
+
+  <!-- head camera -->
+
+  <gazebo reference="cam_gazebo_link">
+    <sensor name='camera' type='camera'>
+      <pose>-0.050000 -0.010000 0.000000 -1.5708 0.000000 -3.141592</pose>
+      <camera name='__default__'>
+        <horizontal_fov>1.012300</horizontal_fov>
+        <image>
+          <width>320</width>
+          <height>200</height>
+        </image>
+        <clip>
+          <near>0.001000</near>
+          <far>100.000000</far>
+        </clip>
+      </camera>
+      <always_on>1</always_on>
+      <update_rate>30.000000</update_rate>
+      <visualize>1</visualize>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        <cameraName>robotis_op3/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>cam_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- imu sensor -->
+  <gazebo reference="body_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>robotis_op3/imu</topicName>
+        <bodyName>body_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>body_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+</robot>

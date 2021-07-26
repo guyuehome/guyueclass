@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_op3">
+  <xacro:macro name="add_sim_harness" params="harnessed_link">
+    <gazebo>
+      <plugin filename="libgazebo_ros_harness.so" name="harness">
+        <joint name="harness_joint" type="prismatic">
+          <pose>0 0 0 0 0 0</pose>
+          <parent>world</parent>
+          <child>${harnessed_link}</child>
+          <axis>
+            <xyz>0 0 1</xyz>
+            <dynamics>
+              <damping>10</damping>
+            </dynamics>
+            <limit>
+              <lower>-0.1</lower>
+              <upper>0.1</upper>
+              <effort>10000</effort>
+              <velocity>-1</velocity>
+              <stiffness>0</stiffness>
+              <dissipation>0</dissipation>
+            </limit>
+          </axis>
+          <physics>
+            <ode>
+              <implicit_spring_damper>1</implicit_spring_damper>
+              <limit>
+                <cfm>0.0</cfm>
+                <erp>0.0</erp>
+              </limit>
+            </ode>
+          </physics>
+        </joint>
+
+        <!-- The joint that raises or lowers the harness -->
+        <winch>
+          <joint>harness_joint</joint>
+
+          <!-- PID value for velocity control of the winch. These values
+               are tuned to work with this box model. -->
+          <pos_pid>
+            <p>4e3</p>
+            <i>0</i>
+            <d>0</d>
+            <i_min>0</i_min>
+            <i_max>0</i_max>
+            <cmd_min>-1e4</cmd_min>
+            <cmd_max>1e4</cmd_max>
+          </pos_pid>
+          <vel_pid>
+            <p>4e3</p>
+            <i>0</i>
+            <d>0</d>
+            <i_min>0</i_min>
+            <i_max>0</i_max>
+            <cmd_min>0</cmd_min>
+            <cmd_max>1e4</cmd_max>
+          </vel_pid>
+        </winch>
+
+        <!-- Joint to detach. Once the joint is detached, it cannot be
+             reattached. This must be a joint specified within the
+             body of this plugin. -->
+        <detach>harness_joint</detach>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+</robot>

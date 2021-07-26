@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>op3_walking_module</name>
+  <version>0.2.1</version>
+  <description>
+    The op3_walking_module package
+  </description>
+  <license>Apache 2.0</license>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="website">http://wiki.ros.org/op3_walking_module</url>
+  <url type="emanual">http://emanual.robotis.com/docs/en/platform/op3/introduction/</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-OP3</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-OP3/issues</url>l>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>roslib</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>robotis_controller_msgs</depend>
+  <depend>op3_walking_module_msgs</depend>
+  <depend>cmake_modules</depend>
+  <depend>eigen_conversions</depend>
+  <depend>robotis_framework_common</depend>
+  <depend>robotis_device</depend>
+  <depend>robotis_math</depend>
+  <depend>op3_kinematics_dynamics</depend>
+  <depend>boost</depend>
+  <depend>eigen</depend>
+  <depend>yaml-cpp</depend>
+</package>

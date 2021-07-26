@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>        
+  <!-- OP3 Manager -->
+  <include file="$(find op3_manager)/launch/op3_manager.launch" />	
+	
+  <!-- UVC camera -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam_node" output="screen">
+    <param name="video_device" type="string" value="/dev/video0" />
+    <param name="image_width" type="int" value="1280" />
+    <param name="image_height" type="int" value="720" />
+    <param name="framerate " type="int" value="30" />
+    <param name="camera_frame_id" type="string" value="cam_link" />
+    <param name="camera_name" type="string" value="camera" />
+  </node>
+</launch>

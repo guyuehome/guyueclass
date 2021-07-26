@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start Webots -->
+  <arg name="no_gui" default="false," doc="Start Webots with minimal GUI"/>
+  <include file="$(find webots_ros)/launch/webots.launch">
+    <arg name="mode" value="realtime"/>
+    <arg name="no_gui" value="$(arg no_gui)"/>
+    <arg name="world" value="$(find op3_webots_controller)/robots/darwin-op/worlds/robotis_op3.wbt"/>
+  </include>
+  <arg name="duration" default="20" doc="Duration in seconds"/>
+  <arg name="auto_close" default="false" doc="Startup mode"/>
+</launch>
+

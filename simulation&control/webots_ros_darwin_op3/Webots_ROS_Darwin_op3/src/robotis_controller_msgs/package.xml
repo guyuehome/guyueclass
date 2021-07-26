@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotis_controller_msgs</name>
+  <version>0.1.4</version>
+  <description>
+    This package includes ROS messages and services for robotis_framework packages
+  </description>
+  <license>Apache 2.0</license>
+  <author email="zerom@robotis.com">Zerom</author>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="website">http://wiki.ros.org/robotis_controller_msgs</url>
+  <url type="emanual">http://emanual.robotis.com/docs/en/software/robotis_framework_packages/</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-Framework-msgs/issues</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>message_runtime</build_export_depend>
+  <exec_depend>message_runtime</exec_depend>
+</package>

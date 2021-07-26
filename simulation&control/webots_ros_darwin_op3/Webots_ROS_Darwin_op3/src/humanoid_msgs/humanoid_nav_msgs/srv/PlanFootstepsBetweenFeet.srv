@@ -1,0 +1,11 @@
+humanoid_nav_msgs/StepTarget start_left
+humanoid_nav_msgs/StepTarget start_right
+humanoid_nav_msgs/StepTarget goal_left
+humanoid_nav_msgs/StepTarget goal_right
+---
+bool result
+humanoid_nav_msgs/StepTarget[] footsteps
+float64 costs
+float64 final_eps
+float64 planning_time
+int64 expanded_states

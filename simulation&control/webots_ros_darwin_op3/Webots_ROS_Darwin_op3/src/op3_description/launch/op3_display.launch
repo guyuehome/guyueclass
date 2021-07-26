@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find op3_description)/urdf/robotis_op3.urdf.xacro'"/>
+
+  <!-- Send fake joint values -->
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="use_gui" value="TRUE"/>
+    <rosparam param="/source_list">[/robotis/present_joint_states]</rosparam>
+  </node>
+
+  <!-- Combine joint values -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <remap from="/joint_states" to="/robotis/present_joint_states" />
+  </node>
+
+  <!-- Show in Rviz   -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find op3_description)/rviz/op.rviz"/>
+</launch>

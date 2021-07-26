@@ -1,0 +1,27 @@
+1.参考网站
+Robotis Github 仓库
+https://github.com/ROBOTIS-GIT/
+
+Robotis op3 电子手册
+https://emanual.robotis.com/docs/en/platform/op3/introduction/
+
+Stephane caron
+https://scaron.info/
+
+Dr Guero
+http://ai2001.ifdef.jp/ 
+2. 参考书籍
+
+《仿人机器人》kajita
+《Feedback Control of Dynamic Bipedal Robot Locomotion》
+《Humanoid Robotics： A Reference》
+
+3.参考论文和课程
+Online Learning of a Full Body Push Recovery Controller for Omnidirectional Walking
+Capture Point: A Step toward Humanoid Push Recovery
+Bipedal walking control based on Capture Point dynamics
+Balance recovery through model predictive control based on capture point dynamics for biped walking robot
+Combining reduced dynamics models and whole-body control for agile humanoid locomotion
+双足行走机器人步态规划与控制的理论和技术框架- 赵明国
+Combining reduced dynamics models and whole-body control for agile humanoid locomotion
+

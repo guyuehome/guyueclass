@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!--
+  <xacro:property name="pi" value="3.141592654" />
+  -->
+
+  <!-- right arm -->
+  <xacro:macro name="robotis_op3_r_arm" params="parent">
+
+  <!-- right shoulder pitch joint -->
+  <joint name="r_sho_pitch" type="revolute">
+    <parent link="${parent}"/>
+    <child link="r_sho_pitch_link"/>
+    <origin xyz="-0.001 -0.06 0.111" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit effort="1000" velocity="100" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_sho_pitch" />
+
+  <!-- right shoulder pitch link -->
+  <link name="r_sho_pitch_link">
+    <visual>
+      <xacro:insert_mesh_r_sho_pitch_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_r_sho_pitch_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_sho_pitch_link />
+    </inertial>
+  </link>
+
+  <!-- right shoulder roll joint -->
+  <joint name="r_sho_roll" type="revolute">
+    <parent link="r_sho_pitch_link"/>
+    <child link="r_sho_roll_link"/>
+    <origin xyz="0.019 -0.0285 -0.010" rpy="0 0 0" />
+    <axis xyz="-1 0 0" />
+    <limit effort="1000" velocity="100" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_sho_roll" />
+
+  <!-- right shoulder roll link -->
+  <link name="r_sho_roll_link">
+    <visual>
+      <xacro:insert_mesh_r_sho_roll_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_r_sho_roll_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_sho_roll_link />
+    </inertial>
+  </link>
+
+  <!-- right elbow joint -->
+  <joint name="r_el" type="revolute">
+    <parent link="r_sho_roll_link"/>
+    <child link="r_el_link"/>
+    <origin xyz="0.0 -0.0904 -0.0001" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit effort="1000" velocity="100" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_el" />
+
+  <!-- right elbow link -->
+  <link name="r_el_link">
+    <visual>
+      <xacro:insert_mesh_r_el_link />
+    </visual>
+    <collision>
+      <xacro:insert_mesh_r_el_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_el_link />
+    </inertial>
+  </link>
+
+  </xacro:macro>
+
+</robot>

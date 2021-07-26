@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotis_framework_common</name>
+  <version>0.2.9</version>
+  <description>
+    The package contains commonly used Headers for the ROBOTIS Framework.
+  </description>
+  <license>Apache 2.0</license>
+  <author email="zerom@robotis.com">Zerom</author>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <author email="sch@robotis.com">SCH</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="website">http://wiki.ros.org/robotis_framework_common</url>
+  <url type="emanual">http://emanual.robotis.com/docs/en/software/robotis_framework_packages/</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-Framework</url>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-Framework/issues</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>robotis_device</depend>
+</package>
