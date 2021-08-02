@@ -1,0 +1,38 @@
+controller_list:
+  - name: fake_right_arm_controller
+    type: $(arg execution_type)
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+  - name: fake_left_arm_controller
+    type: $(arg execution_type)
+    joints:
+      - joint8
+      - joint9
+      - joint10
+      - joint11
+      - joint12
+  - name: fake_right_effectors_controller
+    type: $(arg execution_type)
+    joints:
+      - joint5
+      - joint6
+      - joint7
+  - name: fake_left_effectors_controller
+    type: $(arg execution_type)
+    joints:
+      - joint12
+      - joint13
+      - joint14
+initial:  # Define initial robot poses.
+  - group: right_arm
+    pose: right_home
+  - group: left_arm
+    pose: left_home
+  - group: right_effectors
+    pose: right_open
+  - group: left_effectors
+    pose: left_close
