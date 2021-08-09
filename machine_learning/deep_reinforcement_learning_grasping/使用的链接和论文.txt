@@ -1,0 +1,32 @@
+【链接】
+强化学习在腾讯字节启元华为等公司的应用，https://www.bilibili.com/video/BV1hZ4y1c76H
+自定义并注册Gym环境，https://www.guyuehome.com/34389
+创建Pybullet的Gym环境，https://www.guyuehome.com/34390
+mujoco的介绍视频，http://www.mujoco.org/image/home/mujocodemo.mp4
+PyBullet官网，https://pybullet.org/wordpress
+Bullet引擎的百科，https://zh.wikipedia.org/wiki/Bullet
+强化学习超级玛丽代码，https://github.com/gaoxiaos/Supermariobros-PPO-pytorch
+spinup添加gpu支持的参考，https://medium.com/@xiaohanzhang1985/enable-gpu-for-soft-actor-critic-with-4-lines-of-codes-7c02e757fd6c
+rllib的文档，https://docs.ray.io/en/master/rllib.html
+stable baselines的官网，https://stable-baselines.readthedocs.io/en/master/
+天授官网，https://github.com/thu-ml/tianshou
+elegantrl的介绍，https://zhuanlan.zhihu.com/p/358560363
+pg is all you need, https://github.com/MrSyee/pg-is-all-you-need
+rainbow is all you need, https://github.com/Curt-Park/rainbow-is-all-you-need
+easy rl学习文档，https://datawhalechina.github.io/easy-rl/#/
+bug404古月居，https://www.guyuehome.com/author/60b59b454fc06
+深度强化学习实验室，http://deeprl.neurondance.com/
+borninfreedom GitHub主页，https://github.com/borninfreedom
+
+【论文】
+
+rlpyt: A Research Code Base for Deep Reinforcement Learning in PyTorch
+RLlib: Abstractions for Distributed Reinforcement Learning
+基于PyTorch的深度强化学习平台设计与实现
+CURL: Contrastive Unsupervised Representations for Reinforcement Learning
+Reinforcement Learning with Augmented Data
+IMAGE AUGMENTATION IS ALL YOU NEED: REGULARIZING DEEP REINFORCEMENT LEARNING FROM PIXELS
+A Framework for Efficient Robotic Manipulation
+Simulation tools for model-based robotics: Comparison of Bullet, Havok, MuJoCo, ODE and PhysX
+MuJoCo: A physics engine for model-based control
+
