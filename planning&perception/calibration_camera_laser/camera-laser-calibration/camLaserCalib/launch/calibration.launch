@@ -1,0 +1,9 @@
+<!-- -->
+<launch>
+	<node pkg="cam_laser_calib" type="cam_laser_calib_node" name="cam_laser_calib" args="$(find cam_laser_calib)/../solvepnp/imageCloudPoints.txt $(find cam_laser_calib)/../solvepnp/param/calib.yml" output="screen">
+		    <param name="strSub_pc2" type="string" value="/velodyne32/velodyne_points"/>
+			<param name="strSub_img" type="string" value="/camera/image_color"/>
+			<param name="onlyDrawPointsColor" type="bool" value="true"/>
+		    <param name="DistanceThreshold" type="double" value="0.05"/>
+	</node>
+</launch>

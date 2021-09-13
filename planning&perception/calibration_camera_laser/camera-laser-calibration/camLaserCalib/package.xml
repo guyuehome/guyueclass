@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cam_laser_calib</name>
+  <version>0.0.0</version>
+  <description>The od package</description>
+
+  <maintainer email="i@todo.todo">i</maintainer>
+
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>pcl_conversions</depend>
+  <depend>pcl_ros</depend>
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf_conversions</depend>
+  <depend>libpcl_all_dev</depend>
+  <depend>message_filters</depend>
+  <depend>tf2</depend>
+  <depend>laser_geometry</depend>
+  <depend>geometry_msgs</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>cv_bridge</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

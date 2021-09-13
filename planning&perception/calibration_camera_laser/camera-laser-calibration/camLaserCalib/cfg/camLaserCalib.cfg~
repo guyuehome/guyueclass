@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+PACKAGE = "camLaserCalib"
+
+from dynamic_reconfigure.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+gen.add("close_range",		double_t, 0, "close_range",    	  1, 0.5, 5);
+gen.add("far_range",		double_t, 0, "far_range",    	  3, 1, 5);
+gen.add("left_range",		double_t, 0, "left_range",    	  1, 0.5, 5);
+gen.add("right_range",		double_t, 0, "right_range",    	  1, 0.5, 5);
+
+exit(gen.generate(PACKAGE, "camLaserCalib", "camLaserCalib"))
