@@ -7,6 +7,7 @@
 5. moveit_beginner：[《MoveIt编程入门》](https://class.guyuehome.com/detail/p_5e8e8e85b1e8f_9TdYxswq/6) 
 6. moveit_skill：[《Moveit编程技巧》](https://class.guyuehome.com/detail/p_5e99807f9ac65_rWrEfAGO/6) 
 7. qr_code：[《ROS二维码识别应用指南》](https://class.guyuehome.com/detail/p_607927b2e4b071a81eb28e86/6) 
+8. calibration_camera_laser：[《ROS激光相机联合标定》](https://class.guyuehome.com/detail/p_613ecdeee4b04518c6137c0b/6) 
 
 ------
 
