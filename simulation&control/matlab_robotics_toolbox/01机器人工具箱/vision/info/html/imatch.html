@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: imatch</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: imatch</td>
+      <td class="subheader-left"><a href="matlab:open imatch">View code for imatch</a></td>
+    </tr>
+  </table>
+<h1>imatch</h1><p><span class="helptopic">Template matching</span></p><p>
+<strong>xm</strong> = <span style="color:red">imatch</span>(<strong>im1</strong>, <strong>im2</strong>, <strong>u</strong>, <strong>v</strong>, <strong>H</strong>, <strong>s</strong>) is the position of the matching subimage of
+<strong>im1</strong> (template) within the image <strong>im2</strong>.  The template in <strong>im1</strong> is centred at (<strong>u</strong>,<strong>v</strong>)
+and its half-width is <strong>H</strong>.
+
+</p>
+<p>
+The template is searched for within <strong>im2</strong> inside a rectangular region, centred
+at (<strong>u</strong>,<strong>v</strong>) and whose size is a function of <strong>s</strong>.  If <strong>s</strong> is a scalar the search
+region is [-<strong>s</strong>, <strong>s</strong>, -<strong>s</strong>, <strong>s</strong>] relative to (<strong>u</strong>,<strong>v</strong>).  More generally <strong>s</strong> is a 4-vector
+<strong>s</strong>=[umin, umax, vmin, vmax] relative to (<strong>u</strong>,<strong>v</strong>).
+
+</p>
+<p>
+The return value is <strong>xm</strong>=[DU,DV,CC] where (DU,DV) are the u- and v-offsets
+relative to (<strong>u</strong>,<strong>v</strong>) and CC is the similarity score for the best match in the
+search region.
+
+</p>
+<p>
+[<strong>xm</strong>,<strong>score</strong>] = <span style="color:red">imatch</span>(<strong>im1</strong>, <strong>im2</strong>, <strong>u</strong>, <strong>v</strong>, <strong>H</strong>, <strong>s</strong>) as above but also returns a matrix
+of matching score values for each template position tested. The rows
+correspond to horizontal positions of the template, and columns the vertical
+position.  The centre element corresponds to (<strong>u</strong>,<strong>v</strong>).
+
+</p>
+<h2>Example</h2>
+<p>
+Consider a sequence of images im(:,:,N) and we find corner points in the
+k'th image
+
+</p>
+<pre style="width: 90%%;" class="examples">
+corners&nbsp;=&nbsp;icorner(im(:,:,k),&nbsp;'nfeat',&nbsp;20);
+</pre>
+<p>
+Now, for each corner we look for the 11x11 patch of surrounding pixels
+in the next image, by searching within a 21x21 region
+
+</p>
+<pre style="width: 90%%;" class="examples">
+for&nbsp;corner=corners
+</pre>
+<pre style="width: 90%%;" class="examples">
+xm&nbsp;=&nbsp;imatch(im(:,:,k),&nbsp;im(:,:,k+1),&nbsp;5,&nbsp;10);
+if&nbsp;xm(3)&nbsp;>&nbsp;0.8
+</pre>
+<pre style="width: 90%%;" class="examples">
+fprintf('feature&nbsp;(%f,%f)&nbsp;moved&nbsp;by&nbsp;(%f,%f)&nbsp;pixels)\n',&nbsp;...
+</pre>
+<pre style="width: 90%%;" class="examples">
+corner.u,&nbsp;corner.v,&nbsp;xm(1),&nbsp;xm(2)&nbsp;);
+</pre>
+<pre style="width: 90%%;" class="examples">
+end
+</pre>
+<pre style="width: 90%%;" class="examples">
+end
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Useful for tracking a template in an image sequence where IM1 and IM2
+are consecutive images in a template and (U,V) is the coordinate of
+a corner point in IM1.</li>
+  <li>Is a MEX file.</li>
+  <li>IM1 and IM2 must be the same size.</li>
+  <li>ZNCC (zero-mean normalized cross correlation) matching is used as the
+similarity measure. A perfect match score is 1.0 but anything above 0.8
+is typically considered to be a good match.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="isimilarity.html">isimilarity</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: boundmatch</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: boundmatch</td>
+      <td class="subheader-left"><a href="matlab:open boundmatch">View code for boundmatch</a></td>
+    </tr>
+  </table>
+<h1>boundmatch</h1><p><span class="helptopic">Match boundary profiles</span></p><p>
+<strong>x</strong> = <span style="color:red">boundmatch</span>(<strong>R1</strong>, <strong>r2</strong>) is the correlation of the two boundary profiles
+<strong>R1</strong> and <strong>r2</strong>.  Each is an Nx1 vector of distances from the centroid of
+an object to points on its perimeter at equal angular increments spanning
+2pi radians.  <strong>x</strong> is also Nx1 and is a correlation whose peak indicates the
+relative orientation of one profile with respect to the other.
+
+</p>
+<p>
+[<strong>x</strong>,<strong>s</strong>] = <span style="color:red">boundmatch</span>(<strong>R1</strong>, <strong>r2</strong>) as above but also returns the relative scale
+<strong>s</strong> which is the size of object 2 with respect to object 1.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Can be considered as matching two functions defined over S(1).</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RegionFeature.boundary.html">RegionFeature.boundary</a>, <a href="xcorr.html">xcorr</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

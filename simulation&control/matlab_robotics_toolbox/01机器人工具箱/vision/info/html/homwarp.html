@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: homwarp</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: homwarp</td>
+      <td class="subheader-left"><a href="matlab:open homwarp">View code for homwarp</a></td>
+    </tr>
+  </table>
+<h1>homwarp</h1><p><span class="helptopic">Warp image by an homography</span></p><p>
+<strong>out</strong> = <span style="color:red">homwarp</span>(<strong>H</strong>, <strong>im</strong>, <strong>options</strong>) is a warp of the image <strong>im</strong> obtained by
+applying the homography <strong>H</strong> to the coordinates of every input pixel.
+
+</p>
+<p>
+[<strong>out</strong>,<strong>offs</strong>] = <span style="color:red">homwarp</span>(<strong>H</strong>, <strong>im</strong>, <strong>options</strong>) as above but <strong>offs</strong> is the offset of the
+warped tile <strong>out</strong> with respect to the origin of <strong>im</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'full'</td> <td>output image contains all the warped pixels, but its
+position with respect to the input image is given by the
+second return value OFFS.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'extrapval', V</td> <td>set unmapped pixels to this value (default NaN)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'roi', R</td> <td>output image contains the specified ROI in the input image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>scale the output by this factor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'dimension', D</td> <td>ensure output image is DxD</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'size', S</td> <td>size of output image S=[W,H]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'coords', {U,V}</td> <td>coordinate matrices for im, each same size as im.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The edges of the resulting output image will in general not be
+be vertical and horizontal lines.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="homography.html">homography</a>, <a href="itrim.html">itrim</a>, <a href="interp2.html">interp2</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

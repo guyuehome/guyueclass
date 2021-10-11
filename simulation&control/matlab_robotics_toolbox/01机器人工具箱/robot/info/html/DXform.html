@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: DXform</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: DXform</td>
+      <td class="subheader-left"><a href="matlab:open DXform">View code for DXform</a></td>
+    </tr>
+  </table>
+<h1>DXform</h1><p><span class="helptopic">Distance transform navigation class</span></p><p>
+A concrete subclass of the abstract Navigation class that implements the distance
+transform navigation algorithm which computes minimum distance paths.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plan</td> <td>Compute the cost map given a goal and map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> path</td> <td>Compute a path to the goal (inherited)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visualize</td> <td>Display the obstacle map (deprecated)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Display the distance function and obstacle map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot3d</td> <td>Display the distance function as a surface</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Print the parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> distancemap</td> <td>The distance transform of the occupancy grid.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> metric</td> <td>The distance metric, can be 'euclidean' (default) or 'cityblock'</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+load&nbsp;map1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;load&nbsp;map
+goal&nbsp;=&nbsp;[50,30];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;goal&nbsp;point
+start&nbsp;=&nbsp;[20,&nbsp;10];&nbsp;&nbsp;&nbsp;%&nbsp;start&nbsp;point
+dx&nbsp;=&nbsp;DXform(map);&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;navigation&nbsp;object
+dx.plan(goal)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;plan&nbsp;for&nbsp;specified&nbsp;goal
+dx.path(start)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;animate&nbsp;path&nbsp;from&nbsp;this&nbsp;start&nbsp;location
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Obstacles are represented by NaN in the distancemap.</li>
+  <li>The value of each element in the distancemap is the shortest distance from the
+corresponding point in the map to the current goal.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Sec 5.2.1,
+Peter Corke, Springer, 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.html">Navigation</a>, <a href="Dstar.html">Dstar</a>, <a href="PRM.html">PRM</a>, <a href="distancexform.html">distancexform</a></p>
+<hr>
+<a name="DXform"><h1>DXform.DXform</h1></a>
+<p><span class="helptopic">Distance transform constructor</span></p><p>
+<strong>dx</strong> = <span style="color:red">DXform</span>(<strong>map</strong>, <strong>options</strong>) is a distance transform navigation object,
+and <strong>map</strong> is an occupancy grid, a representation of a planar
+world as a matrix whose elements are 0 (free space) or 1
+(occupied).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'goal', G</td> <td>Specify the goal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'metric', M</td> <td>Specify the distance metric as 'euclidean' (default)
+or 'cityblock'.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'inflate', K</td> <td>Inflate all obstacles by K cells.</td></tr>
+</table>
+<p>
+Other options are supported by the Navigation superclass.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Navigation.Navigation.html">Navigation.Navigation</a></p>
+<hr>
+<a name="char"><h1>DXform.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+DX.<span style="color:red">char</span>() is a string representing the state of the object in
+human-readable form.
+
+</p>
+<p>
+See also <span style="color:red">DXform</span>.display, Navigation.<span style="color:red">char</span>
+
+</p>
+<hr>
+<a name="plan"><h1>DXform.plan</h1></a>
+<p><span class="helptopic">Plan path to goal</span></p><p>
+DX.<span style="color:red">plan</span>() updates the internal distancemap where the value of each element is
+the minimum distance from the corresponding point to the goal.  The goal is
+as specified to the constructor.
+
+</p>
+<p>
+DX.<span style="color:red">plan</span>(<strong>goal</strong>) as above but uses the specified goal.
+
+</p>
+<p>
+DX.<span style="color:red">plan</span>(<strong>goal</strong>, <strong>s</strong>) as above but displays the evolution of the
+distancemap, with one iteration displayed every <strong>s</strong> seconds.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This may take many seconds.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.path.html">Navigation.path</a></p>
+<hr>
+<a name="plot"><h1>DXform.plot</h1></a>
+<p><span class="helptopic">Visualize navigation environment</span></p><p>
+DX.<span style="color:red">plot</span>() displays the occupancy grid and the goal distance
+in a new figure.  The goal distance is shown by intensity which
+increases with distance from the goal.  Obstacles are overlaid
+and shown in red.
+
+</p>
+<p>
+DX.<span style="color:red">plot</span>(<strong>p</strong>) as above but also overlays a path given by the set
+of points <strong>p</strong> (2xM).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Navigation.plot.html">Navigation.plot</a></p>
+<hr>
+<a name="plot3d"><h1>DXform.plot3d</h1></a>
+<p><span class="helptopic">3D costmap view</span></p><p>
+DX.<span style="color:red">plot3d</span>() displays the distance function as a 3D surface with
+distance from goal as the vertical axis.  Obstacles are "cut out"
+from the surface.
+
+</p>
+<p>
+DX.<span style="color:red">plot3d</span>(<strong>p</strong>) as above but also overlays a path given by the set
+of points <strong>p</strong> (Mx2).
+
+</p>
+<p>
+DX.<span style="color:red">plot3d</span>(<strong>p</strong>, <strong>ls</strong>) as above but plot the line with the linestyle <strong>ls</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Navigation.plot.html">Navigation.plot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

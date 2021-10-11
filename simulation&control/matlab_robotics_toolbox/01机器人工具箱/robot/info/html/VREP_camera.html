@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VREP_camera</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VREP_camera</td>
+      <td class="subheader-left"><a href="matlab:open VREP_camera">View code for VREP_camera</a></td>
+    </tr>
+  </table>
+<h1>VREP_camera</h1><p><span class="helptopic">Mirror of V-REP vision sensor object</span></p><p>
+Mirror objects are MATLAB objects that reflect the state of objects in
+the V-REP environment.  Methods allow the V-REP state to be examined or
+changed.
+
+</p>
+<p>
+This is a concrete class, derived from VREP_mirror, for all V-REP vision
+sensor objects and allows access to images and image parameters.
+
+</p>
+<p>
+Methods throw exception if an error occurs.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep&nbsp;=&nbsp;VREP();
+camera&nbsp;=&nbsp;vrep.camera('Vision_sensor');
+im&nbsp;=&nbsp;camera.grab();
+camera.setpose(T);
+R&nbsp;=&nbsp;camera.getorient();
+</pre>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> grab</td> <td>return an image from simulated camera</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setangle</td> <td>set field of view</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setresolution</td> <td>set image resolution</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setclipping</td> <td>set clipping boundaries</td></tr>
+</table>
+<h2>Superclass methods (VREP_obj)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getpos</td> <td>get position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpos</td> <td>set position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getorient</td> <td>get orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setorient</td> <td>set orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getpose</td> <td>get pose of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpose</td> <td>set pose of object</td></tr>
+</table>
+<p>
+can be used to set/get the pose of the robot base.
+
+</p>
+<h2>Superclass methods (VREP_mirror)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getname</td> <td>get object name</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setparam_bool</td> <td>set object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_int</td> <td>set object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_float</td> <td>set object float parameter</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_bool</td> <td>get object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_int</td> <td>get object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_float</td> <td>get object float parameter</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="VREP_mirror.html">VREP_mirror</a>, <a href="VREP_obj.html">VREP_obj</a>, <a href="VREP_arm.html">VREP_arm</a>, <a href="VREP_camera.html">VREP_camera</a>, <a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="VREP_camera"><h1>VREP_camera.VREP_camera</h1></a>
+<p><span class="helptopic">Create a camera mirror object</span></p><p>
+<strong>C</strong> = <span style="color:red">VREP_camera</span>(<strong>name</strong>, <strong>options</strong>) is a mirror object that corresponds to the
+vision senor named <strong>name</strong> in the V-REP environment.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'fov', A</td> <td>Specify field of view in degreees (default 60)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'resolution', N</td> <td>Specify resolution.  If scalar NxN else N(1)xN(2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'clipping', Z</td> <td>Specify near Z(1) and far Z(2) clipping boundaries</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Default parameters are set in the V-REP environmen</li>
+  <li>Can be applied to "DefaultCamera" which controls the view in the
+simulator GUI.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.html">VREP_obj</a></p>
+<hr>
+<a name="char"><h1>VREP_camera.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+V.<span style="color:red">char</span>() is a string representation the VREP parameters in human
+readable foramt.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.display.html">VREP.display</a></p>
+<hr>
+<a name="getangle"><h1>VREP_camera.getangle</h1></a>
+<p><span class="helptopic">Fet field of view for V-REP vision sensor</span></p><p>
+<strong>fov</strong> = C.<span style="color:red">getangle</span>(<strong>fov</strong>) is the field-of-view angle to <strong>fov</strong> in
+radians.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.setangle.html">VREP_camera.setangle</a></p>
+<hr>
+<a name="getclipping"><h1>VREP_camera.getclipping</h1></a>
+<p><span class="helptopic">Get clipping boundaries for V-REP vision sensor</span></p><p>
+C.<span style="color:red">getclipping</span>() is the near and far clipping boundaries (1x2) in the
+Z-direction as a 2-vector [NEAR,FAR].
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.setclipping.html">VREP_camera.setclipping</a></p>
+<hr>
+<a name="getresolution"><h1>VREP_camera.getresolution</h1></a>
+<p><span class="helptopic">Get resolution for V-REP vision sensor</span></p><p>
+<strong>R</strong> = C.<span style="color:red">getresolution</span>() is the image resolution (1x2) of the
+vision sensor <strong>R</strong>(1)xR(2).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.setresolution.html">VREP_camera.setresolution</a></p>
+<hr>
+<a name="grab"><h1>VREP_camera.grab</h1></a>
+<p><span class="helptopic">Get image from V-REP vision sensor</span></p><p>
+<strong>im</strong> = C.<span style="color:red">grab</span>(<strong>options</strong>) is an image (WxH) returned from the V-REP
+vision sensor.
+
+</p>
+<p>
+C.<span style="color:red">grab</span>(<strong>options</strong>) as above but the image is displayed using
+idisp.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey'</td> <td>Return a greyscale image (default color).</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>V-REP simulator must be running.</li>
+  <li>Color images can be quite dark, ensure good light sources.</li>
+  <li>Uses the signal 'handle_rgb_sensor' to trigger a single
+image generation.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="idisp.html">idisp</a>, <a href="VREP.simstart.html">VREP.simstart</a></p>
+<hr>
+<a name="setangle"><h1>VREP_camera.setangle</h1></a>
+<p><span class="helptopic">Set field of view for V-REP vision sensor</span></p><p>
+C.<span style="color:red">setangle</span>(<strong>fov</strong>) set the field-of-view angle to <strong>fov</strong> in
+radians.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.getangle.html">VREP_camera.getangle</a></p>
+<hr>
+<a name="setclipping"><h1>VREP_camera.setclipping</h1></a>
+<p><span class="helptopic">Set clipping boundaries for V-REP vision sensor</span></p><p>
+C.<span style="color:red">setclipping</span>(<strong>near</strong>, <strong>far</strong>) set clipping boundaries to the
+range of Z from <strong>near</strong> to <strong>far</strong>.  Objects outside this range
+will not be rendered.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.getclipping.html">VREP_camera.getclipping</a></p>
+<hr>
+<a name="setresolution"><h1>VREP_camera.setresolution</h1></a>
+<p><span class="helptopic">Set resolution for V-REP vision sensor</span></p><p>
+C.<span style="color:red">setresolution</span>(<strong>R</strong>) set image resolution to RxR if <strong>R</strong> is a scalar or
+<strong>R</strong>(1)xR(2) if it is a 2-vector.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>By default V-REP cameras seem to have very low (32x32) resolution.</li>
+  <li>Frame rate will decrease as frame size increases.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.getresolution.html">VREP_camera.getresolution</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

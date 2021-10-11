@@ -1,0 +1,643 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: PGraph</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: PGraph</td>
+      <td class="subheader-left"><a href="matlab:open PGraph">View code for PGraph</a></td>
+    </tr>
+  </table>
+<h1>PGraph</h1><p><span class="helptopic">Graph class</span></p><table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g = PGraph()</td> <td>create a 2D, planar embedded, directed graph</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g = PGraph(n)</td> <td>create an n-d, embedded, directed graph</td></tr>
+</table>
+<p>
+Provides support for graphs that:
+
+</p>
+<ul>
+  <li>are directed</li>
+  <li>are embedded in a coordinate system</li>
+  <li>have symmetric cost edges (A to B is same cost as B to A)</li>
+  <li>have no loops (edges from A to A)</li>
+  <li>have vertices that are represented by integers VID</li>
+  <li>have edges that are represented by integers EID</li>
+</ul>
+<h2>Methods</h2>
+<h2>Constructing the graph</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.add_node(coord)</td> <td>add vertex, return vid</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">g.add_edge(v1,  v2)</td> <td>add edge from v1 to v2, return eid</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">g.setcost(e,  c)</td> <td>set cost for edge e</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">g.setdata(v,  u)</td> <td>set user data for vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.data(v)</td> <td>get user data for vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.clear()</td> <td>remove all vertices and edges from the graph</td></tr>
+</table>
+<h2>Information from graph</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.edges(v)</td> <td>list of edges for vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.cost(e)</td> <td>cost of edge e</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.neighbours(v)</td> <td>neighbours of vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.component(v)</td> <td>component id for vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.connectivity()</td> <td>number of edges for all vertices</td></tr>
+</table>
+<h2>Display</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.plot()</td> <td>set goal vertex for path planning</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.highlight_node(v)</td> <td>highlight vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.highlight_edge(e)</td> <td>highlight edge e</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.highlight_component(c)</td> <td>highlight all nodes in component c</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.highlight_path(p)</td> <td>highlight nodes and edge along path p</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.pick(coord)</td> <td>vertex closest to coord</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.char()</td> <td>convert graph to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.display()</td> <td>display summary of graph</td></tr>
+</table>
+<h2>Matrix representations</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.adjacency()</td> <td>adjacency matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.incidence()</td> <td>incidence matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.degree()</td> <td>degree matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.laplacian()</td> <td>Laplacian  matrix</td></tr>
+</table>
+<h2>Planning paths through the graph</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">g.Astar(s,  g)</td> <td>shortest path from s to g</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.goal(v)</td> <td>set goal vertex, and plan paths</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.path(v)</td> <td>list of vertices from v to goal</td></tr>
+</table>
+<h2>Graph and world points</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.coord(v)</td> <td>coordinate of vertex v</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">g.distance(v1,  v2)</td> <td>distance between v1 and v2</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.distances(coord)</td> <td>return sorted distances from coord to all vertices</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.closest(coord)</td> <td>vertex closest to coord</td></tr>
+</table>
+<h2>Object properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> g.n</td> <td>number of vertices</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.ne</td> <td>number of edges</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> g.nc</td> <td>number of components</td></tr>
+</table>
+<h2>Examples</h2>
+<pre style="width: 90%%;" class="examples">
+g&nbsp;=&nbsp;PGraph();
+g.add_node([1&nbsp;2]');&nbsp;&nbsp;%&nbsp;add&nbsp;node&nbsp;1
+g.add_node([3&nbsp;4]');&nbsp;&nbsp;%&nbsp;add&nbsp;node&nbsp;1
+g.add_node([1&nbsp;3]');&nbsp;&nbsp;%&nbsp;add&nbsp;node&nbsp;1
+g.add_edge(1,&nbsp;2);&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;add&nbsp;edge&nbsp;1-2
+g.add_edge(2,&nbsp;3);&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;add&nbsp;edge&nbsp;2-3
+g.add_edge(1,&nbsp;3);&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;add&nbsp;edge&nbsp;1-3
+g.plot()
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Graph connectivity is maintained by a labeling algorithm and this
+is updated every time an edge is added.</li>
+  <li>Nodes and edges cannot be deleted.</li>
+  <li>Support for edge direction is rudimentary.</li>
+</ul>
+<hr>
+<a name="PGraph"><h1>PGraph.PGraph</h1></a>
+<p><span class="helptopic">Graph class constructor</span></p><p>
+<strong>g</strong>=<span style="color:red">PGraph</span>(<strong>d</strong>, <strong>options</strong>) is a graph object embedded in <strong>d</strong> dimensions.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'distance', M</td> <td>Use the distance metric M for path planning which is either
+'Euclidean' (default) or 'SE2'.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>Specify verbose operation</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Number of dimensions is not limited to 2 or 3.</li>
+  <li>The distance metric 'SE2' is the sum of the squares of the difference
+in position and angle modulo 2pi.</li>
+  <li>To use a different distance metric create a subclass of PGraph and
+override the method distance_metric().</li>
+</ul>
+<hr>
+<a name="add_edge"><h1>PGraph.add_edge</h1></a>
+<p><span class="helptopic">Add an edge</span></p><p>
+<strong>E</strong> = G.<span style="color:red">add_edge</span>(<strong>v1</strong>, <strong>v2</strong>) adds a directed edge from vertex id <strong>v1</strong> to vertex id <strong>v2</strong>, and
+returns the edge id <strong>E</strong>.  The edge cost is the distance between the vertices.
+
+</p>
+<p>
+<strong>E</strong> = G.<span style="color:red">add_edge</span>(<strong>v1</strong>, <strong>v2</strong>, <strong>C</strong>) as above but the edge cost is <strong>C</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Distance is computed according to the metric specified in the
+constructor.</li>
+  <li>Graph connectivity is maintained by a labeling algorithm and this
+is updated every time an edge is added.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.add_node.html">PGraph.add_node</a>, <a href="PGraph.edgedir.html">PGraph.edgedir</a></p>
+<hr>
+<a name="add_node"><h1>PGraph.add_node</h1></a>
+<p><span class="helptopic">Add a node</span></p><p>
+<strong>v</strong> = G.<span style="color:red">add_node</span>(<strong>x</strong>) adds a node/vertex with coordinate <strong>x</strong> (Dx1) and
+returns the integer node id <strong>v</strong>.
+
+</p>
+<p>
+<strong>v</strong> = G.<span style="color:red">add_node</span>(<strong>x</strong>, <strong>v2</strong>) as above but connected by a directed edge from vertex <strong>v</strong>
+to vertex <strong>v2</strong> with cost equal to the distance between the vertices.
+
+</p>
+<p>
+<strong>v</strong> = G.<span style="color:red">add_node</span>(<strong>x</strong>, <strong>v2</strong>, <strong>C</strong>) as above but the added edge has cost <strong>C</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Distance is computed according to the metric specified in the
+constructor.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.add_edge.html">PGraph.add_edge</a>, <a href="PGraph.data.html">PGraph.data</a>, <a href="PGraph.getdata.html">PGraph.getdata</a></p>
+<hr>
+<a name="adjacency"><h1>PGraph.adjacency</h1></a>
+<p><span class="helptopic">Adjacency matrix of graph</span></p><p>
+<strong>a</strong> = G.<span style="color:red">adjacency</span>() is a matrix (NxN) where element <strong>a</strong>(i,j) is the cost
+of moving from vertex i to vertex j.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Matrix is symmetric.</li>
+  <li>Eigenvalues of A are real and are known as the spectrum of the graph.</li>
+  <li>The element A(I,J) can be considered the number of walks of one
+edge from vertex I to vertex J (either zero or one).  The element (I,J)
+of A^N are the number of walks of length N from vertex I to vertex J.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.degree.html">PGraph.degree</a>, <a href="PGraph.incidence.html">PGraph.incidence</a>, <a href="PGraph.laplacian.html">PGraph.laplacian</a></p>
+<hr>
+<a name="Astar"><h1>PGraph.Astar</h1></a>
+<p><span class="helptopic">path finding</span></p><p>
+<strong>path</strong> = G.<span style="color:red">Astar</span>(<strong>v1</strong>, <strong>v2</strong>) is the lowest cost path from vertex <strong>v1</strong> to
+vertex <strong>v2</strong>.  <strong>path</strong> is a list of vertices starting with <strong>v1</strong> and ending
+<strong>v2</strong>.
+
+</p>
+<p>
+[<strong>path</strong>,<strong>C</strong>] = G.<span style="color:red">Astar</span>(<strong>v1</strong>, <strong>v2</strong>) as above but also returns the total cost
+of traversing <strong>path</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Uses the efficient A* search algorithm.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Correction to "A Formal Basis for the Heuristic Determination of Minimum Cost Paths".
+Hart, P. E.; Nilsson, N. J.; Raphael, B.
+SIGART Newsletter 37: 28-29, 1972.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.goal.html">PGraph.goal</a>, <a href="PGraph.path.html">PGraph.path</a></p>
+<hr>
+<a name="char"><h1>PGraph.char</h1></a>
+<p><span class="helptopic">Convert graph to string</span></p><p>
+<strong>s</strong> = G.<span style="color:red">char</span>() is a compact human readable representation of the
+state of the graph including the number of vertices, edges and components.
+
+</p>
+<hr>
+<a name="clear"><h1>PGraph.clear</h1></a>
+<p><span class="helptopic">Clear the graph</span></p><p>
+G.<span style="color:red">clear</span>() removes all vertices, edges and components.
+
+</p>
+<hr>
+<a name="closest"><h1>PGraph.closest</h1></a>
+<p><span class="helptopic">Find closest vertex</span></p><p>
+<strong>v</strong> = G.<span style="color:red">closest</span>(<strong>x</strong>) is the vertex geometrically <span style="color:red">closest</span> to coordinate <strong>x</strong>.
+
+</p>
+<p>
+[<strong>v</strong>,<strong>d</strong>] = G.<span style="color:red">closest</span>(<strong>x</strong>) as above but also returns the distance <strong>d</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.distances.html">PGraph.distances</a></p>
+<hr>
+<a name="component"><h1>PGraph.component</h1></a>
+<p><span class="helptopic">Graph component</span></p><p>
+<strong>C</strong> = G.<span style="color:red">component</span>(<strong>v</strong>) is the id of the graph <span style="color:red">component</span> that contains vertex
+<strong>v</strong>.
+
+</p>
+<hr>
+<a name="connectivity"><h1>PGraph.connectivity</h1></a>
+<p><span class="helptopic">Graph connectivity</span></p><p>
+<strong>C</strong> = G.<span style="color:red">connectivity</span>() is a vector (Nx1) with the number of edges per
+vertex.
+
+</p>
+<p>
+The average vertex <span style="color:red">connectivity</span> is
+
+</p>
+<pre style="width: 90%%;" class="examples">
+mean(g.connectivity())
+</pre>
+<p>
+and the minimum vertex <span style="color:red">connectivity</span> is
+
+</p>
+<pre style="width: 90%%;" class="examples">
+min(g.connectivity())
+</pre>
+<hr>
+<a name="coord"><h1>PGraph.coord</h1></a>
+<p><span class="helptopic">Coordinate of node</span></p><p>
+<strong>x</strong> = G.<span style="color:red">coord</span>(<strong>v</strong>) is the coordinate vector (Dx1) of vertex id <strong>v</strong>.
+
+</p>
+<hr>
+<a name="cost"><h1>PGraph.cost</h1></a>
+<p><span class="helptopic">Cost of edge</span></p><p>
+<strong>C</strong> = G.<span style="color:red">cost</span>(<strong>E</strong>) is the <span style="color:red">cost</span> of edge id <strong>E</strong>.
+
+</p>
+<hr>
+<a name="data"><h1>PGraph.data</h1></a>
+<p><span class="helptopic">Get user data for node</span></p><p>
+<strong>u</strong> = G.<span style="color:red">data</span>(<strong>v</strong>) gets the user <span style="color:red">data</span> of vertex <strong>v</strong> which can be of any
+type such as a number, struct, object or cell array.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.setdata.html">PGraph.setdata</a></p>
+<hr>
+<a name="degree"><h1>PGraph.degree</h1></a>
+<p><span class="helptopic">Degree matrix of graph</span></p><p>
+<strong>d</strong> = G.<span style="color:red">degree</span>() is a diagonal matrix (NxN) where element <strong>d</strong>(i,i) is the number
+of edges connected to vertex id i.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.adjacency.html">PGraph.adjacency</a>, <a href="PGraph.incidence.html">PGraph.incidence</a>, <a href="PGraph.laplacian.html">PGraph.laplacian</a></p>
+<hr>
+<a name="display"><h1>PGraph.display</h1></a>
+<p><span class="helptopic">Display graph</span></p><p>
+G.<span style="color:red">display</span>() displays a compact human readable representation of the
+state of the graph including the number of vertices, edges and components.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.char.html">PGraph.char</a></p>
+<hr>
+<a name="distance"><h1>PGraph.distance</h1></a>
+<p><span class="helptopic">Distance between vertices</span></p><p>
+<strong>d</strong> = G.<span style="color:red">distance</span>(<strong>v1</strong>, <strong>v2</strong>) is the geometric <span style="color:red">distance</span> between
+the vertices <strong>v1</strong> and <strong>v2</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.distances.html">PGraph.distances</a></p>
+<hr>
+<a name="distances"><h1>PGraph.distances</h1></a>
+<p><span class="helptopic">Distances from point to vertices</span></p><p>
+<strong>d</strong> = G.<span style="color:red">distances</span>(<strong>x</strong>) is a vector (1xN) of geometric distance from the point
+<strong>x</strong> (Dx1) to every other vertex sorted into increasing order.
+
+</p>
+<p>
+[<strong>d</strong>,<strong>w</strong>] = G.<span style="color:red">distances</span>(<strong>p</strong>) as above but also returns <strong>w</strong> (1xN) with the
+corresponding vertex id.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Distance is computed according to the metric specified in the
+constructor.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.closest.html">PGraph.closest</a></p>
+<hr>
+<a name="edgedir"><h1>PGraph.edgedir</h1></a>
+<p><span class="helptopic">Find edge direction</span></p><p>
+<strong>d</strong> = G.<span style="color:red">edgedir</span>(<strong>v1</strong>, <strong>v2</strong>) is the direction of the edge from vertex id <strong>v1</strong>
+to vertex id <strong>v2</strong>.
+
+</p>
+<p>
+If we add an edge from vertex 3 to vertex 4
+
+</p>
+<pre style="width: 90%%;" class="examples">
+g.add_edge(3,&nbsp;4)
+</pre>
+<p>
+then
+
+</p>
+<pre style="width: 90%%;" class="examples">
+g.edgedir(3,&nbsp;4)
+</pre>
+<p>
+is positive, and
+
+</p>
+<pre style="width: 90%%;" class="examples">
+g.edgedir(4,&nbsp;3)
+</pre>
+<p>
+is negative.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.add_node.html">PGraph.add_node</a>, <a href="PGraph.add_edge.html">PGraph.add_edge</a></p>
+<hr>
+<a name="edges"><h1>PGraph.edges</h1></a>
+<p><span class="helptopic">Find edges given vertex</span></p><p>
+<strong>E</strong> = G.<span style="color:red">edges</span>(<strong>v</strong>) is a vector containing the id of all <span style="color:red">edges</span> connected to vertex id <strong>v</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.edgedir.html">PGraph.edgedir</a></p>
+<hr>
+<a name="get.n"><h1>PGraph.get.n</h1></a>
+<p><span class="helptopic">Number of vertices</span></p><p>
+G.n is the number of vertices in the graph.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.ne.html">PGraph.ne</a></p>
+<hr>
+<a name="get.nc"><h1>PGraph.get.nc</h1></a>
+<p><span class="helptopic">Number of components</span></p><p>
+G.nc is the number of components in the graph.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.component.html">PGraph.component</a></p>
+<hr>
+<a name="get.ne"><h1>PGraph.get.ne</h1></a>
+<p><span class="helptopic">Number of edges</span></p><p>
+G.ne is the number of <span style="color:red">edges</span> in the graph.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.n.html">PGraph.n</a></p>
+<hr>
+<a name="goal"><h1>PGraph.goal</h1></a>
+<p><span class="helptopic">Set goal node</span></p><p>
+G.<span style="color:red">goal</span>(<strong>vg</strong>) computes the cost of reaching every vertex in the graph connected
+to the <span style="color:red">goal</span> vertex <strong>vg</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Combined with G.path performs a breadth-first search for paths to the goal.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.path.html">PGraph.path</a>, <a href="PGraph.Astar.html">PGraph.Astar</a>, <a href="astar.html">astar</a></p>
+<hr>
+<a name="highlight_component"><h1>PGraph.highlight_component</h1></a>
+<p><span class="helptopic">Highlight a graph component</span></p><p>
+G.<span style="color:red">highlight_component</span>(<strong>C</strong>, <strong>options</strong>) highlights the vertices that belong to
+graph component <strong>C</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'NodeSize', S</td> <td>Size of vertex circle (default 12)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeFaceColor', C</td> <td>Node circle color (default yellow)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeEdgeColor', C</td> <td>Node circle edge color (default blue)</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="PGraph.highlight_node.html">PGraph.highlight_node</a>, <a href="PGraph.highlight_edge.html">PGraph.highlight_edge</a>, <a href="PGraph.highlight_component.html">PGraph.highlight_component</a></p>
+<hr>
+<a name="highlight_edge"><h1>PGraph.highlight_edge</h1></a>
+<p><span class="helptopic">Highlight a node</span></p><p>
+G.<span style="color:red">highlight_edge</span>(<strong>v1</strong>, <strong>v2</strong>) highlights the edge between vertices <strong>v1</strong> and <strong>v2</strong>.
+
+</p>
+<p>
+G.<span style="color:red">highlight_edge</span>(<strong>E</strong>) highlights the edge with id <strong>E</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeColor', C</td> <td>Edge edge color (default black)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeThickness', T</td> <td>Edge thickness (default 1.5)</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="PGraph.highlight_node.html">PGraph.highlight_node</a>, <a href="PGraph.highlight_path.html">PGraph.highlight_path</a>, <a href="PGraph.highlight_component.html">PGraph.highlight_component</a></p>
+<hr>
+<a name="highlight_node"><h1>PGraph.highlight_node</h1></a>
+<p><span class="helptopic">Highlight a node</span></p><p>
+G.<span style="color:red">highlight_node</span>(<strong>v</strong>, <strong>options</strong>) highlights the vertex <strong>v</strong> with a yellow marker.
+If <strong>v</strong> is a list of vertices then all are highlighted.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'NodeSize', S</td> <td>Size of vertex circle (default 12)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeFaceColor', C</td> <td>Node circle color (default yellow)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeEdgeColor', C</td> <td>Node circle edge color (default blue)</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="PGraph.highlight_edge.html">PGraph.highlight_edge</a>, <a href="PGraph.highlight_path.html">PGraph.highlight_path</a>, <a href="PGraph.highlight_component.html">PGraph.highlight_component</a></p>
+<hr>
+<a name="highlight_path"><h1>PGraph.highlight_path</h1></a>
+<p><span class="helptopic">Highlight path</span></p><p>
+G.<span style="color:red">highlight_path</span>(<strong>p</strong>, <strong>options</strong>) highlights the path defined by vector <strong>p</strong>
+which is a list of vertex ids comprising the path.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'NodeSize', S</td> <td>Size of vertex circle (default 12)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeFaceColor', C</td> <td>Node circle color (default yellow)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeEdgeColor', C</td> <td>Node circle edge color (default blue)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeColor', C</td> <td>Node circle edge color (default black)</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="PGraph.highlight_node.html">PGraph.highlight_node</a>, <a href="PGraph.highlight_edge.html">PGraph.highlight_edge</a>, <a href="PGraph.highlight_component.html">PGraph.highlight_component</a></p>
+<hr>
+<a name="incidence"><h1>PGraph.incidence</h1></a>
+<p><span class="helptopic">Incidence matrix of graph</span></p><p>
+<strong>in</strong> = G.<span style="color:red">incidence</span>() is a matrix (NxNE) where element <strong>in</strong>(i,j) is
+non-zero if vertex id i is connected to edge id j.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.adjacency.html">PGraph.adjacency</a>, <a href="PGraph.degree.html">PGraph.degree</a>, <a href="PGraph.laplacian.html">PGraph.laplacian</a></p>
+<hr>
+<a name="laplacian"><h1>PGraph.laplacian</h1></a>
+<p><span class="helptopic">Laplacian matrix of graph</span></p><p>
+<strong>L</strong> = G.<span style="color:red">laplacian</span>() is the Laplacian matrix (NxN) of the graph.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>L is always positive-semidefinite.</li>
+  <li>L has at least one zero eigenvalue.</li>
+  <li>The number of zero eigenvalues is the number of connected components
+in the graph.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.adjacency.html">PGraph.adjacency</a>, <a href="PGraph.incidence.html">PGraph.incidence</a>, <a href="PGraph.degree.html">PGraph.degree</a></p>
+<hr>
+<a name="neighbours"><h1>PGraph.neighbours</h1></a>
+<p><span class="helptopic">Neighbours of a vertex</span></p><p>
+<strong>n</strong> = G.<span style="color:red">neighbours</span>(<strong>v</strong>) is a vector of ids for all vertices which are
+directly connected <span style="color:red">neighbours</span> of vertex <strong>v</strong>.
+
+</p>
+<p>
+[<strong>n</strong>,<strong>C</strong>] = G.<span style="color:red">neighbours</span>(<strong>v</strong>) as above but also returns a vector <strong>C</strong> whose elements
+are the edge costs of the paths corresponding to the vertex ids in <strong>n</strong>.
+
+</p>
+<hr>
+<a name="neighbours_d"><h1>PGraph.neighbours_d</h1></a>
+<p><span class="helptopic">Directed neighbours of a vertex</span></p><p>
+<strong>n</strong> = G.<span style="color:red">neighbours_d</span>(<strong>v</strong>) is a vector of ids for all vertices which are
+directly connected neighbours of vertex <strong>v</strong>.  Elements are positive
+if there is a link from <strong>v</strong> to the node, and negative if the link
+is from the node to <strong>v</strong>.
+
+</p>
+<p>
+[<strong>n</strong>,<strong>C</strong>] = G.<span style="color:red">neighbours_d</span>(<strong>v</strong>) as above but also returns a vector <strong>C</strong> whose elements
+are the edge costs of the paths corresponding to the vertex ids in <strong>n</strong>.
+
+</p>
+<hr>
+<a name="path"><h1>PGraph.path</h1></a>
+<p><span class="helptopic">Find path to goal node</span></p><p>
+<strong>p</strong> = G.<span style="color:red">path</span>(<strong>vs</strong>) is a vector of vertex ids that form a <span style="color:red">path</span> from
+the starting vertex <strong>vs</strong> to the previously specified goal.  The <span style="color:red">path</span>
+includes the start and goal vertex id.
+
+</p>
+<p>
+To compute <span style="color:red">path</span> to goal vertex 5
+
+</p>
+<pre style="width: 90%%;" class="examples">
+g.goal(5);
+</pre>
+<p>
+then the <span style="color:red">path</span>, starting from vertex 1 is
+
+</p>
+<pre style="width: 90%%;" class="examples">
+p1&nbsp;=&nbsp;g.path(1);
+</pre>
+<p>
+and the <span style="color:red">path</span> starting from vertex 2 is
+
+</p>
+<pre style="width: 90%%;" class="examples">
+p2&nbsp;=&nbsp;g.path(2);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Pgraph.goal must have been invoked first.</li>
+  <li>Can be used repeatedly to find paths from different starting points
+to the goal specified to Pgraph.goal().</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PGraph.goal.html">PGraph.goal</a>, <a href="PGraph.Astar.html">PGraph.Astar</a></p>
+<hr>
+<a name="pick"><h1>PGraph.pick</h1></a>
+<p><span class="helptopic">Graphically select a vertex</span></p><p>
+<strong>v</strong> = G.<span style="color:red">pick</span>() is the id of the vertex closest to the point clicked
+by the user on a plot of the graph.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.plot.html">PGraph.plot</a></p>
+<hr>
+<a name="plot"><h1>PGraph.plot</h1></a>
+<p><span class="helptopic">Plot the graph</span></p><p>
+G.<span style="color:red">plot</span>(<strong>opt</strong>) plots the graph in the current figure.  Nodes
+are shown as colored circles.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'labels'</td> <td>Display vertex id (default false)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'edges'</td> <td>Display edges (default true)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'edgelabels'</td> <td>Display edge id (default false)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeSize', S</td> <td>Size of vertex circle (default 8)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeFaceColor', C</td> <td>Node circle color (default blue)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeEdgeColor', C</td> <td>Node circle edge color (default blue)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeLabelSize', S</td> <td>Node label text sizer (default 16)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'NodeLabelColor', C</td> <td>Node label text color (default blue)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeColor', C</td> <td>Edge color (default black)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeLabelSize', S</td> <td>Edge label text size (default black)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'EdgeLabelColor', C</td> <td>Edge label text color (default black)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'componentcolor'</td> <td>Node color is a function of graph component</td></tr>
+</table>
+<hr>
+<a name="setcost"><h1>PGraph.setcost</h1></a>
+<p><span class="helptopic">Set cost of edge</span></p><p>
+G.<span style="color:red">setcost</span>(<strong>E</strong>, <strong>C</strong>) set cost of edge id <strong>E</strong> to <strong>C</strong>.
+
+</p>
+<hr>
+<a name="setdata"><h1>PGraph.setdata</h1></a>
+<p><span class="helptopic">Set user data for node</span></p><p>
+G.<span style="color:red">setdata</span>(<strong>v</strong>, <strong>u</strong>) sets the user data of vertex <strong>v</strong> to <strong>u</strong> which can be of any
+type such as a number, struct, object or cell array.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PGraph.data.html">PGraph.data</a></p>
+<hr>
+<a name="vertices"><h1>PGraph.vertices</h1></a>
+<p><span class="helptopic">Find vertices given edge</span></p><p>
+<strong>v</strong> = G.<span style="color:red">vertices</span>(<strong>E</strong>) return the id of the <span style="color:red">vertices</span> that define edge <strong>E</strong>.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

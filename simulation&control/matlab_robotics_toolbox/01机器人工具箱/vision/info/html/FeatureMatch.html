@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: FeatureMatch</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: FeatureMatch</td>
+      <td class="subheader-left"><a href="matlab:open FeatureMatch">View code for FeatureMatch</a></td>
+    </tr>
+  </table>
+<h1>FeatureMatch</h1><p><span class="helptopic">Feature correspondence object</span></p><p>
+This class represents the correspondence between two PointFeature
+objects.  A vector of FeatureMatch objects can represent the
+correspondence between sets of points.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot corresponding points</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> show</td> <td>Show summary statistics of corresponding points</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> ransac</td> <td>Determine inliers and outliers</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> inlier</td> <td>Return inlier matches</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> outlier</td> <td>Return outlier matches</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> subset</td> <td>Return a subset of matches</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display value of match</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert value of match to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> p1</td> <td>Point coordinates in view 1 (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> p2</td> <td>Point coordinates in view 2 (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> p </td> <td>Point coordinates in view 1 and 2 (4x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> distance</td> <td>Match strength between the points</td></tr>
+</table>
+<p>
+Properties of a vector of FeatureMatch objects are returned as a vector.
+If F is a vector (Nx1) of FeatureMatch objects then F.p1 is a 2xN matrix
+with each column the corresponding view 1 point coordinate.
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>FeatureMatch is a reference object.</li>
+  <li>FeatureMatch objects can be used in vectors and arrays</li>
+  <li>Operates with all objects derived from PointFeature, such as
+ScalePointFeature, SurfPointFeature and SiftPointFeature.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a>, <a href="SurfPointFeature.html">SurfPointFeature</a>, <a href="SiftPointFeature.html">SiftPointFeature</a></p>
+<hr>
+<a name="FeatureMatch"><h1>FeatureMatch.FeatureMatch</h1></a>
+<p><span class="helptopic">Create a new FeatureMatch object</span></p><p>
+<strong>m</strong> = <span style="color:red">FeatureMatch</span>(<strong>f1</strong>, <strong>f2</strong>, <strong>s</strong>) is a new <span style="color:red">FeatureMatch</span> object describing a
+correspondence between point features <strong>f1</strong> and <strong>f2</strong> with a strength of <strong>s</strong>.
+
+</p>
+<p>
+<strong>m</strong> = <span style="color:red">FeatureMatch</span>(<strong>f1</strong>, <strong>f2</strong>) as above but the strength is set to NaN.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Only the coordinates of the PointFeature are kept.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a>, <a href="SurfPointFeature.html">SurfPointFeature</a>, <a href="SiftPointFeature.html">SiftPointFeature</a></p>
+<hr>
+<a name="char"><h1>FeatureMatch.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = M.<span style="color:red">char</span>() is a compact string representation of the match object.
+If M is a vector then the string has multiple lines, one per element.
+
+</p>
+<hr>
+<a name="display"><h1>FeatureMatch.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+M.<span style="color:red">display</span>() displays a compact human-readable representation of the
+feature pair.  If M is a vector then the elements are printed one per line.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a FeatureMatch object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.char.html">FeatureMatch.char</a></p>
+<hr>
+<a name="inlier"><h1>FeatureMatch.inlier</h1></a>
+<p><span class="helptopic">Inlier features</span></p><p>
+<strong>m2</strong> = M.<span style="color:red">inlier</span>() is a subset of the <span style="color:red">FeatureMatch</span> vector M that are
+considered to be inliers.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Inliers are not determined until after RANSAC is run.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.outlier.html">FeatureMatch.outlier</a>, <a href="FeatureMatch.ransac.html">FeatureMatch.ransac</a></p>
+<hr>
+<a name="outlier"><h1>FeatureMatch.outlier</h1></a>
+<p><span class="helptopic">Outlier features</span></p><p>
+<strong>m2</strong> = M.<span style="color:red">outlier</span>() is a subset of the <span style="color:red">FeatureMatch</span> vector M that are
+considered to be outliers.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Outliers are not determined until after RANSAC is run.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.inlier.html">FeatureMatch.inlier</a>, <a href="FeatureMatch.ransac.html">FeatureMatch.ransac</a></p>
+<hr>
+<a name="p"><h1>FeatureMatch.p</h1></a>
+<p><span class="helptopic">Feature point coordinate pairs</span></p><p>
+<strong>p</strong> = M.<span style="color:red">p</span>() is a 4xN matrix containing the feature point coordinates.
+Each column contains the coordinates of a pair of corresponding
+points [u1,v1,u2,v2].
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.p1.html">FeatureMatch.p1</a>, <a href="FeatureMatch.p2.html">FeatureMatch.p2</a></p>
+<hr>
+<a name="p1"><h1>FeatureMatch.p1</h1></a>
+<p><span class="helptopic">Feature point coordinates from view 1</span></p><p>
+<strong>p</strong> = M.<span style="color:red">p1</span>() is a 2xN matrix containing the feature points coordinates
+from view 1.  These are the (u,v) properties of the feature F1 passed
+to the constructor.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.FeatureMatch.html">FeatureMatch.FeatureMatch</a>, <a href="FeatureMatch.p2.html">FeatureMatch.p2</a>, <a href="FeatureMatch.p.html">FeatureMatch.p</a></p>
+<hr>
+<a name="p2"><h1>FeatureMatch.p2</h1></a>
+<p><span class="helptopic">Feature point coordinates from view 2</span></p><p>
+<strong>p</strong> = M.<span style="color:red">p2</span>() is a 2xN matrix containing the feature points coordinates
+from view 1.  These are the (u,v) properties of the feature F2 passed
+to the constructor.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="FeatureMatch.FeatureMatch.html">FeatureMatch.FeatureMatch</a>, <a href="FeatureMatch.p1.html">FeatureMatch.p1</a>, <a href="FeatureMatch.p.html">FeatureMatch.p</a></p>
+<hr>
+<a name="plot"><h1>FeatureMatch.plot</h1></a>
+<p><span class="helptopic">Show corresponding points</span></p><p>
+M.<span style="color:red">plot</span>() overlays the correspondences in the <span style="color:red">FeatureMatch</span> vector M
+on the current figure.  The figure must comprise views 1 and 2 side
+by side, for example by:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp({im1,im2})
+m.plot()
+</pre>
+<p>
+M.<span style="color:red">plot</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to <span style="color:red">plot</span>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Using IDISP as above adds UserData to the figure, and an error is
+created if this UserData is not found.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="idisp.html">idisp</a></p>
+<hr>
+<a name="ransac"><h1>FeatureMatch.ransac</h1></a>
+<p><span class="helptopic">Apply RANSAC</span></p><p>
+M.<span style="color:red">ransac</span>(<strong>func</strong>, <strong>options</strong>) applies the RANSAC algorithm to fit the point
+correspondences to the model described by the function <strong>func</strong>.  The
+<strong>options</strong> are passed to the RANSAC() function.  Elements of the
+<span style="color:red">FeatureMatch</span> vector have their status updated in place to indicate
+whether they are inliers or outliers.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+f1&nbsp;=&nbsp;isurf(im1);
+f2&nbsp;=&nbsp;isurf(im2);
+m&nbsp;=&nbsp;f1.match(f2);
+m.ransac(&nbsp;@fmatrix,&nbsp;1e-4);
+</pre>
+<h2>See also</h2>
+<p>
+<a href="fmatrix.html">fmatrix</a>, <a href="homography.html">homography</a>, <a href="ransac.html">ransac</a></p>
+<hr>
+<a name="show"><h1>FeatureMatch.show</h1></a>
+<p><span class="helptopic">Display summary statistics of the FeatureMatch vector</span></p><p>
+M.<span style="color:red">show</span>() is a compact summary of the <span style="color:red">FeatureMatch</span> vector M that gives
+the number of matches, inliers and outliers (and their percentages).
+
+</p>
+<hr>
+<a name="subset"><h1>FeatureMatch.subset</h1></a>
+<p><span class="helptopic">Subset of matches</span></p><p>
+<strong>m2</strong> = M.<span style="color:red">subset</span>(<strong>n</strong>) is a <span style="color:red">FeatureMatch</span> vector with no more than <strong>n</strong> elements
+sampled uniformly from M.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

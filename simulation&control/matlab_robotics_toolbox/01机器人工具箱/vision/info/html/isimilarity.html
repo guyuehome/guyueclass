@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: isimilarity</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: isimilarity</td>
+      <td class="subheader-left"><a href="matlab:open isimilarity">View code for isimilarity</a></td>
+    </tr>
+  </table>
+<h1>isimilarity</h1><p><span class="helptopic">Locate template in image</span></p><p>
+<strong>s</strong> = <span style="color:red">isimilarity</span>(<strong>T</strong>, <strong>im</strong>) is an image where each pixel is the ZNCC similarity
+of the template <strong>T</strong> (MxM) to the MxM neighbourhood surrounding the
+corresonding input pixel in <strong>im</strong>.  <strong>s</strong> is same size as <strong>im</strong>.
+
+</p>
+<p>
+<strong>s</strong> = <span style="color:red">isimilarity</span>(<strong>T</strong>, <strong>im</strong>, <strong>metric</strong>) as above but the similarity metric is specified
+by the function <strong>metric</strong> which can be any of @sad, @ssd, @ncc, @zsad, @zssd.
+
+</p>
+<h2>Example</h2>
+<p>
+Load an image of Wally/Waldo (the template)
+
+</p>
+<pre style="width: 90%%;" class="examples">
+T&nbsp;=&nbsp;iread('wally.png',&nbsp;'double');
+</pre>
+<p>
+then load an image of the crowd where he is hiding
+
+</p>
+<pre style="width: 90%%;" class="examples">
+crowd&nbsp;=&nbsp;iread('wheres-wally.png',&nbsp;'double');
+</pre>
+<p>
+Now search for him using the ZNCC matching measure
+
+</p>
+<pre style="width: 90%%;" class="examples">
+S&nbsp;=&nbsp;isimilarity(T,&nbsp;crowd,&nbsp;@zncc);
+</pre>
+<p>
+and display the similarity
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(S,&nbsp;'colormap',&nbsp;'jet',&nbsp;'bar')
+</pre>
+<p>
+The magnitude at each pixel indicates how well the template centred on
+that point matches the surrounding pixels.  The locations of the maxima
+are
+
+</p>
+<pre style="width: 90%%;" class="examples">
+[~,p]&nbsp;=&nbsp;peak2(S,&nbsp;1,&nbsp;'npeaks',&nbsp;5);
+</pre>
+<p>
+Now we can display the original scene
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(crowd)
+</pre>
+<p>
+and highlight the most likely places that Wally/Waldo is hiding
+
+</p>
+<pre style="width: 90%%;" class="examples">
+plot_circle(p,&nbsp;30,&nbsp;'fillcolor',&nbsp;'b',&nbsp;'alpha',&nbsp;0.3,&nbsp;...
+</pre>
+<pre style="width: 90%%;" class="examples">
+'edgecolor',&nbsp;'none')
+</pre>
+<pre style="width: 90%%;" class="examples">
+plot_point(p,&nbsp;'sequence',&nbsp;'bold',&nbsp;'textsize',&nbsp;24,&nbsp;...
+</pre>
+<pre style="width: 90%%;" class="examples">
+'textcolor',&nbsp;'k',&nbsp;'Marker',&nbsp;'none')
+</pre>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Section 12.4,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+  <li>For NCC and ZNCC the maximum in S corresponds to the most likely template
+location.  For SAD, SSD, ZSAD and ZSSD the minimum value corresponds
+to the most likely location.</li>
+  <li>Similarity is not computed for those pixels where the template crosses
+the image boundary, and these output pixels are set to NaN.</li>
+  <li>The ZNCC function is a MEX file and therefore the fastest</li>
+  <li>User provided similarity metrics can be used, the function accepts
+two regions and returns a scalar similarity score.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="imatch.html">imatch</a>, <a href="sad.html">sad</a>, <a href="ssd.html">ssd</a>, <a href="ncc.html">ncc</a>, <a href="zsad.html">zsad</a>, <a href="zssd.html">zssd</a>, <a href="zncc.html">zncc</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

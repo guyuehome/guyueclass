@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: tr2eul</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: tr2eul</td>
+      <td class="subheader-left"><a href="matlab:open tr2eul">View code for tr2eul</a></td>
+    </tr>
+  </table>
+<h1>tr2eul</h1><p><span class="helptopic">Convert homogeneous transform to Euler angles</span></p><p>
+<strong>eul</strong> = <span style="color:red">tr2eul</span>(<strong>T</strong>, <strong>options</strong>) are the ZYZ Euler angles (1x3) corresponding to
+the rotational part of a homogeneous transform <strong>T</strong> (4x4). The 3 angles
+<strong>eul</strong>=[PHI,THETA,PSI] correspond to sequential rotations about the Z, Y and
+Z axes respectively.
+
+</p>
+<p>
+<strong>eul</strong> = <span style="color:red">tr2eul</span>(<strong>R</strong>, <strong>options</strong>) as above but the input is an orthonormal
+rotation matrix <strong>R</strong> (3x3).
+
+</p>
+<p>
+If <strong>R</strong> (3x3xK) or <strong>T</strong> (4x4xK) represent a sequence then each row of <strong>eul</strong>
+corresponds to a step of the sequence.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'deg'</td> <td>Compute angles in degrees (radians default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'flip'</td> <td>Choose first Euler angle to be in quadrant 2 or 3.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>There is a singularity for the case where THETA=0 in which case PHI is arbitrarily
+set to zero and PSI is the sum (PHI+PSI).</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="eul2tr.html">eul2tr</a>, <a href="tr2rpy.html">tr2rpy</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

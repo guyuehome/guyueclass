@@ -1,0 +1,370 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Arbotix</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Arbotix</td>
+      <td class="subheader-left"><a href="matlab:open Arbotix">View code for Arbotix</a></td>
+    </tr>
+  </table>
+<h1>Arbotix</h1><p><span class="helptopic">Interface to Arbotix robot-arm controller</span></p><p>
+A concrete subclass of the abstract Machine class that implements a
+connection over a serial port to an Arbotix robot-arm controller.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> Arbotix</td> <td>Constructor, establishes serial communications</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> delete</td> <td>Destructor, closes serial connection</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getpos</td> <td>Get joint angles</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpos</td> <td>Set joint angles and optionally speed</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpath</td> <td>Load a trajectory into Arbotix RAM</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> relax</td> <td>Control relax (zero torque) state</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setled</td> <td>Control LEDs on servos</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> gettemp</td> <td>Temperature of motors</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> writedata1</td> <td>Write byte data to servo control table</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> writedata2</td> <td>Write word data to servo control table</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> readdata</td> <td>Read servo control table</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> command</td> <td>Execute command on servo</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> flush</td> <td>Flushes serial data buffer</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> receive</td> <td>Receive data</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+arb=Arbotix('port',&nbsp;'/dev/tty.usbserial-A800JDPN',&nbsp;'nservos',&nbsp;5);
+q&nbsp;=&nbsp;arb.getpos();
+arb.setpos(q&nbsp;+&nbsp;0.1);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>This is experimental code.</li>
+  <li>Considers the robot as a string of motors, and the last joint is
+assumed to be the gripper.  This should be abstracted, at the moment this
+is done in RobotArm.</li>
+  <li>Connects via serial port to an Arbotix controller running the pypose
+sketch.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Machine.html">Machine</a>, <a href="RobotArm.html">RobotArm</a></p>
+<hr>
+<a name="Arbotix"><h1>Arbotix.Arbotix</h1></a>
+<p><span class="helptopic">Create Arbotix interface object</span></p><p>
+<strong>arb</strong> = <span style="color:red">Arbotix</span>(<strong>options</strong>) is an object that represents a connection to a chain
+of <span style="color:red">Arbotix</span> servos connected via an <span style="color:red">Arbotix</span> controller and serial link to the
+host computer.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'port', P</td> <td>Name of the serial port device, eg. /dev/tty.USB0</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'baud', B</td> <td>Set baud rate (default 38400)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'debug', D</td> <td>Debug level, show communications packets (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'nservos', N</td> <td>Number of servos in the chain</td></tr>
+</table>
+<hr>
+<a name="a2e"><h1>Arbotix.a2e</h1></a>
+<p><span class="helptopic">Convert angle to encoder</span></p><p>
+<strong>E</strong> = ARB.<span style="color:red">A2E</span>(<strong>a</strong>) is a vector of encoder values <strong>E</strong> corresponding to the
+vector of joint angles <strong>a</strong>.
+TODO:
+
+</p>
+<ul>
+  <li>Scale factor is constant, should be a parameter to constructor.</li>
+</ul>
+<hr>
+<a name="char"><h1>Arbotix.char</h1></a>
+<p><span class="helptopic">Convert Arbotix status to string</span></p><p>
+<strong>C</strong> = ARB.<span style="color:red">char</span>() is a string that succinctly describes the status
+of the <span style="color:red">Arbotix</span> controller link.
+
+</p>
+<hr>
+<a name="command"><h1>Arbotix.command</h1></a>
+<p><span class="helptopic">Execute command on servo</span></p><p>
+<strong>R</strong> = ARB.<span style="color:red">COMMAND</span>(<strong>id</strong>, <strong>instruc</strong>) executes the instruction <strong>instruc</strong> on servo <strong>id</strong>.
+
+</p>
+<p>
+<strong>R</strong> = ARB.<span style="color:red">COMMAND</span>(<strong>id</strong>, <strong>instruc</strong>, <strong>data</strong>) as above but the vector <strong>data</strong> forms the
+payload of the command message, and all numeric values in <strong>data</strong> must be
+in the range 0 to 255.
+
+</p>
+<p>
+The optional output argument <strong>R</strong> is a structure holding the return status.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>ID is in the range 0 to N-1, where N is the number of servos in the system.</li>
+  <li>Values for INSTRUC are defined as class properties INS_*.</li>
+  <li>If 'debug' was enabled in the constructor then the hex values are echoed
+to the screen as well as being sent to the Arbotix.</li>
+  <li>If an output argument is requested the serial channel is flushed first.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.receive.html">Arbotix.receive</a>, <a href="Arbotix.flush.html">Arbotix.flush</a></p>
+<hr>
+<a name="connect"><h1>Arbotix.connect</h1></a>
+<p><span class="helptopic">Connect to the physical robot controller</span></p><p>
+ARB.<span style="color:red">connect</span>() establish a serial connection to the physical robot
+controller.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.disconnect.html">Arbotix.disconnect</a></p>
+<hr>
+<a name="disconnect"><h1>Arbotix.disconnect</h1></a>
+<p><span class="helptopic">Disconnect from the physical robot controller</span></p><p>
+ARB.<span style="color:red">disconnect</span>() closes the serial connection.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.connect.html">Arbotix.connect</a></p>
+<hr>
+<a name="display"><h1>Arbotix.display</h1></a>
+<p><span class="helptopic">Display parameters</span></p><p>
+ARB.<span style="color:red">display</span>() displays the servo parameters in compact single line format.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Arbotix object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.char.html">Arbotix.char</a></p>
+<hr>
+<a name="e2a"><h1>Arbotix.e2a</h1></a>
+<p><span class="helptopic">Convert encoder to angle</span></p><p>
+<strong>a</strong> = ARB.<span style="color:red">E2A</span>(<strong>E</strong>) is a vector of joint angles <strong>a</strong> corresponding to the
+vector of encoder values <strong>E</strong>.
+
+</p>
+<p>
+TODO:
+
+</p>
+<ul>
+  <li>Scale factor is constant, should be a parameter to constructor.</li>
+</ul>
+<hr>
+<a name="flush"><h1>Arbotix.flush</h1></a>
+<p><span class="helptopic">Flush the receive buffer</span></p><p>
+ARB.<span style="color:red">FLUSH</span>() flushes the serial input buffer, data is discarded.
+
+</p>
+<p>
+<strong>s</strong> = ARB.<span style="color:red">FLUSH</span>() as above but returns a vector of all bytes flushed from
+the channel.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Every command sent to the Arbotix elicits a reply.</li>
+  <li>The method receive() should be called after every command.</li>
+  <li>Some Arbotix commands also return diagnostic text information.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.receive.html">Arbotix.receive</a>, <a href="Arbotix.parse.html">Arbotix.parse</a></p>
+<hr>
+<a name="getpos"><h1>Arbotix.getpos</h1></a>
+<p><span class="helptopic">Get position</span></p><p>
+<strong>p</strong> = ARB.<span style="color:red">GETPOS</span>(<strong>id</strong>) is the position (0-1023) of servo <strong>id</strong>.
+
+</p>
+<p>
+<strong>p</strong> = ARB.<span style="color:red">GETPOS</span>([]) is a vector (1xN) of positions of servos 1 to N.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>N is defined at construction time by the 'nservos' option.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.e2a.html">Arbotix.e2a</a></p>
+<hr>
+<a name="gettemp"><h1>Arbotix.gettemp</h1></a>
+<p><span class="helptopic">Get temperature</span></p><p>
+<strong>T</strong> = ARB.<span style="color:red">GETTEMP</span>(<strong>id</strong>) is the tempeature (deg C) of servo <strong>id</strong>.
+
+</p>
+<p>
+<strong>T</strong> = ARB.<span style="color:red">GETTEMP</span>() is a vector (1xN) of the temperature of servos 1 to N.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>N is defined at construction time by the 'nservos' option.</li>
+</ul>
+<hr>
+<a name="parse"><h1>Arbotix.parse</h1></a>
+<p><span class="helptopic">Parse Arbotix return strings</span></p><p>
+ARB.<span style="color:red">PARSE</span>(<strong>s</strong>) parses the string returned from the <span style="color:red">Arbotix</span> controller and
+prints diagnostic text.  The string <strong>s</strong> contains a mixture of Dynamixel
+style return packets and diagnostic text.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Every command sent to the Arbotix elicits a reply.</li>
+  <li>The method receive() should be called after every command.</li>
+  <li>Some Arbotix commands also return diagnostic text information.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.flush.html">Arbotix.flush</a>, <a href="Arbotix.command.html">Arbotix.command</a></p>
+<hr>
+<a name="readdata"><h1>Arbotix.readdata</h1></a>
+<p><span class="helptopic">Read byte data from servo control table</span></p><p>
+<strong>R</strong> = ARB.<span style="color:red">READDATA</span>(<strong>id</strong>, <strong>addr</strong>) reads the successive elements of the servo
+control table for servo <strong>id</strong>, starting at address <strong>addr</strong>.  The complete
+return status in the structure <strong>R</strong>, and the byte data is a vector in the
+field 'params'.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>ID is in the range 0 to N-1, where N is the number of servos in the system.</li>
+  <li>If 'debug' was enabled in the constructor then the hex values are echoed
+to the screen as well as being sent to the Arbotix.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.receive.html">Arbotix.receive</a>, <a href="Arbotix.command.html">Arbotix.command</a></p>
+<hr>
+<a name="receive"><h1>Arbotix.receive</h1></a>
+<p><span class="helptopic">Decode Arbotix return packet</span></p><p>
+<strong>R</strong> = ARB.<span style="color:red">RECEIVE</span>() reads and parses the return packet from the <span style="color:red">Arbotix</span>
+and returns a structure with the following fields:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> id</td> <td>The id of the servo that sent the message</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> error</td> <td>Error code, 0 means OK</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> params</td> <td>The returned parameters, can be a vector of byte values</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Every command sent to the Arbotix elicits a reply.</li>
+  <li>The method receive() should be called after every command.</li>
+  <li>Some Arbotix commands also return diagnostic text information.</li>
+  <li>If 'debug' was enabled in the constructor then the hex values are echoed</li>
+</ul>
+<hr>
+<a name="relax"><h1>Arbotix.relax</h1></a>
+<p><span class="helptopic">Control relax state</span></p><p>
+ARB.<span style="color:red">RELAX</span>(<strong>id</strong>) causes the servo <strong>id</strong> to enter zero-torque (relax state)
+ARB.<span style="color:red">RELAX</span>(<strong>id</strong>, FALSE) causes the servo <strong>id</strong> to enter position-control mode
+ARB.<span style="color:red">RELAX</span>([]) causes servos 1 to N to relax
+ARB.<span style="color:red">RELAX</span>() as above
+ARB.<span style="color:red">RELAX</span>([], FALSE) causes servos 1 to N to enter position-control mode.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>N is defined at construction time by the 'nservos' option.</li>
+</ul>
+<hr>
+<a name="setled"><h1>Arbotix.setled</h1></a>
+<p><span class="helptopic">Set LEDs on servos</span></p><p>
+ARB.<span style="color:red">led</span>(<strong>id</strong>, <strong>status</strong>) sets the LED on servo <strong>id</strong> to on or off according
+to the <strong>status</strong> (logical).
+
+</p>
+<p>
+ARB.<span style="color:red">led</span>([], <strong>status</strong>) as above but the LEDs on servos 1 to N are set.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>N is defined at construction time by the 'nservos' option.</li>
+</ul>
+<hr>
+<a name="setpath"><h1>Arbotix.setpath</h1></a>
+<p><span class="helptopic">Load a path into Arbotix controller</span></p><p>
+ARB.<span style="color:red">setpath</span>(<strong>jt</strong>) stores the path <strong>jt</strong> (PxN) in the <span style="color:red">Arbotix</span> controller
+where P is the number of points on the path and N is the number of
+robot joints.  Allows for smooth multi-axis motion.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.a2e.html">Arbotix.a2e</a></p>
+<hr>
+<a name="setpos"><h1>Arbotix.setpos</h1></a>
+<p><span class="helptopic">Set position</span></p><p>
+ARB.<span style="color:red">SETPOS</span>(<strong>id</strong>, <strong>pos</strong>) sets the position (0-1023) of servo <strong>id</strong>.
+ARB.<span style="color:red">SETPOS</span>(<strong>id</strong>, <strong>pos</strong>, SPEED) as above but also sets the speed.
+
+</p>
+<p>
+ARB.<span style="color:red">SETPOS</span>(<strong>pos</strong>) sets the position of servos 1-N to corresponding elements
+of the vector <strong>pos</strong> (1xN).
+ARB.<span style="color:red">SETPOS</span>(<strong>pos</strong>, SPEED) as above but also sets the velocity SPEED (1xN).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>ID is in the range 1 to N</li>
+  <li>N is defined at construction time by the 'nservos' option.</li>
+  <li>SPEED varies from 0 to 1023, 0 means largest possible speed.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.a2e.html">Arbotix.a2e</a></p>
+<hr>
+<a name="writedata1"><h1>Arbotix.writedata1</h1></a>
+<p><span class="helptopic">Write byte data to servo control table</span></p><p>
+ARB.<span style="color:red">WRITEDATA1</span>(<strong>id</strong>, <strong>addr</strong>, <strong>data</strong>) writes the successive elements of <strong>data</strong> to the
+servo control table for servo <strong>id</strong>, starting at address <strong>addr</strong>.  The values of
+<strong>data</strong> must be in the range 0 to 255.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>ID is in the range 0 to N-1, where N is the number of servos in the system.</li>
+  <li>If 'debug' was enabled in the constructor then the hex values are echoed
+to the screen as well as being sent to the Arbotix.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.writedata2.html">Arbotix.writedata2</a>, <a href="Arbotix.command.html">Arbotix.command</a></p>
+<hr>
+<a name="writedata2"><h1>Arbotix.writedata2</h1></a>
+<p><span class="helptopic">Write word data to servo control table</span></p><p>
+ARB.<span style="color:red">WRITEDATA2</span>(<strong>id</strong>, <strong>addr</strong>, <strong>data</strong>) writes the successive elements of <strong>data</strong> to the
+servo control table for servo <strong>id</strong>, starting at address <strong>addr</strong>.  The values of
+<strong>data</strong> must be in the range 0 to 65535.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>ID is in the range 0 to N-1, where N is the number of servos in the system.</li>
+  <li>If 'debug' was enabled in the constructor then the hex values are echoed
+to the screen as well as being sent to the Arbotix.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Arbotix.writedata1.html">Arbotix.writedata1</a>, <a href="Arbotix.command.html">Arbotix.command</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

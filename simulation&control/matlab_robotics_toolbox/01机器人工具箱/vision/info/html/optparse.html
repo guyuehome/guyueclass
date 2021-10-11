@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: optparse</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: optparse</td>
+      <td class="subheader-left"><a href="matlab:open optparse">View code for optparse</a></td>
+    </tr>
+  </table>
+<h1>optparse</h1><p><span class="helptopic">Standard option parser for Toolbox functions</span></p><p>
+[<strong>optout</strong>,<strong>args</strong>] = <span style="color:red">optparse</span>(<strong>opt</strong>, <strong>arglist</strong>) is a generalized option parser for
+Toolbox functions.  It supports options that have an assigned value, boolean
+or enumeration types (string or int).
+
+</p>
+<p>
+The software pattern is:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+function(a,&nbsp;b,&nbsp;c,&nbsp;varargin)
+opt.foo&nbsp;=&nbsp;true;
+opt.bar&nbsp;=&nbsp;false;
+opt.blah&nbsp;=&nbsp;[];
+opt.choose&nbsp;=&nbsp;{'this',&nbsp;'that',&nbsp;'other'};
+opt.select&nbsp;=&nbsp;{'#no',&nbsp;'#yes'};
+opt&nbsp;=&nbsp;tb_optparse(opt,&nbsp;varargin);
+</pre>
+<p>
+Optional arguments to the function behave as follows:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'foo'</td> <td>sets opt.foo <- true</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'nobar'</td> <td>sets opt.foo <- false</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'blah',  3</td> <td>sets opt.blah <- 3</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'blah',  {x,y}</td> <td>sets opt.blah <- {x,y}</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'that'</td> <td>sets opt.choose <- 'that'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'yes'</td> <td>sets opt.select <- 2 (the second element)</td></tr>
+</table>
+<p>
+and can be given in any combination.
+
+</p>
+<p>
+If neither of 'this', 'that' or 'other' are specified then opt.choose &amp;lt;- 'this'.
+Alternatively if:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+opt.choose&nbsp;=&nbsp;{[],&nbsp;'this',&nbsp;'that',&nbsp;'other'};
+</pre>
+<p>
+then if neither of 'this', 'that' or 'other' are specified then opt.choose &amp;lt;- []
+
+</p>
+<p>
+If neither of 'no' or 'yes' are specified then opt.select &amp;lt;- 1.
+
+</p>
+<p>
+Note:
+
+</p>
+<ul>
+  <li>That the enumerator names must be distinct from the field names.</li>
+  <li>That only one value can be assigned to a field, if multiple values</li>
+</ul>
+<pre style="width: 90%%;" class="examples">
+are&nbsp;required&nbsp;they&nbsp;must&nbsp;be&nbsp;converted&nbsp;to&nbsp;a&nbsp;cell&nbsp;array.
+</pre>
+<ul>
+  <li>To match an option that starts with a digit, prefix it with 'd_', so
+the field 'd_3d' matches the option '3d'.</li>
+</ul>
+<p>
+The allowable options are specified by the names of the fields in the
+structure opt.  By default if an option is given that is not a field of
+opt an error is declared.
+
+</p>
+<p>
+Sometimes it is useful to collect the unassigned options and this can be
+achieved using a second output argument
+
+</p>
+<pre style="width: 90%%;" class="examples">
+[opt,arglist]&nbsp;=&nbsp;tb_optparse(opt,&nbsp;varargin);
+</pre>
+<p>
+which is a cell array of all unassigned arguments in the order given in
+varargin.
+
+</p>
+<p>
+The return structure is automatically populated with fields: verbose and
+debug.  The following options are automatically parsed:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>sets opt.verbose <- true</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose=2'</td> <td>sets opt.verbose <- 2 (very verbose)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose=3'</td> <td>sets opt.verbose <- 3 (extremeley verbose)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose=4'</td> <td>sets opt.verbose <- 4 (ridiculously verbose)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'debug',  N</td> <td>sets opt.debug <- N</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'setopt',  S</td> <td>sets opt <- S</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'showopt'</td> <td>displays opt and arglist</td></tr>
+</table>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

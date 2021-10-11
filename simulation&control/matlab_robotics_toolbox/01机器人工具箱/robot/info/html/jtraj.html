@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: jtraj</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: jtraj</td>
+      <td class="subheader-left"><a href="matlab:open jtraj">View code for jtraj</a></td>
+    </tr>
+  </table>
+<h1>jtraj</h1><p><span class="helptopic">Compute a joint space trajectory between two configurations</span></p><p>
+[<strong>q</strong>,<strong>qd</strong>,<strong>qdd</strong>] = <span style="color:red">jtraj</span>(<strong>q0</strong>, <strong>qf</strong>, <strong>m</strong>) is a joint space trajectory <strong>q</strong> (MxN) where the joint
+coordinates vary from <strong>q0</strong> (1xN) to <strong>qf</strong> (1xN).  A quintic (5th order) polynomial is used
+with default zero boundary conditions for velocity and acceleration.
+Time is assumed to vary from 0 to 1 in <strong>m</strong> steps.  Joint velocity and
+acceleration can be optionally returned as <strong>qd</strong> (MxN) and <strong>qdd</strong> (MxN) respectively.
+The trajectory <strong>q</strong>, <strong>qd</strong> and <strong>qdd</strong> are MxN matrices, with one row per time step,
+and one column per joint.
+
+</p>
+<p>
+[<strong>q</strong>,<strong>qd</strong>,<strong>qdd</strong>] = <span style="color:red">jtraj</span>(<strong>q0</strong>, <strong>qf</strong>, <strong>m</strong>, <strong>qd0</strong>, <strong>qdf</strong>) as above but also specifies initial
+and final joint velocity for the trajectory.
+
+</p>
+<p>
+[<strong>q</strong>,<strong>qd</strong>,<strong>qdd</strong>] = <span style="color:red">jtraj</span>(<strong>q0</strong>, <strong>qf</strong>, <strong>T</strong>) as above but the trajectory length is defined
+by the length of the time vector <strong>T</strong> (Mx1).
+
+</p>
+<p>
+[<strong>q</strong>,<strong>qd</strong>,<strong>qdd</strong>] = <span style="color:red">jtraj</span>(<strong>q0</strong>, <strong>qf</strong>, <strong>T</strong>, <strong>qd0</strong>, <strong>qdf</strong>) as above but specifies initial and
+final joint velocity for the trajectory and a time vector.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="qplot.html">qplot</a>, <a href="ctraj.html">ctraj</a>, <a href="SerialLink.jtraj.html">SerialLink.jtraj</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,525 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: CentralCamera</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: CentralCamera</td>
+      <td class="subheader-left"><a href="matlab:open CentralCamera">View code for CentralCamera</a></td>
+    </tr>
+  </table>
+<h1>CentralCamera</h1><p><span class="helptopic">Perspective camera class</span></p><p>
+A concrete class for a central-projection perspective camera, a subclass of
+Camera.
+
+</p>
+<p>
+The camera coordinate system is:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+0------------>&nbsp;u&nbsp;X
+|
+|
+|&nbsp;&nbsp;&nbsp;+&nbsp;(principal&nbsp;point)
+|
+|&nbsp;&nbsp;&nbsp;Z-axis&nbsp;is&nbsp;into&nbsp;the&nbsp;page.
+v&nbsp;Y
+</pre>
+<p>
+This camera model assumes central projection, that is, the focal point
+is at z=0 and the image plane is at z=f.  The image is not inverted.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> project</td> <td>project world points and lines</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> K </td> <td>camera intrinsic matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> C </td> <td>camera matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> H </td> <td>camera motion to homography</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> invH</td> <td>decompose homography</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> F </td> <td>camera motion to fundamental matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> E </td> <td>camera motion to essential matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> invE</td> <td>decompose essential matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> fov</td> <td>field of view</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ray</td> <td>Ray3D corresponding to point</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> centre</td> <td>projective centre</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>plot projection of world point on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> hold</td> <td>control hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ishold</td> <td>test figure hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> clf</td> <td>clear image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> figure</td> <td>figure holding the image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> mesh</td> <td>draw shape represented as a mesh</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> point</td> <td>draw homogeneous points on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> line</td> <td>draw homogeneous lines on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_camera</td> <td>draw camera in world view</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_line_tr</td> <td>draw line in theta/rho format</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_epiline</td> <td>draw epipolar line</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> flowfield</td> <td>compute optical flow</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visjac_p</td> <td>image Jacobian for point features</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visjac_p_polar</td> <td>image Jacobian for point features in polar coordinates</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visjac_l</td> <td>image Jacobian for line features</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visjac_e</td> <td>image Jacobian for ellipse features</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> rpy</td> <td>set camera attitude</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> move</td> <td>clone Camera after motion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> centre</td> <td>get world coordinate of camera centre</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> estpose</td> <td>estimate pose</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> delete</td> <td>object destructor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert camera parameters to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display camera parameters</td></tr>
+  <tr></tr>
+  <tr></tr></table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> npix</td> <td>image dimensions in pixels (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> pp</td> <td>intrinsic: principal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> rho</td> <td>intrinsic: pixel dimensions (2x1) in metres</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> f </td> <td>intrinsic: focal length</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> k </td> <td>intrinsic: radial distortion vector</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> p </td> <td>intrinsic: tangential distortion parameters</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> distortion</td> <td>intrinsic: camera distortion [k1 k2 k3 p1 p2]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> T </td> <td>extrinsic: camera pose as homogeneous transformation</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> nu</td> <td>number of pixels in u-direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nv</td> <td>number of pixels in v-direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> u0</td> <td>principal point u-coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> v0</td> <td>principal point v-coordinate</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Camera is a reference object.</li>
+  <li>Camera objects can be used in vectors and arrays</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a></p>
+<hr>
+<a name="CentralCamera"><h1>CentralCamera.CentralCamera</h1></a>
+<p><span class="helptopic">Create central projection camera object</span></p><p>
+<strong>C</strong> = <span style="color:red">CentralCamera</span>() creates a central projection camera with canonic
+parameters: f=1 and name='canonic'.
+
+</p>
+<p>
+<strong>C</strong> = <span style="color:red">CentralCamera</span>(<strong>options</strong>) as above but with specified parameters.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'name', N</td> <td>Name of camera</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'focal', F</td> <td>Focal length [metres]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'distortion', D</td> <td>Distortion vector [k1 k2 k3 p1 p2]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'distortion-bouguet', D</td> <td>Distortion vector [k1 k2 p1 p2 k3]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'default'</td> <td>Default camera parameters: 1024x1024, f=8mm,
+10um pixels, camera at origin, optical axis
+is z-axis, u- and v-axes parallel to x- and
+y-axes respectively.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'image', IM</td> <td>Display an image rather than points</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'resolution', N</td> <td>Image plane resolution: NxN or N=[W H]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'sensor', S</td> <td>Image sensor size in metres (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'centre', P</td> <td>Principal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pixel', S</td> <td>Pixel size: SxS or S=[W H]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'noise', SIGMA</td> <td>Standard deviation of additive Gaussian
+noise added to returned image projections</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pose', T</td> <td>Pose of the camera as a homogeneous
+transformation</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'color', C</td> <td>Color of image plane background (default [1 1 0.8])</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a>, <a href="fisheyecamera.html">fisheyecamera</a>, <a href="CatadioptricCamera.html">CatadioptricCamera</a>, <a href="SphericalCamera.html">SphericalCamera</a></p>
+<hr>
+<a name="C"><h1>CentralCamera.C</h1></a>
+<p><span class="helptopic">Camera matrix</span></p><p>
+<span style="color:red">C</span> = <span style="color:red">C</span>.<span style="color:red">C</span>() is the 3x4 camera matrix, also known as the camera
+calibration or projection matrix.
+
+</p>
+<hr>
+<a name="centre"><h1>CentralCamera.centre</h1></a>
+<p><span class="helptopic">Projective centre</span></p><p>
+<strong>p</strong> = C.<span style="color:red">centre</span>() returns the 3D world coordinate of the projective
+<span style="color:red">centre</span> of the camera.
+
+</p>
+<h2>Reference</h2>
+<p>
+Hartley &amp; Zisserman,
+"Multiview Geometry",
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Ray3D.html">Ray3D</a></p>
+<hr>
+<a name="E"><h1>CentralCamera.E</h1></a>
+<p><span class="helptopic">Essential matrix</span></p><p>
+<span style="color:red">E</span> = C.<span style="color:red">E</span>(<strong>T</strong>) is the essential matrix relating two camera views.  The first
+view is from the current camera pose C.<strong>T</strong> and the second is a relative motion
+represented by the homogeneous transformation <strong>T</strong>.
+
+</p>
+<p>
+<span style="color:red">E</span> = C.<span style="color:red">E</span>(<strong>C2</strong>) is the essential matrix relating two camera views described
+by camera objects C (first view) and <strong>C2</strong> (second view).
+
+</p>
+<p>
+<span style="color:red">E</span> = C.<span style="color:red">E</span>(<strong>f</strong>) is the essential matrix based on the fundamental matrix <strong>f</strong> (3x3)
+and the intrinsic parameters of camera C.
+
+</p>
+<h2>Reference</h2>
+<p>
+Y.Ma, J.Kosecka, S.Soatto, S.Sastry,
+"An invitation to 3D",
+Springer, 2003.
+p.177
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.F.html">CentralCamera.F</a>, <a href="CentralCamera.invE.html">CentralCamera.invE</a></p>
+<hr>
+<a name="estpose"><h1>CentralCamera.estpose</h1></a>
+<p><span class="helptopic">Estimate pose from object model and camera view</span></p><p>
+<strong>T</strong> = C.<span style="color:red">estpose</span>(<strong>xyz</strong>, <strong>uv</strong>) is an estimate of the pose of the object defined by
+coordinates <strong>xyz</strong> (3xN) in its own coordinate frame.  <strong>uv</strong> (2xN) are the
+corresponding image plane coordinates.
+
+</p>
+<h2>Reference</h2>
+<p>
+"EPnP: An accurate O(n) solution to the PnP problem",
+V. Lepetit, F. Moreno-Noguer, and P. Fua,
+Int. Journal on Computer Vision,
+vol. 81, pp. 155-166, Feb. 2009.
+
+</p>
+<hr>
+<a name="F"><h1>CentralCamera.F</h1></a>
+<p><span class="helptopic">Fundamental matrix</span></p><p>
+<span style="color:red">F</span> = C.<span style="color:red">F</span>(<strong>T</strong>) is the fundamental matrix relating two camera views.  The first
+view is from the current camera pose C.<strong>T</strong> and the second is a relative motion
+represented by the homogeneous transformation <strong>T</strong>.
+
+</p>
+<p>
+<span style="color:red">F</span> = C.<span style="color:red">F</span>(<strong>C2</strong>) is the fundamental matrix relating two camera views described
+by camera objects C (first view) and <strong>C2</strong> (second view).
+
+</p>
+<h2>Reference</h2>
+<p>
+Y.Ma, J.Kosecka, S.Soatto, S.Sastry,
+"An invitation to 3D",
+Springer, 2003.
+p.177
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.E.html">CentralCamera.E</a></p>
+<hr>
+<a name="flowfield"><h1>CentralCamera.flowfield</h1></a>
+<p><span class="helptopic">Optical flow</span></p><p>
+C.<span style="color:red">flowfield</span>(<strong>v</strong>) displays the optical flow pattern for a sparse grid
+of points when the camera has a spatial velocity <strong>v</strong> (6x1).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="quiver.html">quiver</a></p>
+<hr>
+<a name="fov"><h1>CentralCamera.fov</h1></a>
+<p><span class="helptopic">Camera field-of-view angles.</span></p><p>
+<strong>a</strong> = C.<span style="color:red">fov</span>() are the field of view angles (2x1) in radians for the camera x and y
+(horizontal and vertical) directions.
+
+</p>
+<hr>
+<a name="H"><h1>CentralCamera.H</h1></a>
+<p><span class="helptopic">Homography matrix</span></p><p>
+<span style="color:red">H</span> = C.<span style="color:red">H</span>(<strong>T</strong>, <strong>n</strong>, <strong>d</strong>) is a 3x3 homography matrix for the camera observing the plane
+with normal <strong>n</strong> and at distance <strong>d</strong>, from two viewpoints.  The first view is from
+the current camera pose C.<strong>T</strong> and the second is after a relative motion represented
+by the homogeneous transformation <strong>T</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.H.html">CentralCamera.H</a></p>
+<hr>
+<a name="invE"><h1>CentralCamera.invE</h1></a>
+<p><span class="helptopic">Decompose essential matrix</span></p><p>
+<strong>s</strong> = C.<span style="color:red">invE</span>(<strong>E</strong>) decomposes the essential matrix <strong>E</strong> (3x3) into the camera motion.
+In practice there are multiple solutions and <strong>s</strong> (4x4xN) is a set of homogeneous
+transformations representing possible camera motion.
+
+</p>
+<p>
+<strong>s</strong> = C.<span style="color:red">invE</span>(<strong>E</strong>, <strong>p</strong>) as above but only solutions in which the world point <strong>p</strong> is visible
+are returned.
+
+</p>
+<h2>Reference</h2>
+<p>
+Hartley &amp; Zisserman,
+"Multiview Geometry",
+Chap 9, p. 259
+
+</p>
+<p>
+Y.Ma, J.Kosecka, <strong>s</strong>.Soatto, <strong>s</strong>.Sastry,
+"An invitation to 3D",
+Springer, 2003.
+p116, p120-122
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The transformation is from view 1 to view 2.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.E.html">CentralCamera.E</a></p>
+<hr>
+<a name="invH"><h1>CentralCamera.invH</h1></a>
+<p><span class="helptopic">Decompose homography matrix</span></p><p>
+<strong>s</strong> = C.<span style="color:red">invH</span>(<strong>H</strong>) decomposes the homography <strong>H</strong> (3x3) into the camera motion
+and the normal to the plane.
+
+</p>
+<p>
+In practice there are multiple solutions and <strong>s</strong> is a vector of structures
+with elements:
+
+</p>
+<ul>
+  <li>T, camera motion as a homogeneous transform matrix (4x4), translation not to scale</li>
+  <li>n, normal vector to the plane (3x3)</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+  <li>There are up to 4 solutions</li>
+  <li>Only those solutions that obey the positive depth constraint are returned</li>
+  <li>The required camera intrinsics are taken from the camera object</li>
+  <li>The transformation is from view 1 to view 2.</li>
+</ul>
+<h2>Reference</h2>
+<p>
+Y.Ma, J.Kosecka, <strong>s</strong>.Soatto, <strong>s</strong>.Sastry,
+"An invitation to 3D",
+Springer, 2003.
+section 5.3
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.H.html">CentralCamera.H</a></p>
+<hr>
+<a name="K"><h1>CentralCamera.K</h1></a>
+<p><span class="helptopic">Intrinsic parameter matrix</span></p><p>
+<span style="color:red">K</span> = C.<span style="color:red">K</span>() is the 3x3 intrinsic parameter matrix.
+
+</p>
+<hr>
+<a name="plot_epiline"><h1>CentralCamera.plot_epiline</h1></a>
+<p><span class="helptopic">Plot epipolar line</span></p><p>
+C.<span style="color:red">plot_epiline</span>(<strong>f</strong>, <strong>p</strong>) plots the epipolar lines due to the fundamental matrix <strong>f</strong>
+and the image points <strong>p</strong>.
+
+</p>
+<p>
+C.<span style="color:red">plot_epiline</span>(<strong>f</strong>, <strong>p</strong>, <strong>ls</strong>) as above but draw lines using the line style arguments <strong>ls</strong>.
+
+</p>
+<p>
+<strong>H</strong> = C.<span style="color:red">plot_epiline</span>(<strong>f</strong>, <strong>p</strong>) as above but return a vector of graphic handles, one per
+line.
+
+</p>
+<hr>
+<a name="plot_line_tr"><h1>CentralCamera.plot_line_tr</h1></a>
+<p><span class="helptopic">Plot line in theta-rho format</span></p><p>
+<span style="color:red">CentralCamera</span>.<span style="color:red">plot_line_tr</span>(<strong>L</strong>) plots lines on the camera's image plane that
+are described by columns of <strong>L</strong> with rows theta and rho respectively.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Hough.html">Hough</a></p>
+<hr>
+<a name="project"><h1>CentralCamera.project</h1></a>
+<p><span class="helptopic">Project world points to image plane</span></p><p>
+<strong>uv</strong> = C.<span style="color:red">project</span>(<strong>p</strong>, <strong>options</strong>) are the image plane coordinates (2xN) corresponding
+to the world points <strong>p</strong> (3xN).
+
+</p>
+<ul>
+  <li>If Tcam (4x4xS) is a transform sequence then UV (2xNxS) represents the sequence
+of projected points as the camera moves in the world.</li>
+  <li>If Tobj (4x4xS) is a transform sequence then UV (2xNxS) represents the sequence
+of projected points as the object moves in the world.</li>
+</ul>
+<p>
+[<strong>uv</strong>,<strong>vis</strong>] = C.<span style="color:red">project</span>(<strong>p</strong>, <strong>options</strong>) as above but <strong>vis</strong> (SxN) is a logical matrix with
+elements true (1) if the point is visible, that is, it lies within the bounds of
+the image plane and is in front of the camera.
+
+</p>
+<p>
+<strong>L</strong> = C.<span style="color:red">project</span>(<strong>L</strong>, <strong>options</strong>) are the image plane homogeneous lines (3xN) corresponding
+to the world lines represented by a vector of Plucker coordinates (1xN).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'Tobj', T</td> <td>Transform all points by the homogeneous transformation T before
+projecting them to the camera image plane.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'Tcam', T</td> <td>Set the camera pose to the homogeneous transformation T before
+projecting points to the camera image plane.  Temporarily overrides
+the current camera pose C.T.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Currently a camera or object pose sequence is not supported for
+the case of line projection.</li>
+  <li>(u,v) values are set to NaN if the corresponding point is behind the camera.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Camera.plot.html">Camera.plot</a>, <a href="Plucker.html">Plucker</a></p>
+<hr>
+<a name="ray"><h1>CentralCamera.ray</h1></a>
+<p><span class="helptopic">3D ray for image point</span></p><p>
+<strong>R</strong> = C.<span style="color:red">ray</span>(<strong>p</strong>) returns a vector of Ray3D objects, one for each point
+defined by the columns of <strong>p</strong>.
+
+</p>
+<h2>Reference</h2>
+<p>
+Hartley &amp; Zisserman,
+"Multiview Geometry",
+p 162
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Ray3D.html">Ray3D</a></p>
+<hr>
+<a name="visjac_e"><h1>CentralCamera.visjac_e</h1></a>
+<p><span class="helptopic">Visual motion Jacobian for point feature</span></p><p>
+<strong>J</strong> = C.<span style="color:red">visjac_e</span>(<strong>E</strong>, <strong>pl</strong>) is the image Jacobian (5x6) for the ellipse
+<strong>E</strong> (5x1) described by u&circ;2 + E1v&circ;2 - 2E2uv + 2E3u + 2E4v + E5 = 0.  The
+ellipse lies in the world plane <strong>pl</strong> = (a,b,c,d) such that aX + bY + cZ + d = 0.
+
+</p>
+<p>
+The Jacobian gives the rates of change of the ellipse parameters in
+terms of camera spatial velocity.
+
+</p>
+<h2>Reference</h2>
+<p>
+B. Espiau, F. Chaumette, and P. Rives,
+"A New Approach to Visual Servoing in Robotics",
+IEEE Transactions on Robotics and Automation,
+vol. 8, pp. 313-326, June 1992.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.visjac_p.html">CentralCamera.visjac_p</a>, <a href="CentralCamera.visjac_p_polar.html">CentralCamera.visjac_p_polar</a>, <a href="CentralCamera.visjac_l.html">CentralCamera.visjac_l</a></p>
+<hr>
+<a name="visjac_l"><h1>CentralCamera.visjac_l</h1></a>
+<p><span class="helptopic">Visual motion Jacobian for line feature</span></p><p>
+<strong>J</strong> = C.<span style="color:red">visjac_l</span>(<strong>L</strong>, <strong>pl</strong>) is the image Jacobian (2Nx6) for the image plane
+lines <strong>L</strong> (2xN).  Each column of <strong>L</strong> is a line in theta-rho format, and the
+rows are theta and rho respectively.
+
+</p>
+<p>
+The lines all lie in the plane <strong>pl</strong> = (a,b,c,d) such that aX + bY + cZ + d = 0.
+
+</p>
+<p>
+The Jacobian gives the rates of change of the line parameters in
+terms of camera spatial velocity.
+
+</p>
+<h2>Reference</h2>
+<p>
+B. Espiau, F. Chaumette, and P. Rives,
+"A New Approach to Visual Servoing in Robotics",
+IEEE Transactions on Robotics and Automation,
+vol. 8, pp. 313-326, June 1992.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.visjac_p.html">CentralCamera.visjac_p</a>, <a href="CentralCamera.visjac_p_polar.html">CentralCamera.visjac_p_polar</a>, <a href="CentralCamera.visjac_e.html">CentralCamera.visjac_e</a></p>
+<hr>
+<a name="visjac_p"><h1>CentralCamera.visjac_p</h1></a>
+<p><span class="helptopic">Visual motion Jacobian for point feature</span></p><p>
+<strong>J</strong> = C.<span style="color:red">visjac_p</span>(<strong>uv</strong>, <strong>z</strong>) is the image Jacobian (2Nx6) for the image plane
+points <strong>uv</strong> (2xN).  The depth of the points from the camera is given by <strong>z</strong>
+which is a scalar for all points, or a vector (Nx1) of depth for each point.
+
+</p>
+<p>
+The Jacobian gives the image-plane point velocity in terms of camera spatial
+velocity.
+
+</p>
+<h2>Reference</h2>
+<p>
+"A tutorial on Visual Servo Control",
+Hutchinson, Hager &amp; Corke,
+IEEE Trans. R&amp;A, Vol 12(5),
+Oct, 1996, pp 651-670.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.visjac_p_polar.html">CentralCamera.visjac_p_polar</a>, <a href="CentralCamera.visjac_l.html">CentralCamera.visjac_l</a>, <a href="CentralCamera.visjac_e.html">CentralCamera.visjac_e</a></p>
+<hr>
+<a name="visjac_p_polar"><h1>CentralCamera.visjac_p_polar</h1></a>
+<p><span class="helptopic">Visual motion Jacobian for point feature</span></p><p>
+<strong>J</strong> = C.<span style="color:red">visjac_p_polar</span>(<strong>rt</strong>, <strong>z</strong>) is the image Jacobian (2Nx6) for the image plane
+points <strong>rt</strong> (2xN) described in polar form, radius and theta.  The depth of the
+points from the camera is given by <strong>z</strong> which is a scalar for all point, or a
+vector (Nx1) of depths for each point.
+
+</p>
+<p>
+The Jacobian gives the image-plane polar point coordinate velocity in terms
+of camera spatial velocity.
+
+</p>
+<h2>Reference</h2>
+<p>
+"Combining Cartesian and polar coordinates in IBVS",
+P. I. Corke, F. Spindler, and F. Chaumette,
+in Proc. Int. Conf on Intelligent Robots and Systems (IROS), (St. Louis),
+pp. 5962-5967, Oct. 2009.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.visjac_p.html">CentralCamera.visjac_p</a>, <a href="CentralCamera.visjac_l.html">CentralCamera.visjac_l</a>, <a href="CentralCamera.visjac_e.html">CentralCamera.visjac_e</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

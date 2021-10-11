@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iread</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iread</td>
+      <td class="subheader-left"><a href="matlab:open iread">View code for iread</a></td>
+    </tr>
+  </table>
+<h1>iread</h1><p><span class="helptopic">Read image from file</span></p><p>
+<strong>im</strong> = <span style="color:red">iread</span>() presents a file selection GUI from which the user can select
+an image file which is returned as a matrix.  On subsequent calls
+the initial folder is as set on the last call.
+
+</p>
+<p>
+<strong>im</strong> = <span style="color:red">iread</span>([], OPTIONS) as above but allows options to be specified.
+
+</p>
+<p>
+<strong>im</strong> = <span style="color:red">iread</span>(<strong>path</strong>, <strong>options</strong>) as above but the GUI is set to the folder specified
+by <strong>path</strong>.  If the path is not absolute it is searched for on the MATLAB search
+path.
+
+</p>
+<p>
+<strong>im</strong> = <span style="color:red">iread</span>(<strong>file</strong>, <strong>options</strong>) reads the specified image file and returns a matrix.
+If the path is not absolute it is searched for on MATLAB search path.
+
+</p>
+<p>
+The image can be greyscale or color in any of a wide range of formats
+supported by the MATLAB IMREAD function.
+
+</p>
+<p>
+Wildcards are allowed in file names.  If multiple files match a 3D or 4D image
+is returned where the last dimension is the number of images in the sequence.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'uint8'</td> <td>return an image with 8-bit unsigned integer pixels in
+the range 0 to 255</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'single'</td> <td>return an image with single precision floating point pixels
+in the range 0 to 1.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'double'</td> <td>return an image with double precision floating point pixels
+in the range 0 to 1.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey'</td> <td>convert image to greyscale, if it's color, using ITU rec 601</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey_709'</td> <td>convert image to greyscale, if it's color, using ITU rec 709</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'gamma', G</td> <td>apply this gamma correction, either numeric or 'sRGB'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'reduce', R</td> <td>decimate image by R in both dimensions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'roi', R</td> <td>apply the region of interest R to each image,
+where R=[umin umax; vmin vmax].</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+Read a color image and display it
+
+</p>
+<pre style="width: 90%%;" class="examples">
+>>&nbsp;im&nbsp;=&nbsp;iread('lena.png');
+>>&nbsp;about&nbsp;im
+im&nbsp;[uint8]&nbsp;:&nbsp;512x512x3&nbsp;(786.4&nbsp;kB)
+>>&nbsp;idisp(im);
+</pre>
+<p>
+Read a greyscale image sequence
+
+</p>
+<pre style="width: 90%%;" class="examples">
+>>&nbsp;im&nbsp;=&nbsp;iread('seq/*.png');
+>>&nbsp;about&nbsp;im
+im&nbsp;[uint8]&nbsp;:&nbsp;512x512x9&nbsp;(2.4&nbsp;MB)
+>>&nbsp;ianimate(im,&nbsp;'loop');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>A greyscale image is returned as an HxW matrix</li>
+  <li>A color image is returned as an HxWx3 matrix</li>
+  <li>A greyscale image sequence is returned as an HxWxN matrix where N is the
+sequence length</li>
+  <li>A color image sequence is returned as an HxWx3xN matrix where N is the
+sequence length</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="idisp.html">idisp</a>, <a href="ianimate.html">ianimate</a>, <a href="imono.html">imono</a>, <a href="igamma.html">igamma</a>, <a href="imread.html">imread</a>, <a href="imwrite.html">imwrite</a>, <a href="path.html">path</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

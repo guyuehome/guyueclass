@@ -1,0 +1,440 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+  <html lang="en"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+           <title>Function Reference (Optimization Toolbox&#8482;)</title><link rel="stylesheet" href="docstyle.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.52.2"><meta name="description" content="Lists Optimization Toolbox functions by category. ">
+             <meta http-equiv="Content-Script-Type" content="text/javascript">
+             <meta name="toctype" content="fcn">
+             <script language="JavaScript" src="docscripts.js"></script>
+             </head>             <body><a name="top_of_page"></a><p style="font-size:1px;">&nbsp;</p>
+<table class="refpartnertable" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><h1 class="refpartnerheading"><a name="bqnk0r0"></a>Function Reference</h1></td>
+    <td class="refpartnerlink"><a href="contents_alpha.html"><img src="more_arrows.gif" border="0" align="bottom" alt="Click for Alphabetical List">&nbsp;Alphabetical List</a></td>
+  </tr>
+</table><hr>
+<a class="indexterm" name="top-page"></a>
+<table border="1"><tr><td>  <table border="0" cellpadding="5" class="categorylist">
+    <tr valign="top">
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#color">Color</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cameramodels">Camera models</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#imagesources">Image sources</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#devices">Devices</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#testpatterns">Test patterns</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#monadicoperators">Monadic operators</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#typechanging">Type changing</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#diadicoperators">Diadic operators</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#spatialoperators">Spatial operators</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#linearconvolution">Linear convolution</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#kernels">Kernels</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#non-linear">Non-linear</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#morphological">Morphological</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#similarity">Similarity</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#features">Features</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#regionfeatures">Region features</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#linefeatures">Line features</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#pointfeatures">Point features</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#otherfeatures">Other features</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#multiview">Multiview</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#geometric">Geometric</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#stereo">Stereo</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#imagesequence">Image sequence</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#shapechanging">Shape changing</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#utility">Utility</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#imageutility">Image utility</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#imagegeneration">Image generation</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#moments">Moments</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#plotting">Plotting</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#homogeneouscoordinates">Homogeneous coordinates</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#3d">3D</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#integralimage">Integral image</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#edgerepresentation">Edge representation</a></td>
+      <td></td></tr>
+      <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#general">General</a></td>
+      <td></td></tr>
+   </table></td></tr></table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Color</h1>
+  <a class="indexterm" name="color"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/blackbody.html">blackbody</a></td><td>Compute blackbody emission spectrum</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ccdresponse.html">ccdresponse</a></td><td>CCD spectral response</td></tr>
+    <tr valign="top"><td width="150"><a href="html/cie_primaries.html">cie_primaries</a></td><td>Define CIE primary colors</td></tr>
+    <tr valign="top"><td width="150"><a href="html/cmfrgb.html">cmfrgb</a></td><td>RGB color matching function</td></tr>
+    <tr valign="top"><td width="150"><a href="html/cmfxyz.html">cmfxyz</a></td><td>matching function</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ccxyz.html">ccxyz</a></td><td>XYZ chromaticity coordinates</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colordistance.html">colordistance</a></td><td>Colorspace distance</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colorname.html">colorname</a></td><td>Map between color names and RGB values</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colorspace.html">colorspace</a></td><td>Color space conversion of image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/lambda2rg.html">lambda2rg</a></td><td>RGB chromaticity coordinates</td></tr>
+    <tr valign="top"><td width="150"><a href="html/lambda2xy.html">lambda2xy</a></td><td>XY = LAMBDA2XY(LAMBDA) is the xy-chromaticity coordinate (1x2) for</td></tr>
+    <tr valign="top"><td width="150"><a href="html/loadspectrum.html">loadspectrum</a></td><td>Load spectrum data</td></tr>
+    <tr valign="top"><td width="150"><a href="html/luminos.html">luminos</a></td><td>Photopic luminosity function</td></tr>
+    <tr valign="top"><td width="150"><a href="html/rg_addticks.html">rg_addticks</a></td><td>Label spectral locus</td></tr>
+    <tr valign="top"><td width="150"><a href="html/rgb2xyz.html">rgb2xyz</a></td><td>RGB to XYZ color space</td></tr>
+    <tr valign="top"><td width="150"><a href="html/rluminos.html">rluminos</a></td><td>Relative photopic luminosity function</td></tr>
+    <tr valign="top"><td width="150"><a href="html/tristim2cc.html">tristim2cc</a></td><td>Tristimulus to chromaticity coordinates</td></tr>
+    <tr valign="top"><td width="150"><a href="html/xycolorspace.html">xycolorspace</a></td><td>Display spectral locus</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Camera models</h1>
+  <a class="indexterm" name="cameramodels"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/Camera.html">Camera</a></td><td>Camera superclass</td></tr>
+    <tr valign="top"><td width="150"><a href="html/CentralCamera.html">CentralCamera</a></td><td>Perspective camera class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/CatadioptricCamera.html">CatadioptricCamera</a></td><td>Catadioptric camera class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/FishEyeCamera.html">FishEyeCamera</a></td><td>Fish eye camera class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/SphericalCamera.html">SphericalCamera</a></td><td>Spherical camera class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/camcald.html">camcald</a></td><td>CAMCALD Camera calibration from data points</td></tr>
+    <tr valign="top"><td width="150"><a href="html/invcamcal.html">invcamcal</a></td><td>camera calibration</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Image sources</h1>
+  <a class="indexterm" name="imagesources"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Devices</h2>
+  <a class="indexterm" name="devices"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/AxisWebCamera.html">AxisWebCamera</a></td><td>acquire from internet webcam</td></tr>
+    <tr valign="top"><td width="150"><a href="html/EarthView.html">EarthView</a></td><td>acquire image from Google Earth</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ImageSource.html">ImageSource</a></td><td>abstract superclass</td></tr>
+    <tr valign="top"><td width="150"><a href="html/Movie.html">Movie</a></td><td>acquire from a local movie file</td></tr>
+    <tr valign="top"><td width="150"><a href="html/VideoCamera.html">VideoCamera</a></td><td>acquire from attached video camera or webcam</td></tr>
+    <tr valign="top"><td width="150"><a href="html/VideoCamera_IAT.html">VideoCamera_IAT</a></td><td>Class to read from local video camera</td></tr>
+    <tr valign="top"><td width="150"><a href="html/VideoCamera_fg.html">VideoCamera_fg</a></td><td>Class to read from local video camera</td></tr>
+    <tr valign="top"><td width="150"><a href="html/YUV.html">YUV</a></td><td>Class to read YUV4MPEG file</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Test patterns</h2>
+  <a class="indexterm" name="testpatterns"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/mkcube.html">mkcube</a></td><td>Create cube</td></tr>
+    <tr valign="top"><td width="150"><a href="html/mkgrid.html">mkgrid</a></td><td>Create grid of points</td></tr>
+    <tr valign="top"><td width="150"><a href="html/testpattern.html">testpattern</a></td><td>Create test images</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Monadic operators</h1>
+  <a class="indexterm" name="monadicoperators"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/icolor.html">icolor</a></td><td>Colorize a greyscale image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colorize.html">colorize</a></td><td>Colorize a greyscale image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/igamm.html">igamm</a></td><td>correction</td></tr>
+    <tr valign="top"><td width="150"><a href="html/imono.html">imono</a></td><td>Convert color image to monochrome</td></tr>
+    <tr valign="top"><td width="150"><a href="html/inormhist.html">inormhist</a></td><td>Histogram normalization</td></tr>
+    <tr valign="top"><td width="150"><a href="html/istretch.html">istretch</a></td><td>Image normalization</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Type changing</h2>
+  <a class="indexterm" name="typechanging"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/idouble.html">idouble</a></td><td>Convert integer image to double</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iint.html">iint</a></td><td>Convert image to integer class</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Diadic operators</h1>
+  <a class="indexterm" name="diadicoperators"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/ipixswitch.html">ipixswitch</a></td><td>Pixelwise image merge</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Spatial operators</h1>
+  <a class="indexterm" name="spatialoperators"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Linear convolution</h2>
+  <a class="indexterm" name="linearconvolution"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/icanny.html">icanny</a></td><td>edge detection</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iconv.html">iconv</a></td><td>Image cross-correlation</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ismooth.html">ismooth</a></td><td>Gaussian smoothing</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isobel.html">isobel</a></td><td>Sobel edge detector</td></tr>
+    <tr valign="top"><td width="150"><a href="html/radgrad.html">radgrad</a></td><td>Radial gradient</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h3 class="categorytitle">Kernels</h3>
+  <a class="indexterm" name="kernels"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/kcircle.html">kcircle</a></td><td>Circular structuring element</td></tr>
+    <tr valign="top"><td width="150"><a href="html/kdgauss.html">kdgauss</a></td><td>Derivative of Gaussian kernel</td></tr>
+    <tr valign="top"><td width="150"><a href="html/kdog.html">kdog</a></td><td>Difference of Gaussian kernel</td></tr>
+    <tr valign="top"><td width="150"><a href="html/kgauss.html">kgauss</a></td><td>Gaussian kernel</td></tr>
+    <tr valign="top"><td width="150"><a href="html/klaplace.html">klaplace</a></td><td>Laplacian kernel</td></tr>
+    <tr valign="top"><td width="150"><a href="html/klog.html">klog</a></td><td>Laplacian of Gaussian kernel</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ksobel.html">ksobel</a></td><td>Sobel edge detector</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ktriangle.html">ktriangle</a></td><td>Triangular kernel</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Non-linear</h2>
+  <a class="indexterm" name="non-linear"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/dtransform.html">dtransform</a></td><td>Distance transform</td></tr>
+    <tr valign="top"><td width="150"><a href="html/irank.html">irank</a></td><td>Rank filter</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ivar.html">ivar</a></td><td>Pixel window statistics</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iwindow.html">iwindow</a></td><td>Generalized spatial operator</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Morphological</h2>
+  <a class="indexterm" name="morphological"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/idilate.html">idilate</a></td><td>Morphological dilation</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ierode.html">ierode</a></td><td>Morphological erosion</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iclose.html">iclose</a></td><td>closing</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iopen.html">iopen</a></td><td>Morphological opening</td></tr>
+    <tr valign="top"><td width="150"><a href="html/imorph.html">imorph</a></td><td>Morphological neighbourhood processing</td></tr>
+    <tr valign="top"><td width="150"><a href="html/hitormiss.html">hitormiss</a></td><td>Hit or miss transform</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ithin.html">ithin</a></td><td>Morphological skeletonization</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iendpoint.html">iendpoint</a></td><td>Find end points in a binary skeleton image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/itriplepoint.html">itriplepoint</a></td><td>Find triple points</td></tr>
+    <tr valign="top"><td width="150"><a href="html/morphdemo.html">morphdemo</a></td><td>Demonstrate morphology using animation</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Similarity</h2>
+  <a class="indexterm" name="similarity"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/imatch.html">imatch</a></td><td>Template matching</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isimilarity.html">isimilarity</a></td><td>Locate template in image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/sad.html">sad</a></td><td>Sum of absolute differences</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ssd.html">ssd</a></td><td>Sum of squared differences</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ncc.html">ncc</a></td><td>Normalized cross correlation</td></tr>
+    <tr valign="top"><td width="150"><a href="html/zsad.html">zsad</a></td><td>Sum of absolute differences</td></tr>
+    <tr valign="top"><td width="150"><a href="html/zssd.html">zssd</a></td><td>Sum of squared differences</td></tr>
+    <tr valign="top"><td width="150"><a href="html/zncc.html">zncc</a></td><td>Normalized cross correlation</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Features</h1>
+  <a class="indexterm" name="features"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Region features</h2>
+  <a class="indexterm" name="regionfeatures"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/RegionFeature.html">RegionFeature</a></td><td>Region feature class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colorkmeans.html">colorkmeans</a></td><td>Color image segmentation by clustering</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colorseg.html">colorseg</a></td><td>Color image segmentation using k-means</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ithresh.html">ithresh</a></td><td>Interactive image threshold</td></tr>
+    <tr valign="top"><td width="150"><a href="html/imoments.html">imoments</a></td><td>Image moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ibbox.html">ibbox</a></td><td>Find bounding box</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iblobs.html">iblobs</a></td><td>features</td></tr>
+    <tr valign="top"><td width="150"><a href="html/igraphseg.html">igraphseg</a></td><td>Graph-based image segmentation</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ilabel.html">ilabel</a></td><td>Label an image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/imser.html">imser</a></td><td>Maximally stable extremal regions</td></tr>
+    <tr valign="top"><td width="150"><a href="html/niblack.html">niblack</a></td><td>Adaptive thresholding</td></tr>
+    <tr valign="top"><td width="150"><a href="html/otsu.html">otsu</a></td><td>Threshold selection</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Line features</h2>
+  <a class="indexterm" name="linefeatures"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/Hough.html">Hough</a></td><td>Hough transform class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/LineFeature.html">LineFeature</a></td><td>Line feature class</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h3 class="categorytitle">Point features</h3>
+  <a class="indexterm" name="pointfeatures"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/PointFeature.html">PointFeature</a></td><td>PointCorner feature object</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ScalePointFeature.html">ScalePointFeature</a></td><td>ScalePointCorner feature object</td></tr>
+    <tr valign="top"><td width="150"><a href="html/SiftPointFeature.html">SiftPointFeature</a></td><td>SIFT point corner feature object</td></tr>
+    <tr valign="top"><td width="150"><a href="html/SurfPointFeature.html">SurfPointFeature</a></td><td>SURF point corner feature object</td></tr>
+    <tr valign="top"><td width="150"><a href="html/icorner.html">icorner</a></td><td>Corner detector</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iscalespace.html">iscalespace</a></td><td>Scale-space image sequence</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iscalemax.html">iscalemax</a></td><td>Scale space maxima</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isift.html">isift</a></td><td>SIFT feature extractor</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isurf.html">isurf</a></td><td>SURF feature extractor</td></tr>
+    <tr valign="top"><td width="150"><a href="html/FeatureMatch.html">FeatureMatch</a></td><td>Feature correspondence object</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h3 class="categorytitle">Other features</h3>
+  <a class="indexterm" name="otherfeatures"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/peak.html">peak</a></td><td>Find peaks in vector</td></tr>
+    <tr valign="top"><td width="150"><a href="html/peak2.html">peak2</a></td><td>Find peaks in a matrix</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ihist.html">ihist</a></td><td>Image histogram</td></tr>
+    <tr valign="top"><td width="150"><a href="html/hist2d.html">hist2d</a></td><td>MEX file to compute 2-D histogram.</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iprofile.html">iprofile</a></td><td>Extract pixels along a line</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Multiview</h1>
+  <a class="indexterm" name="multiview"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Geometric</h2>
+  <a class="indexterm" name="geometric"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/epidist.html">epidist</a></td><td>Distance of point from epipolar line</td></tr>
+    <tr valign="top"><td width="150"><a href="html/epiline.html">epiline</a></td><td>Draw epipolar lines</td></tr>
+    <tr valign="top"><td width="150"><a href="html/fmatrix.html">fmatrix</a></td><td>Estimate fundamental matrix</td></tr>
+    <tr valign="top"><td width="150"><a href="html/homography.html">homography</a></td><td>Estimate homography</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Stereo</h1>
+  <a class="indexterm" name="stereo"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/istereo.html">istereo</a></td><td>Stereo matching</td></tr>
+    <tr valign="top"><td width="150"><a href="html/anaglyph.html">anaglyph</a></td><td>Convert stereo images to an anaglyph image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/stdisp.html">stdisp</a></td><td>Display stereo pair</td></tr>
+    <tr valign="top"><td width="150"><a href="html/irectify.html">irectify</a></td><td>Rectify stereo image pair</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Image sequence</h1>
+  <a class="indexterm" name="imagesequence"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/BagOfWords.html">BagOfWords</a></td><td>Bag of words class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ianimate.html">ianimate</a></td><td>Display an image sequence</td></tr>
+    <tr valign="top"><td width="150"><a href="html/Tracker.html">Tracker</a></td><td>Track points in image sequence</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Shape changing</h1>
+  <a class="indexterm" name="shapechanging"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/homwarp.html">homwarp</a></td><td>Warp image by an homography</td></tr>
+    <tr valign="top"><td width="150"><a href="html/idecimate.html">idecimate</a></td><td>an image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ipad.html">ipad</a></td><td>Pad an image with constants</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ipyramid.html">ipyramid</a></td><td>Pyramidal image decomposition</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ireplicate.html">ireplicate</a></td><td>Expand image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iroi.html">iroi</a></td><td>Extract region of interest</td></tr>
+    <tr valign="top"><td width="150"><a href="html/irotate.html">irotate</a></td><td>Rotate image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isamesize.html">isamesize</a></td><td>Automatic image trimming</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iscale.html">iscale</a></td><td>Scale an image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/itrim.html">itrim</a></td><td>Trim images</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h1 class="categorytitle">Utility</h1>
+  <a class="indexterm" name="utility"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Image utility</h2>
+  <a class="indexterm" name="imageutility"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/idisp.html">idisp</a></td><td>image display tool</td></tr>
+    <tr valign="top"><td width="150"><a href="html/idisplabel.html">idisplabel</a></td><td>Display an image with mask</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iread.html">iread</a></td><td>Read image from file</td></tr>
+    <tr valign="top"><td width="150"><a href="html/pnmfilt.html">pnmfilt</a></td><td>Pipe image through PNM utility</td></tr>
+    <tr valign="top"><td width="150"><a href="html/showpixels.html">showpixels</a></td><td>Show low resolution image</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Image generation</h2>
+  <a class="indexterm" name="imagegeneration"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/iconcat.html">iconcat</a></td><td>Concatenate images</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iline.html">iline</a></td><td>Draw a line in an image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ipaste.html">ipaste</a></td><td>Paste an image into an image</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Moments</h2>
+  <a class="indexterm" name="moments"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/humoments.html">humoments</a></td><td>Hu moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/mpq.html">mpq</a></td><td>Image moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/mpq_poly.html">mpq_poly</a></td><td>Polygon moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/upq.html">upq</a></td><td>Central image moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/upq_poly.html">upq_poly</a></td><td>Central polygon moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/npq.html">npq</a></td><td>Normalized central image moments</td></tr>
+    <tr valign="top"><td width="150"><a href="html/npq_poly.html">npq_poly</a></td><td>Normalized central polygon moments</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Plotting</h2>
+  <a class="indexterm" name="plotting"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/plot_arrow.html">plot_arrow</a></td><td>draw an arrow</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_box.html">plot_box</a></td><td>draw a box</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_circle.html">plot_circle</a></td><td>draw a circle</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_ellipse.html">plot_ellipse</a></td><td>draw an ellipse</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_homline.html">plot_homline</a></td><td>plot homogeneous line</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_point.html">plot_point</a></td><td>plot points</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_poly.html">plot_poly</a></td><td>plot polygon</td></tr>
+    <tr valign="top"><td width="150"><a href="html/plot_sphere.html">plot_sphere</a></td><td>draw a sphere</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Homogeneous coordinates</h2>
+  <a class="indexterm" name="homogeneouscoordinates"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/e2h.html">e2h</a></td><td>Euclidean coordinates to homogeneous</td></tr>
+    <tr valign="top"><td width="150"><a href="html/h2e.html">h2e</a></td><td>homogeneous coordinates to Euclidean</td></tr>
+    <tr valign="top"><td width="150"><a href="html/homline.html">homline</a></td><td></td></tr>
+    <tr valign="top"><td width="150"><a href="html/homtrans.html">homtrans</a></td><td>apply homogeneous transform to points</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">3D</h2>
+  <a class="indexterm" name="3d"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/icp.html">icp</a></td><td>Point cloud alignment</td></tr>
+    <tr valign="top"><td width="150"><a href="html/Plucker.html">Plucker</a></td><td>Plucker coordinate class</td></tr>
+    <tr valign="top"><td width="150"><a href="html/Ray3D.html">Ray3D</a></td><td>Ray in 3D space</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Integral image</h2>
+  <a class="indexterm" name="integralimage"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/iisum.html">iisum</a></td><td>Sum of integral image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/intgimage.html">intgimage</a></td><td>Compute integral image</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">Edge representation</h2>
+  <a class="indexterm" name="edgerepresentation"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/edgelist.html">edgelist</a></td><td>Return list of edge pixels for region</td></tr>
+    <tr valign="top"><td width="150"><a href="html/boundmatch.html">boundmatch</a></td><td>Match boundary profiles</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>
+<h2 class="categorytitle">General</h2>
+  <a class="indexterm" name="general"></a>
+  <table cellspacing="0" width="100%" border="0" cellpadding="2">
+    <tr valign="top"><td width="150"><a href="html/about.html">about</a></td><td>Compact display of variable type</td></tr>
+    <tr valign="top"><td width="150"><a href="html/bresenham.html">bresenham</a></td><td>Generate a line</td></tr>
+    <tr valign="top"><td width="150"><a href="html/closest.html">closest</a></td><td>Find closest points in N-dimensional space.</td></tr>
+    <tr valign="top"><td width="150"><a href="html/colnorm.html">colnorm</a></td><td>Column-wise norm of a matrix</td></tr>
+    <tr valign="top"><td width="150"><a href="html/col2im.html">col2im</a></td><td>Convert pixel vector to image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/distance.html">distance</a></td><td>Euclidean distances between sets of points</td></tr>
+    <tr valign="top"><td width="150"><a href="html/filt1d.html">filt1d</a></td><td>1-dimensional rank filter</td></tr>
+    <tr valign="top"><td width="150"><a href="html/im2col.html">im2col</a></td><td>Convert an image to pixel per row format</td></tr>
+    <tr valign="top"><td width="150"><a href="html/imeshgrid.html">imeshgrid</a></td><td>Domain matrices for image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/iscolor.html">iscolor</a></td><td>Test for color image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/isize.html">isize</a></td><td>Size of image</td></tr>
+    <tr valign="top"><td width="150"><a href="html/kmeans.html">kmeans</a></td><td>K-means clustering</td></tr>
+    <tr valign="top"><td width="150"><a href="html/polydiff.html">polydiff</a></td><td>Differentiate a polynomial</td></tr>
+    <tr valign="top"><td width="150"><a href="html/ransac.html">ransac</a></td><td>Random sample and consensus</td></tr>
+    <tr valign="top"><td width="150"><a href="html/zcross.html">zcross</a></td><td>Zero-crossing detector</td></tr>
+    <tr valign="top"><td width="150"><a href="html/xaxis.html">xaxis</a></td><td>Set X-axis scaling</td></tr>
+    <tr valign="top"><td width="150"><a href="html/yaxis.html">yaxis</a></td><td>Y-axis scaling</td></tr>
+    <tr valign="top"><td width="150"><a href="html/xyzlabel.html">xyzlabel</a></td><td>Label X, Y and Z axes</td></tr>
+</table>
+<p class="pagenavlink"><script language="Javascript">addTopOfPageButtons();</script><a href="#top_of_page">Back to Top</a></p>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: trchain</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: trchain</td>
+      <td class="subheader-left"><a href="matlab:open trchain">View code for trchain</a></td>
+    </tr>
+  </table>
+<h1>trchain</h1><p><span class="helptopic">Chain 3D transforms from string</span></p><p>
+<strong>T</strong> = <span style="color:red">trchain</span>(<strong>s</strong>, <strong>q</strong>) is a homogeneous transform (4x4) that results from
+compounding a number of elementary transformations defined by the string
+<strong>s</strong>.  The string <strong>s</strong> comprises a number of tokens of the form X(ARG) where
+X is one of Tx, Ty, Tz, Rx, Ry, or Rz.  ARG is the name of a variable in
+MATLAB workspace or qJ where J is an integer in the range 1 to N that
+selects the variable from the Jth column of the vector <strong>q</strong> (1xN).
+
+</p>
+<p>
+For example:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+trchain('Rx(q1)Tx(a1)Ry(q2)Ty(a3)Rz(q3)',&nbsp;[1&nbsp;2&nbsp;3])
+</pre>
+<p>
+is equivalent to computing:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+trotx(1)&nbsp;*&nbsp;transl(a1,0,0)&nbsp;*&nbsp;troty(2)&nbsp;*&nbsp;transl(0,a3,0)&nbsp;*&nbsp;trotz(3)
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The string can contain spaces between elements or on either side of ARG.</li>
+  <li>Works for symbolic variables in the workspace and/or passed in via the
+vector Q.</li>
+  <li>For symbolic operations that involve use of the value pi, make sure you
+define it first in the workspace: pi = sym('pi');</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="trchain2.html">trchain2</a>, <a href="trotx.html">trotx</a>, <a href="troty.html">troty</a>, <a href="trotz.html">trotz</a>, <a href="transl.html">transl</a>, <a href="SerialLink.trchain.html">SerialLink.trchain</a>, <a href="ets.html">ets</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

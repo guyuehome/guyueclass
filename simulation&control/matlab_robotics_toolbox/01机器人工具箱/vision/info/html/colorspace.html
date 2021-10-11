@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: colorspace</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: colorspace</td>
+      <td class="subheader-left"><a href="matlab:open colorspace">View code for colorspace</a></td>
+    </tr>
+  </table>
+<h1>colorspace</h1><p><span class="helptopic">Color space conversion of image</span></p><p>
+<strong>out</strong> = <span style="color:red">colorspace</span>(<strong>s</strong>, <strong>im</strong>) converts the image <strong>im</strong> to a different color
+space according to the string <strong>s</strong> which specifies the source and destination
+color spaces, <strong>s</strong> = 'dest&amp;lt;-src', or alternatively, <strong>s</strong> = 'src-&amp;gt;dest'.  Input
+and output images have 3 planes.
+
+</p>
+<p>
+[<strong>o1</strong>,<strong>o2</strong>,<strong>o3</strong>] = <span style="color:red">colorspace</span>(<strong>s</strong>, <strong>im</strong>) as above but specifies separate output
+channels or planes.
+
+</p>
+<p>
+<span style="color:red">colorspace</span>(<strong>s</strong>, <strong>i1</strong>,<strong>i2</strong>,<strong>i3</strong>) as above but specifies separate input channels.
+
+</p>
+<p>
+Supported color spaces are:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'RGB'</td> <td>R'G'B' Red Green Blue (ITU-R BT.709 gamma-corrected)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'YPbPr'</td> <td>Luma (ITU-R BT.601) + Chroma</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'YCbCr'/'YCC'</td> <td>Luma + Chroma ("digitized" version of Y'PbPr)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'YUV'</td> <td>NTSC PAL Y'UV Luma + Chroma</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'YIQ'</td> <td>NTSC Y'IQ Luma + Chroma</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'YDbDr'</td> <td>SECAM Y'DbDr Luma + Chroma</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'JPEGYCbCr'</td> <td>JPEG-Y'CbCr Luma + Chroma</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'HSV'/'HSB'</td> <td>Hue Saturation Value/Brightness</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'HSL'/'HLS'/'HSI'</td> <td>Hue Saturation Luminance/Intensity</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'XYZ'</td> <td>CIE XYZ</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'Lab'</td> <td>CIE L*a*b* (CIELAB)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'Luv'</td> <td>CIE L*u*v* (CIELUV)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'Lch'</td> <td>CIE L*ch (CIELCH)</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>RGB input is assumed to be gamma encoded</li>
+  <li>RGB output is gamma encoded</li>
+  <li>All conversions assume 2 degree observer and D65 illuminant.</li>
+  <li>Color space names are case insensitive.</li>
+  <li>When R'G'B' is the source or destination, it can be omitted. For
+example 'yuv<-' is short for 'yuv<-rgb'.</li>
+  <li>MATLAB uses two standard data formats for R'G'B': double data with
+intensities in the range 0 to 1, and uint8 data with integer-valued
+intensities from 0 to 255.  As MATLAB's native datatype, double data is
+the natural choice, and the R'G'B' format used by colorspace.  However,
+for memory and computational performance, some functions also operate
+with uint8 R'G'B'.  Given uint8 R'G'B' color data, colorspace will
+first cast it to double R'G'B' before processing.</li>
+  <li>If IM is an Mx3 array, like a colormap, OUT will also have size Mx3.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Pascal Getreuer 2005-2006
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

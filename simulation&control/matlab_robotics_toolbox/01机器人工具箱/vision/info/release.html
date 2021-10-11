@@ -1,0 +1,97 @@
+<html>
+<head>
+  <title>Release Notes &amp; Copyrights</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <link type="text/css" rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+<p class="header">Machine Vision Toolbox for Matlab</p>
+
+<h1>Release Notes &amp; Version History</h1>
+<hr>
+
+<h2>Machine Vision Toolbox version 3</h2>
+<ul>
+  <li><b>Changes:</b> 
+    <ul>
+      <li>Massive changes throughout, many new functions, some changed call
+        syntax</li>
+      <li>Camera calibration. The function <strong>camcalt</strong> for Tsai's
+        method has been removed. Bouguet's Camera Calibration Toolbox is
+        preferred.</li>
+      <li>Various camera-related functions such as <strong>camcalp_t</strong>,
+        <strong>camparam</strong> are now performed by the
+        <strong>CentralCamera</strong> class.</li>
+      <li></li>
+    </ul>
+  </li>
+  <li><b>New features:</b>
+    <ul>
+      <li>Camera models. An abstract superclass Camera and its subclasses
+        CentralCamera, FisheyeCamera, CatadioptricCamera, SphericalCamera for
+        central projection perspective camera, fisheye lens camera,
+        catadioptric (panoramic) camera and spherical camera respectively.</li>
+      <li>Feature classes. Classes for PointFeature with subclasses
+        ScalePointFeature, SiftPointFeature, SurfPointFeature; LineFeature; and
+        RegionFeature.</li>
+      <li>New segmentation routines such as MSER and graph-based
+      segmentation</li>
+    </ul>
+  </li>
+  <li><b>Bugfixes:</b> 
+    <ul>
+      <li>Improved error messages in many functions</li>
+      <li>Removed trailing commas from if and for statements</li>
+    </ul>
+  </li>
+  <li><b>Known bugs and limitations:</b> 
+    <ul>
+      <li>The <strong>Video</strong> class is not yet complete. Right now it
+        depends on the Matlab Image Acquisition Toolbox, but the goal is to
+        have MEX functions that work natively on Linux and Mac without
+        requiring this Toolbox. </li>
+    </ul>
+  </li>
+  <li>September, 2011</li>
+</ul>
+
+<h2>Examples</h2>
+
+<p>Many of the examples given in the book Robotics, Vision and Control can be
+found in the folder examples.</p>
+
+<h2>MEX files</h2>
+<p>Source code of MEX filse are in the folder mex.</p>
+
+<p></p>
+
+<h2>Version</h2>
+
+<p></p>
+
+<p>To see which version of the Machine Vision Toolbox is currently installed,
+you can type </p>
+<pre class="codeinput">    info = ver('vision')</pre>
+The result should look like this: 
+<pre class="codeoutput">info = 
+
+       Name: 'Machine Vision Toolbox'
+    Version: '3.0'
+    Release: ''
+       Date: '01-Apr-2011'</pre>
+
+<h2>Version History</h2>
+
+<h3>Machine Vision Toolbox version 2</h3>
+<ul>
+  <li><b>Released 2005</b></li>
+</ul>
+
+<h3>Machine Vision Toolbox version 1</h3>
+<ul>
+  <li><b>Released Jan 1999</b></li>
+</ul>
+
+</body>
+</html>

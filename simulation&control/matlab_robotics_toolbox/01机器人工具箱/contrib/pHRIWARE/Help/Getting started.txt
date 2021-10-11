@@ -1,0 +1,5 @@
+Getting started with pHRIWARE is easy. Simply download the zip file from this Google Code site, then extract all of the files onto your MATLAB path.
+
+Then in your MATLAB command window, run pHRIWARE.m to read a little about it, and then select 'y' when prompted to see some demos on how to use the toolbox's features.
+
+In the Help folder, you will also find a couple of extra resources to help with certain aspects of pHRIWARE.

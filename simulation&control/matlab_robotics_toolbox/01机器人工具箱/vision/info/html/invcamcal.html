@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: invcamcal</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: invcamcal</td>
+      <td class="subheader-left"><a href="matlab:open invcamcal">View code for invcamcal</a></td>
+    </tr>
+  </table>
+<h1>invcamcal</h1><p><span class="helptopic">camera calibration</span></p><p>
+<strong>c</strong> = <span style="color:red">invcamcal</span>(<strong>C</strong>)
+
+</p>
+<p>
+Decompose, or invert, a 3x4camera calibration matrix <strong>C</strong>.
+
+</p>
+<p>
+The result is a camera object with the following parameters set:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+f
+sx,&nbsp;sy&nbsp;&nbsp;(with&nbsp;sx=1)
+(u0,&nbsp;v0)&nbsp;&nbsp;principal&nbsp;point
+</pre>
+<pre style="width: 90%%;" class="examples">
+Tcam&nbsp;is&nbsp;the&nbsp;homog&nbsp;xform&nbsp;of&nbsp;the&nbsp;world&nbsp;origin&nbsp;wrt&nbsp;camera
+</pre>
+<p>
+Since only f.sx and f.sy can be estimated we set sx = 1.
+
+</p>
+<p>
+REF:	Multiple View Geometry, Hartley&amp;Zisserman, p 163-164
+
+</p>
+<p>
+SEE ALSO: camera
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

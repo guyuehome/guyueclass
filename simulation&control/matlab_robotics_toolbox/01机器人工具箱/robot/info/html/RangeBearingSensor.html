@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: RangeBearingSensor</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: RangeBearingSensor</td>
+      <td class="subheader-left"><a href="matlab:open RangeBearingSensor">View code for RangeBearingSensor</a></td>
+    </tr>
+  </table>
+<h1>RangeBearingSensor</h1><p><span class="helptopic">Range and bearing sensor class</span></p><p>
+A concrete subclass of the Sensor class that implements a range and bearing
+angle sensor that provides robot-centric measurements of point features in
+the world. To enable this it has references to a map of the world (Map object)
+and a robot moving through the world (Vehicle object).
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> reading</td> <td>range/bearing observation of random feature</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> h </td> <td>range/bearing observation of specific feature</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Hx</td> <td>Jacobian matrix dh/dxv</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Hxf</td> <td>Jacobian matrix dh/dxf</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Hw</td> <td>Jacobian matrix dh/dw</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> g </td> <td>feature position given vehicle pose and observation</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Gx</td> <td>Jacobian matrix dg/dxv</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Gz</td> <td>Jacobian matrix dg/dz</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> W </td> <td>measurement covariance matrix (2x2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> interval</td> <td>valid measurements returned every interval'th call to reading()</td></tr>
+</table>
+<h2>Reference</h2>
+<p>
+Robotics, Vision &amp; Control, Chap 6,
+Peter Corke,
+Springer 2011
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Sensor.html">Sensor</a>, <a href="Vehicle.html">Vehicle</a>, <a href="Map.html">Map</a>, <a href="EKF.html">EKF</a></p>
+<hr>
+<a name="RangeBearingSensor"><h1>RangeBearingSensor.RangeBearingSensor</h1></a>
+<p><span class="helptopic">Range and bearing sensor constructor</span></p><p>
+<strong>s</strong> = <span style="color:red">RangeBearingSensor</span>(<strong>vehicle</strong>, <strong>map</strong>, <strong>w</strong>, <strong>options</strong>) is an object representing
+a range and bearing angle sensor mounted on the Vehicle object
+<strong>vehicle</strong> and observing an environment of known landmarks represented by the
+map object <strong>map</strong>.  The sensor covariance is <strong>w</strong> (2x2) representing range and bearing
+covariance.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'range',  xmax</td> <td>maximum range of sensor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'range',  [xmin xmax]</td> <td>minimum and maximum range of sensor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'angle',  TH</td> <td>detection for angles betwen -TH to +TH</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'angle',  [THMIN THMAX]</td> <td>detection for angles betwen THMIN
+and THMAX</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'skip',  I</td> <td>return a valid reading on every I'th
+call</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'fail',  [TMIN TMAX]</td> <td>sensor simulates failure between
+timesteps TMIN and TMAX</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="options for sensor constructor.html">options for sensor constructor</a></p>
+<h2>See also</h2>
+<p>
+<a href="Sensor.Sensor.html">Sensor.Sensor</a>, <a href="Vehicle.html">Vehicle</a>, <a href="Map.html">Map</a>, <a href="EKF.html">EKF</a></p>
+<hr>
+<a name="g"><h1>RangeBearingSensor.g</h1></a>
+<p><span class="helptopic">Compute landmark location</span></p><p>
+<strong>p</strong> = S.<span style="color:red">g</span>(<strong>xv</strong>, <strong>z</strong>) is the world coordinate (1x2) of a feature given
+the sensor observation <strong>z</strong> (1x2) and vehicle state <strong>xv</strong> (3x1).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.Gx.html">RangeBearingSensor.Gx</a>, <a href="RangeBearingSensor.Gz.html">RangeBearingSensor.Gz</a></p>
+<hr>
+<a name="Gx"><h1>RangeBearingSensor.Gx</h1></a>
+<p><span class="helptopic">Jacobian dg/dx</span></p><p>
+<strong>J</strong> = S.<span style="color:red">Gx</span>(<strong>xv</strong>, <strong>z</strong>) is the Jacobian dg/dxv (2x3) at the vehicle state <strong>xv</strong> (3x1) for
+sensor observation <strong>z</strong> (2x1).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.g.html">RangeBearingSensor.g</a></p>
+<hr>
+<a name="Gz"><h1>RangeBearingSensor.Gz</h1></a>
+<p><span class="helptopic">Jacobian dg/dz</span></p><p>
+<strong>J</strong> = S.<span style="color:red">Gz</span>(<strong>xv</strong>, <strong>z</strong>) is the Jacobian dg/dz (2x2) at the vehicle state <strong>xv</strong> (3x1) for
+sensor observation <strong>z</strong> (2x1).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.g.html">RangeBearingSensor.g</a></p>
+<hr>
+<a name="h"><h1>RangeBearingSensor.h</h1></a>
+<p><span class="helptopic">Landmark range and bearing</span></p><p>
+<strong>z</strong> = S.<span style="color:red">h</span>(<strong>xv</strong>, <strong>k</strong>) is a sensor observation (1x2), range and bearing, from vehicle at
+pose <strong>xv</strong> (1x3) to the <strong>k</strong>'th map feature.
+
+</p>
+<p>
+<strong>z</strong> = S.<span style="color:red">h</span>(<strong>xv</strong>, <strong>xf</strong>) as above but compute range and bearing to a feature at coordinate <strong>xf</strong>.
+
+</p>
+<p>
+<strong>z</strong> = s.<span style="color:red">h</span>(<strong>xv</strong>) as above but computes range and bearing to all
+map features.  <strong>z</strong> has one row per feature.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Noise with covariance W (propertyW) is added to each row of Z.</li>
+  <li>Supports vectorized operation where XV (Nx3) and Z (Nx2).</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.Hx.html">RangeBearingSensor.Hx</a>, <a href="RangeBearingSensor.Hw.html">RangeBearingSensor.Hw</a>, <a href="RangeBearingSensor.Hxf.html">RangeBearingSensor.Hxf</a></p>
+<hr>
+<a name="Hw"><h1>RangeBearingSensor.Hw</h1></a>
+<p><span class="helptopic">Jacobian dh/dv</span></p><p>
+<strong>J</strong> = S.<span style="color:red">Hw</span>(<strong>xv</strong>, <strong>k</strong>) is the Jacobian dh/dv (2x2) at the vehicle
+state <strong>xv</strong> (3x1) for map feature <strong>k</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.h.html">RangeBearingSensor.h</a></p>
+<hr>
+<a name="Hx"><h1>RangeBearingSensor.Hx</h1></a>
+<p><span class="helptopic">Jacobian dh/dxv</span></p><p>
+<strong>J</strong> = S.<span style="color:red">Hx</span>(<strong>xv</strong>, <strong>k</strong>) returns the Jacobian dh/dxv (2x3) at the vehicle
+state <strong>xv</strong> (3x1) for map feature <strong>k</strong>.
+
+</p>
+<p>
+<strong>J</strong> = S.<span style="color:red">Hx</span>(<strong>xv</strong>, <strong>xf</strong>) as above but for a feature at coordinate <strong>xf</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.h.html">RangeBearingSensor.h</a></p>
+<hr>
+<a name="Hxf"><h1>RangeBearingSensor.Hxf</h1></a>
+<p><span class="helptopic">Jacobian dh/dxf</span></p><p>
+<strong>J</strong> = S.<span style="color:red">Hxf</span>(<strong>xv</strong>, <strong>k</strong>) is the Jacobian dh/dxv (2x2) at the vehicle
+state <strong>xv</strong> (3x1) for map feature <strong>k</strong>.
+
+</p>
+<p>
+<strong>J</strong> = S.<span style="color:red">Hxf</span>(<strong>xv</strong>, <strong>xf</strong>) as above but for a feature at coordinate <strong>xf</strong> (1x2).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.h.html">RangeBearingSensor.h</a></p>
+<hr>
+<a name="reading"><h1>RangeBearingSensor.reading</h1></a>
+<p><span class="helptopic">Landmark range and bearing</span></p><p>
+[<strong>z</strong>,<strong>k</strong>] = S.<span style="color:red">reading</span>() is an observation of a random landmark where
+<strong>z</strong>=[R,THETA] is the range and bearing with additive Gaussian noise
+of covariance W (property W). <strong>k</strong> is the index of
+the map feature that was observed. If no valid measurement, ie. no
+features within range, interval subsampling enabled or simulated
+failure the return is <strong>z</strong>=[] and <strong>k</strong>=NaN.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.h.html">RangeBearingSensor.h</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

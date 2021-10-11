@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Ray3D</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Ray3D</td>
+      <td class="subheader-left"><a href="matlab:open Ray3D">View code for Ray3D</a></td>
+    </tr>
+  </table>
+<h1>Ray3D</h1><p><span class="helptopic">Ray in 3D space</span></p><p>
+This object represents a ray in 3D space, defined by a point on the ray
+and a direction unit-vector.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> intersect</td> <td>Intersection of ray with plane or ray</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> closest</td> <td>Closest distance between point and ray</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Ray parameters as human readable string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display ray parameters in human readable form</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> P0</td> <td>A point on the ray (3x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> d </td> <td>Direction of the ray, unit vector (3x1)</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Ray3D objects can be used in vectors and arrays</li>
+</ul>
+<hr>
+<a name="Ray3D"><h1>Ray3D.Ray3D</h1></a>
+<p><span class="helptopic">Ray constructor</span></p><p>
+<strong>R</strong> = <span style="color:red">Ray3D</span>(<strong>p0</strong>, <strong>d</strong>) is a new <span style="color:red">Ray3D</span> object defined by a point on the ray <strong>p0</strong>
+and a direction vector <strong>d</strong>.
+
+</p>
+<hr>
+<a name="char"><h1>Ray3D.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = R.<span style="color:red">char</span>() is a compact string representation of the <span style="color:red">Ray3D</span>'s value.
+If R is a vector then the string has multiple lines, one per element.
+
+</p>
+<hr>
+<a name="closest"><h1>Ray3D.closest</h1></a>
+<p><span class="helptopic">Closest distance between point and ray</span></p><p>
+<strong>x</strong> = R.<span style="color:red">closest</span>(<strong>p</strong>) is the point on the ray R <span style="color:red">closest</span> to the point <strong>p</strong>.
+
+</p>
+<p>
+[<strong>x</strong>,<strong>E</strong>] = R.<span style="color:red">closest</span>(<strong>p</strong>) as above but also returns the distance <strong>E</strong> between
+<strong>x</strong> and <strong>p</strong>.
+
+</p>
+<hr>
+<a name="display"><h1>Ray3D.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+R.<span style="color:red">display</span>() displays a compact human-readable representation of the <span style="color:red">Ray3D</span>'s
+value.  If R is a vector then the elements are printed one per line.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Ray3D object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Ray3D.char.html">Ray3D.char</a></p>
+<hr>
+<a name="intersect"><h1>Ray3D.intersect</h1></a>
+<p><span class="helptopic">Intersetion of ray with line or plane</span></p><p>
+<strong>x</strong> = R.<span style="color:red">intersect</span>(<strong>r2</strong>) is the point on R that is closest to the ray <strong>r2</strong>.
+If R is a vector then then <strong>x</strong> has multiple columns, corresponding to
+the intersection of R(i) with <strong>r2</strong>.
+
+</p>
+<p>
+[<strong>x</strong>,<strong>E</strong>] = R.<span style="color:red">intersect</span>(<strong>r2</strong>) as above but also returns the closest distance
+between the rays.
+
+</p>
+<p>
+<strong>x</strong> = R.<span style="color:red">intersect</span>(<strong>p</strong>) returns the point of intersection between the
+ray R and the plane <strong>p</strong>=(a,b,c,d) where aX + bY + cZ + d = 0.
+If R is a vector then <strong>x</strong> has multiple columns, corresponding to
+the intersection of R(i) with <strong>p</strong>.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

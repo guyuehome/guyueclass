@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc version="2.0">
+
+<!-- this goes into the MVTB menu in the doc browser contents pane -->
+
+<!-- Machine Vision Toolbox -->
+<tocitem target="vision_product_page.html" image="$toolbox/matlab/icons/book_mat.gif">Machine Vision Toolbox for MATLAB
+
+<!--INSERT_HERE-->
+  <tocitem target="contents_toc.html#color">Color
+    <tocitem target="html/blackbody.html">blackbody</tocitem>
+    <tocitem target="html/ccdresponse.html">ccdresponse</tocitem>
+    <tocitem target="html/cie_primaries.html">cie_primaries</tocitem>
+    <tocitem target="html/cmfrgb.html">cmfrgb</tocitem>
+    <tocitem target="html/cmfxyz.html">cmfxyz</tocitem>
+    <tocitem target="html/ccxyz.html">ccxyz</tocitem>
+    <tocitem target="html/colordistance.html">colordistance</tocitem>
+    <tocitem target="html/colorname.html">colorname</tocitem>
+    <tocitem target="html/colorspace.html">colorspace</tocitem>
+    <tocitem target="html/lambda2rg.html">lambda2rg</tocitem>
+    <tocitem target="html/lambda2xy.html">lambda2xy</tocitem>
+    <tocitem target="html/loadspectrum.html">loadspectrum</tocitem>
+    <tocitem target="html/luminos.html">luminos</tocitem>
+    <tocitem target="html/rg_addticks.html">rg_addticks</tocitem>
+    <tocitem target="html/rgb2xyz.html">rgb2xyz</tocitem>
+    <tocitem target="html/rluminos.html">rluminos</tocitem>
+    <tocitem target="html/tristim2cc.html">tristim2cc</tocitem>
+    <tocitem target="html/xycolorspace.html">xycolorspace</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#cameramodels">Camera models
+    <tocitem target="html/Camera.html">Camera</tocitem>
+    <tocitem target="html/CentralCamera.html">CentralCamera</tocitem>
+    <tocitem target="html/CatadioptricCamera.html">CatadioptricCamera</tocitem>
+    <tocitem target="html/FishEyeCamera.html">FishEyeCamera</tocitem>
+    <tocitem target="html/SphericalCamera.html">SphericalCamera</tocitem>
+    <tocitem target="html/camcald.html">camcald</tocitem>
+    <tocitem target="html/invcamcal.html">invcamcal</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#imagesources">Image sources
+  </tocitem>
+    <tocitem target="contents_toc.html#devices">Devices
+      <tocitem target="html/AxisWebCamera.html">AxisWebCamera</tocitem>
+      <tocitem target="html/EarthView.html">EarthView</tocitem>
+      <tocitem target="html/ImageSource.html">ImageSource</tocitem>
+      <tocitem target="html/Movie.html">Movie</tocitem>
+      <tocitem target="html/VideoCamera.html">VideoCamera</tocitem>
+      <tocitem target="html/VideoCamera_IAT.html">VideoCamera_IAT</tocitem>
+      <tocitem target="html/VideoCamera_fg.html">VideoCamera_fg</tocitem>
+      <tocitem target="html/YUV.html">YUV</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#testpatterns">Test patterns
+      <tocitem target="html/mkcube.html">mkcube</tocitem>
+      <tocitem target="html/mkgrid.html">mkgrid</tocitem>
+      <tocitem target="html/testpattern.html">testpattern</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#monadicoperators">Monadic operators
+    <tocitem target="html/icolor.html">icolor</tocitem>
+    <tocitem target="html/colorize.html">colorize</tocitem>
+    <tocitem target="html/igamm.html">igamm</tocitem>
+    <tocitem target="html/imono.html">imono</tocitem>
+    <tocitem target="html/inormhist.html">inormhist</tocitem>
+    <tocitem target="html/istretch.html">istretch</tocitem>
+  </tocitem>
+    <tocitem target="contents_toc.html#typechanging">Type changing
+      <tocitem target="html/idouble.html">idouble</tocitem>
+      <tocitem target="html/iint.html">iint</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#diadicoperators">Diadic operators
+    <tocitem target="html/ipixswitch.html">ipixswitch</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#spatialoperators">Spatial operators
+  </tocitem>
+    <tocitem target="contents_toc.html#linearconvolution">Linear convolution
+      <tocitem target="html/icanny.html">icanny</tocitem>
+      <tocitem target="html/iconv.html">iconv</tocitem>
+      <tocitem target="html/ismooth.html">ismooth</tocitem>
+      <tocitem target="html/isobel.html">isobel</tocitem>
+      <tocitem target="html/radgrad.html">radgrad</tocitem>
+    </tocitem>
+      <tocitem target="contents_toc.html#kernels">Kernels
+        <tocitem target="html/kcircle.html">kcircle</tocitem>
+        <tocitem target="html/kdgauss.html">kdgauss</tocitem>
+        <tocitem target="html/kdog.html">kdog</tocitem>
+        <tocitem target="html/kgauss.html">kgauss</tocitem>
+        <tocitem target="html/klaplace.html">klaplace</tocitem>
+        <tocitem target="html/klog.html">klog</tocitem>
+        <tocitem target="html/ksobel.html">ksobel</tocitem>
+        <tocitem target="html/ktriangle.html">ktriangle</tocitem>
+      </tocitem>
+    <tocitem target="contents_toc.html#non-linear">Non-linear
+      <tocitem target="html/dtransform.html">dtransform</tocitem>
+      <tocitem target="html/irank.html">irank</tocitem>
+      <tocitem target="html/ivar.html">ivar</tocitem>
+      <tocitem target="html/iwindow.html">iwindow</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#morphological">Morphological
+      <tocitem target="html/idilate.html">idilate</tocitem>
+      <tocitem target="html/ierode.html">ierode</tocitem>
+      <tocitem target="html/iclose.html">iclose</tocitem>
+      <tocitem target="html/iopen.html">iopen</tocitem>
+      <tocitem target="html/imorph.html">imorph</tocitem>
+      <tocitem target="html/hitormiss.html">hitormiss</tocitem>
+      <tocitem target="html/ithin.html">ithin</tocitem>
+      <tocitem target="html/iendpoint.html">iendpoint</tocitem>
+      <tocitem target="html/itriplepoint.html">itriplepoint</tocitem>
+      <tocitem target="html/morphdemo.html">morphdemo</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#similarity">Similarity
+      <tocitem target="html/imatch.html">imatch</tocitem>
+      <tocitem target="html/isimilarity.html">isimilarity</tocitem>
+      <tocitem target="html/sad.html">sad</tocitem>
+      <tocitem target="html/ssd.html">ssd</tocitem>
+      <tocitem target="html/ncc.html">ncc</tocitem>
+      <tocitem target="html/zsad.html">zsad</tocitem>
+      <tocitem target="html/zssd.html">zssd</tocitem>
+      <tocitem target="html/zncc.html">zncc</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#features">Features
+  </tocitem>
+    <tocitem target="contents_toc.html#regionfeatures">Region features
+      <tocitem target="html/RegionFeature.html">RegionFeature</tocitem>
+      <tocitem target="html/colorkmeans.html">colorkmeans</tocitem>
+      <tocitem target="html/colorseg.html">colorseg</tocitem>
+      <tocitem target="html/ithresh.html">ithresh</tocitem>
+      <tocitem target="html/imoments.html">imoments</tocitem>
+      <tocitem target="html/ibbox.html">ibbox</tocitem>
+      <tocitem target="html/iblobs.html">iblobs</tocitem>
+      <tocitem target="html/igraphseg.html">igraphseg</tocitem>
+      <tocitem target="html/ilabel.html">ilabel</tocitem>
+      <tocitem target="html/imser.html">imser</tocitem>
+      <tocitem target="html/niblack.html">niblack</tocitem>
+      <tocitem target="html/otsu.html">otsu</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#linefeatures">Line features
+      <tocitem target="html/Hough.html">Hough</tocitem>
+      <tocitem target="html/LineFeature.html">LineFeature</tocitem>
+    </tocitem>
+      <tocitem target="contents_toc.html#pointfeatures">Point features
+        <tocitem target="html/PointFeature.html">PointFeature</tocitem>
+        <tocitem target="html/ScalePointFeature.html">ScalePointFeature</tocitem>
+        <tocitem target="html/SiftPointFeature.html">SiftPointFeature</tocitem>
+        <tocitem target="html/SurfPointFeature.html">SurfPointFeature</tocitem>
+        <tocitem target="html/icorner.html">icorner</tocitem>
+        <tocitem target="html/iscalespace.html">iscalespace</tocitem>
+        <tocitem target="html/iscalemax.html">iscalemax</tocitem>
+        <tocitem target="html/isift.html">isift</tocitem>
+        <tocitem target="html/isurf.html">isurf</tocitem>
+        <tocitem target="html/FeatureMatch.html">FeatureMatch</tocitem>
+      </tocitem>
+      <tocitem target="contents_toc.html#otherfeatures">Other features
+        <tocitem target="html/peak.html">peak</tocitem>
+        <tocitem target="html/peak2.html">peak2</tocitem>
+        <tocitem target="html/ihist.html">ihist</tocitem>
+        <tocitem target="html/hist2d.html">hist2d</tocitem>
+        <tocitem target="html/iprofile.html">iprofile</tocitem>
+      </tocitem>
+  <tocitem target="contents_toc.html#multiview">Multiview
+  </tocitem>
+    <tocitem target="contents_toc.html#geometric">Geometric
+      <tocitem target="html/epidist.html">epidist</tocitem>
+      <tocitem target="html/epiline.html">epiline</tocitem>
+      <tocitem target="html/fmatrix.html">fmatrix</tocitem>
+      <tocitem target="html/homography.html">homography</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#stereo">Stereo
+    <tocitem target="html/istereo.html">istereo</tocitem>
+    <tocitem target="html/anaglyph.html">anaglyph</tocitem>
+    <tocitem target="html/stdisp.html">stdisp</tocitem>
+    <tocitem target="html/irectify.html">irectify</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#imagesequence">Image sequence
+    <tocitem target="html/BagOfWords.html">BagOfWords</tocitem>
+    <tocitem target="html/ianimate.html">ianimate</tocitem>
+    <tocitem target="html/Tracker.html">Tracker</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#shapechanging">Shape changing
+    <tocitem target="html/homwarp.html">homwarp</tocitem>
+    <tocitem target="html/idecimate.html">idecimate</tocitem>
+    <tocitem target="html/ipad.html">ipad</tocitem>
+    <tocitem target="html/ipyramid.html">ipyramid</tocitem>
+    <tocitem target="html/ireplicate.html">ireplicate</tocitem>
+    <tocitem target="html/iroi.html">iroi</tocitem>
+    <tocitem target="html/irotate.html">irotate</tocitem>
+    <tocitem target="html/isamesize.html">isamesize</tocitem>
+    <tocitem target="html/iscale.html">iscale</tocitem>
+    <tocitem target="html/itrim.html">itrim</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#utility">Utility
+  </tocitem>
+    <tocitem target="contents_toc.html#imageutility">Image utility
+      <tocitem target="html/idisp.html">idisp</tocitem>
+      <tocitem target="html/idisplabel.html">idisplabel</tocitem>
+      <tocitem target="html/iread.html">iread</tocitem>
+      <tocitem target="html/pnmfilt.html">pnmfilt</tocitem>
+      <tocitem target="html/showpixels.html">showpixels</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#imagegeneration">Image generation
+      <tocitem target="html/iconcat.html">iconcat</tocitem>
+      <tocitem target="html/iline.html">iline</tocitem>
+      <tocitem target="html/ipaste.html">ipaste</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#moments">Moments
+      <tocitem target="html/humoments.html">humoments</tocitem>
+      <tocitem target="html/mpq.html">mpq</tocitem>
+      <tocitem target="html/mpq_poly.html">mpq_poly</tocitem>
+      <tocitem target="html/upq.html">upq</tocitem>
+      <tocitem target="html/upq_poly.html">upq_poly</tocitem>
+      <tocitem target="html/npq.html">npq</tocitem>
+      <tocitem target="html/npq_poly.html">npq_poly</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#plotting">Plotting
+      <tocitem target="html/plot_arrow.html">plot_arrow</tocitem>
+      <tocitem target="html/plot_box.html">plot_box</tocitem>
+      <tocitem target="html/plot_circle.html">plot_circle</tocitem>
+      <tocitem target="html/plot_ellipse.html">plot_ellipse</tocitem>
+      <tocitem target="html/plot_homline.html">plot_homline</tocitem>
+      <tocitem target="html/plot_point.html">plot_point</tocitem>
+      <tocitem target="html/plot_poly.html">plot_poly</tocitem>
+      <tocitem target="html/plot_sphere.html">plot_sphere</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#homogeneouscoordinates">Homogeneous coordinates
+      <tocitem target="html/e2h.html">e2h</tocitem>
+      <tocitem target="html/h2e.html">h2e</tocitem>
+      <tocitem target="html/homline.html">homline</tocitem>
+      <tocitem target="html/homtrans.html">homtrans</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#3d">3D
+      <tocitem target="html/icp.html">icp</tocitem>
+      <tocitem target="html/Plucker.html">Plucker</tocitem>
+      <tocitem target="html/Ray3D.html">Ray3D</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#integralimage">Integral image
+      <tocitem target="html/iisum.html">iisum</tocitem>
+      <tocitem target="html/intgimage.html">intgimage</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#edgerepresentation">Edge representation
+      <tocitem target="html/edgelist.html">edgelist</tocitem>
+      <tocitem target="html/boundmatch.html">boundmatch</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#general">General
+      <tocitem target="html/about.html">about</tocitem>
+      <tocitem target="html/bresenham.html">bresenham</tocitem>
+      <tocitem target="html/closest.html">closest</tocitem>
+      <tocitem target="html/colnorm.html">colnorm</tocitem>
+      <tocitem target="html/col2im.html">col2im</tocitem>
+      <tocitem target="html/distance.html">distance</tocitem>
+      <tocitem target="html/filt1d.html">filt1d</tocitem>
+      <tocitem target="html/im2col.html">im2col</tocitem>
+      <tocitem target="html/imeshgrid.html">imeshgrid</tocitem>
+      <tocitem target="html/iscolor.html">iscolor</tocitem>
+      <tocitem target="html/isize.html">isize</tocitem>
+      <tocitem target="html/kmeans.html">kmeans</tocitem>
+      <tocitem target="html/polydiff.html">polydiff</tocitem>
+      <tocitem target="html/ransac.html">ransac</tocitem>
+      <tocitem target="html/zcross.html">zcross</tocitem>
+      <tocitem target="html/xaxis.html">xaxis</tocitem>
+      <tocitem target="html/yaxis.html">yaxis</tocitem>
+      <tocitem target="html/xyzlabel.html">xyzlabel</tocitem>
+    </tocitem>
+  <!-- Help -->
+
+  <!-- MATLAB Functions -->
+  <tocreference image="$toolbox/matlab/icons/help_fx.gif" target="helpfuncbycat.xml">
+  </tocreference>
+
+  <!-- Simulink -->
+  <tocitem target="simulink.html" image="$toolbox/matlab/icons/reficon.gif">Simulink</tocitem>
+
+  <!-- Manual -->
+  <tocitem target="../vision.pdf" image="$toolbox/matlab/icons/reficon.gif">Manual</tocitem>
+
+  <!-- Examples -->
+  <tocitem target="./examples/examples.html" image="$toolbox/matlab/icons/demoicon.gif">Examples</tocitem>
+
+  <!-- About -->
+  <tocitem target="./introduction.html" image="$toolbox/matlab/icons/pagesicon.gif">About</tocitem>
+
+  <!-- Acknowledgements -->
+  <tocitem target="./acknowledgements.html" image="$toolbox/matlab/icons/pagesicon.gif">Acknowledgements</tocitem>
+
+  <!-- Release Notes & Version History -->
+  <tocitem target="./release.html" image="$toolbox/matlab/icons/notesicon.gif">Release Notes &amp; Version History</tocitem>
+  
+  <!-- Copyrights & License -->
+  <tocitem target="./license.html" image="$toolbox/matlab/icons/notesicon.gif">Copyrights &amp; License</tocitem>
+  
+  <!-- Web Pages -->
+  <tocitem target="vision_product_page.html" image="$toolbox/matlab/icons/webicon.gif">Web Pages
+    <tocitem target="http://www.petercorke.com/vision" image="$toolbox/matlab/icons/webicon.gif">Machine Vision Toolbox web page</tocitem>
+    <tocitem target="http://groups.google.com/group/robotics-tool-box?hl=en" image="$toolbox/matlab/icons/webicon.gif">Robotics Toolbox discussion group</tocitem>
+    <tocitem target="http://www.petercorke.com/RVC" image="$toolbox/matlab/icons/webicon.gif">Robotics, Vision &amp; Control (the book)</tocitem>
+  </tocitem>
+
+</tocitem>
+</toc>

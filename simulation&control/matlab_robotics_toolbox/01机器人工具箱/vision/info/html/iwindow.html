@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iwindow</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iwindow</td>
+      <td class="subheader-left"><a href="matlab:open iwindow">View code for iwindow</a></td>
+    </tr>
+  </table>
+<h1>iwindow</h1><p><span class="helptopic">Generalized spatial operator</span></p><p>
+<strong>out</strong> = <span style="color:red">iwindow</span>(<strong>im</strong>, <strong>se</strong>, <strong>func</strong>) is an image where each pixel is the result
+of applying the function <strong>func</strong> to a neighbourhood centred on the corresponding
+pixel in <strong>im</strong>.  The neighbourhood is defined by the size of the structuring
+element <strong>se</strong> which should have odd side lengths.  The elements in the
+neighbourhood corresponding to non-zero elements in <strong>se</strong> are packed into
+a vector (in column order from top left) and passed to the specified
+function handle <strong>func</strong>.  The return value  becomes the corresponding pixel
+value in <strong>out</strong>.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">iwindow</span>(<strong>image</strong>, <strong>se</strong>, <strong>func</strong>, <strong>edge</strong>) as above but performance of edge
+pixels can be controlled.  The value of <strong>edge</strong> is:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'border'</td> <td>the border value is replicated (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'none'</td> <td>pixels beyond the border are not included in the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'trim'</td> <td>output is not computed for pixels whose window crosses
+the border, hence output image had reduced dimensions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'wrap'</td> <td>the image is assumed to wrap around</td></tr>
+</table>
+<h2>Example</h2>
+<p>
+Compute the maximum value over a 5x5 window:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+iwindow(im,&nbsp;ones(5,5),&nbsp;@max);
+</pre>
+<p>
+Compute the standard deviation over a 3x3 window:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+iwindow(im,&nbsp;ones(3,3),&nbsp;@std);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Is a MEX file.</li>
+  <li>The structuring element should have an odd side length.</li>
+  <li>Is slow since the function FUNC must be invoked once for every
+output pixel.</li>
+  <li>The input can be logical, uint8, uint16, float or double, the output is
+always double</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="ivar.html">ivar</a>, <a href="irank.html">irank</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

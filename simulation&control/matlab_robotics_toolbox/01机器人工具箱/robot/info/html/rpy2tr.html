@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: rpy2tr</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: rpy2tr</td>
+      <td class="subheader-left"><a href="matlab:open rpy2tr">View code for rpy2tr</a></td>
+    </tr>
+  </table>
+<h1>rpy2tr</h1><p><span class="helptopic">Roll-pitch-yaw angles to homogeneous transform</span></p><p>
+<strong>T</strong> = <span style="color:red">rpy2tr</span>(<strong>roll</strong>, <strong>pitch</strong>, <strong>yaw</strong>, <strong>options</strong>) is an SE(3) homogeneous
+transformation matrix (4x4) equivalent to the specified roll, pitch, yaw
+angles angles. These correspond to rotations about the X, Y, Z axes
+respectively. If <strong>roll</strong>, <strong>pitch</strong>, <strong>yaw</strong> are column vectors (Nx1) then they are
+assumed to represent a trajectory and R is a three-dimensional matrix
+(4x4xN), where the last index corresponds to rows of <strong>roll</strong>, <strong>pitch</strong>, <strong>yaw</strong>.
+
+</p>
+<p>
+<strong>T</strong> = <span style="color:red">rpy2tr</span>(<strong>rpy</strong>, <strong>options</strong>) as above but the roll, pitch, yaw angles angles
+angles are taken from consecutive columns of the passed matrix <strong>rpy</strong> =
+[<strong>roll</strong>, <strong>pitch</strong>, <strong>yaw</strong>].  If <strong>rpy</strong> is a matrix (Nx3) then they are assumed to
+represent a trajectory and <strong>T</strong> is a three-dimensional matrix (4x4xN), where
+the last index corresponds to rows of <strong>rpy</strong> which are assumed to be [<strong>roll</strong>,
+<strong>pitch</strong>, <strong>yaw</strong>].
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'deg'</td> <td>Compute angles in degrees (radians default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'zyx'</td> <td>Return solution for sequential rotations about Z, Y, X axes (Paul book)</td></tr>
+</table>
+<h2>Note</h2>
+<ul>
+  <li>In previous releases (<8) the angles corresponded to rotations about ZYX. Many
+texts (Paul, Spong) use the rotation order ZYX. This old behaviour can be enabled
+by passing the option 'zyx'</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="tr2rpy.html">tr2rpy</a>, <a href="rpy2r.html">rpy2r</a>, <a href="eul2tr.html">eul2tr</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

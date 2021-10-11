@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: trplot</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: trplot</td>
+      <td class="subheader-left"><a href="matlab:open trplot">View code for trplot</a></td>
+    </tr>
+  </table>
+<h1>trplot</h1><p><span class="helptopic">Draw a coordinate frame</span></p><p>
+<span style="color:red">trplot</span>(<strong>T</strong>, <strong>options</strong>) draws a 3D coordinate frame represented by the homogeneous
+transform <strong>T</strong> (4x4).
+
+</p>
+<p>
+<strong>H</strong> = <span style="color:red">trplot</span>(<strong>T</strong>, <strong>options</strong>) as above but returns a handle.
+
+</p>
+<p>
+<span style="color:red">trplot</span>(<strong>H</strong>, <strong>T</strong>) moves the coordinate frame described by the handle <strong>H</strong> to
+the pose <strong>T</strong> (4x4).
+
+</p>
+<p>
+<span style="color:red">trplot</span>(<strong>R</strong>, <strong>options</strong>) as above but the coordinate frame is rotated about the
+origin according to the orthonormal rotation matrix <strong>R</strong> (3x3).
+
+</p>
+<p>
+<strong>H</strong> = <span style="color:red">trplot</span>(<strong>R</strong>, <strong>options</strong>) as above but returns a handle.
+
+</p>
+<p>
+<span style="color:red">trplot</span>(<strong>H</strong>, <strong>R</strong>) moves the coordinate frame described by the handle <strong>H</strong> to
+the orientation <strong>R</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'color', C</td> <td>The color to draw the axes, MATLAB colorspec C</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noaxes'</td> <td>Don't display axes on the plot</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'axis', A</td> <td>Set dimensions of the MATLAB axes to A=[xmin xmax ymin ymax zmin zmax]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'frame', F</td> <td>The coordinate frame is named {F} and the subscript on the axis labels is F.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'text_opts',  opt</td> <td>A cell array of MATLAB text properties</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'handle', H</td> <td>Draw in the MATLAB axes specified by the axis handle H</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'view', V</td> <td>Set plot view parameters V=[az el] angles, or 'auto'
+for view toward origin of coordinate frame</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'length', s</td> <td>Length of the coordinate frame arms (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'arrow'</td> <td>Use arrows rather than line segments for the axes</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'width',  w</td> <td>Width of arrow tips (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'thick', t</td> <td>Thickness of lines (default 0.5)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> '3d'</td> <td>Plot in 3D using anaglyph graphics</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'anaglyph', A</td> <td>Specify anaglyph colors for '3d' as 2 characters for
+left and right (default colors 'rc'): chosen from
+r)ed, g)reen, b)lue, c)yan, m)agenta.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'dispar', D</td> <td>Disparity for 3d display (default 0.1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'text'</td> <td>Enable display of X,Y,Z labels on the frame</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'labels', L</td> <td>Label the X,Y,Z axes with the 1st, 2nd, 3rd character of the string L</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'rgb'</td> <td>Display X,Y,Z axes in colors red, green, blue respectively</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'rviz'</td> <td>Display chunky rviz style axes</td></tr>
+</table>
+<h2>Examples</h2>
+<pre style="width: 90%%;" class="examples">
+trplot(T,&nbsp;'frame',&nbsp;'A')
+trplot(T,&nbsp;'frame',&nbsp;'A',&nbsp;'color',&nbsp;'b')
+trplot(T1,&nbsp;'frame',&nbsp;'A',&nbsp;'text_opts',&nbsp;{'FontSize',&nbsp;10,&nbsp;'FontWeight',&nbsp;'bold'})
+trplot(T1,&nbsp;'labels',&nbsp;'NOA');
+</pre>
+<pre style="width: 90%%;" class="examples">
+h&nbsp;=&nbsp;trplot(T,&nbsp;'frame',&nbsp;'A',&nbsp;'color',&nbsp;'b');
+trplot(h,&nbsp;T2);
+</pre>
+<p>
+3D anaglyph plot
+
+</p>
+<pre style="width: 90%%;" class="examples">
+trplot(T,&nbsp;'3d');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The 'rviz' option is equivalent to 'rgb', 'notext', 'noarrow',
+'thick', 5.</li>
+  <li>The arrow option requires the third party package arrow3 from File
+Exchange.</li>
+  <li>The handle H is an hgtransform object.</li>
+  <li>When using the form TRPLOT(H, ...) to animate a frame it is best to set
+the axis bounds.</li>
+  <li>The '3d' option requires that the plot is viewed with anaglyph glasses.</li>
+  <li>You cannot specify 'color' and '3d' at the same time.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="trplot2.html">trplot2</a>, <a href="tranimate.html">tranimate</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

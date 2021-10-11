@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: ccodefunctionstring</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: ccodefunctionstring</td>
+      <td class="subheader-left"><a href="matlab:open ccodefunctionstring">View code for ccodefunctionstring</a></td>
+    </tr>
+  </table>
+<h1>ccodefunctionstring</h1><p><span class="helptopic">Converts a symbolic expression into a C-code function</span></p><p>
+[<strong>funstr</strong>, <strong>hdrstr</strong>] = <span style="color:red">ccodefunctionstring</span>(<strong>symexpr</strong>, <strong>arglist</strong>) returns a string
+representing a C-code implementation of a symbolic expression <strong>symexpr</strong>.
+The C-code implementation has a signature of the form:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+void&nbsp;funname(double[][n_o]&nbsp;out,&nbsp;const&nbsp;double&nbsp;in1,
+</pre>
+<pre style="width: 90%%;" class="examples">
+const&nbsp;double*&nbsp;in2,&nbsp;const&nbsp;double[][n_i]&nbsp;in3);
+</pre>
+<p>
+depending on the number of inputs to the function as well as the
+dimensionality of the inputs (n_i) and the output (n_o).
+The whole C-code implementation is returned in <strong>funstr</strong>, while <strong>hdrstr</strong>
+contains just the signature ending with a semi-colon (for the use in
+header files).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'funname', name</td> <td>Specify the name of the generated C-function. If
+this optional argument is omitted, the variable name
+of the first input argument is used, if possible.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'output', outVar</td> <td>Defines the identifier of the output variable in the C-function.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'vars', varCells</td> <td>The inputs to the C-code function must be defined as a cell array. The
+elements of this cell array contain the symbolic variables required to
+compute the output. The elements may be scalars, vectors or matrices
+symbolic variables. The C-function prototype will be composed accoringly
+as exemplified above.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'flag', sig</td> <td>Specifies if function signature only is generated, default (false).</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+%&nbsp;Create&nbsp;symbolic&nbsp;variables
+syms&nbsp;q1&nbsp;q2&nbsp;q3
+</pre>
+<pre style="width: 90%%;" class="examples">
+Q&nbsp;=&nbsp;[q1&nbsp;q2&nbsp;q3];
+%&nbsp;Create&nbsp;symbolic&nbsp;expression
+myrot&nbsp;=&nbsp;rotz(q3)*roty(q2)*rotx(q1)
+</pre>
+<pre style="width: 90%%;" class="examples">
+%&nbsp;Generate&nbsp;C-function&nbsp;string
+[funstr,&nbsp;hdrstr]&nbsp;=&nbsp;ccodefunctionstring(myrot,'output','foo',&nbsp;...
+'vars',{Q},'funname','rotate_xyz')
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The function wraps around the built-in Matlab function 'ccode'. It does
+not check for proper C syntax. You must take care of proper
+dimensionality of inputs and outputs with respect to your symbolic
+expression on your own. Otherwise the generated C-function may not
+compile as desired.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="ccode.html">ccode</a>, <a href="matlabfunction.html">matlabfunction</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

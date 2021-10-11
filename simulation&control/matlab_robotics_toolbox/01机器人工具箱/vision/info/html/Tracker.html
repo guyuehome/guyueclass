@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Tracker</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Tracker</td>
+      <td class="subheader-left"><a href="matlab:open Tracker">View code for Tracker</a></td>
+    </tr>
+  </table>
+<h1>Tracker</h1><p><span class="helptopic">Track points in image sequence</span></p><p>
+This class assigns each new feature a unique identifier and tracks it
+from frame to frame until it is lost.  A complete history of all
+tracks is maintained.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot all tracks</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> tracklengths</td> <td>Length of all tracks</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> track</td> <td>A vector of structures, one per active track.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> history</td> <td>A vector of track history structures with elements id and uv
+which is the path of the feature.</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a></p>
+<hr>
+<a name="Tracker"><h1>Tracker.Tracker</h1></a>
+<p><span class="helptopic">Create new Tracker object</span></p><p>
+<strong>T</strong> = <span style="color:red">Tracker</span>(<strong>im</strong>, <strong>C</strong>, <strong>options</strong>) is a new tracker object.  <strong>im</strong> (HxWxS) is an
+image sequence and <strong>C</strong> (Sx1) is a cell array of vectors of PointFeature
+subclass objects.  The elements of the cell array are the point features
+for the corresponding element of the image sequence.
+
+</p>
+<p>
+During operation the image sequence is animated and the point features
+are overlaid along with annotation giving the unique identifier of the
+track.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'radius', R</td> <td>Search radius for feature in next frame (default 20)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'nslots', N</td> <td>Maximum number of tracks (default 800)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'thresh', T</td> <td>Similarity threshold (default 0.8)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'movie', M</td> <td>Write the frames as images into the folder M as
+with sequential filenames.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The 'movie' options saves frames as files NNNN.png.</li>
+  <li>When using 'movie' option ensure that the window is fully visible.</li>
+  <li>To convert frames to a movie use a command like:</li>
+</ul>
+<pre style="width: 90%%;" class="examples">
+ffmpeg&nbsp;-r&nbsp;10&nbsp;-i&nbsp;%04d.png&nbsp;out.avi
+</pre>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a></p>
+<hr>
+<a name="char"><h1>Tracker.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = T.<span style="color:red">char</span>() is a compact string representation of the <span style="color:red">Tracker</span> parameters and status.
+
+</p>
+<hr>
+<a name="display"><h1>Tracker.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+T.<span style="color:red">display</span>() displays a compact human-readable string representation of the
+<span style="color:red">Tracker</span> object
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Tracker object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Tracker.char.html">Tracker.char</a></p>
+<hr>
+<a name="plot"><h1>Tracker.plot</h1></a>
+<p><span class="helptopic">Show feature trajectories</span></p><p>
+T.<span style="color:red">plot</span>() overlays the tracks of all features on the current <span style="color:red">plot</span>.
+
+</p>
+<hr>
+<a name="tracklengths"><h1>Tracker.tracklengths</h1></a>
+<p><span class="helptopic">Length of all tracks</span></p><p>
+T.<span style="color:red">tracklengths</span>() is a vector containing the length of every track.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

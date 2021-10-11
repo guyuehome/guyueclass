@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: FishEyeCamera</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: FishEyeCamera</td>
+      <td class="subheader-left"><a href="matlab:open FishEyeCamera">View code for FishEyeCamera</a></td>
+    </tr>
+  </table>
+<h1>FishEyeCamera</h1><p><span class="helptopic">Fish eye camera class</span></p><p>
+A concrete class a fisheye lense projection camera.
+
+</p>
+<p>
+The camera coordinate system is:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+0------------>&nbsp;u,&nbsp;X
+|
+|
+|&nbsp;&nbsp;&nbsp;+&nbsp;(principal&nbsp;point)
+|
+|&nbsp;&nbsp;&nbsp;Z-axis&nbsp;is&nbsp;into&nbsp;the&nbsp;page.
+v,&nbsp;Y
+</pre>
+<p>
+This camera model assumes central projection, that is, the focal point
+is at z=0 and the image plane is at z=f.  The image is not inverted.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> project</td> <td>project world points to image plane</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>plot/return world point on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> hold</td> <td>control hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ishold</td> <td>test figure hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> clf</td> <td>clear image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> figure</td> <td>figure holding the image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> mesh</td> <td>draw shape represented as a mesh</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> point</td> <td>draw homogeneous points on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> line</td> <td>draw homogeneous lines on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_camera</td> <td>draw camera</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> rpy</td> <td>set camera attitude</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> move</td> <td>copy of Camera after motion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> centre</td> <td>get world coordinate of camera centre</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> delete</td> <td>object destructor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert camera parameters to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display camera parameters</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> npix</td> <td>image dimensions in pixels (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> pp</td> <td>intrinsic: principal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> f </td> <td>intrinsic: focal length [metres]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> rho</td> <td>intrinsic: pixel dimensions (2x1) [metres]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> T </td> <td>extrinsic: camera pose as homogeneous transformation</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> nu</td> <td>number of pixels in u-direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nv</td> <td>number of pixels in v-direction</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Camera is a reference object.</li>
+  <li>Camera objects can be used in vectors and arrays</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a></p>
+<hr>
+<a name="FishEyeCamera"><h1>FishEyeCamera.FishEyeCamera</h1></a>
+<p><span class="helptopic">Create fisheyecamera object</span></p><p>
+<strong>C</strong> = <span style="color:red">FishEyeCamera</span>() creates a fisheye camera with canonic
+parameters: f=1 and name='canonic'.
+
+</p>
+<p>
+<strong>C</strong> = <span style="color:red">FishEyeCamera</span>(<strong>options</strong>) as above but with specified parameters.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'name', N</td> <td>Name of camera</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'default'</td> <td>Default camera parameters: 1024x1024, f=8mm,
+10um pixels, camera at origin, optical axis
+is z-axis, u- and v-axes are parallel to x- and y-
+axes respectively.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'projection', M</td> <td>Fisheye model: 'equiangular' (default), 'sine',
+'equisolid', 'stereographic'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'k', K</td> <td>Parameter for the projection model</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'resolution', N</td> <td>Image plane resolution: NxN or N=[W H].</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'sensor', S</td> <td>Image sensor size [metres] (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'centre', P</td> <td>Principal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pixel', S</td> <td>Pixel size: SxS or S=[W H].</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'noise', SIGMA</td> <td>Standard deviation of additive Gaussian
+noise added to returned image projections</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pose', T</td> <td>Pose of the camera as a homogeneous
+transformation</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>If K is not specified it is computed such that the circular imaging region
+maximally fills the square image plane.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a>, <a href="CentralCamera.html">CentralCamera</a>, <a href="CatadioptricCamera.html">CatadioptricCamera</a>, <a href="SphericalCamera.html">SphericalCamera</a></p>
+<hr>
+<a name="project"><h1>FishEyeCamera.project</h1></a>
+<p><span class="helptopic">Project world points to image plane</span></p><p>
+<strong>uv</strong> = C.<span style="color:red">project</span>(<strong>p</strong>, <strong>options</strong>) are the image plane coordinates for the world
+points <strong>p</strong>.  The columns of <strong>p</strong> (3xN) are the world points and the columns
+of <strong>uv</strong> (2xN) are the corresponding image plane points.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'Tobj', T</td> <td>Transform all points by the homogeneous transformation T before
+projecting them to the camera image plane.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'Tcam', T</td> <td>Set the camera pose to the homogeneous transformation T before
+projecting points to the camera image plane.  Temporarily overrides
+the current camera pose C.T.</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="FishEyeCamera.plot.html">FishEyeCamera.plot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

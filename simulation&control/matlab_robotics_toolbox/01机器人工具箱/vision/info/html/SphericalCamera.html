@@ -1,0 +1,259 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: SphericalCamera</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: SphericalCamera</td>
+      <td class="subheader-left"><a href="matlab:open SphericalCamera">View code for SphericalCamera</a></td>
+    </tr>
+  </table>
+<h1>SphericalCamera</h1><p><span class="helptopic">Spherical camera class</span></p><p>
+A concrete class a spherical-projection camera.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> project</td> <td>project world points</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>plot/return world point on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> hold</td> <td>control hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ishold</td> <td>test figure hold for image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> clf</td> <td>clear image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> figure</td> <td>figure holding the image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> mesh</td> <td>draw shape represented as a mesh</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> point</td> <td>draw homogeneous points on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> line</td> <td>draw homogeneous lines on image plane</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_camera</td> <td>draw camera</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> rpy</td> <td>set camera attitude</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> move</td> <td>copy of Camera after motion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> centre</td> <td>get world coordinate of camera centre</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> delete</td> <td>object destructor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert camera parameters to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display camera parameters</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> npix</td> <td>image dimensions in pixels (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> pp</td> <td>intrinsic: principal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> rho</td> <td>intrinsic: pixel dimensions (2x1) in metres</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> T </td> <td>extrinsic: camera pose as homogeneous transformation</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> nu</td> <td>number of pixels in u-direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nv</td> <td>number of pixels in v-direction</td></tr>
+</table>
+<h2>Note</h2>
+<ul>
+  <li>SphericalCamera is a reference object.</li>
+  <li>SphericalCamera objects can be used in vectors and arrays</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a></p>
+<hr>
+<a name="SphericalCamera"><h1>SphericalCamera.SphericalCamera</h1></a>
+<p><span class="helptopic">Create spherical projection camera object</span></p><p>
+<strong>C</strong> = <span style="color:red">SphericalCamera</span>() creates a spherical projection camera with canonic
+parameters: f=1 and name='canonic'.
+
+</p>
+<p>
+<strong>C</strong> = <span style="color:red">CentralCamera</span>(<strong>options</strong>) as above but with specified parameters.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'name', N</td> <td>Name of camera</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pixel', S</td> <td>Pixel size: SxS or S(1)xS(2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'pose', T</td> <td>Pose of the camera as a homogeneous
+transformation</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="Camera.html">Camera</a>, <a href="CentralCamera.html">CentralCamera</a>, <a href="fisheyecamera.html">fisheyecamera</a>, <a href="CatadioptricCamera.html">CatadioptricCamera</a></p>
+<hr>
+<hr>
+<a name="project"><h1>SphericalCamera.project</h1></a>
+<p><span class="helptopic">Project world points to image plane</span></p><p>
+<strong>pt</strong> = C.<span style="color:red">project</span>(<strong>p</strong>, <strong>options</strong>) are the image plane coordinates for the world
+points <strong>p</strong>.  The columns of <strong>p</strong> (3xN) are the world points and the columns
+of <strong>pt</strong> (2xN) are the corresponding spherical projection points, each column
+is phi (longitude) and theta (colatitude).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'Tobj', T</td> <td>Transform all points by the homogeneous transformation T before
+projecting them to the camera image plane.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'Tcam', T</td> <td>Set the camera pose to the homogeneous transformation T before
+projecting points to the camera image plane.  Overrides the current
+camera pose C.T.</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="SphericalCamera.plot.html">SphericalCamera.plot</a></p>
+<hr>
+<hr>
+<hr>
+<a name="sph"><h1>SphericalCamera.sph</h1></a>
+<p><span class="helptopic">Implement spherical IBVS for point features</span></p><p>
+<strong>results</strong> = <span style="color:red">sph</span>(<strong>T</strong>)
+<strong>results</strong> = <span style="color:red">sph</span>(<strong>T</strong>, params)
+
+</p>
+<p>
+Simulate IBVS with for a square target comprising 4 points is placed
+in the world XY plane. The camera/robot is initially at pose <strong>T</strong> and is
+driven to the orgin.
+
+</p>
+<p>
+Two windows are shown and animated:
+
+</p>
+<p>
+1. The camera view, showing the desired view (*) and the
+
+</p>
+<pre style="width: 90%%;" class="examples">
+current&nbsp;view&nbsp;(o)
+</pre>
+<p>
+2. The external view, showing the target points and the camera
+
+</p>
+<p>
+The <strong>results</strong> structure contains time-history information about the image
+plane, camera pose, error, Jacobian condition number, error norm, image
+plane size and desired feature locations.
+
+</p>
+<p>
+The params structure can be used to override simulation defaults by
+providing elements, defaults in parentheses:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> target_size</td> <td>- the side length of the target in world units (0.5)</td></tr>
+</table>
+<p>
+target_center  - center of the target in world coords (0,0,2)
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> niter</td> <td>- the number of iterations to run the simulation (500)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> eterm</td> <td>- a stopping criteria on feature error norm (0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> lambda</td> <td>- gain, can be scalar or diagonal 6x6 matrix (0.01)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ci</td> <td>- camera intrinsic structure (camparam)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> depth</td> <td>- depth of points to use for Jacobian, scalar for</td></tr>
+</table>
+<pre style="width: 90%%;" class="examples">
+all&nbsp;points,&nbsp;of&nbsp;4-vector.&nbsp;&nbsp;If&nbsp;null&nbsp;take&nbsp;actual&nbsp;value
+from&nbsp;simulation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([])
+</pre>
+<p>
+SEE ALSO: ibvsplot
+
+</p>
+<hr>
+<a name="sph2"><h1>SphericalCamera.sph2</h1></a>
+<p><span class="helptopic">Implement spherical IBVS for point features</span></p><p>
+<strong>results</strong> = <span style="color:red">sph</span>(<strong>T</strong>)
+<strong>results</strong> = <span style="color:red">sph</span>(<strong>T</strong>, params)
+
+</p>
+<p>
+Simulate IBVS with for a square target comprising 4 points is placed
+in the world XY plane. The camera/robot is initially at pose <strong>T</strong> and is
+driven to the orgin.
+
+</p>
+<p>
+Two windows are shown and animated:
+
+</p>
+<p>
+1. The camera view, showing the desired view (*) and the
+
+</p>
+<pre style="width: 90%%;" class="examples">
+current&nbsp;view&nbsp;(o)
+</pre>
+<p>
+2. The external view, showing the target points and the camera
+
+</p>
+<p>
+The <strong>results</strong> structure contains time-history information about the image
+plane, camera pose, error, Jacobian condition number, error norm, image
+plane size and desired feature locations.
+
+</p>
+<p>
+The params structure can be used to override simulation defaults by
+providing elements, defaults in parentheses:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> target_size</td> <td>- the side length of the target in world units (0.5)</td></tr>
+</table>
+<p>
+target_center  - center of the target in world coords (0,0,3)
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> niter</td> <td>- the number of iterations to run the simulation (500)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> eterm</td> <td>- a stopping criteria on feature error norm (0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> lambda</td> <td>- gain, can be scalar or diagonal 6x6 matrix (0.01)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ci</td> <td>- camera intrinsic structure (camparam)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> depth</td> <td>- depth of points to use for Jacobian, scalar for</td></tr>
+</table>
+<pre style="width: 90%%;" class="examples">
+all&nbsp;points,&nbsp;of&nbsp;4-vector.&nbsp;&nbsp;If&nbsp;null&nbsp;take&nbsp;actual&nbsp;value
+from&nbsp;simulation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([])
+</pre>
+<p>
+SEE ALSO: ibvsplot
+
+</p>
+<hr>
+<a name="visjac_p"><h1>SphericalCamera.visjac_p</h1></a>
+<p><span class="helptopic">Visual motion Jacobian for point feature</span></p><p>
+<strong>J</strong> = C.<span style="color:red">visjac_p</span>(<strong>pt</strong>, <strong>z</strong>) is the image Jacobian (2Nx6) for the image plane
+points <strong>pt</strong> (2xN) described by phi (longitude) and theta (colatitude).
+The depth of the points from the camera is given by <strong>z</strong> which is a scalar,
+for all points, or a vector (Nx1) for each point.
+
+</p>
+<p>
+The Jacobian gives the image-plane velocity in terms of camera spatial
+velocity.
+
+</p>
+<h2>Reference</h2>
+<p>
+"Spherical image-based visual servo and structure estimation",
+P. I. Corke,
+in Proc. IEEE Int. Conf. Robotics and Automation, (Anchorage),
+pp. 5550-5555, May 3-7 2010.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.visjac_p_polar.html">CentralCamera.visjac_p_polar</a>, <a href="CentralCamera.visjac_l.html">CentralCamera.visjac_l</a>, <a href="CentralCamera.visjac_e.html">CentralCamera.visjac_e</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

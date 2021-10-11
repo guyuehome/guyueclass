@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: RandomPath</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: RandomPath</td>
+      <td class="subheader-left"><a href="matlab:open RandomPath">View code for RandomPath</a></td>
+    </tr>
+  </table>
+<h1>RandomPath</h1><p><span class="helptopic">Vehicle driver class</span></p><p>
+Create a "driver" object capable of steering a Vehicle object through random
+waypoints within a rectangular region and at constant speed.
+
+</p>
+<p>
+The driver object is connected to a Vehicle object by the latter's
+add_driver() method.  The driver's demand() method is invoked on every
+call to the Vehicle's step() method.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> init</td> <td>reset the random number generator</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> demand</td> <td>return speed and steer angle to next waypoint</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display the state and parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> goal</td> <td>current goal/waypoint coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> veh</td> <td>the Vehicle object being controlled</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> dim</td> <td>dimensions of the work space (2x1) [m]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> speed</td> <td>speed of travel [m/s]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> closeenough</td> <td>proximity to waypoint at which next is chosen [m]</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+veh&nbsp;=&nbsp;Vehicle(V);
+veh.add_driver(&nbsp;RandomPath(20,&nbsp;2)&nbsp;);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>It is possible in some cases for the vehicle to move outside the desired
+region, for instance if moving to a waypoint near the edge, the limited
+turning circle may cause the vehicle to temporarily move outside.</li>
+  <li>The vehicle chooses a new waypoint when it is closer than property
+closeenough to the current waypoint.</li>
+  <li>Uses its own random number stream so as to not influence the performance
+of other randomized algorithms such as path planning.</li>
+</ul>
+<h2>Reference</h2>
+<p>
+Robotics, Vision &amp; Control, Chap 6,
+Peter Corke,
+Springer 2011
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a></p>
+<hr>
+<a name="RandomPath"><h1>RandomPath.RandomPath</h1></a>
+<p><span class="helptopic">Create a driver object</span></p><p>
+<strong>d</strong> = <span style="color:red">RandomPath</span>(<strong>dim</strong>, <strong>options</strong>) returns a "driver" object capable of driving
+a Vehicle object through random waypoints.  The waypoints are positioned
+inside a rectangular region bounded by +/- <strong>dim</strong> in the x- and y-directions.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'speed', S</td> <td>Speed along path (default 1m/s).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'dthresh', D</td> <td>Distance from goal at which next goal is chosen.</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a></p>
+<hr>
+<a name="char"><h1>RandomPath.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = R.<span style="color:red">char</span>() is a string showing driver parameters and state in in
+a compact human readable format.
+
+</p>
+<hr>
+<a name="demand"><h1>RandomPath.demand</h1></a>
+<p><span class="helptopic">Compute speed and heading to waypoint</span></p><p>
+[<strong>speed</strong>,<strong>steer</strong>] = R.<span style="color:red">demand</span>() returns the speed and steer angle to
+drive the vehicle toward the next waypoint.  When the vehicle is
+within R.closeenough a new waypoint is chosen.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a></p>
+<hr>
+<a name="display"><h1>RandomPath.display</h1></a>
+<p><span class="helptopic">Display driver parameters and state</span></p><p>
+R.<span style="color:red">display</span>() displays driver parameters and state in compact
+human readable form.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RandomPath.char.html">RandomPath.char</a></p>
+<hr>
+<a name="init"><h1>RandomPath.init</h1></a>
+<p><span class="helptopic">Reset random number generator</span></p><p>
+R.<span style="color:red">init</span>() resets the random number generator used to create the waypoints.
+This enables the sequence of random waypoints to be repeated.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="randstream.html">randstream</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

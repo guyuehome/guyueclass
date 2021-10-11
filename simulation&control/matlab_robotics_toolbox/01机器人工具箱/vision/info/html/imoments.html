@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: imoments</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: imoments</td>
+      <td class="subheader-left"><a href="matlab:open imoments">View code for imoments</a></td>
+    </tr>
+  </table>
+<h1>imoments</h1><p><span class="helptopic">Image moments</span></p><p>
+<strong>f</strong> = <span style="color:red">imoments</span>(<strong>im</strong>) is a RegionFeature object that describes the greyscale
+moments of the image <strong>im</strong>.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">imoments</span>(<strong>u</strong>, <strong>v</strong>) as above but the moments are computed from the pixel
+coordinates given as vectors <strong>u</strong> (Nx1) and <strong>v</strong> (Nx1).  All pixels are equally
+weighted and is effectively a binary image.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">imoments</span>(<strong>u</strong>, <strong>v</strong>, <strong>w</strong>) as above but the pixels have weights given by the
+vector <strong>w</strong> and is effectively a greyscale image.
+
+</p>
+<h2>Properties</h2>
+<p>
+The RegionFeature object has many properties including:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> uc</td> <td>centroid, horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> vc</td> <td>centroid, vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> area</td> <td>the number of pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> a </td> <td>major axis length of equivalent ellipse</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> b </td> <td>minor axis length of equivalent ellipse</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>angle of major ellipse axis to horizontal axis</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> shape</td> <td>aspect ratio b/a (always <= 1.0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> moments</td> <td>a structure containing moments of order 0 to 2, the elements
+are m00, m10, m01, m20, m02, m11.</td></tr>
+</table>
+<p>
+See RegionFeature help for more details.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>For a binary image the zeroth moment is the number of non-zero pixels, or
+its area.</li>
+  <li>This function does not perform connectivity it considers all non-zero
+pixels in the image.  If connected regions are required then use IBLOBS
+instead.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RegionFeature.html">RegionFeature</a>, <a href="iblobs.html">iblobs</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

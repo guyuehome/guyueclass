@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: BagOfWords</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: BagOfWords</td>
+      <td class="subheader-left"><a href="matlab:open BagOfWords">View code for BagOfWords</a></td>
+    </tr>
+  </table>
+<h1>BagOfWords</h1><p><span class="helptopic">Bag of words class</span></p><p>
+The BagOfWords class holds sets of features for a number of images and
+supports image retrieval by comparing new images with those in the 'bag'.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> isword</td> <td>Return all features assigned to word</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> occurrences</td> <td>Return number of occurrences of word</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> remove_stop</td> <td>Remove stop words</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> wordvector</td> <td>Return word frequency vector</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> wordfreq</td> <td>Return words and their frequencies</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> similarity</td> <td>Compare two word bags</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> contains</td> <td>List the images that contain a word</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> exemplars</td> <td>Display examples of word support regions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display the parameters of the bag of words</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert the parameters of the bag of words to a string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> K </td> <td>The number of clusters specified</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nstop</td> <td>The number of stop words specified</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nimages</td> <td>The number of images in the bag</td></tr>
+</table>
+<h2>Reference</h2>
+<p>
+J.Sivic and A.Zisserman,
+"Video Google: a text retrieval approach to object matching in videos",
+in Proc. Ninth IEEE Int. Conf. on Computer Vision, pp.1470-1477, Oct. 2003.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a></p>
+<hr>
+<a name="BagOfWords"><h1>BagOfWords.BagOfWords</h1></a>
+<p><span class="helptopic">Create a BagOfWords object</span></p><p>
+<strong>b</strong> = <span style="color:red">BagOfWords</span>(<strong>f</strong>, <strong>k</strong>) is a new bag of words created from the feature
+vector <strong>f</strong> and with <strong>k</strong> words.  <strong>f</strong> can also be a cell array, as produced
+by ISURF() for an image sequence.
+
+</p>
+<p>
+The features are sorted into <strong>k</strong> clusters and each cluster is termed
+a visual word.
+
+</p>
+<p>
+<strong>b</strong> = <span style="color:red">BagOfWords</span>(<strong>f</strong>, <strong>b2</strong>) is a new bag of words created from the feature
+vector <strong>f</strong> but clustered to the words (and stop words) from the existing
+bag <strong>b2</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Uses the MEX function vl_kmeans to perform clustering (vlfeat.org).</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a>, <a href="isurf.html">isurf</a></p>
+<hr>
+<a name="char"><h1>BagOfWords.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = B.<span style="color:red">char</span>() is a compact string representation of a bag of words.
+
+</p>
+<hr>
+<a name="contains"><h1>BagOfWords.contains</h1></a>
+<p><span class="helptopic">Find images containing word</span></p><p>
+<strong>k</strong> = B.<span style="color:red">contains</span>(<strong>w</strong>) is a vector of the indices of images in the sequence that
+contain one or more instances of the word <strong>w</strong>.
+
+</p>
+<hr>
+<a name="display"><h1>BagOfWords.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+B.<span style="color:red">display</span>() displays the parameters of the bag in a compact human
+readable form.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a BagOfWords object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="BagOfWords.char.html">BagOfWords.char</a></p>
+<hr>
+<a name="exemplars"><h1>BagOfWords.exemplars</h1></a>
+<p><span class="helptopic">Display exemplars of words</span></p><p>
+B.<span style="color:red">exemplars</span>(<strong>w</strong>, <strong>images</strong>, <strong>options</strong>) displays examples of the support regions of
+the words specified by the vector <strong>w</strong>.  The examples are displayed as a table
+of thumbnail images.  The original sequence of images from which the features
+were extracted must be provided as <strong>images</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'ncolumns', N</td> <td>Number of columns to display (default 10)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'maxperimage', M</td> <td>Maximum number of exemplars to display from any
+one image (default 2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'width', W</td> <td>Width of each thumbnail [pixels] (default 50)</td></tr>
+</table>
+<hr>
+<a name="isword"><h1>BagOfWords.isword</h1></a>
+<p><span class="helptopic">Features from words</span></p><p>
+<strong>f</strong> = B.<span style="color:red">isword</span>(<strong>w</strong>) is a vector of feature objects that are assigned to any of
+the word <strong>w</strong>.  If <strong>w</strong> is a vector of words the result is a vector of features
+assigned to all the words in <strong>w</strong>.
+
+</p>
+<hr>
+<a name="occurrence"><h1>BagOfWords.occurrence</h1></a>
+<p><span class="helptopic">Word occurrence</span></p><p>
+<strong>n</strong> = B.<span style="color:red">occurrence</span>(<strong>w</strong>) is the number of occurrences of the word <strong>w</strong> across
+all features in the bag.
+
+</p>
+<hr>
+<a name="remove_stop"><h1>BagOfWords.remove_stop</h1></a>
+<p><span class="helptopic">Remove stop words</span></p><p>
+B.<span style="color:red">remove_stop</span>(<strong>n</strong>) removes the <strong>n</strong> most frequent words (the stop words)
+from the bag.  All remaining words are renumbered so that the word
+labels are consecutive.
+
+</p>
+<hr>
+<a name="wordfreq"><h1>BagOfWords.wordfreq</h1></a>
+<p><span class="helptopic">Word frequency statistics</span></p><p>
+[<strong>w</strong>,<strong>n</strong>] = B.<span style="color:red">wordfreq</span>() is a vector of word labels <strong>w</strong> and the corresponding
+elements of <strong>n</strong> are the number of occurrences of that word.
+
+</p>
+<hr>
+<a name="wordvector"><h1>BagOfWords.wordvector</h1></a>
+<p><span class="helptopic">Word frequency vector</span></p><p>
+<strong>wf</strong> = B.<span style="color:red">wordvector</span>(<strong>J</strong>) is the word frequency vector for the <strong>J</strong>'th image
+in the bag.  The vector is Kx1 and the angle between any two WFVs is
+an indication of image similarity.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The word vector is expensive to compute so a lazy evaluation is
+performed on the first call to this function</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

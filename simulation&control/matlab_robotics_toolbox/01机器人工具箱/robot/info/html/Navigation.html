@@ -1,0 +1,285 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Navigation</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Navigation</td>
+      <td class="subheader-left"><a href="matlab:open Navigation">View code for Navigation</a></td>
+    </tr>
+  </table>
+<h1>Navigation</h1><p><span class="helptopic">Navigation superclass</span></p><p>
+An abstract superclass for implementing planar grid-based navigation classes.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Display the occupancy grid</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visualize</td> <td>Display the occupancy grid (deprecated)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plan</td> <td>Plan a path to goal</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> path</td> <td>Return/animate a path from start to goal</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display the parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert to string</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> rand</td> <td>Uniformly distributed random number</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> randn</td> <td>Normally distributed random number</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> randi</td> <td>Uniformly distributed random integer</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> occgrid</td> <td>Occupancy grid representing the navigation environment</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> goal</td> <td>Goal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> seed0</td> <td>Random number state</td></tr>
+</table>
+<h2>Methods that must be provided in subclass</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plan</td> <td>Generate a plan for motion to goal</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> next</td> <td>Returns coordinate of next point along path</td></tr>
+</table>
+<h2>Methods that may be overriden in a subclass</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> goal_set</td> <td>The goal has been changed by nav.goal = (a,b)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> navigate_init</td> <td>Start of path planning.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Subclasses the MATLAB handle class which means that pass by reference semantics
+apply.</li>
+  <li>A grid world is assumed and vehicle position is quantized to grid cells.</li>
+  <li>Vehicle orientation is not considered.</li>
+  <li>The initial random number state is captured as seed0 to allow rerunning an
+experiment with an interesting outcome.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Dstar.html">Dstar</a>, <a href="dxform.html">dxform</a>, <a href="PRM.html">PRM</a>, <a href="RRT.html">RRT</a></p>
+<hr>
+<a name="Navigation"><h1>Navigation.Navigation</h1></a>
+<p><span class="helptopic">Create a Navigation object</span></p><p>
+<strong>n</strong> = <span style="color:red">Navigation</span>(<strong>occgrid</strong>, <strong>options</strong>) is a <span style="color:red">Navigation</span> object that holds an
+occupancy grid <strong>occgrid</strong>.  A number of options can be be passed.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'navhook', F</td> <td>Specify a function to be called at every step of path</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'goal', G</td> <td>Specify the goal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>Display debugging information</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'inflate', K</td> <td>Inflate all obstacles by K cells.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'private'</td> <td>Use private random number stream.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'reset'</td> <td>Reset random number stream.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'seed', S</td> <td>Set the initial state of the random number stream.  S must
+be a proper random number generator state such as saved in
+the seed0 property of an earlier run.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>In the occupancy grid a value of zero means free space and non-zero means
+occupied (not driveable).</li>
+  <li>Obstacle inflation is performed with a round structuring element (kcircle)
+with radius given by the 'inflate' option.</li>
+  <li>The 'private' option creates a private random number stream for the methods
+rand, randn and randi.  If not given the global stream is used.</li>
+</ul>
+<hr>
+<a name="char"><h1>Navigation.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+N.<span style="color:red">char</span>() is a string representing the state of the navigation
+object in human-readable form.
+
+</p>
+<hr>
+<a name="display"><h1>Navigation.display</h1></a>
+<p><span class="helptopic">Display status of navigation object</span></p><p>
+N.<span style="color:red">display</span>() displays the state of the navigation object in
+human-readable form.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Navigation object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.char.html">Navigation.char</a></p>
+<hr>
+<a name="goal_change"><h1>Navigation.goal_change</h1></a>
+<p><span class="helptopic">Notify change of goal</span></p><p>
+Invoked when the goal property of the object is changed.  Typically this
+is overriden in a subclass to take particular action such as invalidating
+a costmap.
+
+</p>
+<hr>
+<a name="message"><h1>Navigation.message</h1></a>
+<p><span class="helptopic">Print debug message</span></p><p>
+N.<span style="color:red">message</span>(<strong>s</strong>) displays the string <strong>s</strong> if the verbose property is true.
+
+</p>
+<p>
+N.<span style="color:red">message</span>(<strong>fmt</strong>, <strong>args</strong>) as above but accepts printf() like semantics.
+
+</p>
+<hr>
+<a name="navigate_init"><h1>Navigation.navigate_init</h1></a>
+<p><span class="helptopic">Notify start of path</span></p><p>
+N.<span style="color:red">navigate_init</span>(<strong>start</strong>) is called when the path() method is invoked.
+Typically overriden in a subclass to take particular action such as
+computing some path parameters. <strong>start</strong> is the initial position for this
+path, and nav.goal is the final position.
+
+</p>
+<hr>
+<a name="path"><h1>Navigation.path</h1></a>
+<p><span class="helptopic">Follow path from start to goal</span></p><p>
+N.<span style="color:red">path</span>(<strong>start</strong>) animates the robot moving from <strong>start</strong> (2x1) to the goal (which is a
+property of the object).
+
+</p>
+<p>
+N.<span style="color:red">path</span>() as above but first displays the occupancy grid, and prompts the user to
+click a start location.
+the object).
+
+</p>
+<p>
+<strong>x</strong> = N.<span style="color:red">path</span>(<strong>start</strong>) returns the <span style="color:red">path</span> (2xM) from <strong>start</strong> to the goal (which is a property of
+the object).
+
+</p>
+<p>
+The method performs the following steps:
+
+</p>
+<ul>
+  <li>Get start position interactively if not given</li>
+  <li>Initialize navigation, invoke method N.navigate_init()</li>
+  <li>Visualize the environment, invoke method N.plot()</li>
+  <li>Iterate on the next() method of the subclass until the goal is
+achieved.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.plot.html">Navigation.plot</a>, <a href="Navigation.goal.html">Navigation.goal</a></p>
+<hr>
+<a name="plot"><h1>Navigation.plot</h1></a>
+<p><span class="helptopic">Visualize navigation environment</span></p><p>
+N.<span style="color:red">plot</span>() displays the occupancy grid in a new figure.
+
+</p>
+<p>
+N.<span style="color:red">plot</span>(<strong>p</strong>) as above but overlays the points along the path (2xM) matrix.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'goal'</td> <td>Superimpose the goal position if set</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'distance', D</td> <td>Display a distance field D behind the obstacle map.  D is
+a matrix of the same size as the occupancy grid.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The distance field at a point encodes its distance from the goal, small
+distance is dark, a large distance is bright.  Obstacles are encoded as
+red.</li>
+</ul>
+<hr>
+<a name="rand"><h1>Navigation.rand</h1></a>
+<p><span class="helptopic">Uniformly distributed random number</span></p><p>
+<strong>R</strong> = N.<span style="color:red">rand</span>() return a uniformly distributed random number from
+a private random number stream.
+
+</p>
+<p>
+<strong>R</strong> = N.<span style="color:red">rand</span>(<strong>m</strong>) as above but return a matrix (MxM) of random numbers.
+
+</p>
+<p>
+<strong>R</strong> = N.<span style="color:red">rand</span>(<strong>L</strong>,<strong>m</strong>) as above but return a matrix (LxM) of random numbers.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Accepts the same arguments as rand().</li>
+  <li>Seed is provided to Navigation constructor.</li>
+  <li>Provides an independent sequence of random numbers that does not
+interfere with any other randomised algorithms that might be used.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.randi.html">Navigation.randi</a>, <a href="Navigation.randn.html">Navigation.randn</a>, <a href="rand.html">rand</a>, <a href="randstream.html">randstream</a></p>
+<hr>
+<a name="randi"><h1>Navigation.randi</h1></a>
+<p><span class="helptopic">Integer random number</span></p><p>
+<strong>i</strong> = N.<span style="color:red">randi</span>(<strong>rm</strong>) returns a uniformly distributed random integer in the
+range 1 to <strong>rm</strong> from a private random number stream.
+
+</p>
+<p>
+<strong>i</strong> = N.<span style="color:red">randi</span>(<strong>rm</strong>, <strong>m</strong>) as above but returns a matrix (MxM) of random integers.
+
+</p>
+<p>
+<strong>i</strong> = N.<span style="color:red">randn</span>(<strong>rm</strong>, <strong>L</strong>,<strong>m</strong>) as above but returns a matrix (LxM) of random integers.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Accepts the same arguments as randn().</li>
+  <li>Seed is provided to Navigation constructor.</li>
+  <li>Provides an independent sequence of random numbers that does not
+interfere with any other randomised algorithms that might be used.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.rand.html">Navigation.rand</a>, <a href="Navigation.randn.html">Navigation.randn</a>, <a href="randi.html">randi</a>, <a href="randstream.html">randstream</a></p>
+<hr>
+<a name="randn"><h1>Navigation.randn</h1></a>
+<p><span class="helptopic">Normally distributed random number</span></p><p>
+<strong>R</strong> = N.<span style="color:red">randn</span>() returns a normally distributed random number from
+a private random number stream.
+
+</p>
+<p>
+<strong>R</strong> = N.<span style="color:red">randn</span>(<strong>m</strong>) as above but returns a matrix (MxM) of random numbers.
+
+</p>
+<p>
+<strong>R</strong> = N.<span style="color:red">randn</span>(<strong>L</strong>,<strong>m</strong>) as above but returns a matrix (LxM) of random numbers.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Accepts the same arguments as randn().</li>
+  <li>Seed is provided to Navigation constructor.</li>
+  <li>Provides an independent sequence of random numbers that does not
+interfere with any other randomised algorithms that might be used.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.rand.html">Navigation.rand</a>, <a href="Navigation.randi.html">Navigation.randi</a>, <a href="randn.html">randn</a>, <a href="randstream.html">randstream</a></p>
+<hr>
+<a name="spinner"><h1>Navigation.spinner</h1></a>
+<p><span class="helptopic">Update progress spinner</span></p><p>
+N.<span style="color:red">spinner</span>() displays a simple ASCII progress <span style="color:red">spinner</span>, a rotating bar.
+
+</p>
+<hr>
+<a name="verbosity"><h1>Navigation.verbosity</h1></a>
+<p><span class="helptopic">Set verbosity</span></p><p>
+N.<span style="color:red">verbosity</span>(<strong>v</strong>) set <span style="color:red">verbosity</span> to <strong>v</strong>, where 0 is silent and greater
+values display more information.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

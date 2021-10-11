@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: RobotArm</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: RobotArm</td>
+      <td class="subheader-left"><a href="matlab:open RobotArm">View code for RobotArm</a></td>
+    </tr>
+  </table>
+<h1>RobotArm</h1><p><span class="helptopic">Serial-link robot arm class</span></p><p>
+A subclass of SerialLink than includes an interface to a physical robot.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>display graphical representation of robot</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> teach</td> <td>drive the physical and graphical robots</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> mirror</td> <td>use the robot as a slave to drive graphics</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> jmove</td> <td>joint space motion of the physical robot</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> cmove</td> <td>Cartesian space motion of the physical robot</td></tr>
+</table>
+<p>
+plus all other methods of SerialLink
+
+</p>
+<h2>Properties</h2>
+<p>
+as per SerialLink class
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>the interface to a physical robot, the machine, should be an abstract</li>
+</ul>
+<p>
+superclass but right now it isn't
+
+</p>
+<ul>
+  <li>RobotArm is a subclass of SerialLink.</li>
+  <li>RobotArm is a reference (handle subclass) object.</li>
+  <li>RobotArm objects can be used in vectors and arrays</li>
+</ul>
+<h2>Reference</h2>
+<ul>
+  <li>http://www.petercorke.com/doc/robotarm.pdf</li>
+  <li>Robotics, Vision & Control, Chaps 7-9,
+P. Corke, Springer 2011.</li>
+  <li>Robot, Modeling & Control,
+M.Spong, S. Hutchinson & M. Vidyasagar, Wiley 2006.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Machine.html">Machine</a>, <a href="SerialLink.html">SerialLink</a>, <a href="Link.html">Link</a>, <a href="DHFactor.html">DHFactor</a></p>
+<hr>
+<a name="RobotArm"><h1>RobotArm.RobotArm</h1></a>
+<p><span class="helptopic">Construct a RobotArm object</span></p><p>
+<strong>ra</strong> = <span style="color:red">RobotArm</span>(<strong>L</strong>, <strong>m</strong>, <strong>options</strong>) is a robot object defined by a vector of
+Link objects <strong>L</strong> with a physical robot interface <strong>m</strong> represented by an object
+of class Machine.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'name',  name</td> <td>set robot name property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'comment',  comment</td> <td>set robot comment property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'manufacturer',  manuf</td> <td>set robot manufacturer property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'base',  base</td> <td>set base transformation matrix property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'tool',  tool</td> <td>set tool transformation matrix property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'gravity',  g</td> <td>set gravity vector property</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'plotopt',  po</td> <td>set plotting options property</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.SerialLink.html">SerialLink.SerialLink</a>, <a href="Arbotix.Arbotix.html">Arbotix.Arbotix</a></p>
+<hr>
+<a name="cmove"><h1>RobotArm.cmove</h1></a>
+<p><span class="helptopic">Cartesian space move</span></p><p>
+RA.<span style="color:red">cmove</span>(<strong>T</strong>) moves the robot arm to the pose specified by
+the homogeneous transformation (4x4).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>A joint-space trajectory is computed from the current configuration to
+QD using the jmove() method.</li>
+  <li>If the robot is 6-axis with a spherical wrist inverse kinematics are
+computed using ikine6s() otherwise numerically using ikine().</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RobotArm.jmove.html">RobotArm.jmove</a>, <a href="Arbotix.setpath.html">Arbotix.setpath</a></p>
+<hr>
+<a name="delete"><h1>RobotArm.delete</h1></a>
+<p><span class="helptopic">Destroy the RobotArm object</span></p><p>
+RA.<span style="color:red">delete</span>() closes and destroys the machine interface object and the <span style="color:red">RobotArm</span>
+object.
+
+</p>
+<hr>
+<a name="getq"><h1>RobotArm.getq</h1></a>
+<p><span class="helptopic">Get the robot joint angles</span></p><p>
+<strong>q</strong> = RA.<span style="color:red">getq</span>() is a vector (1xN) of robot joint angles.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>If the robot has a gripper, its value is not included in this vector.</li>
+</ul>
+<hr>
+<a name="gripper"><h1>RobotArm.gripper</h1></a>
+<p><span class="helptopic">Control the robot gripper</span></p><p>
+RA.<span style="color:red">gripper</span>(<strong>C</strong>) sets the robot <span style="color:red">gripper</span> according to <strong>C</strong> which is 0 for closed
+and 1 for open.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Not all robots have a gripper.</li>
+  <li>The gripper is assumed to be the last servo motor in the chain.</li>
+</ul>
+<hr>
+<a name="jmove"><h1>RobotArm.jmove</h1></a>
+<p><span class="helptopic">Joint space move</span></p><p>
+RA.<span style="color:red">jmove</span>(<strong>qd</strong>) moves the robot arm to the configuration specified by
+the joint angle vector <strong>qd</strong> (1xN).
+
+</p>
+<p>
+RA.<span style="color:red">jmove</span>(<strong>qd</strong>, <strong>T</strong>) as above but the total move takes <strong>T</strong> seconds.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>A joint-space trajectory is computed from the current configuration to QD.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RobotArm.cmove.html">RobotArm.cmove</a>, <a href="Arbotix.setpath.html">Arbotix.setpath</a></p>
+<hr>
+<a name="mirror"><h1>RobotArm.mirror</h1></a>
+<p><span class="helptopic">Mirror the robot pose to graphics</span></p><p>
+RA.<span style="color:red">mirror</span>() places the robot arm in relaxed mode, and as it is moved by
+hand the graphical animation follows.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.teach.html">SerialLink.teach</a>, <a href="SerialLink.plot.html">SerialLink.plot</a></p>
+<hr>
+<a name="teach"><h1>RobotArm.teach</h1></a>
+<p><span class="helptopic">Teach the robot</span></p><p>
+RA.<span style="color:red">teach</span>() invokes a simple GUI to allow joint space motion, as well
+as showing an animation of the robot on screen.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.teach.html">SerialLink.teach</a>, <a href="SerialLink.plot.html">SerialLink.plot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

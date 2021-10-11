@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: irank</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: irank</td>
+      <td class="subheader-left"><a href="matlab:open irank">View code for irank</a></td>
+    </tr>
+  </table>
+<h1>irank</h1><p><span class="helptopic">Rank filter</span></p><p>
+<strong>out</strong> = <span style="color:red">irank</span>(<strong>im</strong>, <strong>order</strong>, <strong>se</strong>) is a rank filtered version of <strong>im</strong>.  Only
+pixels corresponding to non-zero elements of the structuring element <strong>se</strong>
+are ranked and the <strong>order</strong>'th value in rank becomes the corresponding output
+pixel value.  The highest rank, the maximum, is <strong>order</strong>=1.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">irank</span>(<strong>image</strong>, <strong>se</strong>, <strong>op</strong>, <strong>nbins</strong>) as above but the number of histogram
+bins can be specified.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">irank</span>(<strong>image</strong>, <strong>se</strong>, <strong>op</strong>, <strong>nbins</strong>, <strong>edge</strong>) as above but the processing of edge
+pixels can be controlled.  The value of <strong>edge</strong> is:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'border'</td> <td>the border value is replicated (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'none'</td> <td>pixels beyond the border are not included in the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'trim'</td> <td>output is not computed for pixels whose window crosses
+the border, hence output image had reduced dimensions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'wrap'</td> <td>the image is assumed to wrap around left-right, top-bottom.</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+5x5 median filter, 25 elements in the window, the median is the 12thn in rank
+
+</p>
+<pre style="width: 90%%;" class="examples">
+irank(im,&nbsp;12,&nbsp;ones(5,5));
+</pre>
+<p>
+3x3 non-local maximum, find where a pixel is greater than its eight neighbours
+
+</p>
+<pre style="width: 90%%;" class="examples">
+se&nbsp;=&nbsp;ones(3,3);&nbsp;se(2,2)&nbsp;=&nbsp;0;
+im&nbsp;>&nbsp;irank(im,&nbsp;1,&nbsp;se);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The structuring element should have an odd side length.</li>
+  <li>Is a MEX file.</li>
+  <li>The median is estimated from a histogram with NBINS (default 256).</li>
+  <li>The input can be logical, uint8, uint16, float or double, the output is
+always double</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="imorph.html">imorph</a>, <a href="ivar.html">ivar</a>, <a href="iwindow.html">iwindow</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

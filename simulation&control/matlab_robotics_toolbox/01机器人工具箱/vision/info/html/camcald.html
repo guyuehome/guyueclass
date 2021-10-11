@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: camcald</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: camcald</td>
+      <td class="subheader-left"><a href="matlab:open camcald">View code for camcald</a></td>
+    </tr>
+  </table>
+<h1>camcald</h1><p><span class="helptopic">Camera calibration from data points</span></p><p>
+<strong>C</strong> = <span style="color:red">camcald</span>(<strong>d</strong>) is the camera matrix (3x4) determined by least squares
+from corresponding world and image-plane points.  <strong>d</strong> is a table
+of points with rows of the form [X Y Z U V] where (X,Y,Z) is the
+coordinate of a world point and [U,V] is the corresponding image
+plane coordinate.
+
+</p>
+<p>
+[<strong>C</strong>,<strong>E</strong>] = <span style="color:red">camcald</span>(<strong>d</strong>) as above but <strong>E</strong> is the maximum residual error after
+back substitution [pixels].
+
+</p>
+<p>
+Notes:
+
+</p>
+<ul>
+  <li>This method assumes no lense distortion affecting the image plane
+coordinates.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="CentralCamera.html">CentralCamera</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

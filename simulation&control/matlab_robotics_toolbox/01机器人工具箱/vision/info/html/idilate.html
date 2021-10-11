@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: idilate</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: idilate</td>
+      <td class="subheader-left"><a href="matlab:open idilate">View code for idilate</a></td>
+    </tr>
+  </table>
+<h1>idilate</h1><p><span class="helptopic">Morphological dilation</span></p><p>
+<strong>out</strong> = <span style="color:red">idilate</span>(<strong>im</strong>, <strong>se</strong>, <strong>options</strong>) is the image <strong>im</strong> after morphological dilation
+with the structuring element <strong>se</strong>.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">idilate</span>(<strong>im</strong>, <strong>se</strong>, <strong>n</strong>, <strong>options</strong>) as above but the structuring element
+<strong>se</strong> is applied <strong>n</strong> times, that is <strong>n</strong> dilations.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'border'</td> <td>the border value is replicated (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'none'</td> <td>pixels beyond the border are not included in the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'trim'</td> <td>output is not computed for pixels where the structuring element
+crosses the image border, hence output image had reduced
+dimensions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'wrap'</td> <td>the image is assumed to wrap around, left to right, top to
+bottom.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Cheaper to apply a smaller structuring element multiple times than
+one large one, the effective structuring element is the Minkowski sum
+of the structuring element with itself N times.</li>
+  <li>Windowing options of IMORPH can be passed.</li>
+</ul>
+<h2>Reference</h2>
+<ul>
+  <li>Robotics, Vision & Control, Section 12.5,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="ierode.html">ierode</a>, <a href="iclose.html">iclose</a>, <a href="iopen.html">iopen</a>, <a href="imorph.html">imorph</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,1023 @@
+------------------------------------------------------------------------
+r813 | pic | 2012-04-29 20:04:29 +1000 (Sun, 29 Apr 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/simulink/sl_quadcopter_vs.mdl
+
+Changes for hieararchical roblocks
+------------------------------------------------------------------------
+r814 | pic | 2012-04-29 20:07:02 +1000 (Sun, 29 Apr 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/distrib/allfuncs.txt
+
+Added video grabber classes
+Added more morpho funcs
+------------------------------------------------------------------------
+r815 | pic | 2012-04-29 20:07:19 +1000 (Sun, 29 Apr 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/distrib/Makefile
+
+Remove .svn files only from distrib/rvctools
+------------------------------------------------------------------------
+r816 | pic | 2012-04-29 20:08:06 +1000 (Sun, 29 Apr 2012) | 2 lines
+Changed paths:
+   D /matlab/vision/trunk/images
+
+Remove images from repository
+
+------------------------------------------------------------------------
+r817 | pic | 2012-04-29 20:09:51 +1000 (Sun, 29 Apr 2012) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/EarthView.m
+   A /matlab/vision/trunk/YUV.m
+   A /matlab/vision/trunk/plot3d.m
+   A /matlab/vision/trunk/unit_test/FeatureTest.m
+
+New files
+------------------------------------------------------------------------
+r820 | peter.i.corke@gmail.com | 2012-06-01 00:00:05 +1000 (Fri, 01 Jun 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/istretch.m
+
+Ignore inf values in the image when choosing the linear mapping.
+
+------------------------------------------------------------------------
+r821 | peter.i.corke@gmail.com | 2012-06-05 18:09:54 +1000 (Tue, 05 Jun 2012) | 2 lines
+Changed paths:
+   A /matlab/vision/trunk/private/macbeth.dat
+
+Added data for GretagMacbeth color checker
+
+------------------------------------------------------------------------
+r830 | peter.i.corke@gmail.com | 2012-06-25 04:22:39 +1000 (Mon, 25 Jun 2012) | 2 lines
+Changed paths:
+   A /matlab/vision/trunk/unit_test/morphTest.m
+   A /matlab/vision/trunk/unit_test/utilityTest.m
+
+First versions
+
+------------------------------------------------------------------------
+r860 | peter.i.corke@gmail.com | 2012-09-22 18:07:47 +1000 (Sat, 22 Sep 2012) | 1 line
+Changed paths:
+   D /matlab/vision/trunk/bresenham.m
+   D /matlab/vision/trunk/peak.m
+   D /matlab/vision/trunk/peak2.m
+
+Moved to common
+------------------------------------------------------------------------
+r861 | peter.i.corke@gmail.com | 2012-09-22 18:08:49 +1000 (Sat, 22 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/icolor.m
+   M /matlab/vision/trunk/imono.m
+
+Support image sequences
+------------------------------------------------------------------------
+r862 | peter.i.corke@gmail.com | 2012-09-22 18:26:55 +1000 (Sat, 22 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/blackbody.m
+   M /matlab/vision/trunk/boundmatch.m
+   M /matlab/vision/trunk/camcald.m
+   M /matlab/vision/trunk/ccdresponse.m
+   M /matlab/vision/trunk/ccxyz.m
+   M /matlab/vision/trunk/cmfrgb.m
+   M /matlab/vision/trunk/hitormiss.m
+   M /matlab/vision/trunk/ibbox.m
+   M /matlab/vision/trunk/iclose.m
+   M /matlab/vision/trunk/icp.m
+   M /matlab/vision/trunk/idecimate.m
+   M /matlab/vision/trunk/idilate.m
+   M /matlab/vision/trunk/iendpoint.m
+   M /matlab/vision/trunk/igamma.m
+   M /matlab/vision/trunk/iint.m
+   M /matlab/vision/trunk/ilabel.m
+   M /matlab/vision/trunk/iline.m
+   M /matlab/vision/trunk/ilogpolar.m
+   M /matlab/vision/trunk/imatch.m
+   M /matlab/vision/trunk/imeshgrid.m
+   M /matlab/vision/trunk/imoments.m
+   M /matlab/vision/trunk/imser.m
+   M /matlab/vision/trunk/inormhist.m
+   M /matlab/vision/trunk/ipaste.m
+   M /matlab/vision/trunk/irotate.m
+   M /matlab/vision/trunk/isamesize.m
+   M /matlab/vision/trunk/iscalemax.m
+   M /matlab/vision/trunk/isimilarity.m
+   M /matlab/vision/trunk/isize.m
+   M /matlab/vision/trunk/ismooth.m
+   M /matlab/vision/trunk/itriplepoint.m
+   M /matlab/vision/trunk/kcircle.m
+   M /matlab/vision/trunk/kdgauss.m
+   M /matlab/vision/trunk/klaplace.m
+   M /matlab/vision/trunk/lambda2xy.m
+   M /matlab/vision/trunk/loadspectrum.m
+   M /matlab/vision/trunk/luminos.m
+   M /matlab/vision/trunk/rluminos.m
+
+Documentation upgrades.
+
+------------------------------------------------------------------------
+r863 | peter.i.corke@gmail.com | 2012-09-23 08:36:09 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/dtransform.m
+
+Fix bug in 'show' option
+------------------------------------------------------------------------
+r864 | peter.i.corke@gmail.com | 2012-09-23 08:37:30 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/EarthView.m
+
+Fleshed out the original draft, added options, added help doco
+------------------------------------------------------------------------
+r865 | peter.i.corke@gmail.com | 2012-09-23 08:40:38 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/homwarp.m
+
+Add 'coords' option so that U, V coordinate matrices can be passed in
+------------------------------------------------------------------------
+r866 | peter.i.corke@gmail.com | 2012-09-23 08:44:50 +1000 (Sun, 23 Sep 2012) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/ianimate.m
+
+Added 'title' option to allow frame titles to be individually specified
+Now displays color image sequence
+Doco upgrade
+------------------------------------------------------------------------
+r867 | peter.i.corke@gmail.com | 2012-09-23 08:45:37 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/icanny.m
+
+Automatically convert a color image to greyscale and then compute edges.
+------------------------------------------------------------------------
+r868 | peter.i.corke@gmail.com | 2012-09-23 08:56:37 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iconv.m
+
+Fix bad bug, conv2 performs a convolution not filtering, need to flip the kernel.
+------------------------------------------------------------------------
+r869 | peter.i.corke@gmail.com | 2012-09-23 09:04:28 +1000 (Sun, 23 Sep 2012) | 5 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+New options 'histeq', 'here', 'new'
+Draw a green line on image to show where profile is taken
+Handle the case of a float image when all pixels have the same value
+Fix up some logic problems in 'axis' command
+Allow 'flatten' to work with image sequences, color or greyscale
+------------------------------------------------------------------------
+r870 | peter.i.corke@gmail.com | 2012-09-23 09:05:31 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/idisplabel.m
+
+Handle case of float image
+Doco upgrade
+------------------------------------------------------------------------
+r871 | peter.i.corke@gmail.com | 2012-09-23 09:07:54 +1000 (Sun, 23 Sep 2012) | 6 lines
+Changed paths:
+   M /matlab/vision/trunk/igraphseg.m
+
+Default smoothing set to 0.5, generally crashes MATLAB if zero
+Return labels as sequential ints starting at 1
+Argument checking
+Doco upgrade
+
+TODO: should use optarg
+------------------------------------------------------------------------
+r872 | peter.i.corke@gmail.com | 2012-09-23 09:11:38 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/ihist.m
+
+Fixed bug in 'sorted' option
+Doco upgrade
+------------------------------------------------------------------------
+r873 | peter.i.corke@gmail.com | 2012-09-23 09:15:34 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/ilut.m
+
+Deal with zero value pixels in int images
+Doco upgrade
+------------------------------------------------------------------------
+r874 | peter.i.corke@gmail.com | 2012-09-23 09:18:25 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/im2col.m
+
+Add a mask argument,  place pixels in the column according to the mask argument
+------------------------------------------------------------------------
+r875 | peter.i.corke@gmail.com | 2012-09-23 09:19:53 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/ipixswitch.m
+
+Handle int and double images properly
+Doco upgrade
+------------------------------------------------------------------------
+r876 | peter.i.corke@gmail.com | 2012-09-23 09:22:32 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iprofile.m
+
+Handle points from a profile of a color image
+------------------------------------------------------------------------
+r877 | peter.i.corke@gmail.com | 2012-09-23 09:24:13 +1000 (Sun, 23 Sep 2012) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/iread.m
+
+Better handle file browser case
+Allow options for file browser case if filename is []
+Minor other fixups
+Doco upgrade
+------------------------------------------------------------------------
+r878 | peter.i.corke@gmail.com | 2012-09-23 09:25:26 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/ireplicate.m
+
+Handle color image or grey sequence
+TODO: handle color sequence
+------------------------------------------------------------------------
+r879 | peter.i.corke@gmail.com | 2012-09-23 09:26:56 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iroi.m
+
+Allow ROI to be specified by centre and WxH
+------------------------------------------------------------------------
+r880 | peter.i.corke@gmail.com | 2012-09-23 09:28:22 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iscale.m
+
+Remove 'extrapval' option since it's not needed for scaling, all output pixels are valid
+------------------------------------------------------------------------
+r881 | peter.i.corke@gmail.com | 2012-09-23 09:30:19 +1000 (Sun, 23 Sep 2012) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/isobel.m
+
+'smooth' and 'size' options
+code cleanup
+use iconv instead of conv2
+doco upgrade
+------------------------------------------------------------------------
+r882 | peter.i.corke@gmail.com | 2012-09-23 09:31:44 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/istretch.m
+
+Use optparse
+Allow the input range to be specified instead of must min to max.  Pixels outside this range are clamped
+------------------------------------------------------------------------
+r883 | peter.i.corke@gmail.com | 2012-09-23 09:32:24 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/ithin.m
+
+optionally return output argument
+------------------------------------------------------------------------
+r884 | peter.i.corke@gmail.com | 2012-09-23 09:34:31 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/ithresh.m
+
+Comments and doco upgrade
+If output arg is requested then a quit button is displayed and the function is blocking
+------------------------------------------------------------------------
+r885 | peter.i.corke@gmail.com | 2012-09-23 09:35:27 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/itrim.m
+
+Added a second mode that allows specified number of pixels to be trimmed off specified edges of the image.
+------------------------------------------------------------------------
+r886 | peter.i.corke@gmail.com | 2012-09-23 09:36:03 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/iwarp.m
+
+Pass arguments through to interp2
+Doco upgrade
+------------------------------------------------------------------------
+r887 | peter.i.corke@gmail.com | 2012-09-23 09:37:25 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/npq_poly.m
+
+function name was wrong
+------------------------------------------------------------------------
+r888 | peter.i.corke@gmail.com | 2012-09-23 09:38:25 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/upq_poly.m
+
+wrong function name
+simplify code by using bsxfun
+------------------------------------------------------------------------
+r889 | peter.i.corke@gmail.com | 2012-09-23 09:39:14 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/anaglyph.m
+   M /matlab/vision/trunk/cmfxyz.m
+   M /matlab/vision/trunk/colorkmeans.m
+   M /matlab/vision/trunk/iblobs.m
+   M /matlab/vision/trunk/iconcat.m
+   M /matlab/vision/trunk/icorner.m
+   M /matlab/vision/trunk/idouble.m
+   M /matlab/vision/trunk/ierode.m
+   M /matlab/vision/trunk/iisum.m
+   M /matlab/vision/trunk/imorph.m
+   M /matlab/vision/trunk/iopen.m
+   M /matlab/vision/trunk/ipad.m
+   M /matlab/vision/trunk/iprocrustes.m
+   M /matlab/vision/trunk/irank.m
+   M /matlab/vision/trunk/irectify.m
+   M /matlab/vision/trunk/iscalespace.m
+   M /matlab/vision/trunk/isift.m
+   M /matlab/vision/trunk/istereo.m
+   M /matlab/vision/trunk/isurf.m
+   M /matlab/vision/trunk/kgauss.m
+   M /matlab/vision/trunk/kmeans.m
+   M /matlab/vision/trunk/lambda2rg.m
+   M /matlab/vision/trunk/ransac.m
+
+Doco upgrade
+------------------------------------------------------------------------
+r890 | peter.i.corke@gmail.com | 2012-09-23 09:54:07 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/testpattern.m
+
+code cleanup
+------------------------------------------------------------------------
+r891 | peter.i.corke@gmail.com | 2012-09-23 09:55:10 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/Tracker.m
+
+code cleanup, doco upgrade
+------------------------------------------------------------------------
+r892 | peter.i.corke@gmail.com | 2012-09-23 10:04:37 +1000 (Sun, 23 Sep 2012) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/morphdemo.m
+
+More functional version, handles dilation or erosion
+Added optparse, 'movie' option etc.
+Added ability to return output value.
+------------------------------------------------------------------------
+r893 | peter.i.corke@gmail.com | 2012-09-23 10:50:20 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/VideoCamera.m
+   M /matlab/vision/trunk/VideoCamera_IAT.m
+   M /matlab/vision/trunk/VideoCamera_fg.m
+
+Fixed various naming inconsistencies between files, classes and methods.
+------------------------------------------------------------------------
+r894 | peter.i.corke@gmail.com | 2012-09-23 10:52:05 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/startup_mvtb.m
+
+Code tidyup.
+Add includes for openSurf, and VLfeat Sift implementations
+------------------------------------------------------------------------
+r895 | peter.i.corke@gmail.com | 2012-09-23 10:52:54 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/doc/Makefile
+   M /matlab/vision/trunk/doc/vision.tex
+
+Put release number into the PDF manual
+------------------------------------------------------------------------
+r896 | peter.i.corke@gmail.com | 2012-09-23 10:53:53 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/mex/Makefile
+
+Add CFLAGS options to all mex builds
+------------------------------------------------------------------------
+r897 | peter.i.corke@gmail.com | 2012-09-23 10:54:43 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/distrib/Makefile
+
+Proceed in the case that a CHANGES file does not exist
+------------------------------------------------------------------------
+r898 | peter.i.corke@gmail.com | 2012-09-23 10:55:27 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/private/bb2.dat
+
+Spectral response for sensor in Pt Grey Bumblebee 2 camera
+------------------------------------------------------------------------
+r899 | peter.i.corke@gmail.com | 2012-09-23 10:55:55 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/RegionFeature.m
+
+Add a method to get the bounding box of a blob
+------------------------------------------------------------------------
+r900 | peter.i.corke@gmail.com | 2012-09-23 10:57:00 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/plot_camera.m
+
+Label the XYZ axes
+------------------------------------------------------------------------
+r901 | peter.i.corke@gmail.com | 2012-09-23 10:57:34 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/Camera.m
+
+Change the line() method to homline() and add a new method to draw a line segment on the image plane
+------------------------------------------------------------------------
+r903 | peter.i.corke@gmail.com | 2012-09-23 11:22:56 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/simulink/sl_ibvs.mdl
+
+Relinked the pose integral block.
+
+------------------------------------------------------------------------
+r904 | peter.i.corke@gmail.com | 2012-09-23 11:55:11 +1000 (Sun, 23 Sep 2012) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Fix bugs with 'default' option, it should set parameters first to allow
+other options to change parameters.
+
+------------------------------------------------------------------------
+r905 | peter.i.corke@gmail.com | 2012-09-23 11:55:51 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/simulink/sl_partitioned.mdl
+
+Relink the pose integral block
+
+------------------------------------------------------------------------
+r906 | peter.i.corke@gmail.com | 2012-09-23 12:05:57 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/simulink/sl_quadcopter_vs.mdl
+
+Relinked a number of blocks
+
+------------------------------------------------------------------------
+r908 | peter.i.corke@gmail.com | 2012-09-23 14:07:23 +1000 (Sun, 23 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Remove some debug prints.
+
+------------------------------------------------------------------------
+r910 | peter.i.corke@gmail.com | 2012-09-23 19:15:53 +1000 (Sun, 23 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/examples/IBVS.m
+   M /matlab/vision/trunk/examples/IBVS_e.m
+   M /matlab/vision/trunk/examples/IBVS_l.m
+   M /matlab/vision/trunk/examples/PBVS.m
+   M /matlab/vision/trunk/examples/VisualServo.m
+   A /matlab/vision/trunk/unit_test/VisualServoTest.m
+
+Added help documentation, fix some code rot, create test harness
+------------------------------------------------------------------------
+r913 | peter.i.corke@gmail.com | 2012-09-24 10:35:10 +1000 (Mon, 24 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/simulink/sl_drivepose_vs.mdl
+
+Minor diagram tidyup, verified operation.
+
+------------------------------------------------------------------------
+r914 | peter.i.corke@gmail.com | 2012-09-24 14:27:44 +1000 (Mon, 24 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/plot_camera.m
+
+Make frustrum drawing code an option, was just commented out
+------------------------------------------------------------------------
+r916 | peter.i.corke@gmail.com | 2012-09-24 14:34:09 +1000 (Mon, 24 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/Camera.m
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Modify to project/plot world 3D lines reprsented by a vector of Plucker coordinate objects.
+------------------------------------------------------------------------
+r917 | peter.i.corke@gmail.com | 2012-09-24 16:45:00 +1000 (Mon, 24 Sep 2012) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/imorph.m
+   M /matlab/vision/trunk/irank.m
+   M /matlab/vision/trunk/ivar.m
+   M /matlab/vision/trunk/iwindow.m
+   A /matlab/vision/trunk/mex/edge.h
+   M /matlab/vision/trunk/mex/imorph.c
+   M /matlab/vision/trunk/mex/irank.c
+   M /matlab/vision/trunk/mex/ivar.c
+   M /matlab/vision/trunk/mex/iwindow.c
+   M /matlab/vision/trunk/unit_test/morphTest.m
+
+Fix multiple errors in .c files, missing include files, bugs in handling non double images
+factored out some common code to edge.h
+updated doco in .m help files
+update unit test code
+------------------------------------------------------------------------
+r918 | peter.i.corke@gmail.com | 2012-09-24 16:46:27 +1000 (Mon, 24 Sep 2012) | 1 line
+Changed paths:
+   D /matlab/vision/trunk/unit_test/FeatureTest.m
+   D /matlab/vision/trunk/unit_test/fmtest.m
+   D /matlab/vision/trunk/unit_test/homtest.m
+   D /matlab/vision/trunk/unit_test/homtest2.m
+   D /matlab/vision/trunk/unit_test/labeltest.m
+
+very rough old test code, replaced by xunit functions
+------------------------------------------------------------------------
+r922 | peter.i.corke@gmail.com | 2012-09-29 17:02:06 +1000 (Sat, 29 Sep 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/icanny.m
+   M /matlab/vision/trunk/imono.m
+   M /matlab/vision/trunk/isift.m
+   M /matlab/vision/trunk/isobel.m
+   M /matlab/vision/trunk/isurf.m
+
+Fix bug in check for whether greyscale conversion is required, use the iscolor() predicate.
+Also fixed bug in imono() which should return image unchanged if its not color
+------------------------------------------------------------------------
+r923 | peter.i.corke@gmail.com | 2012-09-29 17:04:06 +1000 (Sat, 29 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/YUV.m
+
+Converted draft to working version, doco upgrade
+------------------------------------------------------------------------
+r924 | peter.i.corke@gmail.com | 2012-09-29 17:04:47 +1000 (Sat, 29 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/EarthView.m
+
+Major doco upgrade, added a char() method
+------------------------------------------------------------------------
+r925 | peter.i.corke@gmail.com | 2012-09-29 17:05:14 +1000 (Sat, 29 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/ImageSource.m
+
+doco upgrade
+------------------------------------------------------------------------
+r926 | peter.i.corke@gmail.com | 2012-09-29 17:05:31 +1000 (Sat, 29 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/AxisWebCamera.m
+
+fixed bug in passing arguments to superclass constructor 
+------------------------------------------------------------------------
+r927 | peter.i.corke@gmail.com | 2012-09-30 16:13:49 +1000 (Sun, 30 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/distrib/allfuncs.txt
+   M /matlab/vision/trunk/doc/vision.tex
+
+updates for 3.3 distro
+------------------------------------------------------------------------
+r928 | peter.i.corke@gmail.com | 2012-09-30 16:14:26 +1000 (Sun, 30 Sep 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+   M /matlab/vision/trunk/iscolor.m
+
+minor comment changes
+------------------------------------------------------------------------
+r929 | peter.i.corke@gmail.com | 2012-09-30 16:15:23 +1000 (Sun, 30 Sep 2012) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/unit_test/RegionFeatureTest.m (from /matlab/vision/trunk/unit_test/FeatureTest.m:819)
+   M /matlab/vision/trunk/unit_test/utilityTest.m
+
+More tests
+------------------------------------------------------------------------
+r932 | peter.i.corke@gmail.com | 2012-10-06 14:28:24 +1000 (Sat, 06 Oct 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/distrib/allfuncs.txt
+
+add filt1d, remove medfilt
+
+------------------------------------------------------------------------
+r933 | peter.i.corke@gmail.com | 2012-10-06 14:29:20 +1000 (Sat, 06 Oct 2012) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/distrib/Makefile
+
+Use rsync to update html pages
+Add stage option to actually install the uploaded zip file
+
+------------------------------------------------------------------------
+r936 | peter.i.corke@gmail.com | 2012-10-19 16:29:49 +1000 (Fri, 19 Oct 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/kcircle.m
+
+Use imeshgrid() instead of find.
+------------------------------------------------------------------------
+r937 | peter.i.corke@gmail.com | 2012-10-19 16:30:20 +1000 (Fri, 19 Oct 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/RegionFeature.m
+
+Provide pseuduo-property for blob area.
+------------------------------------------------------------------------
+r939 | peter.i.corke@gmail.com | 2012-10-19 16:34:59 +1000 (Fri, 19 Oct 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iblobs.m
+
+Apply correction factor to perimeter length before computing circularity.
+------------------------------------------------------------------------
+r940 | peter.i.corke@gmail.com | 2012-10-19 16:36:27 +1000 (Fri, 19 Oct 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/plot_camera.m
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Draw axes on camera icon.  Fix up option handling at superclass and class level.
+------------------------------------------------------------------------
+r951 | peter.i.corke@gmail.com | 2012-10-21 13:24:25 +1000 (Sun, 21 Oct 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/@SiftPointFeature/SiftPointFeature.m
+   M /matlab/vision/trunk/@SurfPointFeature/SurfPointFeature.m
+   A /matlab/vision/trunk/OrientedScalePointFeature.m
+   M /matlab/vision/trunk/PointFeature.m
+   M /matlab/vision/trunk/ScalePointFeature.m
+
+Change feature hiearchy.  SIFT/SURF inherit from OrientedScalePointFeature, makes some code common.
+Constructor and plot methods now have a chain of superclass invocation.
+------------------------------------------------------------------------
+r952 | peter.i.corke@gmail.com | 2012-10-22 16:10:19 +1000 (Mon, 22 Oct 2012) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/iconcat.m
+
+For int class images, output is integer of same class
+
+------------------------------------------------------------------------
+r954 | peter.i.corke@gmail.com | 2012-10-28 14:27:27 +1000 (Sun, 28 Oct 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Typo in help comments
+------------------------------------------------------------------------
+r955 | peter.i.corke@gmail.com | 2012-10-28 14:28:47 +1000 (Sun, 28 Oct 2012) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/unit_test/LineFeatureTest.m
+   A /matlab/vision/trunk/unit_test/PointFeatureTest.m
+   A /matlab/vision/trunk/unit_test/cameraTest.m
+   A /matlab/vision/trunk/unit_test/colorTest.m
+   A /matlab/vision/trunk/unit_test/ioTest.m
+
+New unit tests
+------------------------------------------------------------------------
+r1002 | peter.i.corke@gmail.com | 2012-12-09 12:58:00 +1000 (Sun, 09 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/ImageSource.m
+
+Fixed bugs in handling casting of image pixel type.
+------------------------------------------------------------------------
+r1003 | peter.i.corke@gmail.com | 2012-12-09 13:00:21 +1000 (Sun, 09 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/idouble.m
+
+Add option 'float' to return single prec image
+------------------------------------------------------------------------
+r1004 | peter.i.corke@gmail.com | 2012-12-09 13:52:11 +1000 (Sun, 09 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/VideoCamera.m
+
+Pass varargs correctly to factory constructors
+------------------------------------------------------------------------
+r1005 | peter.i.corke@gmail.com | 2012-12-09 14:15:05 +1000 (Sun, 09 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@Camera/Camera.m
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+fix bugs due to changing line() to homline()
+------------------------------------------------------------------------
+r1006 | peter.i.corke@gmail.com | 2012-12-10 06:19:40 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/colorkmeans.m
+
+Removed idisp() call
+------------------------------------------------------------------------
+r1007 | peter.i.corke@gmail.com | 2012-12-10 06:20:54 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/mex/irank.c
+   M /matlab/vision/trunk/mex/stereo_match.c
+
+Mods by Julien Brisset to allow compilation under W64.
+------------------------------------------------------------------------
+r1008 | peter.i.corke@gmail.com | 2012-12-10 06:22:16 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/Movie.m
+
+Use VideoReader instead of mmreader.
+------------------------------------------------------------------------
+r1009 | peter.i.corke@gmail.com | 2012-12-10 06:22:49 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/mex/Makefile
+
+Pass std-c99 flag to compiler, allows // comments
+------------------------------------------------------------------------
+r1010 | peter.i.corke@gmail.com | 2012-12-10 06:25:42 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/RegionFeature.m
+
+Display an error if attempting to display boundary if it has not been computed.
+------------------------------------------------------------------------
+r1011 | peter.i.corke@gmail.com | 2012-12-10 06:27:23 +1000 (Mon, 10 Dec 2012) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Add 'figure' option
+Fix logic to determine min/max pixel values to handle all integer classes as well as logical
+
+Comment out WindowButtonUp/Down functions in cleanup callback.  This needs more work.
+------------------------------------------------------------------------
+r1012 | peter.i.corke@gmail.com | 2012-12-10 06:28:42 +1000 (Mon, 10 Dec 2012) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/igraphseg.m
+
+Add code to return sequential label values.
+------------------------------------------------------------------------
+r1082 | peter.i.corke@gmail.com | 2013-02-18 22:00:12 +1000 (Mon, 18 Feb 2013) | 2 lines
+Changed paths:
+   A /matlab/vision/trunk/loadpcd.m
+   A /matlab/vision/trunk/pclviewer.m
+   A /matlab/vision/trunk/savepcd.m
+
+Simple scripts to read/write PCD files and to invoke the PCL viewer
+
+------------------------------------------------------------------------
+r1096 | peter.i.corke@gmail.com | 2013-03-10 11:04:00 +1000 (Sun, 10 Mar 2013) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Additions to the project() method:
+
+- support image distortion model (radial + tangential) as specified by the distortion property
+- add a visibilty check, return visibilty matrix that indicates if points are visible
+------------------------------------------------------------------------
+r1097 | peter.i.corke@gmail.com | 2013-03-10 11:12:14 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/VideoCamera.m
+   M /matlab/vision/trunk/closest.m
+   M /matlab/vision/trunk/ihist.m
+   M /matlab/vision/trunk/ilabel.m
+   M /matlab/vision/trunk/imatch.m
+   M /matlab/vision/trunk/imorph.m
+   M /matlab/vision/trunk/irank.m
+   M /matlab/vision/trunk/iread.m
+   M /matlab/vision/trunk/ivar.m
+   M /matlab/vision/trunk/iwindow.m
+
+Track changes to exist() function, second argument is now a string not  a number.
+------------------------------------------------------------------------
+r1098 | peter.i.corke@gmail.com | 2013-03-10 11:13:25 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/loadpcd.m
+
+Handle xyzrgb format.
+------------------------------------------------------------------------
+r1099 | peter.i.corke@gmail.com | 2013-03-10 11:14:34 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/pclviewer.m
+
+Improve doco, add example
+------------------------------------------------------------------------
+r1100 | peter.i.corke@gmail.com | 2013-03-10 11:15:35 +1000 (Sun, 10 Mar 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/savepcd.m
+
+Improve doco
+save xyzrgb matrix as xyzrgb format
+------------------------------------------------------------------------
+r1101 | peter.i.corke@gmail.com | 2013-03-10 11:16:47 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/ipad.m
+
+Pad all planes of a multiplane image
+------------------------------------------------------------------------
+r1102 | peter.i.corke@gmail.com | 2013-03-10 11:17:56 +1000 (Sun, 10 Mar 2013) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/kmeans.m
+
+Indicate which intitialization option is default
+Fix bug with passed initial cluster centres
+Use logical value as iteration control
+------------------------------------------------------------------------
+r1103 | peter.i.corke@gmail.com | 2013-03-10 11:19:10 +1000 (Sun, 10 Mar 2013) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/iconv.m
+
+Fix up doco to reflect the fact this function performs cross-correlation not convolution.
+Same error in the book and published as errata.
+Function should be renamed in MVTB 4
+------------------------------------------------------------------------
+r1104 | peter.i.corke@gmail.com | 2013-03-10 11:38:57 +1000 (Sun, 10 Mar 2013) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Disable GUI if in docked mode
+Fix bug in figure labelling
+By default toolbar is enabled
+Remove redundant callback
+------------------------------------------------------------------------
+r1105 | peter.i.corke@gmail.com | 2013-03-10 11:40:05 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/colorname.m
+
+Add options to allow color to be specified as a string, RGB, xy, xyz.
+------------------------------------------------------------------------
+r1106 | peter.i.corke@gmail.com | 2013-03-10 11:41:24 +1000 (Sun, 10 Mar 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/colorkmeans.m
+
+Tidy up code for the 'pick' option
+Test whether x,y data contains NaNs, otherwise leads to perplexing problems
+------------------------------------------------------------------------
+r1107 | peter.i.corke@gmail.com | 2013-03-10 14:38:35 +1000 (Sun, 10 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/ransac.m
+
+Minor doco corrections
+------------------------------------------------------------------------
+r1110 | peter.i.corke@gmail.com | 2013-03-24 13:07:37 +1000 (Sun, 24 Mar 2013) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/lspcd.m
+
+quick summary of .pcd files
+------------------------------------------------------------------------
+r1111 | peter.i.corke@gmail.com | 2013-03-24 13:08:23 +1000 (Sun, 24 Mar 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/pclviewer.m
+
+minor doco update
+------------------------------------------------------------------------
+r1112 | peter.i.corke@gmail.com | 2013-03-24 13:09:43 +1000 (Sun, 24 Mar 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/savepcd.m
+
+Added prototype code for binary mode, and organized point clouds
+still needs an options parser, and observe some color fringing in binary mode
+------------------------------------------------------------------------
+r1113 | peter.i.corke@gmail.com | 2013-03-24 13:10:42 +1000 (Sun, 24 Mar 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/loadpcd.m
+
+Added contrib patch by Will, handle binary mode with different field type/lengths
+Support organized point cloud
+------------------------------------------------------------------------
+r1131 | peter.i.corke@gmail.com | 2013-06-15 21:24:09 +1000 (Sat, 15 Jun 2013) | 2 lines
+Changed paths:
+   A /matlab/vision/trunk/examples/sphere_paint.m (from /matlab/vision/trunk/sphere_paint.m:819)
+
+Add new function.
+
+------------------------------------------------------------------------
+r1132 | peter.i.corke@gmail.com | 2013-06-15 21:25:28 +1000 (Sat, 15 Jun 2013) | 2 lines
+Changed paths:
+   A /matlab/vision/trunk/examples/sphere_rotate.m (from /matlab/vision/trunk/sphere_rotate.m:819)
+
+Add missing function
+
+------------------------------------------------------------------------
+r1136 | peter.i.corke@gmail.com | 2013-08-14 18:39:48 +1000 (Wed, 14 Aug 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/savepcd.m
+
+save bug when writing RGBA ascii file
+add option to specify binary output file
+------------------------------------------------------------------------
+r1137 | peter.i.corke@gmail.com | 2013-08-14 18:40:08 +1000 (Wed, 14 Aug 2013) | 1 line
+Changed paths:
+   A /matlab/vision/trunk/lzfd.m
+
+New file to uncompress a PCD binary file
+------------------------------------------------------------------------
+r1138 | peter.i.corke@gmail.com | 2013-08-14 18:42:45 +1000 (Wed, 14 Aug 2013) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/loadpcd.m
+
+Add code to handle binary_compressed format files
+Error in shape of organized point cloud, was transposed
+general improvements in field parsing
+------------------------------------------------------------------------
+r1143 | peter.i.corke@gmail.com | 2013-10-12 12:38:39 +1000 (Sat, 12 Oct 2013) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+make pixel aspect ratio square by default
+fix bug that gives error when clicking outside axis limits
+use pickregion instead of rbbox
+------------------------------------------------------------------------
+r1144 | peter.i.corke@gmail.com | 2013-10-12 12:40:07 +1000 (Sat, 12 Oct 2013) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/iroi.m
+
+display image if no output arguments
+use pickregion instead of rbbox
+------------------------------------------------------------------------
+r1145 | peter.i.corke@gmail.com | 2013-10-12 14:34:30 +1000 (Sat, 12 Oct 2013) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/homography.m
+
+add missing private functions iscolinear and hnormalise
+------------------------------------------------------------------------
+r1174 | peter.i.corke@gmail.com | 2014-01-26 08:52:38 +1000 (Sun, 26 Jan 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/isimilarity.m
+
+Check that template has odd dimensions.
+------------------------------------------------------------------------
+r1183 | peter.i.corke@gmail.com | 2014-02-03 21:41:50 +1000 (Mon, 03 Feb 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/@Camera/Camera.m
+   M /matlab/vision/trunk/@Camera/plot_camera.m
+
+Improved animation of camera model, using hgtransform.
+Rationalisation of class variables to support this.
+------------------------------------------------------------------------
+r1184 | peter.i.corke@gmail.com | 2014-02-03 21:43:26 +1000 (Mon, 03 Feb 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/Ray3D.m
+
+Fix bug in display of long vector of Ray3D objects
+------------------------------------------------------------------------
+r1185 | peter.i.corke@gmail.com | 2014-02-03 21:43:59 +1000 (Mon, 03 Feb 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/startup_mvtb.m
+
+Cleanup variables created by script
+------------------------------------------------------------------------
+r1227 | peter.i.corke@gmail.com | 2014-03-10 20:07:46 +1000 (Mon, 10 Mar 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Fixed bug in the centre() method, it was never written properly.
+------------------------------------------------------------------------
+r1238 | peter.i.corke@gmail.com | 2014-03-19 07:59:41 +1000 (Wed, 19 Mar 2014) | 4 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Added a panel at the top of figure to hold the ui elements.  Stays same size when figure is resized.
+Added a colormap button, when image, is grey scale.
+Broke monolithic callback hander into separate UI callbacks
+General code tidyup
+------------------------------------------------------------------------
+r1239 | peter.i.corke@gmail.com | 2014-03-19 21:21:02 +1000 (Wed, 19 Mar 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/examples/sfm1.m
+
+Some missing instances of transformp() should be homtrans().
+
+------------------------------------------------------------------------
+r1240 | peter.i.corke@gmail.com | 2014-03-19 21:25:13 +1000 (Wed, 19 Mar 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/examples/sfm1.m
+
+track change to utility function name
+
+------------------------------------------------------------------------
+r1245 | peter.i.corke@gmail.com | 2014-03-23 10:24:26 +1000 (Sun, 23 Mar 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Don't explicitly set current axes
+------------------------------------------------------------------------
+r1246 | peter.i.corke@gmail.com | 2014-03-23 10:29:04 +1000 (Sun, 23 Mar 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/iroi.m
+
+Add the ability to return the range of U and V pixel coordinates for the ROI
+------------------------------------------------------------------------
+r1255 | peter.i.corke@gmail.com | 2014-04-06 12:02:20 +1000 (Sun, 06 Apr 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/otsu.m
+
+Added option for Gaussian weighted valley emphasis method
+------------------------------------------------------------------------
+r1275 | peter.i.corke@gmail.com | 2014-04-15 20:47:19 +1000 (Tue, 15 Apr 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Check for bad parameters in fov
+------------------------------------------------------------------------
+r1278 | peter.i.corke@gmail.com | 2014-04-20 18:04:13 +1000 (Sun, 20 Apr 2014) | 2 lines
+Changed paths:
+   M /matlab/robot/trunk/Link.m
+   M /matlab/vision/trunk/@Camera/Camera.m
+   M /matlab/vision/trunk/@CentralCamera/CentralCamera.m
+
+Added divider lines to table of methods in class doco.
+
+------------------------------------------------------------------------
+r1281 | peter.i.corke@gmail.com | 2014-04-20 18:07:32 +1000 (Sun, 20 Apr 2014) | 1 line
+Changed paths:
+   D /matlab/vision/trunk/colorname.m
+
+moved to common
+------------------------------------------------------------------------
+r1340 | peter.i.corke@gmail.com | 2014-08-10 16:29:48 +1000 (Sun, 10 Aug 2014) | 1 line
+Changed paths:
+   M /matlab/vision/trunk/mex/stereo_match.c
+
+Fix error with top limit in inner matching loops (thanks Pasquale Moliterni)
+------------------------------------------------------------------------
+r1346 | peter.i.corke@gmail.com | 2014-10-15 20:47:01 +1000 (Wed, 15 Oct 2014) | 3 lines
+Changed paths:
+   A /matlab/vision/trunk/igamm.m (from /matlab/vision/trunk/igamma.m:862)
+   D /matlab/vision/trunk/igamma.m
+
+Change name since MATLAB now has an igamma() method defined on double
+class (very annoying).
+
+------------------------------------------------------------------------
+r1392 | peter.i.corke@gmail.com | 2014-11-16 10:13:47 +1000 (Sun, 16 Nov 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/igamm.m
+
+Changed name of function since igamma() is now a method defined on class double.
+
+------------------------------------------------------------------------
+r1393 | peter.i.corke@gmail.com | 2014-11-16 10:14:34 +1000 (Sun, 16 Nov 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/iroi.m
+
+Changes to support 14b
+
+------------------------------------------------------------------------
+r1394 | peter.i.corke@gmail.com | 2014-11-16 10:15:51 +1000 (Sun, 16 Nov 2014) | 3 lines
+Changed paths:
+   M /matlab/vision/trunk/idisp.m
+
+Cleanup button handlers on figure clear
+Fix bug in finding min/max values of pixels, fails for logical images in 14b
+
+------------------------------------------------------------------------
+r1425 | peter.i.corke@gmail.com | 2014-12-24 07:32:38 +1000 (Wed, 24 Dec 2014) | 2 lines
+Changed paths:
+   M /matlab/vision/trunk/iconcat.m
+
+Bug in computing second output, which is sometimes used by idisp()
+
+------------------------------------------------------------------------

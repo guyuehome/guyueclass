@@ -1,0 +1,26 @@
+Functions in support of the ePnP, used by the estpose() method:
+
+compute_A_and_b_Gauss_Newton.m
+compute_L6_10.m
+compute_M_ver2.m
+compute_alphas.m
+compute_constraint_distance_2param_6eq_3unk.m
+compute_constraint_distance_3param_6eq_6unk.m
+compute_constraint_distance_orthog_4param_9eq_10unk.m
+compute_norm_sign_scaling_factor.m
+compute_permutation_constraint4.m
+compute_rho.m
+define_control_points.m
+define_distances_btw_control_points.m
+dist2.m
+efficient_pnp.m
+efficient_pnp_gauss.m
+gauss_newton.m
+getrotT.m
+kernel_noise.m
+optimize_betas_gauss_newton.m
+reprojection_error_usingRT.m
+sign_determinant.m
+
+Others:
+invhomog.m    decompose homography, used by invH() method

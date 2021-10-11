@@ -1,0 +1,428 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Vehicle</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Vehicle</td>
+      <td class="subheader-left"><a href="matlab:open Vehicle">View code for Vehicle</a></td>
+    </tr>
+  </table>
+<h1>Vehicle</h1><p><span class="helptopic">Car-like vehicle class</span></p><p>
+This class models the kinematics of a car-like vehicle (bicycle model) on
+a plane that moves in SE(2).  For given steering and velocity inputs it
+updates the true vehicle state and returns noise-corrupted odometry
+readings.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> init</td> <td>initialize vehicle state</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> f </td> <td>predict next state based on odometry</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> step</td> <td>move one time step and return noisy odometry</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> control</td> <td>generate the control inputs for the vehicle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> update</td> <td>update the vehicle state</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> run</td> <td>run for multiple time steps</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Fx</td> <td>Jacobian of f wrt x</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Fv</td> <td>Jacobian of f wrt odometry noise</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> gstep</td> <td>like step() but displays vehicle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>plot/animate vehicle on current figure</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_xy</td> <td>plot the true path of the vehicle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> add_driver</td> <td>attach a driver object to this vehicle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display state/parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>Class methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plotv</td> <td>plot/animate a pose on current figure</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> x </td> <td>true vehicle state: x, y, theta (3x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> V </td> <td>odometry covariance (2x2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> odometry</td> <td>distance moved in the last interval (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> rdim</td> <td>dimension of the robot (for drawing)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> L </td> <td>length of the vehicle (wheelbase)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> alphalim</td> <td>steering wheel limit</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> maxspeed</td> <td>maximum vehicle speed</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> T </td> <td>sample interval</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> verbose</td> <td>verbosity</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> x_hist</td> <td>history of true vehicle state (Nx3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> driver</td> <td>reference to the driver object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> x0</td> <td>initial state, restored on init()</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+Create a vehicle with odometry covariance
+
+</p>
+<pre style="width: 90%%;" class="examples">
+v&nbsp;=&nbsp;Vehicle(&nbsp;diag([0.1&nbsp;0.01].^2&nbsp;);
+</pre>
+<p>
+and display its initial state
+
+</p>
+<pre style="width: 90%%;" class="examples">
+v
+</pre>
+<p>
+now apply a speed (0.2m/s) and steer angle (0.1rad) for 1 time step
+
+</p>
+<pre style="width: 90%%;" class="examples">
+odo&nbsp;=&nbsp;v.update([0.2,&nbsp;0.1])
+</pre>
+<p>
+where odo is the noisy odometry estimate, and the new true vehicle state
+
+</p>
+<pre style="width: 90%%;" class="examples">
+v
+</pre>
+<p>
+We can add a driver object
+
+</p>
+<pre style="width: 90%%;" class="examples">
+v.add_driver(&nbsp;RandomPath(10)&nbsp;)
+</pre>
+<p>
+which will move the vehicle within the region -10&amp;lt;x&amp;lt;10, -10&amp;lt;y&amp;lt;10 which we
+can see by
+
+</p>
+<pre style="width: 90%%;" class="examples">
+v.run(1000)
+</pre>
+<p>
+which shows an animation of the vehicle moving for 1000 time steps
+between randomly selected wayoints.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Subclasses the MATLAB handle class which means that pass by reference semantics
+apply.</li>
+</ul>
+<h2>Reference</h2>
+<p>
+Robotics, Vision &amp; Control, Chap 6
+Peter Corke,
+Springer 2011
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RandomPath.html">RandomPath</a>, <a href="EKF.html">EKF</a></p>
+<hr>
+<a name="Vehicle"><h1>Vehicle.Vehicle</h1></a>
+<p><span class="helptopic">Vehicle object constructor</span></p><p>
+<strong>v</strong> = <span style="color:red">Vehicle</span>(<strong>v_act</strong>, <strong>options</strong>)  creates a <span style="color:red">Vehicle</span> object with actual odometry
+covariance <strong>v_act</strong> (2x2) matrix corresponding to the odometry vector [dx dtheta].
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'stlim', A</td> <td>Steering angle limited to -A to +A (default 0.5 rad)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'vmax', S</td> <td>Maximum speed (default 5m/s)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'L', L</td> <td>Wheel base (default 1m)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'x0', x0</td> <td>Initial state (default (0,0,0) )</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'dt', T</td> <td>Time interval</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'rdim', R</td> <td>Robot size as fraction of plot window (default 0.2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>Be verbose</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Subclasses the MATLAB handle class which means that pass by reference semantics
+apply.</li>
+</ul>
+<hr>
+<a name="add_driver"><h1>Vehicle.add_driver</h1></a>
+<p><span class="helptopic">Add a driver for the vehicle</span></p><p>
+V.<span style="color:red">add_driver</span>(<strong>d</strong>) connects a driver object <strong>d</strong> to the vehicle.  The driver
+object has one public method:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+[speed,&nbsp;steer]&nbsp;=&nbsp;D.demand();
+</pre>
+<p>
+that returns a speed and steer angle.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The Vehicle.step() method invokes the driver if one is attached.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.step.html">Vehicle.step</a>, <a href="RandomPath.html">RandomPath</a></p>
+<hr>
+<a name="char"><h1>Vehicle.char</h1></a>
+<p><span class="helptopic">Convert to a string</span></p><p>
+<strong>s</strong> = V.<span style="color:red">char</span>() is a string showing vehicle parameters and state in
+a compact human readable format.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.display.html">Vehicle.display</a></p>
+<hr>
+<a name="control"><h1>Vehicle.control</h1></a>
+<p><span class="helptopic">Compute the control input to vehicle</span></p><p>
+<strong>u</strong> = V.<span style="color:red">control</span>(<strong>speed</strong>, <strong>steer</strong>) is a <span style="color:red">control</span> input (1x2) = [speed,steer]
+based on provided controls <strong>speed</strong>,<strong>steer</strong> to which speed and steering angle
+limits have been applied.
+
+</p>
+<p>
+<strong>u</strong> = V.<span style="color:red">control</span>() as above but demand originates with a "driver" object if
+one is attached, the driver's DEMAND() method is invoked. If no driver is
+attached then speed and steer angle are assumed to be zero.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.step.html">Vehicle.step</a>, <a href="RandomPath.html">RandomPath</a></p>
+<hr>
+<a name="display"><h1>Vehicle.display</h1></a>
+<p><span class="helptopic">Display vehicle parameters and state</span></p><p>
+V.<span style="color:red">display</span>() displays vehicle parameters and state in compact
+human readable form.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Vehicle object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.char.html">Vehicle.char</a></p>
+<hr>
+<a name="f"><h1>Vehicle.f</h1></a>
+<p><span class="helptopic">Predict next state based on odometry</span></p><p>
+<strong>xn</strong> = V.<span style="color:red">f</span>(<strong>x</strong>, <strong>odo</strong>) is the predicted next state <strong>xn</strong> (1x3) based on current
+state <strong>x</strong> (1x3) and odometry <strong>odo</strong> (1x2) = [distance, heading_change].
+
+</p>
+<p>
+<strong>xn</strong> = V.<span style="color:red">f</span>(<strong>x</strong>, <strong>odo</strong>, <strong>w</strong>) as above but with odometry noise <strong>w</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Supports vectorized operation where X and XN (Nx3).</li>
+</ul>
+<hr>
+<a name="Fv"><h1>Vehicle.Fv</h1></a>
+<p><span class="helptopic">Jacobian df/dv</span></p><p>
+<strong>J</strong> = V.<span style="color:red">Fv</span>(<strong>x</strong>, <strong>odo</strong>) is the Jacobian df/dv (3x2) at the state <strong>x</strong>, for
+odometry input <strong>odo</strong> (1x2) = [distance, heading_change].
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.F.html">Vehicle.F</a>, <a href="Vehicle.Fx.html">Vehicle.Fx</a></p>
+<hr>
+<a name="Fx"><h1>Vehicle.Fx</h1></a>
+<p><span class="helptopic">Jacobian df/dx</span></p><p>
+<strong>J</strong> = V.<span style="color:red">Fx</span>(<strong>x</strong>, <strong>odo</strong>) is the Jacobian df/dx (3x3) at the state <strong>x</strong>, for
+odometry input <strong>odo</strong> (1x2) = [distance, heading_change].
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.f.html">Vehicle.f</a>, <a href="Vehicle.Fv.html">Vehicle.Fv</a></p>
+<hr>
+<a name="init"><h1>Vehicle.init</h1></a>
+<p><span class="helptopic">Reset state of vehicle object</span></p><p>
+V.<span style="color:red">init</span>() sets the state V.x := V.x0, initializes the driver
+object (if attached) and clears the history.
+
+</p>
+<p>
+V.<span style="color:red">init</span>(<strong>x0</strong>) as above but the state is initialized to <strong>x0</strong>.
+
+</p>
+<hr>
+<a name="plot"><h1>Vehicle.plot</h1></a>
+<p><span class="helptopic">Plot vehicle</span></p><p>
+V.<span style="color:red">plot</span>(<strong>options</strong>) plots the vehicle on the current axes at a pose given by
+the current state.  If the vehicle has been previously plotted its
+pose is updated.  The vehicle is depicted as a narrow triangle that
+travels "point first" and has a length V.rdim.
+
+</p>
+<p>
+V.<span style="color:red">plot</span>(<strong>x</strong>, <strong>options</strong>) plots the vehicle on the current axes at the pose <strong>x</strong>.
+
+</p>
+<p>
+<strong>H</strong> = V.<span style="color:red">plotv</span>(<strong>x</strong>, <strong>options</strong>) draws a representation of a ground robot as an
+oriented triangle with pose <strong>x</strong> (1x3) [x,y,theta].  <strong>H</strong> is a graphics handle.
+
+</p>
+<p>
+V.<span style="color:red">plotv</span>(<strong>H</strong>, <strong>x</strong>) as above but updates the pose of the graphic represented
+by the handle <strong>H</strong> to pose <strong>x</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>Draw vehicle with length S x maximum axis dimension</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'size', S</td> <td>Draw vehicle with length S</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'color', C</td> <td>Color of vehicle.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'fill'</td> <td>Filled</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.plotv.html">Vehicle.plotv</a></p>
+<hr>
+<a name="plot_xy"><h1>Vehicle.plot_xy</h1></a>
+<p><span class="helptopic">Plots true path followed by vehicle</span></p><p>
+V.<span style="color:red">plot_xy</span>() plots the true xy-plane path followed by the vehicle.
+
+</p>
+<p>
+V.<span style="color:red">plot_xy</span>(<strong>ls</strong>) as above but the line style arguments <strong>ls</strong> are passed
+to plot.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The path is extracted from the x_hist property.</li>
+</ul>
+<hr>
+<a name="plotv"><h1>Vehicle.plotv</h1></a>
+<p><span class="helptopic">Plot ground vehicle pose</span></p><p>
+<strong>H</strong> = <span style="color:red">Vehicle</span>.<span style="color:red">plotv</span>(<strong>x</strong>, <strong>options</strong>) draws a representation of a ground robot as an
+oriented triangle with pose <strong>x</strong> (1x3) [x,y,theta].  <strong>H</strong> is a graphics handle.
+If <strong>x</strong> (Nx3) is a matrix it is considered to represent a trajectory in which case
+the vehicle graphic is animated.
+
+</p>
+<p>
+<span style="color:red">Vehicle</span>.<span style="color:red">plotv</span>(<strong>H</strong>, <strong>x</strong>) as above but updates the pose of the graphic represented
+by the handle <strong>H</strong> to pose <strong>x</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>Draw vehicle with length S x maximum axis dimension</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'size', S</td> <td>Draw vehicle with length S</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'color', C</td> <td>Color of vehicle.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'fill'</td> <td>Filled with solid color as per 'color' option</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'fps', F</td> <td>Frames per second in animation mode (default 10)</td></tr>
+</table>
+<h2>Example</h2>
+<p>
+Generate some path 3xN
+
+</p>
+<pre style="width: 90%%;" class="examples">
+p&nbsp;=&nbsp;PRM.plan(start,&nbsp;goal);
+</pre>
+<p>
+Set the axis dimensions to stop them rescaling for every point on the path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+axis([-5&nbsp;5&nbsp;-5&nbsp;5]);
+</pre>
+<p>
+Now invoke the static method
+
+</p>
+<pre style="width: 90%%;" class="examples">
+Vehicle.plotv(p);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>This is a class method.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.plot.html">Vehicle.plot</a></p>
+<hr>
+<a name="run"><h1>Vehicle.run</h1></a>
+<p><span class="helptopic">Run the vehicle simulation</span></p><p>
+V.<span style="color:red">run</span>(<strong>n</strong>) runs the vehicle model for <strong>n</strong> timesteps and plots
+the vehicle pose at each step.
+
+</p>
+<p>
+<strong>p</strong> = V.<span style="color:red">run</span>(<strong>n</strong>) runs the vehicle simulation for <strong>n</strong> timesteps and
+return the state history (Nx3) without plotting.  Each row
+is (x,y,theta).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.step.html">Vehicle.step</a></p>
+<hr>
+<a name="run2"><h1>Vehicle.run2</h1></a>
+<p><span class="helptopic">Run the vehicle simulation with control inputs</span></p><p>
+<strong>p</strong> = V.<span style="color:red">run2</span>(<strong>T</strong>, <strong>x0</strong>, <strong>speed</strong>, <strong>steer</strong>) runs the vehicle model for a time <strong>T</strong> with
+speed <strong>speed</strong> and steering angle <strong>steer</strong>.  <strong>p</strong> (Nx3) is the path followed and
+each row is (x,y,theta).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Faster and more specific version of run() method.</li>
+  <li>Used by the RRT planner.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.run.html">Vehicle.run</a>, <a href="Vehicle.step.html">Vehicle.step</a>, <a href="RRT.html">RRT</a></p>
+<hr>
+<a name="step"><h1>Vehicle.step</h1></a>
+<p><span class="helptopic">Advance one timestep</span></p><p>
+<strong>odo</strong> = V.<span style="color:red">step</span>(<strong>speed</strong>, <strong>steer</strong>) updates the vehicle state for one timestep
+of motion at specified <strong>speed</strong> and <strong>steer</strong> angle, and returns noisy odometry.
+
+</p>
+<p>
+<strong>odo</strong> = V.<span style="color:red">step</span>() updates the vehicle state for one timestep of motion and
+returns noisy odometry.  If a "driver" is attached then its DEMAND() method
+is invoked to compute speed and steer angle.  If no driver is attached
+then speed and steer angle are assumed to be zero.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Noise covariance is the property V.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.control.html">Vehicle.control</a>, <a href="Vehicle.update.html">Vehicle.update</a>, <a href="Vehicle.add_driver.html">Vehicle.add_driver</a></p>
+<hr>
+<a name="update"><h1>Vehicle.update</h1></a>
+<p><span class="helptopic">Update the vehicle state</span></p><p>
+<strong>odo</strong> = V.<span style="color:red">update</span>(<strong>u</strong>) is the true odometry value for
+motion with <strong>u</strong>=[speed,steer].
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Appends new state to state history property x_hist.</li>
+  <li>Odometry is also saved as property odometry.</li>
+</ul>
+<hr>
+<a name="verbosity"><h1>Vehicle.verbosity</h1></a>
+<p><span class="helptopic">Set verbosity</span></p><p>
+V.<span style="color:red">verbosity</span>(<strong>a</strong>) set <span style="color:red">verbosity</span> to <strong>a</strong>.  <strong>a</strong>=0 means silent.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

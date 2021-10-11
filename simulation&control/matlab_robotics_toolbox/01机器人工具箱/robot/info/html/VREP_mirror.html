@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VREP_mirror</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VREP_mirror</td>
+      <td class="subheader-left"><a href="matlab:open VREP_mirror">View code for VREP_mirror</a></td>
+    </tr>
+  </table>
+<h1>VREP_mirror</h1><p><span class="helptopic">V-REP mirror object class</span></p><p>
+Mirror objects are MATLAB objects that reflect the state of objects in
+the V-REP environment.  Methods allow the V-REP state to be examined or
+changed.
+
+</p>
+<p>
+This abstract class is the root class for all V-REP mirror objects.
+
+</p>
+<p>
+Methods throw exception if an error occurs.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getname</td> <td>get object name</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setparam_bool</td> <td>set object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_int</td> <td>set object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_float</td> <td>set object float parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_bool</td> <td>get object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_int</td> <td>get object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_float</td> <td>get object float parameter</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> remove</td> <td>remove object from scene</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>display object info</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> h </td> <td>V-REP integer handle for the object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> name</td> <td>Name of the object in V-REP</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> vrep</td> <td>Reference to the V-REP connection object</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>This has nothing to do with mirror objects in V-REP itself which are
+shiny reflective surfaces.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.html">VREP_obj</a>, <a href="VREP_arm.html">VREP_arm</a>, <a href="VREP_camera.html">VREP_camera</a>, <a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="VREP_mirror"><h1>VREP_mirror.VREP_mirror</h1></a>
+<p><span class="helptopic">Construct VREP_mirror object</span></p><p>
+<strong>obj</strong> = <span style="color:red">VREP_mirror</span>(<strong>name</strong>) is a V-REP mirror object that represents the
+object named <strong>name</strong> in the V-REP simulator.
+
+</p>
+<hr>
+<a name="char"><h1>VREP_mirror.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+OBJ.<span style="color:red">char</span>() is a string representation the VREP parameters in human
+readable foramt.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.display.html">VREP.display</a></p>
+<hr>
+<a name="display"><h1>VREP_mirror.display</h1></a>
+<p><span class="helptopic">Display parameters</span></p><p>
+OBJ.<span style="color:red">display</span>() displays the VREP parameters in compact format.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a VREP object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP.char.html">VREP.char</a></p>
+<hr>
+<a name="getname"><h1>VREP_mirror.getname</h1></a>
+<p><span class="helptopic">Get object name</span></p><p>
+OBJ.<span style="color:red">getname</span>() is the name of the object in the VREP simulator.
+
+</p>
+<hr>
+<a name="getparam_bool"><h1>VREP_mirror.getparam_bool</h1></a>
+<p><span class="helptopic">Get boolean parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">getparam_bool</span>(<strong>id</strong>) is the boolean parameter with <strong>id</strong>
+of the corresponding V-REP object.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.setparam_bool, <span style="color:red">VREP_mirror</span>.getparam_int,
+<span style="color:red">VREP_mirror</span>.getparam_float.
+
+</p>
+<hr>
+<a name="getparam_float"><h1>VREP_mirror.getparam_float</h1></a>
+<p><span class="helptopic">Get float parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">getparam_float</span>(<strong>id</strong>) is the float parameter with <strong>id</strong>
+of the corresponding V-REP object.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.setparam_bool, <span style="color:red">VREP_mirror</span>.getparam_bool,
+<span style="color:red">VREP_mirror</span>.getparam_int.
+
+</p>
+<hr>
+<a name="getparam_int"><h1>VREP_mirror.getparam_int</h1></a>
+<p><span class="helptopic">Get integer parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">getparam_int</span>(<strong>id</strong>) is the integer parameter with <strong>id</strong>
+of the corresponding V-REP object.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.setparam_int, <span style="color:red">VREP_mirror</span>.getparam_bool,
+<span style="color:red">VREP_mirror</span>.getparam_float.
+
+</p>
+<hr>
+<a name="setparam_bool"><h1>VREP_mirror.setparam_bool</h1></a>
+<p><span class="helptopic">Set boolean parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">setparam_bool</span>(<strong>id</strong>, <strong>val</strong>) sets the boolean parameter with <strong>id</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.getparam_bool, <span style="color:red">VREP_mirror</span>.setparam_int,
+<span style="color:red">VREP_mirror</span>.setparam_float.
+
+</p>
+<hr>
+<a name="setparam_float"><h1>VREP_mirror.setparam_float</h1></a>
+<p><span class="helptopic">Set float parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">setparam_float</span>(<strong>id</strong>, <strong>val</strong>) sets the float parameter with <strong>id</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.getparam_float, <span style="color:red">VREP_mirror</span>.setparam_bool,
+<span style="color:red">VREP_mirror</span>.setparam_int.
+
+</p>
+<hr>
+<a name="setparam_int"><h1>VREP_mirror.setparam_int</h1></a>
+<p><span class="helptopic">Set integer parameter of V-REP object</span></p><p>
+OBJ.<span style="color:red">setparam_int</span>(<strong>id</strong>, <strong>val</strong>) sets the integer parameter with <strong>id</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<p>
+See also <span style="color:red">VREP_mirror</span>.getparam_int, <span style="color:red">VREP_mirror</span>.setparam_bool,
+<span style="color:red">VREP_mirror</span>.setparam_float.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

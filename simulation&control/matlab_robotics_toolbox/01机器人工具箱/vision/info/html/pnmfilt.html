@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: pnmfilt</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: pnmfilt</td>
+      <td class="subheader-left"><a href="matlab:open pnmfilt">View code for pnmfilt</a></td>
+    </tr>
+  </table>
+<h1>pnmfilt</h1><p><span class="helptopic">Pipe image through PNM utility</span></p><p>
+<strong>out</strong> = <span style="color:red">pnmfilt</span>(<strong>cmd</strong>) runs the external program given by the string <strong>cmd</strong>
+and the output (assumed to be PNM format) is returned as <strong>out</strong>.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">pnmfilt</span>(<strong>cmd</strong>, <strong>im</strong>) pipes the image <strong>im</strong> through the external program
+given by the string <strong>cmd</strong> and the output is returned as <strong>out</strong>.  The external
+program must accept and return images in PNM format.
+
+</p>
+<h2>Examples</h2>
+<pre style="width: 90%%;" class="examples">
+im&nbsp;=&nbsp;pnmfilt('ppmforge&nbsp;-cloud');
+im&nbsp;=&nbsp;pnmfilt('pnmrotate&nbsp;30',&nbsp;lena);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Provides access to a large number of Unix command line utilities such
+as ImageMagick and netpbm.</li>
+  <li>The input image is passed as stdin, the output image is assumed to
+come from stdout.</li>
+  <li>MATLAB doesn't support i/o to pipes so the image is written to a
+temporary file, the command run to another temporary file, and that
+is read into MATLAB.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="pgmfilt.html">pgmfilt</a>, <a href="iread.html">iread</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

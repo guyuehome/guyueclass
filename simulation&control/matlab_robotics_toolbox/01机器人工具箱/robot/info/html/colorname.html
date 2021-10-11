@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: colorname</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: colorname</td>
+      <td class="subheader-left"><a href="matlab:open colorname">View code for colorname</a></td>
+    </tr>
+  </table>
+<h1>colorname</h1><p><span class="helptopic">Map between color names and RGB values</span></p><p>
+<strong>rgb</strong> = <span style="color:red">colorname</span>(<strong>name</strong>) is the <strong>rgb</strong>-tristimulus value (1x3) corresponding to
+the color specified by the string <strong>name</strong>.  If <strong>rgb</strong> is a cell-array (1xN) of
+names then <strong>rgb</strong> is a matrix (Nx3) with each row being the corresponding
+tristimulus.
+
+</p>
+<p>
+XYZ = <span style="color:red">colorname</span>(<strong>name</strong>, 'xyz') as above but the XYZ-tristimulus value
+corresponding to the color specified by the string <strong>name</strong>.
+
+</p>
+<p>
+XY = <span style="color:red">colorname</span>(<strong>name</strong>, 'xy') as above but the xy-chromaticity coordinates
+corresponding to the color specified by the string <strong>name</strong>.
+
+</p>
+<p>
+<strong>name</strong> = <span style="color:red">colorname</span>(<strong>rgb</strong>) is a string giving the name of the color that is
+closest (Euclidean) to the given <strong>rgb</strong>-tristimulus value (1x3).  If <strong>rgb</strong> is
+a matrix (Nx3) then return a cell-array (1xN) of color names.
+
+</p>
+<p>
+<strong>name</strong> = <span style="color:red">colorname</span>(XYZ, 'xyz') as above but the color is the closest (Euclidean)
+to the given XYZ-tristimulus value.
+
+</p>
+<p>
+<strong>name</strong> = <span style="color:red">colorname</span>(XYZ, 'xy') as above but the color is the closest (Euclidean)
+to the given xy-chromaticity value with assumed Y=1.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Color name may contain a wildcard, eg. "?burnt"</li>
+  <li>Based on the standard X11 color database rgb.txt.</li>
+  <li>Tristimulus values are in the range 0 to 1</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

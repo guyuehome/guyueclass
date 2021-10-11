@@ -1,0 +1,13 @@
+What is SerialLinked?
+
+SerialLinked is simply a convenience subclass of SerialLink?, created by Prof Peter Corke in his Robotics Toolbox for MATLAB (RTB).
+
+The SerialLinked methods are shipped with RTB in the @SerialLink? folder, but for completeness are also obviously included in pHRIWARE, in the @SerialLinked folder.
+
+As such, if you have RTB, which is required to use these, you will be able to use them with SerialLink? objects out of the box. If for whatever reason you want to use the SerialLinked subclass however, the syntax is simply:
+
+	roboted = SerialLinked(robot);
+where robot is a SerialLink?, and roboted is a SerialLinked object. Alternatively, you can use it directly such as:
+
+	q = SerialLinked(robot).ikcon(T);
+If you are so inclined.

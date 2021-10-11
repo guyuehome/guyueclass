@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: anaglyph</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: anaglyph</td>
+      <td class="subheader-left"><a href="matlab:open anaglyph">View code for anaglyph</a></td>
+    </tr>
+  </table>
+<h1>anaglyph</h1><p><span class="helptopic">Convert stereo images to an anaglyph image</span></p><p>
+<strong>a</strong> = <span style="color:red">anaglyph</span>(<strong>left</strong>, <strong>right</strong>) is an <span style="color:red">anaglyph</span> image where the two images of
+a stereo pair are combined into a single image by coding them in two
+different colors.  By default the left image is red, and the right
+image is cyan.
+
+</p>
+<p>
+<span style="color:red">anaglyph</span>(<strong>left</strong>, <strong>right</strong>) as above but display the <span style="color:red">anaglyph</span>.
+
+</p>
+<p>
+<strong>a</strong> = <span style="color:red">anaglyph</span>(<strong>left</strong>, <strong>right</strong>, <strong>color</strong>) as above but the string <strong>color</strong> describes
+the color coding as a string with 2 letters, the first for left, the second
+for right, and each is one of:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'r'</td> <td>red</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'g'</td> <td>green</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'b'</td> <td>green</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'c'</td> <td>cyan</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'm'</td> <td>magenta</td></tr>
+</table>
+<p>
+<strong>a</strong> = <span style="color:red">anaglyph</span>(<strong>left</strong>, <strong>right</strong>, <strong>color</strong>, <strong>disp</strong>) as above but allows for disparity
+correction.  If <strong>disp</strong> is positive the disparity is increased, if negative it
+is reduced.  These adjustments are achieved by trimming the images.  Use
+this option to make the images more natural/comfortable to view, useful
+if the images were captured with a stereo baseline significantly different
+the human eye separation (typically 65mm).
+
+</p>
+<h2>Example</h2>
+<p>
+Load the left and right images
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L&nbsp;=&nbsp;iread('rocks2-l.png',&nbsp;'reduce',&nbsp;2);
+R&nbsp;=&nbsp;iread('rocks2-r.png',&nbsp;'reduce',&nbsp;2);
+</pre>
+<p>
+then display the <span style="color:red">anaglyph</span> for viewing with red-cyan glasses
+
+</p>
+<pre style="width: 90%%;" class="examples">
+anaglyph(L,&nbsp;R);
+</pre>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Section 14.3,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="stdisp.html">stdisp</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: ilabel</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: ilabel</td>
+      <td class="subheader-left"><a href="matlab:open ilabel">View code for ilabel</a></td>
+    </tr>
+  </table>
+<h1>ilabel</h1><p><span class="helptopic">Label an image</span></p><p>
+<strong>L</strong> = <span style="color:red">ilabel</span>(<strong>im</strong>) is a label image that indicates connected components within
+the image <strong>im</strong> (HxW).  Each pixel in <strong>L</strong> (HxW) is an integer label that indicates
+which connected region the corresponding pixel in <strong>im</strong> belongs to.  Region
+labels are in the range 1 to M.
+
+</p>
+<p>
+[<strong>L</strong>,<strong>m</strong>] = <span style="color:red">ilabel</span>(<strong>im</strong>) as above but returns the value of the maximum
+label value.
+
+</p>
+<p>
+[<strong>L</strong>,<strong>m</strong>,<strong>parents</strong>] = <span style="color:red">ilabel</span>(<strong>im</strong>) as above but also returns region hierarchy
+information.  The value of <strong>parents</strong>(I) is the label of the parent, or
+enclosing, region of region I.  A value of 0 indicates that the region has
+no single enclosing region, for a binary image this means the region
+touches the edge of the image, for a multilevel image it means that the
+region touches more than one other region.
+
+</p>
+<p>
+[<strong>L</strong>,<strong>maxlabel</strong>,<strong>parents</strong>,<strong>class</strong>] = <span style="color:red">ilabel</span>(<strong>im</strong>) as above but also returns the class
+of pixels within each region.  The value of <strong>class</strong>(I) is the value of the
+pixels that comprise region I.
+
+</p>
+<p>
+[<strong>L</strong>,<strong>maxlabel</strong>,<strong>parents</strong>,<strong>class</strong>,<strong>edge</strong>] = <span style="color:red">ilabel</span>(<strong>im</strong>) as above but also returns the
+edge-touch status of each region.  If <strong>edge</strong>(I) is 1 then region I touches
+edge of the image, otherwise it does not.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This algorithm is variously known as region labelling, connectivity
+analysis, connected component analysis, blob labelling.</li>
+  <li>All pixels within a region have the same value (or class).</li>
+  <li>This is a "low level" function, IBLOBS is a higher level interface.</li>
+  <li>Is a MEX file.</li>
+  <li>The image can be binary or greyscale.</li>
+  <li>Connectivity is only performed in 2 dimensions.</li>
+  <li>Connectivity is performed using 4 nearest neighbours by default.</li>
+<ul>
+  <li>To use 8-way connectivity pass a second argument of 8, eg. ILABEL(IM, 8).</li>
+  <li>8-way connectivity introduces ambiguities, a chequerboard is two blobs.</li>
+</ul>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="iblobs.html">iblobs</a>, <a href="imoments.html">imoments</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

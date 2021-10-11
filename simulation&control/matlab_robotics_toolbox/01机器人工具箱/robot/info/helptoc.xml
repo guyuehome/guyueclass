@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc version="2.0">
+
+<!-- this goes into the RTB menu in the doc browser contents pane -->
+
+<!-- Robotics Toolbox -->
+<tocitem target="robot_product_page.html" image="$toolbox/matlab/icons/book_mat.gif">Robotics Toolbox for MATLAB
+
+<!--INSERT_HERE-->
+  <tocitem target="contents_toc.html#3dtransforms">3D transforms
+    <tocitem target="html/angvec2r.html">angvec2r</tocitem>
+    <tocitem target="html/angvec2tr.html">angvec2tr</tocitem>
+    <tocitem target="html/eul2r.html">eul2r</tocitem>
+    <tocitem target="html/eul2tr.html">eul2tr</tocitem>
+    <tocitem target="html/ishomog.html">ishomog</tocitem>
+    <tocitem target="html/isrot.html">isrot</tocitem>
+    <tocitem target="html/oa2r.html">oa2r</tocitem>
+    <tocitem target="html/oa2tr.html">oa2tr</tocitem>
+    <tocitem target="html/r2t.html">r2t</tocitem>
+    <tocitem target="html/rt2tr.html">rt2tr</tocitem>
+    <tocitem target="html/rotx.html">rotx</tocitem>
+    <tocitem target="html/roty.html">roty</tocitem>
+    <tocitem target="html/rotz.html">rotz</tocitem>
+    <tocitem target="html/rpy2r.html">rpy2r</tocitem>
+    <tocitem target="html/rpy2tr.html">rpy2tr</tocitem>
+    <tocitem target="html/t2r.html">t2r</tocitem>
+    <tocitem target="html/tr2angvec.html">tr2angvec</tocitem>
+    <tocitem target="html/tr2eul.html">tr2eul</tocitem>
+    <tocitem target="html/tr2rpy.html">tr2rpy</tocitem>
+    <tocitem target="html/tr2rt.html">tr2rt</tocitem>
+    <tocitem target="html/tranimate.html">tranimate</tocitem>
+    <tocitem target="html/trchain.html">trchain</tocitem>
+    <tocitem target="html/tripleangle.html">tripleangle</tocitem>
+    <tocitem target="html/transl.html">transl</tocitem>
+    <tocitem target="html/trnorm.html">trnorm</tocitem>
+    <tocitem target="html/trchain.html">trchain</tocitem>
+    <tocitem target="html/trplot.html">trplot</tocitem>
+    <tocitem target="html/trprint.html">trprint</tocitem>
+    <tocitem target="html/trotx.html">trotx</tocitem>
+    <tocitem target="html/troty.html">troty</tocitem>
+    <tocitem target="html/trotz.html">trotz</tocitem>
+    <tocitem target="html/trscale.html">trscale</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#2dtransforms">2D transforms
+    <tocitem target="html/ishomog2.html">ishomog2</tocitem>
+    <tocitem target="html/isrot2.html">isrot2</tocitem>
+    <tocitem target="html/rot2.html">rot2</tocitem>
+    <tocitem target="html/se2.html">se2</tocitem>
+    <tocitem target="html/se3.html">se3</tocitem>
+    <tocitem target="html/transl2.html">transl2</tocitem>
+    <tocitem target="html/trchain2.html">trchain2</tocitem>
+    <tocitem target="html/trot2.html">trot2</tocitem>
+    <tocitem target="html/trplot2.html">trplot2</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#homogeneouspointsandlines">Homogeneous points and lines
+    <tocitem target="html/e2h.html">e2h</tocitem>
+    <tocitem target="html/h2e.html">h2e</tocitem>
+    <tocitem target="html/homline.html">homline</tocitem>
+    <tocitem target="html/homtrans.html">homtrans</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#differentialmotion">Differential motion
+    <tocitem target="html/delta2tr.html">delta2tr</tocitem>
+    <tocitem target="html/eul2jac.html">eul2jac</tocitem>
+    <tocitem target="html/rpy2jac.html">rpy2jac</tocitem>
+    <tocitem target="html/skew.html">skew</tocitem>
+    <tocitem target="html/tr2delta.html">tr2delta</tocitem>
+    <tocitem target="html/tr2jac.html">tr2jac</tocitem>
+    <tocitem target="html/vex.html">vex</tocitem>
+    <tocitem target="html/wtrans.html">wtrans</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#trajectorygeneration">Trajectory generation
+    <tocitem target="html/ctraj.html">ctraj</tocitem>
+    <tocitem target="html/jtraj.html">jtraj</tocitem>
+    <tocitem target="html/lspb.html">lspb</tocitem>
+    <tocitem target="html/mtraj.html">mtraj</tocitem>
+    <tocitem target="html/mstraj.html">mstraj</tocitem>
+    <tocitem target="html/tpoly.html">tpoly</tocitem>
+    <tocitem target="html/trinterp.html">trinterp</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#quaternion">Quaternion
+    <tocitem target="html/Quaternion.html">Quaternion</tocitem>
+    <tocitem target="html//.html">/</tocitem>
+    <tocitem target="html/*.html">*</tocitem>
+    <tocitem target="html/Quaternion.html#inv">inv</tocitem>
+    <tocitem target="html/Quaternion.html#norm">norm</tocitem>
+    <tocitem target="html/Quaternion.html#plot">plot</tocitem>
+    <tocitem target="html/Quaternion.html#unit">unit</tocitem>
+    <tocitem target="html/Quaternion.html#interp">interp</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#serial-linkmanipulator">Serial-link manipulator
+    <tocitem target="html/CodeGenerator.html">CodeGenerator</tocitem>
+    <tocitem target="html/SerialLink.html">SerialLink</tocitem>
+    <tocitem target="html/Link.html">Link</tocitem>
+    <tocitem target="html/Prismatic.html">Prismatic</tocitem>
+    <tocitem target="html/Revolute.html">Revolute</tocitem>
+    <tocitem target="html/PrismaticMDH.html">PrismaticMDH</tocitem>
+    <tocitem target="html/RevoluteMDH.html">RevoluteMDH</tocitem>
+    <tocitem target="html/*.html">*</tocitem>
+    <tocitem target="html/SerialLink.html#edit">edit</tocitem>
+    <tocitem target="html/SerialLink.html#friction">friction</tocitem>
+    <tocitem target="html/SerialLink.html#nofriction">nofriction</tocitem>
+    <tocitem target="html/SerialLink.html#perturb">perturb</tocitem>
+    <tocitem target="html/SerialLink.html#plot">plot</tocitem>
+    <tocitem target="html/SerialLink.html#plot3d">plot3d</tocitem>
+    <tocitem target="html/SerialLink.html#teach">teach</tocitem>
+  </tocitem>
+    <tocitem target="contents_toc.html#models">Models
+      <tocitem target="html/mdl_baxter.html">mdl_baxter</tocitem>
+      <tocitem target="html/mdl_Fanuc10L.html">mdl_Fanuc10L</tocitem>
+      <tocitem target="html/mdl_irb140.html">mdl_irb140</tocitem>
+      <tocitem target="html/mdl_irb140_mdh.html">mdl_irb140_mdh</tocitem>
+      <tocitem target="html/mdl_jaco.html">mdl_jaco</tocitem>
+      <tocitem target="html/mdl_KR5.html">mdl_KR5</tocitem>
+      <tocitem target="html/mdl_m16.html">mdl_m16</tocitem>
+      <tocitem target="html/mdl_mico.html">mdl_mico</tocitem>
+      <tocitem target="html/mdl_MotomanHP6.html">mdl_MotomanHP6</tocitem>
+      <tocitem target="html/mdl_nao.html">mdl_nao</tocitem>
+      <tocitem target="html/mdl_phantomx.html">mdl_phantomx</tocitem>
+      <tocitem target="html/mdl_puma560.html">mdl_puma560</tocitem>
+      <tocitem target="html/mdl_puma560akb.html">mdl_puma560akb</tocitem>
+      <tocitem target="html/mdl_p8.html">mdl_p8</tocitem>
+      <tocitem target="html/mdl_S4ABB2p8.html">mdl_S4ABB2p8</tocitem>
+      <tocitem target="html/mdl_stanford.html">mdl_stanford</tocitem>
+      <tocitem target="html/mdl_stanford_mdh.html">mdl_stanford_mdh</tocitem>
+      <tocitem target="html/mdl_onelink.html">mdl_onelink</tocitem>
+      <tocitem target="html/mdl_planar1.html">mdl_planar1</tocitem>
+      <tocitem target="html/mdl_planar2.html">mdl_planar2</tocitem>
+      <tocitem target="html/mdl_planar3.html">mdl_planar3</tocitem>
+      <tocitem target="html/mdl_3link3d.html">mdl_3link3d</tocitem>
+      <tocitem target="html/mdl_twolink.html">mdl_twolink</tocitem>
+      <tocitem target="html/mdl_twolink_mdh.html">mdl_twolink_mdh</tocitem>
+      <tocitem target="html/mdl_simple6.html">mdl_simple6</tocitem>
+      <tocitem target="html/mdl_offset6.html">mdl_offset6</tocitem>
+      <tocitem target="html/mdl_offset3.html">mdl_offset3</tocitem>
+      <tocitem target="html/mdl_ball.html">mdl_ball</tocitem>
+      <tocitem target="html/mdl_coil.html">mdl_coil</tocitem>
+      <tocitem target="html/mdl_hyper2d.html">mdl_hyper2d</tocitem>
+      <tocitem target="html/mdl_hyper3d.html">mdl_hyper3d</tocitem>
+      <tocitem target="html/mdl_quadrotor.html">mdl_quadrotor</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#kinematic">Kinematic
+      <tocitem target="html/DHFactor.html">DHFactor</tocitem>
+      <tocitem target="html/jsingu.html">jsingu</tocitem>
+      <tocitem target="html/SerialLink.html#fellipse">fellipse</tocitem>
+      <tocitem target="html/SerialLink.html#fkine">fkine</tocitem>
+      <tocitem target="html/SerialLink.html#ikine">ikine</tocitem>
+      <tocitem target="html/SerialLink.html#ikine_sym">ikine_sym</tocitem>
+      <tocitem target="html/SerialLink.html#ikine6s">ikine6s</tocitem>
+      <tocitem target="html/SerialLink.html#jacob0">jacob0</tocitem>
+      <tocitem target="html/SerialLink.html#jacobn">jacobn</tocitem>
+      <tocitem target="html/SerialLink.html#maniplty">maniplty</tocitem>
+      <tocitem target="html/SerialLink.html#trchain">trchain</tocitem>
+      <tocitem target="html/SerialLink.html#vellipse">vellipse</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#dynamics">Dynamics
+      <tocitem target="html/SerialLink.html#accel">accel</tocitem>
+      <tocitem target="html/SerialLink.html#cinertia">cinertia</tocitem>
+      <tocitem target="html/SerialLink.html#coriolis">coriolis</tocitem>
+      <tocitem target="html/SerialLink.html#fdyn">fdyn</tocitem>
+      <tocitem target="html/wtrans.html">wtrans</tocitem>
+      <tocitem target="html/SerialLink.html#gravload">gravload</tocitem>
+      <tocitem target="html/SerialLink.html#inertia">inertia</tocitem>
+      <tocitem target="html/SerialLink.html#itorque">itorque</tocitem>
+      <tocitem target="html/SerialLink.html#rne">rne</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#mobilerobot">Mobile robot
+    <tocitem target="html/Map.html">Map</tocitem>
+    <tocitem target="html/RandomPath.html">RandomPath</tocitem>
+    <tocitem target="html/RangeBearingSensor.html">RangeBearingSensor</tocitem>
+    <tocitem target="html/Vehicle.html">Vehicle</tocitem>
+    <tocitem target="html/sl_bicycle.html">sl_bicycle</tocitem>
+    <tocitem target="html/Navigation.html">Navigation</tocitem>
+    <tocitem target="html/Sensor.html">Sensor</tocitem>
+    <tocitem target="html/makemap.html">makemap</tocitem>
+    <tocitem target="html/plot_vehicle.html">plot_vehicle</tocitem>
+  </tocitem>
+    <tocitem target="contents_toc.html#localization">Localization
+      <tocitem target="html/EKF.html">EKF</tocitem>
+      <tocitem target="html/ParticleFilter.html">ParticleFilter</tocitem>
+    </tocitem>
+    <tocitem target="contents_toc.html#pathplanning">Path planning
+      <tocitem target="html/Bug2.html">Bug2</tocitem>
+      <tocitem target="html/DXform.html">DXform</tocitem>
+      <tocitem target="html/Dstar.html">Dstar</tocitem>
+      <tocitem target="html/PRM.html">PRM</tocitem>
+      <tocitem target="html/RRT.html">RRT</tocitem>
+    </tocitem>
+  <tocitem target="contents_toc.html#graphics">Graphics
+    <tocitem target="html/Animate.html">Animate</tocitem>
+    <tocitem target="html/plot2.html">plot2</tocitem>
+    <tocitem target="html/plotp.html">plotp</tocitem>
+    <tocitem target="html/plot_arrow.html">plot_arrow</tocitem>
+    <tocitem target="html/plot_box.html">plot_box</tocitem>
+    <tocitem target="html/plot_circle.html">plot_circle</tocitem>
+    <tocitem target="html/plot_ellipse.html">plot_ellipse</tocitem>
+    <tocitem target="html/plot_ellipse_inv.html">plot_ellipse_inv</tocitem>
+    <tocitem target="html/plot_homline.html">plot_homline</tocitem>
+    <tocitem target="html/plot_point.html">plot_point</tocitem>
+    <tocitem target="html/plot_poly.html">plot_poly</tocitem>
+    <tocitem target="html/plot_sphere.html">plot_sphere</tocitem>
+    <tocitem target="html/qplot.html">qplot</tocitem>
+    <tocitem target="html/plot2.html">plot2</tocitem>
+    <tocitem target="html/plotp.html">plotp</tocitem>
+    <tocitem target="html/xaxis.html">xaxis</tocitem>
+    <tocitem target="html/yaxis.html">yaxis</tocitem>
+    <tocitem target="html/xyzlabel.html">xyzlabel</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#utility">Utility
+    <tocitem target="html/about.html">about</tocitem>
+    <tocitem target="html/angdiff.html">angdiff</tocitem>
+    <tocitem target="html/arrow3.html">arrow3</tocitem>
+    <tocitem target="html/bresenham.html">bresenham</tocitem>
+    <tocitem target="html/circle.html">circle</tocitem>
+    <tocitem target="html/colnorm.html">colnorm</tocitem>
+    <tocitem target="html/colorname.html">colorname</tocitem>
+    <tocitem target="html/diff2.html">diff2</tocitem>
+    <tocitem target="html/dockfigs.html">dockfigs</tocitem>
+    <tocitem target="html/edgelist.html">edgelist</tocitem>
+    <tocitem target="html/gauss2d.html">gauss2d</tocitem>
+    <tocitem target="html/ismatrix.html">ismatrix</tocitem>
+    <tocitem target="html/isvec.html">isvec</tocitem>
+    <tocitem target="html/numcols.html">numcols</tocitem>
+    <tocitem target="html/numrows.html">numrows</tocitem>
+    <tocitem target="html/peak.html">peak</tocitem>
+    <tocitem target="html/peak2.html">peak2</tocitem>
+    <tocitem target="html/PGraph.html">PGraph</tocitem>
+    <tocitem target="html/polydiff.html">polydiff</tocitem>
+    <tocitem target="html/Polygon.html">Polygon</tocitem>
+    <tocitem target="html/randinit.html">randinit</tocitem>
+    <tocitem target="html/ramp.html">ramp</tocitem>
+    <tocitem target="html/rvcpath.html">rvcpath</tocitem>
+    <tocitem target="html/unit.html">unit</tocitem>
+    <tocitem target="html/tb_optparse.html">tb_optparse</tocitem>
+    <tocitem target="html/distancexform.html">distancexform</tocitem>
+    <tocitem target="html/runscript.html">runscript</tocitem>
+    <tocitem target="html/multidfprintf.html">multidfprintf</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#demonstrations">Demonstrations
+    <tocitem target="html/rtbdemo.html">rtbdemo</tocitem>
+    <tocitem target="html/tripleangle.html">tripleangle</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#interfacing">Interfacing
+    <tocitem target="html/Arbotix.html">Arbotix</tocitem>
+    <tocitem target="html/Machine.html">Machine</tocitem>
+    <tocitem target="html/RobotArm.html">RobotArm</tocitem>
+    <tocitem target="html/joystick.html">joystick</tocitem>
+    <tocitem target="html/joy2tr.html">joy2tr</tocitem>
+    <tocitem target="html/VREP.html">VREP</tocitem>
+    <tocitem target="html/VREP_mirror.html">VREP_mirror</tocitem>
+    <tocitem target="html/VREP_arm.html">VREP_arm</tocitem>
+    <tocitem target="html/VREP_obj.html">VREP_obj</tocitem>
+    <tocitem target="html/VREP_camera.html">VREP_camera</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#codegeneration">Code generation
+    <tocitem target="html/ccodefunctionstring.html">ccodefunctionstring</tocitem>
+    <tocitem target="html/distributeblocks.html">distributeblocks</tocitem>
+    <tocitem target="html/doesblockexist.html">doesblockexist</tocitem>
+    <tocitem target="html/getprofilefunctionstats.html">getprofilefunctionstats</tocitem>
+    <tocitem target="html/simulinkext.html">simulinkext</tocitem>
+    <tocitem target="html/symexpr2slblock.html">symexpr2slblock</tocitem>
+  </tocitem>
+  <tocitem target="contents_toc.html#examples">Examples
+    <tocitem target="html/sl_quadcopter.html">sl_quadcopter</tocitem>
+    <tocitem target="html/sl_braitenberg.html">sl_braitenberg</tocitem>
+    <tocitem target="html/movepoint.html">movepoint</tocitem>
+    <tocitem target="html/moveline.html">moveline</tocitem>
+    <tocitem target="html/movepose.html">movepose</tocitem>
+    <tocitem target="html/joytest.html">joytest</tocitem>
+    <tocitem target="html/walking.html">walking</tocitem>
+    <tocitem target="html/eg_inertia.html">eg_inertia</tocitem>
+    <tocitem target="html/eg_inertia22.html">eg_inertia22</tocitem>
+    <tocitem target="html/eg_grav.html">eg_grav</tocitem>
+  </tocitem>
+
+  <!-- Help -->
+
+  <!-- MATLAB Functions -->
+  <tocreference image="$toolbox/matlab/icons/help_fx.gif" target="helpfuncbycat.xml">
+  </tocreference>
+
+  <!-- Simulink -->
+  <tocitem target="simulink.html" image="$toolbox/matlab/icons/reficon.gif">Simulink</tocitem>
+
+  <!-- Manual -->
+  <tocitem target="../robot.pdf" image="HelpIcon.USER_GUIDE">Manual</tocitem>
+
+  <!-- Examples -->
+  <tocitem target="../examples/examples.html" image="$toolbox/matlab/icons/demoicon.gif">Examples</tocitem>
+
+  <!-- About -->
+  <tocitem target="introduction.html" image="HelpIcon.RELEASE_NOTES">About</tocitem>
+
+  <!-- Acknowledgements -->
+  <tocitem target="acknowledgements.html" image="HelpIcon.RELEASE_NOTES">Acknowledgements</tocitem>
+
+  <!-- Release Notes & Version History -->
+  <tocitem target="release.html" image="HelpIcon.RELEASE_NOTES">Release Notes &amp; Version History</tocitem>
+  
+  <!-- Copyrights & License -->
+  <tocitem target="license.html" image="HelpIcon.RELEASE_NOTES">Copyrights &amp; License</tocitem>
+  
+  <!-- Web Pages -->
+  <tocitem target="robot_product_page.html" image="$toolbox/matlab/icons/webicon.gif">Web Pages
+    <tocitem target="http://www.petercorke.com/robot" image="$toolbox/matlab/icons/webicon.gif">Robotics Toolbox web page</tocitem>
+    <tocitem target="http://groups.google.com/group/robotics-tool-box?hl=en" image="$toolbox/matlab/icons/webicon.gif">Robotics Toolbox discussion group</tocitem>
+    <tocitem target="http://www.petercorke.com/RVC" image="$toolbox/matlab/icons/webicon.gif">Robotics, Vision &amp; Control (the book)</tocitem>
+  </tocitem>
+
+</tocitem>
+</toc>

@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: irotate</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: irotate</td>
+      <td class="subheader-left"><a href="matlab:open irotate">View code for irotate</a></td>
+    </tr>
+  </table>
+<h1>irotate</h1><p><span class="helptopic">Rotate image</span></p><p>
+<strong>out</strong> = <span style="color:red">irotate</span>(<strong>im</strong>, <strong>angle</strong>, <strong>options</strong>) is a version of the image <strong>im</strong>
+that has been rotated about its centre.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'outsize', S</td> <td>set size of output image to HxW where S=[W,H]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'crop'</td> <td>return central part of image, same size as IM</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>scale the image size by S (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'extrapval', V</td> <td>set background pixels to V (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'smooth', S</td> <td>initially smooth the image with a Gaussian of standard
+deviation S</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Rotation is defined with respect to a z-axis which is into the image.</li>
+  <li>Counter-clockwise is a positive angle.</li>
+  <li>The pixels in the corners of the resulting image will be undefined and
+set to the 'extrapval'.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="iscale.html">iscale</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

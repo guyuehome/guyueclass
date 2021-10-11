@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Dstar</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Dstar</td>
+      <td class="subheader-left"><a href="matlab:open Dstar">View code for Dstar</a></td>
+    </tr>
+  </table>
+<h1>Dstar</h1><p><span class="helptopic">D* navigation class</span></p><p>
+A concrete subclass of the abstract Navigation class that implements the D*
+navigation algorithm.  This provides minimum distance paths and
+facilitates incremental replanning.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plan</td> <td>Compute the cost map given a goal and map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> path</td> <td>Compute a path to the goal (inherited from Navigation)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> visualize</td> <td>Display the obstacle map (deprecated)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Display the obstacle map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> costmap_modify</td> <td>Modify the costmap</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> modify_cost</td> <td>Modify the costmap (deprecated, use costmap_modify)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> costmap_get</td> <td>Return the current costmap</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> costmap_set</td> <td>Set the current costmap</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> distancemap_get</td> <td>Set the current distance map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Print the parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> costmap</td> <td>Distance from each point to the goal.</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+load&nbsp;map1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;load&nbsp;map
+goal&nbsp;=&nbsp;[50,30];
+start=[20,10];
+ds&nbsp;=&nbsp;Dstar(map);&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;navigation&nbsp;object
+ds.plan(goal)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;plan&nbsp;for&nbsp;specified&nbsp;goal
+ds.path(start)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;animate&nbsp;path&nbsp;from&nbsp;this&nbsp;start&nbsp;location
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Obstacles are represented by Inf in the costmap.</li>
+  <li>The value of each element in the costmap is the shortest distance from the
+corresponding point in the map to the current goal.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>The D* algorithm for real-time planning of optimal traverses,
+A. Stentz,
+Tech. Rep. CMU-RI-TR-94-37, The Robotics Institute, Carnegie-Mellon University, 1994.</li>
+  <li>Robotics, Vision & Control, Sec 5.2.2,
+Peter Corke, Springer, 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.html">Navigation</a>, <a href="DXform.html">DXform</a>, <a href="PRM.html">PRM</a></p>
+<hr>
+<a name="Dstar"><h1>Dstar.Dstar</h1></a>
+<p><span class="helptopic">D* constructor</span></p><p>
+<strong>ds</strong> = <span style="color:red">Dstar</span>(<strong>map</strong>, <strong>options</strong>) is a D* navigation object, and <strong>map</strong> is an
+occupancy grid, a representation of a planar world as a
+matrix whose elements are 0 (free space) or 1 (occupied).
+The occupancy grid is coverted to a costmap with a unit cost
+for traversing a cell.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'goal', G</td> <td>Specify the goal point (2x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'metric', M</td> <td>Specify the distance metric as 'euclidean' (default)
+or 'cityblock'.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'inflate', K</td> <td>Inflate all obstacles by K cells.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'quiet'</td> <td>Don't display the progress spinner</td></tr>
+</table>
+<p>
+Other options are supported by the Navigation superclass.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Navigation.Navigation.html">Navigation.Navigation</a></p>
+<hr>
+<a name="char"><h1>Dstar.char</h1></a>
+<p><span class="helptopic">Convert navigation object to string</span></p><p>
+DS.<span style="color:red">char</span>() is a string representing the state of the <span style="color:red">Dstar</span>
+object in human-readable form.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Dstar.display.html">Dstar.display</a>, <a href="Navigation.char.html">Navigation.char</a></p>
+<hr>
+<a name="costmap_get"><h1>Dstar.costmap_get</h1></a>
+<p><span class="helptopic">Get the current costmap</span></p><p>
+<strong>C</strong> = DS.<span style="color:red">costmap_get</span>() is the current costmap.  The cost map is the same size
+as the occupancy grid and the value of each element represents the cost
+of traversing the cell.  It is autogenerated by the class constructor from
+the occupancy grid such that:
+
+</p>
+<ul>
+  <li>free cell (occupancy 0) has a cost of 1</li>
+  <li>occupied cell (occupancy >0) has a cost of Inf</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Dstar.costmap_set.html">Dstar.costmap_set</a>, <a href="Dstar.costmap_modify.html">Dstar.costmap_modify</a></p>
+<hr>
+<a name="costmap_modify"><h1>Dstar.costmap_modify</h1></a>
+<p><span class="helptopic">Modify cost map</span></p><p>
+DS.<span style="color:red">costmap_modify</span>(<strong>p</strong>, <strong>new</strong>) modifies the cost map at <strong>p</strong>=[X,Y] to
+have the value <strong>new</strong>.  If <strong>p</strong> (2xM) and <strong>new</strong> (1xM) then the cost of
+the points defined by the columns of <strong>p</strong> are set to the corresponding
+elements of <strong>new</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>After one or more point costs have been updated the path
+should be replanned by calling DS.plan().</li>
+  <li>Replaces modify_cost, same syntax.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Dstar.costmap_set.html">Dstar.costmap_set</a>, <a href="Dstar.costmap_get.html">Dstar.costmap_get</a></p>
+<hr>
+<a name="costmap_set"><h1>Dstar.costmap_set</h1></a>
+<p><span class="helptopic">Set the current costmap</span></p><p>
+DS.<span style="color:red">costmap_set</span>(<strong>C</strong>) sets the current costmap.  The cost map is the same size
+as the occupancy grid and the value of each element represents the cost
+of traversing the cell.  A high value indicates that the cell is more costly
+(difficult) to traverese.  A value of Inf indicates an obstacle.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>After the cost map is changed the path should be replanned by
+calling DS.plan().</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Dstar.costmap_get.html">Dstar.costmap_get</a>, <a href="Dstar.costmap_modify.html">Dstar.costmap_modify</a></p>
+<hr>
+<a name="distancemap_get"><h1>Dstar.distancemap_get</h1></a>
+<p><span class="helptopic">Get the current distance map</span></p><p>
+<strong>C</strong> = DS.<span style="color:red">distancemap_get</span>() is the current distance map.  This map is the same size
+as the occupancy grid and the value of each element is the shortest distance
+from the corresponding point in the map to the current goal.  It is computed
+by <span style="color:red">Dstar</span>.plan.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Dstar.plan.html">Dstar.plan</a></p>
+<hr>
+<a name="modify_cost"><h1>Dstar.modify_cost</h1></a>
+<p><span class="helptopic">Modify cost map</span></p><h2>Notes</h2>
+<ul>
+  <li>Deprecated: use modify_cost instead instead.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Dstar.costmap_set.html">Dstar.costmap_set</a>, <a href="Dstar.costmap_get.html">Dstar.costmap_get</a></p>
+<hr>
+<a name="plan"><h1>Dstar.plan</h1></a>
+<p><span class="helptopic">Plan path to goal</span></p><p>
+DS.<span style="color:red">plan</span>() updates DS with a costmap of distance to the
+goal from every non-obstacle point in the map.  The goal is
+as specified to the constructor.
+
+</p>
+<p>
+DS.<span style="color:red">plan</span>(<strong>goal</strong>) as above but uses the specified goal.
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>If a path has already been planned, but the costmap was
+modified, then reinvoking this method will replan,
+incrementally updating the plan at lower cost than a full
+replan.</li>
+</ul>
+<hr>
+<a name="plot"><h1>Dstar.plot</h1></a>
+<p><span class="helptopic">Visualize navigation environment</span></p><p>
+DS.<span style="color:red">plot</span>() displays the occupancy grid and the goal distance
+in a new figure.  The goal distance is shown by intensity which
+increases with distance from the goal.  Obstacles are overlaid
+and shown in red.
+
+</p>
+<p>
+DS.<span style="color:red">plot</span>(<strong>p</strong>) as above but also overlays a path given by the set
+of points <strong>p</strong> (Mx2).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Navigation.plot.html">Navigation.plot</a></p>
+<hr>
+<a name="reset"><h1>Dstar.reset</h1></a>
+<p><span class="helptopic">Reset the planner</span></p><p>
+DS.<span style="color:red">reset</span>() resets the D* planner.  The next instantiation
+of DS.plan() will perform a global replan.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

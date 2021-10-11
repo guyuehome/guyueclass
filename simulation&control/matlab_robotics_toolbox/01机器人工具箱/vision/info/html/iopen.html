@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iopen</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iopen</td>
+      <td class="subheader-left"><a href="matlab:open iopen">View code for iopen</a></td>
+    </tr>
+  </table>
+<h1>iopen</h1><p><span class="helptopic">Morphological opening</span></p><p>
+<strong>out</strong> = <span style="color:red">iopen</span>(<strong>im</strong>, <strong>se</strong>, <strong>options</strong>) is the image <strong>im</strong> after morphological opening
+with the structuring element <strong>se</strong>.  This is a morphological erosion followed
+by dilation.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">iopen</span>(<strong>im</strong>, <strong>se</strong>, <strong>n</strong>, <strong>options</strong>) as above but the structuring element
+<strong>se</strong> is applied <strong>n</strong> times, that is <strong>n</strong> erosions followed by <strong>n</strong> dilations.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>For binary image an opening operation can be used to eliminate small white
+noise regions.</li>
+  <li>It is cheaper to apply a smaller structuring element multiple times than
+one large one, the effective structuring element is the Minkowski sum
+of the structuring element with itself N times.</li>
+  <li>Windowing options of IMORPH can be passed.  By default output image is
+same size as input image.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="iclose.html">iclose</a>, <a href="idilate.html">idilate</a>, <a href="ierode.html">ierode</a>, <a href="imorph.html">imorph</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

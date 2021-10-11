@@ -1,0 +1,42 @@
+A number of MVTB functions are implemented as MEX files for efficiency.
+
+If you attempted to execute one of the functions
+    closest()
+    fhist()
+    hist2d()
+    ilabel()
+    imatch()
+    imorph()
+    irank()
+    ivar()
+    iwindow()
+    stereo_match()
+
+and got the message "Attempt to execute SCRIPT xxxx as a function:" you need
+to compile the MEX files for your archicture.  The Toolbox ships with compiled
+versions for Win32 and Maci64 architectures.
+
+BUILDING THE MEX FILES
+
+For Linux or MacOS just run:
+
+% make
+
+which assumes that the mex utility is in your current path.  This is typically
+found in the bin subdirectory of your installed MATLAB.  You do of course also
+need a C compiler.
+
+For Windows:
+
+probably easier to run the script from inside MATLAB
+
+>> make
+
+INSTALLING THE MEX FILE
+
+The mex subdirectory is added to the MATLAB path by the startup_mvtb script
+which is executed by the startup_rvc script.  No installation action is 
+required.
+
+Note that the .m versions of these files exist in the directory above and 
+contain the online help documentation.

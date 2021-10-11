@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: cmfxyz</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: cmfxyz</td>
+      <td class="subheader-left"><a href="matlab:open cmfxyz">View code for cmfxyz</a></td>
+    </tr>
+  </table>
+<h1>cmfxyz</h1><p><span class="helptopic">matching function</span></p><p>
+The color matching function is the XYZ tristimulus required to match a
+particular wavelength excitation.
+
+</p>
+<p>
+<strong>xyz</strong> = <span style="color:red">cmfxyz</span>(<strong>lambda</strong>) is the CIE <strong>xyz</strong> color matching function (Nx3) for illumination
+at wavelength <strong>lambda</strong> (Nx1) [m].  If <strong>lambda</strong> is a vector then each row of <strong>xyz</strong>
+is the color matching function of the corresponding element of <strong>lambda</strong>.
+
+</p>
+<p>
+<strong>xyz</strong> = <span style="color:red">cmfxyz</span>(<strong>lambda</strong>, <strong>E</strong>) is the CIE <strong>xyz</strong> color matching (1x3) function for an
+illumination spectrum <strong>E</strong> (Nx1) defined at corresponding wavelengths
+<strong>lambda</strong> (Nx1).
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>CIE 1931 2-deg XYZ CMFs from cvrl.ioo.ucl.ac.uk</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Section 14.3,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="cmfrgb.html">cmfrgb</a>, <a href="ccxyz.html">ccxyz</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

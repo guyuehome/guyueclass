@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: oa2r</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: oa2r</td>
+      <td class="subheader-left"><a href="matlab:open oa2r">View code for oa2r</a></td>
+    </tr>
+  </table>
+<h1>oa2r</h1><p><span class="helptopic">Convert orientation and approach vectors to rotation matrix</span></p><p>
+<strong>R</strong> = <span style="color:red">oa2r</span>(<strong>o</strong>, <strong>a</strong>) is an SO(3) rotation matrix (3x3) for the specified
+orientation and approach vectors (3x1) formed from 3 vectors such that <strong>R</strong>
+= [N <strong>o</strong> <strong>a</strong>] and N = <strong>o</strong> x <strong>a</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The submatrix is guaranteed to be orthonormal so long as O and A
+are not parallel.</li>
+  <li>The vectors O and A are parallel to the Y- and Z-axes of the coordinate
+frame.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Robot manipulators: mathematis, programming and control
+Richard Paul, MIT Press, 1981.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="rpy2r.html">rpy2r</a>, <a href="eul2r.html">eul2r</a>, <a href="oa2tr.html">oa2tr</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

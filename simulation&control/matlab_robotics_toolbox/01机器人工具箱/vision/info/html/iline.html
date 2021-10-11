@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iline</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iline</td>
+      <td class="subheader-left"><a href="matlab:open iline">View code for iline</a></td>
+    </tr>
+  </table>
+<h1>iline</h1><p><span class="helptopic">Draw a line in an image</span></p><p>
+<strong>out</strong> = <span style="color:red">iline</span>(<strong>im</strong>, <strong>p1</strong>, <strong>p2</strong>) is a copy of the image <strong>im</strong> with a single-pixel thick
+line drawn between the points <strong>p1</strong> and <strong>p2</strong>, each a 2-vector [U,V].  The pixels
+on the line are set to 1.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">iline</span>(<strong>im</strong>, <strong>p1</strong>, <strong>p2</strong>, <strong>v</strong>) as above but the pixels on the line are set to <strong>v</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Uses the Bresenham algorithm.</li>
+  <li>Only works for greyscale images.</li>
+  <li>The line looks jagged since no anti-aliasing is performed.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="bresenham.html">bresenham</a>, <a href="iprofile.html">iprofile</a>, <a href="ipaste.html">ipaste</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

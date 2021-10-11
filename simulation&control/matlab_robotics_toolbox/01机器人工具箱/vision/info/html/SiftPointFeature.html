@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: SiftPointFeature</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: SiftPointFeature</td>
+      <td class="subheader-left"><a href="matlab:open SiftPointFeature">View code for SiftPointFeature</a></td>
+    </tr>
+  </table>
+<h1>SiftPointFeature</h1><p><span class="helptopic">SIFT point corner feature object</span></p><p>
+A subclass of OrientedScalePointFeature for SIFT features.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot feature position</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_scale</td> <td>Plot feature scale</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> distance</td> <td>Descriptor distance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ncc</td> <td>Descriptor similarity</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> match</td> <td>Match features</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ncc</td> <td>Descriptor similarity</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> uv</td> <td>Return feature coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display value</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert value to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> u </td> <td>horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> v </td> <td>vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> strength</td> <td>feature strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>feature orientation [rad]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> scale</td> <td>feature scale</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> descriptor</td> <td>feature descriptor (vector)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> image_id</td> <td>index of image containing feature</td></tr>
+</table>
+<p>
+Properties of a vector of SiftCornerFeature objects are returned as a vector.
+If F is a vector (Nx1) of SiftCornerFeature objects then F.u is a 2xN matrix
+with each column the corresponding u coordinate.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>SiftCornerFeature is a reference object.</li>
+  <li>SiftCornerFeature objects can be used in vectors and arrays</li>
+  <li>The SIFT algorithm is patented and not distributed with this toolbox.
+You can download a SIFT implementation which this class can utilize.
+See README.SIFT.</li>
+</ul>
+<h2>References</h2>
+<p>
+"Distinctive image features from scale-invariant keypoints",
+D.Lowe,
+Int. Journal on Computer Vision, vol.60, pp.91-110, Nov. 2004.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="isift.html">isift</a>, <a href="PointFeature.html">PointFeature</a>, <a href="ScalePointFeature.html">ScalePointFeature</a>, <a href="orientedscalepointfeature.html">orientedscalepointfeature</a>, <a href="SurfPointFeature.html">SurfPointFeature</a></p>
+<hr>
+<a name="SiftPointFeature"><h1>SiftPointFeature.SiftPointFeature</h1></a>
+<p><span class="helptopic">Create a SIFT point feature object</span></p><p>
+<strong>f</strong> = <span style="color:red">SiftPointFeature</span>() is a point feature object with null parameters.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">SiftPointFeature</span>(<strong>u</strong>, <strong>v</strong>) is a point feature object with specified
+coordinates.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">SiftPointFeature</span>(<strong>u</strong>, <strong>v</strong>, <strong>strength</strong>) as above but with specified strength.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">SiftPointFeature</span>(<strong>u</strong>, <strong>v</strong>, <strong>strength</strong>, <strong>scale</strong>) as above but with specified
+feature scale.
+
+</p>
+<p>
+<strong>f</strong> = <span style="color:red">SiftPointFeature</span>(<strong>u</strong>, <strong>v</strong>, <strong>strength</strong>, <strong>scale</strong>, <strong>theta</strong>) as above but with specified
+feature orientation.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="isift.html">isift</a></p>
+<hr>
+<hr>
+<a name="match"><h1>SiftPointFeature.match</h1></a>
+<p><span class="helptopic">Match SIFT point features</span></p><p>
+<strong>m</strong> = F.<span style="color:red">match</span>(<strong>f2</strong>, <strong>options</strong>) is a vector of FeatureMatch objects that
+describe candidate matches between the two vectors of SIFT
+features F and <strong>f2</strong>.  Correspondence is based on descriptor
+similarity.
+
+</p>
+<hr>
+<a name="support"><h1>SiftPointFeature.support</h1></a>
+<p><span class="helptopic">Support region of feature</span></p><p>
+<strong>out</strong> = F.<span style="color:red">support</span>(<strong>im</strong>, <strong>w</strong>) is an image of the <span style="color:red">support</span> region of the
+feature F, extracted from the image <strong>im</strong> in which the feature appears.
+The <span style="color:red">support</span> region is scaled to WxW and rotated so that the feature's
+orientation axis is upward.
+
+</p>
+<p>
+<strong>out</strong> = F.<span style="color:red">support</span>(<strong>images</strong>, <strong>w</strong>) as above but if the features were extracted
+from an image sequence <strong>images</strong> then the feature is extracted from the
+appropriate image in the same sequence.
+
+</p>
+<p>
+[<strong>out</strong>,<strong>T</strong>] = F.<span style="color:red">support</span>(<strong>images</strong>, <strong>w</strong>) as above but returns the pose of the feature
+as a 3x3 homogeneous transform in SE(2) that comprises the feature position
+and orientation.
+
+</p>
+<p>
+F.<span style="color:red">support</span>(<strong>im</strong>, <strong>w</strong>) as above but the <span style="color:red">support</span> region is displayed.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SiftPointFeature.html">SiftPointFeature</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

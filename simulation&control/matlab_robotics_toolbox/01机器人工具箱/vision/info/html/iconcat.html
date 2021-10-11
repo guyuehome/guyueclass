@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iconcat</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iconcat</td>
+      <td class="subheader-left"><a href="matlab:open iconcat">View code for iconcat</a></td>
+    </tr>
+  </table>
+<h1>iconcat</h1><p><span class="helptopic">Concatenate images</span></p><p>
+<strong>C</strong> = <span style="color:red">iconcat</span>(<strong>im</strong>,<strong>options</strong>) concatenates images from the cell array <strong>im</strong>.
+
+</p>
+<p>
+<span style="color:red">iconcat</span>(<strong>im</strong>,<strong>options</strong>) as above but displays the concatenated images
+using IDISP.
+
+</p>
+<p>
+[<strong>C</strong>,<strong>u</strong>] = <span style="color:red">iconcat</span>(<strong>im</strong>,<strong>options</strong>) as above but also returns the vector <strong>u</strong> whose
+elements are the coordinates of the left (or top in vertical mode) edge of
+the corresponding image within the concatenated image.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'dir', D</td> <td>direction of concatenation: 'horizontal' (default) or 'vertical'.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'bgval', B</td> <td>value of padding pixels (default NaN)</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+Horizontally concatenate three images
+
+</p>
+<pre style="width: 90%%;" class="examples">
+c&nbsp;=&nbsp;iconcat({im1,&nbsp;im2,&nbsp;im3},&nbsp;'h');
+</pre>
+<p>
+Find the first column of each of the three images
+
+</p>
+<pre style="width: 90%%;" class="examples">
+[c,u]&nbsp;=&nbsp;iconcat({im1,&nbsp;im2,&nbsp;im3},&nbsp;'h');
+</pre>
+<p>
+where u is a 3-vector such that im3 starts in the u(3)'rd column of c.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The images do not have to be of the same size, and smaller images are
+surrounded by background pixels which can be specified.</li>
+  <li>Works for color or greyscale images.</li>
+  <li>Direction can be abbreviated to first character, 'h' or 'v'.</li>
+  <li>In vertical mode all images are right justified.</li>
+  <li>In horizontal mode all images are top justified.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="idisp.html">idisp</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

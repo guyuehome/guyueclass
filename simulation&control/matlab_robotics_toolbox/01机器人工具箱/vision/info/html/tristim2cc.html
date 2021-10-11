@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: tristim2cc</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: tristim2cc</td>
+      <td class="subheader-left"><a href="matlab:open tristim2cc">View code for tristim2cc</a></td>
+    </tr>
+  </table>
+<h1>tristim2cc</h1><p><span class="helptopic">Tristimulus to chromaticity coordinates</span></p><p>
+<strong>cc</strong> = <span style="color:red">tristim2cc</span>(<strong>tri</strong>) is the chromaticity coordinate (1x2) corresponding to the
+tristimulus <strong>tri</strong> (1x3).  If <strong>tri</strong> is RGB then <strong>cc</strong> is rg, if <strong>tri</strong> is XYZ then
+<strong>cc</strong> is xy.  Multiple tristimulus values can be given as rows of <strong>tri</strong> (Nx3)
+in which case the chromaticity coordinates are the corresponding rows
+of <strong>cc</strong> (Nx2).
+
+</p>
+<p>
+[<strong>c1</strong>,<strong>C2</strong>] = <span style="color:red">tristim2cc</span>(<strong>tri</strong>) as above but the chromaticity coordinates are
+returned in separate vectors, each Nx1.
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">tristim2cc</span>(<strong>im</strong>) is the chromaticity coordinates corresponding to every
+pixel in the tristimulus image <strong>im</strong> (HxWx3).  <strong>out</strong> (HxWx2) has planes
+corresponding to r and g, or x and y.
+
+</p>
+<p>
+[<strong>o1</strong>,<strong>o2</strong>] = <span style="color:red">tristim2cc</span>(<strong>im</strong>) as above but the chromaticity is returned as
+separate images (HxW).
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

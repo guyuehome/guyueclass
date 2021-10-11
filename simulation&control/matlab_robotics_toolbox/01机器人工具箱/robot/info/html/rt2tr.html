@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: rt2tr</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: rt2tr</td>
+      <td class="subheader-left"><a href="matlab:open rt2tr">View code for rt2tr</a></td>
+    </tr>
+  </table>
+<h1>rt2tr</h1><p><span class="helptopic">Convert rotation and translation to homogeneous transform</span></p><p>
+<strong>TR</strong> = <span style="color:red">rt2tr</span>(<strong>R</strong>, <strong>t</strong>) is a homogeneous transformation matrix (MxM) formed from an
+orthonormal rotation matrix <strong>R</strong> (NxN) and a translation vector <strong>t</strong> (Nx1) where
+M=N+1.
+
+</p>
+<p>
+For a sequence <strong>R</strong> (NxNxK) and <strong>t</strong> (NxK) results in a transform sequence (MxMxK).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Works for R in SO(2) or SO(3)</li>
+<ul>
+  <li>If R is 2x2 and t is 2x1, then TR is 3x3</li>
+  <li>If R is 3x3 and t is 3x1, then TR is 4x4</li>
+</ul>
+  <li>The validity of R is not checked</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="t2r.html">t2r</a>, <a href="r2t.html">r2t</a>, <a href="tr2rt.html">tr2rt</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

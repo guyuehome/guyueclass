@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Map</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Map</td>
+      <td class="subheader-left"><a href="matlab:open Map">View code for Map</a></td>
+    </tr>
+  </table>
+<h1>Map</h1><p><span class="helptopic">Map of planar point features</span></p><p>
+A Map object represents a square 2D environment with a number of landmark
+feature points.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot the feature map</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> feature</td> <td>Return a specified map feature</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display map parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert map parameters to human readable string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> map</td> <td>Matrix of map feature coordinates 2xN</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> dim</td> <td>The dimensions of the map region x,y in [-dim,dim]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nfeatures</td> <td>The number of map features N</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+To create a map for an area where X and Y are in the range -10 to +10 metres
+and with 50 random feature points
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map&nbsp;=&nbsp;Map(50,&nbsp;10);
+</pre>
+<p>
+which can be displayed by
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map.plot();
+</pre>
+<h2>Reference</h2>
+<p>
+Robotics, Vision &amp; Control, Chap 6,
+Peter Corke,
+Springer 2011
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="RangeBearingSensor.html">RangeBearingSensor</a>, <a href="EKF.html">EKF</a></p>
+<hr>
+<a name="Map"><h1>Map.Map</h1></a>
+<p><span class="helptopic">Create a map of point feature landmarks</span></p><p>
+<strong>m</strong> = <span style="color:red">Map</span>(<strong>n</strong>, <strong>dim</strong>, <strong>options</strong>) is a <span style="color:red">Map</span> object that represents <strong>n</strong> random point features
+in a planar region bounded by +/-<strong>dim</strong> in the x- and y-directions.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>Be verbose</td></tr>
+</table>
+<hr>
+<a name="char"><h1>Map.char</h1></a>
+<p><span class="helptopic">Convert map parameters to a string</span></p><p>
+<strong>s</strong> = M.<span style="color:red">char</span>() is a string showing map parameters in
+a compact human readable format.
+
+</p>
+<hr>
+<a name="display"><h1>Map.display</h1></a>
+<p><span class="helptopic">Display map parameters</span></p><p>
+M.<span style="color:red">display</span>() displays map parameters in a compact
+human readable form.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Map object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="map.char.html">map.char</a></p>
+<hr>
+<a name="feature"><h1>Map.feature</h1></a>
+<p><span class="helptopic">Get landmarks from map</span></p><p>
+<strong>f</strong> = M.<span style="color:red">feature</span>(<strong>k</strong>) is the coordinate (2x1) of the <strong>k</strong>'th map <span style="color:red">feature</span> (landmark).
+
+</p>
+<hr>
+<a name="plot"><h1>Map.plot</h1></a>
+<p><span class="helptopic">Plot the map</span></p><p>
+M.<span style="color:red">plot</span>() plots the feature map in the current figure, as a square
+region with dimensions given by the M.dim property.  Each feature
+is marked by a black diamond.
+
+</p>
+<p>
+M.<span style="color:red">plot</span>(<strong>ls</strong>) as above, but the arguments <strong>ls</strong>
+are passed to <span style="color:red">plot</span> and override the default marker style.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The plot is left with HOLD ON.</li>
+</ul>
+<hr>
+<a name="show"><h1>Map.show</h1></a>
+<p><span class="helptopic">Show the feature map</span></p><h2>Notes</h2>
+<ul>
+  <li>Deprecated, use plot method.</li>
+</ul>
+<hr>
+<a name="verbosity"><h1>Map.verbosity</h1></a>
+<p><span class="helptopic">Set verbosity</span></p><p>
+M.<span style="color:red">verbosity</span>(<strong>v</strong>) set <span style="color:red">verbosity</span> to <strong>v</strong>, where 0 is silent and greater
+values display more information.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,1294 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: CodeGenerator</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: CodeGenerator</td>
+      <td class="subheader-left"><a href="matlab:open CodeGenerator">View code for CodeGenerator</a></td>
+    </tr>
+  </table>
+<h1>CodeGenerator</h1><p><span class="helptopic">Class for code generation</span></p><p>
+Objects of the CodeGenerator class automatcally generate robot specific
+code, as either M-functions, C-functions, C-MEX functions, or real-time
+capable Simulink blocks.
+
+</p>
+<p>
+The various methods return symbolic expressions for robot kinematic and
+dynamic functions, and optionally support side effects such as:
+
+</p>
+<ul>
+  <li>M-functions with symbolic robot specific model code</li>
+  <li>real-time capable robot specific Simulink blocks</li>
+  <li>mat-files with symbolic robot specific model expressions</li>
+  <li>C-functions and -headers with symbolic robot specific model code</li>
+  <li>robot specific MEX functions based on the generated C-code (C-compiler
+must be installed).</li>
+</ul>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+%&nbsp;load&nbsp;robot&nbsp;model
+mdl_twolink
+</pre>
+<pre style="width: 90%%;" class="examples">
+cg&nbsp;=&nbsp;CodeGenerator(twolink);
+cg.geneverything();
+</pre>
+<pre style="width: 90%%;" class="examples">
+%&nbsp;a&nbsp;new&nbsp;class&nbsp;has&nbsp;been&nbsp;automatically&nbsp;generated&nbsp;in&nbsp;the&nbsp;robot&nbsp;directory.
+addpath&nbsp;robot
+</pre>
+<pre style="width: 90%%;" class="examples">
+tl&nbsp;=&nbsp;@robot();
+%&nbsp;this&nbsp;class&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;SerialLink,&nbsp;and&nbsp;thus&nbsp;polymorphic&nbsp;with
+%&nbsp;SerialLink&nbsp;but&nbsp;its&nbsp;methods&nbsp;have&nbsp;been&nbsp;overloaded&nbsp;with&nbsp;robot-specific&nbsp;code,
+%&nbsp;for&nbsp;example
+T&nbsp;=&nbsp;tl.fkine([0.2&nbsp;0.3]);
+%&nbsp;uses&nbsp;concise&nbsp;symbolic&nbsp;expressions&nbsp;rather&nbsp;than&nbsp;the&nbsp;generalized&nbsp;A-matrix
+%&nbsp;approach
+</pre>
+<pre style="width: 90%%;" class="examples">
+%&nbsp;The&nbsp;Simulink&nbsp;block&nbsp;library&nbsp;containing&nbsp;robot-specific&nbsp;blocks&nbsp;can&nbsp;be
+%&nbsp;opened&nbsp;by
+open&nbsp;robot/robotslib.slx
+%&nbsp;and&nbsp;the&nbsp;blocks&nbsp;dragged&nbsp;into&nbsp;your&nbsp;own&nbsp;models.
+</pre>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> gencoriolis</td> <td>generate Coriolis/centripetal code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genfdyn</td> <td>generate forward dynamics code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genfkine</td> <td>generate forward kinematics code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genfriction</td> <td>generate joint friction code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> gengravload</td> <td>generate gravity load code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> geninertia</td> <td>generate inertia matrix code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> geninvdyn</td> <td>generate inverse dynamics code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genjacobian</td> <td>generate Jacobian code</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> geneverything</td> <td>generate code for all of the above</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> basepath</td> <td>basic working directory of the code generator</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> robjpath</td> <td>subdirectory for specialized MATLAB functions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> sympath</td> <td>subdirectory for symbolic expressions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> slib</td> <td>filename of the Simulink library</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> slibpath</td> <td>subdirectory for the Simulink library</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> verbose</td> <td>print code generation progress on console (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> saveresult</td> <td>save symbolic expressions to .mat-files (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> logfile</td> <td>print modeling progress to specified text file (string)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genmfun</td> <td>generate executable M-functions (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genslblock</td> <td>generate Embedded MATLAB Function blocks (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genccode</td> <td>generate C-functions and -headers (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> genmex</td> <td>generate MEX-functions as replacement for M-functions (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> compilemex</td> <td>automatically compile MEX-functions after generation (logical)</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> rob</td> <td>SerialLink object to generate code for (1x1).</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Requires the MATLAB Symbolic Toolbox.</li>
+  <li>For robots with > 3 joints the symbolic expressions are massively
+complex, they are slow and you may run out of memory.</li>
+  <li>As much as possible the symbolic calculations are down row-wise to
+reduce the computation/memory burden.</li>
+  <li>Requires a C-compiler if robot specific MEX-functions shall be
+generated as m-functions replacement (see MATLAB documentation of MEX
+files).</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.html">SerialLink</a>, <a href="Link.html">Link</a></p>
+<hr>
+<a name="CodeGenerator"><h1>CodeGenerator.CodeGenerator</h1></a>
+<p><span class="helptopic">Construct a code generator object</span></p><p>
+<strong>cGen</strong> = <span style="color:red">CodeGenerator</span>(<strong>rob</strong>, <strong>options</strong>) is a code generator object for the SerialLink
+object <strong>rob</strong>.
+
+</p>
+<h2>Options</h2>
+<p>
+<span style="color:red">CodeGenerator</span> has many options, and useful sets of options are called
+optionSets, and the following are recognized:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'default'</td> <td>set the options: verbose, saveResult, genMFun, genSLBlock</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'debug'</td> <td>set the options: verbose, saveResult, genMFun, genSLBlock
+and create a logfile named 'robModel.log' in the working directory</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'silent'</td> <td>set the options: saveResult, genMFun, genSLBlock</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'disk'</td> <td>set the options: verbose, saveResult</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'workspace'</td> <td>set the option: verbose; just outputs symbolic expressions to workspace</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'mfun'</td> <td>set the options: verbose, saveResult, genMFun</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'slblock'</td> <td>set the options: verbose, saveResult, genSLBlock</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'ccode'</td> <td>set the options: verbose, saveResult, genCcode</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'mex'</td> <td>set the options: verbose, saveResult, genMEX</td></tr>
+</table>
+<p>
+If no optionSet is provided, then 'default' is used.
+
+</p>
+<p>
+The options themselves control the code generation and user information:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>write code generation progress to command window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'saveResult</td> <td>save results to hard disk (always enabled, when genMFun and genSLBlock are set)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'logFile', logfile</td> <td>write code generation progress to specified logfile</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'genMFun'</td> <td>generate robot specific m-functions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'genSLBlock'</td> <td>generate real-time capable robot specific Simulink blocks</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'genccode'</td> <td>generate robot specific C-functions and -headers</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'mex'</td> <td>generate robot specific MEX-functions as replacement for the m-functions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'compilemex'</td> <td>select whether generated MEX-function should be compiled directly after generation</td></tr>
+</table>
+<p>
+Any option may also be modified individually as optional parameter value pairs.
+
+</p>
+<h2>Author</h2>
+<p>
+Joern Malzahn
+2012 RST, Technische Universitaet Dortmund, Germany.
+http://www.rst.e-technik.tu-dortmund.de
+
+</p>
+<hr>
+<a name="addpath"><h1>CodeGenerator.addpath</h1></a>
+<p><span class="helptopic">Adds generated code to search path</span></p><p>
+cGen.<span style="color:red">addpath</span>() adds the generated m-functions and block library to the
+MATLAB function search path.
+
+</p>
+<h2>Author</h2>
+<p>
+Joern Malzahn
+2012 RST, Technische Universitaet Dortmund, Germany.
+http://www.rst.e-technik.tu-dortmund.de
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="addpath.html">addpath</a></p>
+<hr>
+<a name="genccodecoriolis"><h1>CodeGenerator.genccodecoriolis</h1></a>
+<p><span class="helptopic">Generate C-function for robot inertia matrix</span></p><p>
+cGen.<span style="color:red">genccodecoriolis</span>() generates robot-specific C-functions to compute
+the robot coriolis matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gencoriolis if cGen has active flag genccode or
+genmex.</li>
+  <li>The .c and .h files are generated in the directory specified by the
+ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a>, <a href="CodeGenerator.genmexcoriolis.html">CodeGenerator.genmexcoriolis</a></p>
+<hr>
+<a name="genccodefdyn"><h1>CodeGenerator.genccodefdyn</h1></a>
+<p><span class="helptopic">Generate C-code for forward dynamics</span></p><p>
+cGen.<span style="color:red">genccodeinvdyn</span>() generates a robot-specific C-code to compute the
+forward dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfdyn if cGen has active flag genccode or
+genmex.</li>
+  <li>The .c and .h files are generated in the directory specified
+by the ccodepath property of the CodeGenerator object.</li>
+  <li>The resulting C-function is composed of previously generated C-functions
+for the inertia matrix, Coriolis matrix, vector of gravitational load and
+joint friction vector. This function recombines these components to
+compute the forward dynamics.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a>, <a href="CodeGenerator.genccodeinvdyn.html">CodeGenerator.genccodeinvdyn</a></p>
+<hr>
+<a name="genccodefkine"><h1>CodeGenerator.genccodefkine</h1></a>
+<p><span class="helptopic">Generate C-code for the forward kinematics</span></p><p>
+cGen.<span style="color:red">genccodefkine</span>() generates a robot-specific C-function to compute
+forward kinematics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfkine if cGen has active flag genccode or
+genmex</li>
+  <li>The generated .c and .h files are wirtten to the directory specified in
+the ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a>, <a href="CodeGenerator.genmexfkine.html">CodeGenerator.genmexfkine</a></p>
+<hr>
+<a name="genccodefriction"><h1>CodeGenerator.genccodefriction</h1></a>
+<p><span class="helptopic">Generate C-code for the joint friction</span></p><p>
+cGen.<span style="color:red">genccodefriction</span>() generates a robot-specific C-function to compute
+vector of friction torques/forces.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfriction if cGen has active flag genccode or
+genmex</li>
+  <li>The generated .c and .h files are wirtten to the directory specified in
+the ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfriction.html">CodeGenerator.genfriction</a>, <a href="CodeGenerator.genmexfriction.html">CodeGenerator.genmexfriction</a></p>
+<hr>
+<a name="genccodegravload"><h1>CodeGenerator.genccodegravload</h1></a>
+<p><span class="helptopic">Generate C-code for the vector of</span></p><p>
+gravitational load torques/forces
+
+</p>
+<p>
+cGen.<span style="color:red">genccodegravload</span>() generates a robot-specific C-function to compute
+vector of gravitational load torques/forces.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gengravload if cGen has active flag genccode or
+genmex</li>
+  <li>The generated .c and .h files are wirtten to the directory specified in
+the ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gengravload.html">CodeGenerator.gengravload</a>, <a href="CodeGenerator.genmexgravload.html">CodeGenerator.genmexgravload</a></p>
+<hr>
+<a name="genccodeinertia"><h1>CodeGenerator.genccodeinertia</h1></a>
+<p><span class="helptopic">Generate C-function for robot inertia matrix</span></p><p>
+cGen.<span style="color:red">genccodeinertia</span>() generates robot-specific C-functions to compute
+the robot inertia matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninertia if cGen has active flag genccode or
+genmex.</li>
+  <li>The generated .c and .h files are generated in the directory specified
+by the ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a>, <a href="CodeGenerator.genmexinertia.html">CodeGenerator.genmexinertia</a></p>
+<hr>
+<a name="genccodeinvdyn"><h1>CodeGenerator.genccodeinvdyn</h1></a>
+<p><span class="helptopic">Generate C-code for inverse dynamics</span></p><p>
+cGen.<span style="color:red">genccodeinvdyn</span>() generates a robot-specific C-code to compute the
+inverse dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninvdyn if cGen has active flag genccode or
+genmex.</li>
+  <li>The .c and .h files are generated in the directory specified
+by the ccodepath property of the CodeGenerator object.</li>
+  <li>The resulting C-function is composed of previously generated C-functions
+for the inertia matrix, coriolis matrix, vector of gravitational load and
+joint friction vector. This function recombines these components to
+compute the inverse dynamics.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a>, <a href="CodeGenerator.genccodefdyn.html">CodeGenerator.genccodefdyn</a></p>
+<hr>
+<a name="genccodejacobian"><h1>CodeGenerator.genccodejacobian</h1></a>
+<p><span class="helptopic">Generate C-functions for robot jacobians</span></p><p>
+cGen.<span style="color:red">genccodejacobian</span>() generates a robot-specific C-function to compute
+the jacobians with respect to the robot base as well as the end effector.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genjacobian if cGen has active flag genccode or
+genmex.</li>
+  <li>The generated .c and .h files are generated in the directory specified
+by the ccodepath property of the CodeGenerator object.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genccodefkine.html">CodeGenerator.genccodefkine</a>, <a href="CodeGenerator.genjacobian.html">CodeGenerator.genjacobian</a></p>
+<hr>
+<a name="gencoriolis"><h1>CodeGenerator.gencoriolis</h1></a>
+<p><span class="helptopic">Generate code for Coriolis force</span></p><p>
+<strong>coriolis</strong> = cGen.<span style="color:red">gencoriolis</span>() is a symbolic matrix (NxN) of centrifugal and Coriolis
+forces/torques.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The Coriolis matrix is stored row by row to avoid memory issues.
+The generated code recombines these rows to output the full matrix.</li>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genfdyn"><h1>CodeGenerator.genfdyn</h1></a>
+<p><span class="helptopic">Generate code for forward dynamics</span></p><p>
+<strong>Iqdd</strong> = cGen.<span style="color:red">genfdyn</span>() is a symbolic vector (1xN) of joint inertial
+reaction forces/torques.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genfkine"><h1>CodeGenerator.genfkine</h1></a>
+<p><span class="helptopic">Generate code for forward kinematics</span></p><p>
+<strong>T</strong> = cGen.<span style="color:red">genfkine</span>() generates a symbolic homogeneous transform matrix (4x4) representing
+the pose of the robot end-effector in terms of the symbolic joint coordinates q1, q2, ...
+
+</p>
+<p>
+[<strong>T</strong>, <strong>allt</strong>] = cGen.<span style="color:red">genfkine</span>() as above but also generates symbolic homogeneous transform
+matrices (4x4xN) for the poses of the individual robot joints.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a>, <a href="CodeGenerator.genjacobian.html">CodeGenerator.genjacobian</a></p>
+<hr>
+<a name="genfriction"><h1>CodeGenerator.genfriction</h1></a>
+<p><span class="helptopic">Generate code for joint friction</span></p><p>
+<strong>f</strong> = cGen.<span style="color:red">genfriction</span>() is the symbolic vector (1xN) of joint friction
+forces.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a></p>
+<hr>
+<a name="gengravload"><h1>CodeGenerator.gengravload</h1></a>
+<p><span class="helptopic">Generate code for gravitational load</span></p><p>
+<strong>g</strong> = cGen.<span style="color:red">gengravload</span>() is a symbolic vector (1xN) of joint load
+forces/torques due to gravity.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.html">CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a></p>
+<hr>
+<a name="geninertia"><h1>CodeGenerator.geninertia</h1></a>
+<p><span class="helptopic">Generate code for inertia matrix</span></p><p>
+<strong>i</strong> = cGen.<span style="color:red">geninertia</span>() is the symbolic robot inertia matrix (NxN).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The inertia matrix is stored row by row to avoid memory issues.
+The generated code recombines these rows to output the full matrix.</li>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a></p>
+<hr>
+<a name="geninvdyn"><h1>CodeGenerator.geninvdyn</h1></a>
+<p><span class="helptopic">Generate code for inverse dynamics</span></p><p>
+<strong>tau</strong> = cGen.<span style="color:red">geninvdyn</span>() is the symbolic vector (1xN) of joint forces/torques.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The inverse dynamics vector is composed of the previously computed inertia matrix
+coriolis matrix, vector of gravitational load and joint friction for speedup.
+The generated code recombines these components to output the final vector.</li>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genjacobian"><h1>CodeGenerator.genjacobian</h1></a>
+<p><span class="helptopic">Generate code for robot Jacobians</span></p><p>
+<strong>j0</strong> = cGen.<span style="color:red">genjacobian</span>() is the symbolic expression for the Jacobian
+matrix (6xN) expressed in the base coordinate frame.
+
+</p>
+<p>
+[<strong>j0</strong>, <strong>Jn</strong>] = cGen.<span style="color:red">genjacobian</span>() as above but also returns the symbolic
+expression for the Jacobian matrix (6xN) expressed in the end-effector
+frame.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Side effects of execution depends on the cGen flags:</li>
+<ul>
+  <li>saveresult: the symbolic expressions are saved to
+disk in the directory specified by cGen.sympath</li>
+  <li>genmfun: ready to use m-functions are generated and
+provided via a subclass of SerialLink stored in cGen.robjpath</li>
+  <li>genslblock: a Simulink block is generated and stored in a
+robot specific block library cGen.slib in the directory
+cGen.basepath</li>
+  <li>genccode: generates C-functions and -headers in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>mex: generates robot specific MEX-functions as replacement for the
+m-functions mentioned above. Access is provided by the SerialLink
+subclass. The MEX files rely on the C code generated before.</li>
+</ul>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genmexcoriolis"><h1>CodeGenerator.genmexcoriolis</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for robot coriolis matrix</span></p><p>
+cGen.<span style="color:red">genmexcoriolis</span>() generates robot-specific MEX-functions to compute
+robot coriolis matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gencoriolis if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated functions is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a></p>
+<hr>
+<a name="genmexfdyn"><h1>CodeGenerator.genmexfdyn</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for forward dynamics</span></p><p>
+cGen.<span style="color:red">genmexfdyn</span>() generates a robot-specific MEX-function to compute
+the forward dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfdyn if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a>, <a href="CodeGenerator.genmexinvdyn.html">CodeGenerator.genmexinvdyn</a></p>
+<hr>
+<a name="genmexfkine"><h1>CodeGenerator.genmexfkine</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for forward kinematics</span></p><p>
+cGen.<span style="color:red">genmexfkine</span>() generates a robot-specific MEX-function to compute
+forward kinematics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfkine if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genmexfriction"><h1>CodeGenerator.genmexfriction</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for joint friction</span></p><p>
+cGen.<span style="color:red">genmexfriction</span>() generates a robot-specific MEX-function to compute
+the vector of joint friction.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfriction if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gengravload.html">CodeGenerator.gengravload</a></p>
+<hr>
+<a name="genmexgravload"><h1>CodeGenerator.genmexgravload</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for gravitational load</span></p><p>
+cGen.<span style="color:red">genmexgravload</span>() generates a robot-specific MEX-function to compute
+gravitation load forces and torques.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gengravload if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gengravload.html">CodeGenerator.gengravload</a></p>
+<hr>
+<a name="genmexinertia"><h1>CodeGenerator.genmexinertia</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for robot inertia matrix</span></p><p>
+cGen.<span style="color:red">genmexinertia</span>() generates robot-specific MEX-functions to compute
+robot inertia matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninertia if cGen has active flag genmex</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated functions is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a></p>
+<hr>
+<a name="genmexinvdyn"><h1>CodeGenerator.genmexinvdyn</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for inverse dynamics</span></p><p>
+cGen.<span style="color:red">genmexinvdyn</span>() generates a robot-specific MEX-function to compute
+the inverse dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninvdyn if cGen has active flag genmex.</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gengravload.html">CodeGenerator.gengravload</a></p>
+<hr>
+<a name="genmexjacobian"><h1>CodeGenerator.genmexjacobian</h1></a>
+<p><span class="helptopic">Generate C-MEX-function for the robot Jacobians</span></p><p>
+cGen.<span style="color:red">genmexjacobian</span>() generates robot-specific MEX-function to compute
+the robot Jacobian with respect to the base as well as the end effector
+frame.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genjacobian if cGen has active flag genmex.</li>
+  <li>The MEX file uses the .c and .h files generated in the directory
+specified by the ccodepath property of the CodeGenerator object.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+  <li>You will need a C compiler to use the generated MEX-functions. See the
+MATLAB documentation on how to setup the compiler in MATLAB.
+Nevertheless the basic C-MEX-code as such may be generated without a
+compiler. In this case switch the cGen flag compilemex to false.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genjacobian.html">CodeGenerator.genjacobian</a></p>
+<hr>
+<a name="genmfuncoriolis"><h1>CodeGenerator.genmfuncoriolis</h1></a>
+<p><span class="helptopic">Generate M-functions for Coriolis matrix</span></p><p>
+cGen.<span style="color:red">genmfuncoriolis</span>() generates a robot-specific M-function to compute
+the Coriolis matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gencoriolis if cGen has active flag genmfun</li>
+  <li>The Coriolis matrix is stored row by row to avoid memory issues.</li>
+  <li>The generated M-function recombines the individual M-functions for each row.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a></p>
+<hr>
+<a name="genmfunfdyn"><h1>CodeGenerator.genmfunfdyn</h1></a>
+<p><span class="helptopic">Generate M-function for forward dynamics</span></p><p>
+cGen.<span style="color:red">genmfunfdyn</span>() generates a robot-specific M-function to compute
+the forward dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfdyn if cGen has active flag genmfun</li>
+  <li>The generated M-function is composed of previously generated M-functions
+for the inertia matrix, coriolis matrix, vector of gravitational load and
+joint friction vector.  This function recombines these components to compute
+the forward dynamics.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a></p>
+<hr>
+<a name="genmfunfkine"><h1>CodeGenerator.genmfunfkine</h1></a>
+<p><span class="helptopic">Generate M-function for forward kinematics</span></p><p>
+cGen.<span style="color:red">genmfunfkine</span>() generates a robot-specific M-function to compute
+forward kinematics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfkine if cGen has active flag genmfun</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genjacobian.html">CodeGenerator.genjacobian</a></p>
+<hr>
+<a name="genmfunfriction"><h1>CodeGenerator.genmfunfriction</h1></a>
+<p><span class="helptopic">Generate M-function for joint friction</span></p><p>
+cGen.<span style="color:red">genmfunfriction</span>() generates a robot-specific M-function to compute
+joint friction.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called only if cGen has active flag genmfun</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gengravload.html">CodeGenerator.gengravload</a></p>
+<hr>
+<a name="genmfungravload"><h1>CodeGenerator.genmfungravload</h1></a>
+<p><span class="helptopic">Generate M-functions for gravitational load</span></p><p>
+cGen.<span style="color:red">genmfungravload</span>() generates a robot-specific M-function to compute
+gravitation load forces and torques.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gengravload if cGen has active flag genmfun</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a></p>
+<hr>
+<a name="genmfuninertia"><h1>CodeGenerator.genmfuninertia</h1></a>
+<p><span class="helptopic">Generate M-function for robot inertia matrix</span></p><p>
+cGen.<span style="color:red">genmfuninertia</span>() generates a robot-specific M-function to compute
+robot inertia matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninertia if cGen has active flag genmfun</li>
+  <li>The inertia matrix is stored row by row to avoid memory issues.</li>
+  <li>The generated M-function recombines the individual M-functions for each row.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a></p>
+<hr>
+<a name="genmfuninvdyn"><h1>CodeGenerator.genmfuninvdyn</h1></a>
+<p><span class="helptopic">Generate M-functions for inverse dynamics</span></p><p>
+cGen.<span style="color:red">genmfuninvdyn</span>() generates a robot-specific M-function to compute
+inverse dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninvdyn if cGen has active flag genmfun</li>
+  <li>The generated M-function is composed of previously generated M-functions
+for the inertia matrix, coriolis matrix, vector of gravitational load and
+joint friction vector.  This function recombines these components to
+compute the inverse dynamics.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a></p>
+<hr>
+<a name="genmfunjacobian"><h1>CodeGenerator.genmfunjacobian</h1></a>
+<p><span class="helptopic">Generate M-functions for robot Jacobian</span></p><p>
+cGen.<span style="color:red">genmfunjacobian</span>() generates a robot-specific M-function to compute
+robot Jacobian.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genjacobian, if cGen has active flag genmfun</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a></p>
+<hr>
+<a name="genslblockcoriolis"><h1>CodeGenerator.genslblockcoriolis</h1></a>
+<p><span class="helptopic">Generate Simulink block for Coriolis matrix</span></p><p>
+cGen.<span style="color:red">genslblockcoriolis</span>() generates a robot-specific Simulink block to compute
+Coriolis/centripetal matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gencoriolis if cGen has active flag genslblock</li>
+  <li>The Coriolis matrix is stored row by row to avoid memory issues.</li>
+  <li>The Simulink block recombines the the individual blocks for each row.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.gencoriolis.html">CodeGenerator.gencoriolis</a></p>
+<hr>
+<a name="genslblockfdyn"><h1>CodeGenerator.genslblockfdyn</h1></a>
+<p><span class="helptopic">Generate Simulink block for forward dynamics</span></p><p>
+cGen.<span style="color:red">genslblockfdyn</span>() generates a robot-specific Simulink block to compute
+forward dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfdyn if cGen has active flag genslblock</li>
+  <li>The generated Simulink block is composed of previously generated blocks
+for the inertia matrix, coriolis matrix, vector of gravitational load and
+joint friction vector. The block recombines these components to compute
+the forward dynamics.</li>
+  <li>Access to generated function is provided via subclass of SerialLink
+whose class definition is stored in cGen.robjpath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfdyn.html">CodeGenerator.genfdyn</a></p>
+<hr>
+<a name="genslblockfkine"><h1>CodeGenerator.genslblockfkine</h1></a>
+<p><span class="helptopic">Generate Simulink block for forward kinematics</span></p><p>
+cGen.<span style="color:red">genslblockfkine</span>() generates a robot-specific Simulink block to compute
+forward kinematics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfkine if cGen has active flag genslblock.</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+  <li>Blocks are created for intermediate transforms T0, T1 etc. as well.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfkine.html">CodeGenerator.genfkine</a></p>
+<hr>
+<a name="genslblockfriction"><h1>CodeGenerator.genslblockfriction</h1></a>
+<p><span class="helptopic">Generate Simulink block for joint friction</span></p><p>
+cGen.<span style="color:red">genslblockfriction</span>() generates a robot-specific Simulink block to compute
+the joint friction model.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genfriction if cGen has active flag genslblock</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genfriction.html">CodeGenerator.genfriction</a></p>
+<hr>
+<a name="genslblockgravload"><h1>CodeGenerator.genslblockgravload</h1></a>
+<p><span class="helptopic">Generate Simulink block for gravitational load</span></p><p>
+cGen.<span style="color:red">genslblockgravload</span>() generates a robot-specific Simulink block to compute
+gravitational load.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.gengravload if cGen has active flag genslblock</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<p>
+See also <span style="color:red">CodeGenerator</span>.<span style="color:red">CodeGenerator</span>, <span style="color:red">CodeGenerator</span>.gengravload
+
+</p>
+<hr>
+<a name="genslblockinertia"><h1>CodeGenerator.genslblockinertia</h1></a>
+<p><span class="helptopic">Generate Simulink block for inertia matrix</span></p><p>
+cGen.<span style="color:red">genslbgenslblockinertia</span>() generates a robot-specific Simulink block to compute
+robot inertia matrix.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninertia if cGen has active flag genslblock</li>
+  <li>The Inertia matrix is stored row by row to avoid memory issues.</li>
+  <li>The Simulink block recombines the the individual blocks for each row.</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninertia.html">CodeGenerator.geninertia</a></p>
+<hr>
+<a name="genslblockinvdyn"><h1>CodeGenerator.genslblockinvdyn</h1></a>
+<p><span class="helptopic">Generate Simulink block for inverse dynamics</span></p><p>
+cGen.<span style="color:red">genslblockinvdyn</span>() generates a robot-specific Simulink block to compute
+inverse dynamics.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.geninvdyn if cGen has active flag genslblock</li>
+  <li>The generated Simulink block is composed of previously generated blocks
+for the inertia matrix, coriolis matrix, vector of gravitational load and
+joint friction vector. The block recombines these components to compute
+the forward dynamics.</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.geninvdyn.html">CodeGenerator.geninvdyn</a></p>
+<hr>
+<a name="genslblockjacobian"><h1>CodeGenerator.genslblockjacobian</h1></a>
+<p><span class="helptopic">Generate Simulink block for robot Jacobians</span></p><p>
+cGen.<span style="color:red">genslblockjacobian</span>() generates a robot-specific Simulink block to compute
+robot Jacobians (world and tool frame).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is called by CodeGenerator.genjacobian if cGen has active flag genslblock</li>
+  <li>The Simulink blocks are generated and stored in a robot specific block
+library cGen.slib in the directory cGen.basepath.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="CodeGenerator.CodeGenerator.html">CodeGenerator.CodeGenerator</a>, <a href="CodeGenerator.genjacobian.html">CodeGenerator.genjacobian</a></p>
+<hr>
+<a name="logmsg"><h1>CodeGenerator.logmsg</h1></a>
+<p><span class="helptopic">Print CodeGenerator logs.</span></p><p>
+count = CGen.logmsg( FORMAT, A, ...) is the number of characters written to the CGen.logfile.
+For the additional arguments see fprintf.
+
+</p>
+<h2>Note</h2>
+<p>
+Matlab ships with a function for writing formatted strings into a text
+file or to the console (fprintf). The function works with single
+target identifiers (file, console, string). This function uses the
+same syntax as for the fprintf function to output log messages to
+either the Matlab console, a log file or both.
+
+</p>
+<h2>Authors</h2>
+<p>
+Joern Malzahn, (joern.malzahn@tu-dortmund.de)
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="multidfprintf.html">multidfprintf</a>, <a href="fprintf.html">fprintf</a>, <a href="sprintf.html">sprintf</a></p>
+<hr>
+<a name="purge"><h1>CodeGenerator.purge</h1></a>
+<p><span class="helptopic">Cleanup generated files</span></p><p>
+cGen.<span style="color:red">purge</span>() deletes all generated files, first displays a question dialog to
+make sure the user really wants to delete all generated files.
+
+</p>
+<p>
+cGen.<span style="color:red">purge</span>(1) as above but skips the question dialog.
+
+</p>
+<h2>Author</h2>
+<p>
+Joern Malzahn
+2012 RST, Technische Universitaet Dortmund, Germany.
+http://www.rst.e-technik.tu-dortmund.de
+
+</p>
+<hr>
+<a name="rmpath"><h1>CodeGenerator.rmpath</h1></a>
+<p><span class="helptopic">Removes generated code from search path</span></p><p>
+cGen.<span style="color:red">rmpath</span>() removes generated m-functions and block library from the
+MATLAB function search path.
+
+</p>
+<h2>Author</h2>
+<p>
+Joern Malzahn
+2012 RST, Technische Universitaet Dortmund, Germany.
+http://www.rst.e-technik.tu-dortmund.de
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="rmpath.html">rmpath</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

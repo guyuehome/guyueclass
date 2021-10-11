@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: istereo</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: istereo</td>
+      <td class="subheader-left"><a href="matlab:open istereo">View code for istereo</a></td>
+    </tr>
+  </table>
+<h1>istereo</h1><p><span class="helptopic">Stereo matching</span></p><p>
+<strong>d</strong> = <span style="color:red">istereo</span>(<strong>left</strong>, <strong>right</strong>, <strong>range</strong>, <strong>H</strong>, <strong>options</strong>) is a disparity image computed
+from the epipolar aligned stereo pair: the left image <strong>left</strong> (HxW) and the
+right image <strong>right</strong> (HxW).  <strong>d</strong> (HxW) is the disparity and the value at each
+pixel is the horizontal shift of the corresponding pixel in IML as observed
+in IMR. That is, the disparity d=<strong>d</strong>(v,u) means that the pixel at <strong>right</strong>(v,u-d)
+is the same world point as the pixel at <strong>left</strong>(v,u).
+
+</p>
+<p>
+<strong>range</strong> is the disparity search range, which can be a scalar for disparities in
+the range 0 to <strong>range</strong>, or a 2-vector [DMIN DMAX] for searches in the range
+DMIN to DMAX.
+
+</p>
+<p>
+<strong>H</strong> is the half size of the matching window, which can be a scalar for NxN or a
+2-vector [N,M] for an NxM window.
+
+</p>
+<p>
+[<strong>d</strong>,<strong>sim</strong>] = <span style="color:red">istereo</span>(<strong>left</strong>, <strong>right</strong>, <strong>range</strong>, <strong>H</strong>, <strong>options</strong>) as above but returns <strong>sim</strong>
+which is the same size as <strong>d</strong> and the elements are the peak matching score
+for the corresponding elements of <strong>d</strong>.  For the default matching metric ZNCC
+this varies between -1 (very bad) to +1 (perfect).
+
+</p>
+<p>
+[<strong>d</strong>,<strong>sim</strong>,<strong>dsi</strong>] = <span style="color:red">istereo</span>(<strong>left</strong>, <strong>right</strong>, <strong>range</strong>, <strong>H</strong>, <strong>options</strong>) as above but returns <strong>dsi</strong>
+which is the disparity space image (HxWxN) where N=DMAX-DMIN+1. The I'th
+plane is the similarity of IML to IMR shifted to the left by DMIN+I-1.
+
+</p>
+<p>
+[<strong>d</strong>,<strong>sim</strong>,<strong>p</strong>] = <span style="color:red">istereo</span>(<strong>left</strong>, <strong>right</strong>, <strong>range</strong>, <strong>H</strong>, <strong>options</strong>) if the 'interp' option is
+given then disparity is estimated to sub-pixel precision using quadratic
+interpolation.  In this case <strong>d</strong> is the interpolated disparity and <strong>p</strong> is
+a structure with elements A, B, dx.  The interpolation polynomial is
+s = Ad&circ;2 + Bd + C where s is the similarity score and d is disparity relative
+to the integer disparity at which s is maximum.  <strong>p</strong>.A and <strong>p</strong>.B are matrices the
+same size as <strong>d</strong> whose elements are the per pixel values of the interpolation
+polynomial coefficients.  <strong>p</strong>.dx is the peak of the polynomial with respect
+to the integer disparity at which s is maximum (in the range -0.5 to +0.5).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'metric', M</td> <td>string that specifies the similarity metric to use which is
+one of 'zncc' (default), 'ncc', 'ssd' or 'sad'.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'interp'</td> <td>enable subpixel interpolation and D contains non-integer
+values (default false)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'vshift', V</td> <td>move the right image V pixels vertically with respect to left.</td></tr>
+</table>
+<h2>Example</h2>
+<p>
+Load the left and right images
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L&nbsp;=&nbsp;iread('rocks2-l.png',&nbsp;'reduce',&nbsp;2);
+R&nbsp;=&nbsp;iread('rocks2-r.png',&nbsp;'reduce',&nbsp;2);
+</pre>
+<p>
+then compute stereo disparity and display it
+
+</p>
+<pre style="width: 90%%;" class="examples">
+d&nbsp;=&nbsp;istereo(L,&nbsp;R,&nbsp;[40,&nbsp;90],&nbsp;3);
+idisp(d);
+</pre>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Section 14.3,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+  <li>Images must be greyscale.</li>
+  <li>Disparity values pixels within a half-window dimension (H) of the edges
+will not be valid and are set to NaN.</li>
+  <li>The C term of the interpolation polynomial is not computed or returned.</li>
+  <li>The A term is high where the disparity function has a sharp peak.</li>
+  <li>Disparity and similarity score can be obtained from the disparity space
+image by [SIM,D] = max(DSI, [], 3)</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="irectify.html">irectify</a>, <a href="stdisp.html">stdisp</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

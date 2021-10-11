@@ -1,0 +1,185 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VREP_obj</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VREP_obj</td>
+      <td class="subheader-left"><a href="matlab:open VREP_obj">View code for VREP_obj</a></td>
+    </tr>
+  </table>
+<h1>VREP_obj</h1><p><span class="helptopic">V-REP mirror of simple object</span></p><p>
+Mirror objects are MATLAB objects that reflect objects in the V-REP
+environment.  Methods allow the V-REP state to be examined or changed.
+
+</p>
+<p>
+This is a concrete class, derived from VREP_mirror, for all V-REP objects
+and allows access to pose and object parameters.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep&nbsp;=&nbsp;VREP();
+bill&nbsp;=&nbsp;vrep.object('Bill');&nbsp;&nbsp;%&nbsp;get&nbsp;the&nbsp;human&nbsp;figure&nbsp;Bill
+bill.setpos([1,2,0]);
+bill.setorient([0&nbsp;pi/2&nbsp;0]);
+</pre>
+<p>
+Methods throw exception if an error occurs.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getpos</td> <td>get position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpos</td> <td>set position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getorient</td> <td>get orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setorient</td> <td>set orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getpose</td> <td>get pose of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpose</td> <td>set pose of object</td></tr>
+</table>
+<h2>Superclass methods (VREP_mirror)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getname</td> <td>get object name</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setparam_bool</td> <td>set object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_int</td> <td>set object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_float</td> <td>set object float parameter</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> getparam_bool</td> <td>get object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_int</td> <td>get object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_float</td> <td>get object float parameter</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>print the link parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="VREP_mirror.html">VREP_mirror</a>, <a href="VREP_obj.html">VREP_obj</a>, <a href="VREP_arm.html">VREP_arm</a>, <a href="VREP_camera.html">VREP_camera</a>, <a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="VREP_obj"><h1>VREP_obj.VREP_obj</h1></a>
+<p><span class="helptopic">VREP_obj mirror object constructor</span></p><p>
+<strong>v</strong> = <span style="color:red">VREP_base</span>(<strong>name</strong>) creates a V-REP mirror object for a
+simple V-REP object type.
+
+</p>
+<hr>
+<a name="getorient"><h1>VREP_obj.getorient</h1></a>
+<p><span class="helptopic">Get orientation of V-REP object</span></p><p>
+V.<span style="color:red">getorient</span>() is the orientation of the corresponding V-REP
+object as a rotation matrix (3x3).
+
+</p>
+<p>
+V.<span style="color:red">getorient</span>('euler', OPTIONS) as above but returns ZYZ Euler
+angles.
+
+</p>
+<p>
+V.<span style="color:red">getorient</span>(<strong>base</strong>) is the orientation of the corresponding V-REP
+object relative to the <span style="color:red">VREP_obj</span> object <strong>base</strong>.
+
+</p>
+<p>
+V.<span style="color:red">getorient</span>(<strong>base</strong>, 'euler', OPTIONS) as above but returns ZYZ Euler
+angles.
+
+</p>
+<h2>Options</h2>
+<p>
+See tr2eul.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.setorient.html">VREP_obj.setorient</a>, <a href="VREP_obj.getopos.html">VREP_obj.getopos</a>, <a href="VREP_obj.getpose.html">VREP_obj.getpose</a></p>
+<hr>
+<a name="getpos"><h1>VREP_obj.getpos</h1></a>
+<p><span class="helptopic">Get position of V-REP object</span></p><p>
+V.<span style="color:red">getpos</span>() is the position (1x3) of the corresponding V-REP object.
+
+</p>
+<p>
+V.<span style="color:red">getpos</span>(<strong>base</strong>) as above but position is relative to the <span style="color:red">VREP_obj</span>
+object <strong>base</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.setpos.html">VREP_obj.setpos</a>, <a href="VREP_obj.getorient.html">VREP_obj.getorient</a>, <a href="VREP_obj.getpose.html">VREP_obj.getpose</a></p>
+<hr>
+<a name="getpose"><h1>VREP_obj.getpose</h1></a>
+<p><span class="helptopic">Get pose of V-REP object</span></p><p>
+V.<span style="color:red">getpose</span>() is the pose (4x4) of the the corresponding V-REP object.
+
+</p>
+<p>
+V.<span style="color:red">getpose</span>(<strong>base</strong>) as above but pose is relative to the
+pose the <span style="color:red">VREP_obj</span> object <strong>base</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.setpose.html">VREP_obj.setpose</a>, <a href="VREP_obj.getorient.html">VREP_obj.getorient</a>, <a href="VREP_obj.getpos.html">VREP_obj.getpos</a></p>
+<hr>
+<a name="setorient"><h1>VREP_obj.setorient</h1></a>
+<p><span class="helptopic">Set orientation of V-REP object</span></p><p>
+V.<span style="color:red">setorient</span>(<strong>R</strong>) sets the orientation of the corresponding V-REP to rotation matrix <strong>R</strong> (3x3).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>T</strong>) sets the orientation of the corresponding V-REP object to rotational component of homogeneous transformation matrix
+<strong>T</strong> (4x4).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>E</strong>) sets the orientation of the corresponding V-REP object to ZYZ Euler angles (1x3).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>x</strong>, <strong>base</strong>) as above but orientation is set relative to the
+orientation of <span style="color:red">VREP_obj</span> object <strong>base</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.getorient.html">VREP_obj.getorient</a>, <a href="VREP_obj.setpos.html">VREP_obj.setpos</a>, <a href="VREP_obj.setpose.html">VREP_obj.setpose</a></p>
+<hr>
+<a name="setpos"><h1>VREP_obj.setpos</h1></a>
+<p><span class="helptopic">Set position of V-REP object</span></p><p>
+V.<span style="color:red">setpos</span>(<strong>T</strong>) sets the position of the corresponding V-REP object
+to <strong>T</strong> (1x3).
+
+</p>
+<p>
+V.<span style="color:red">setpos</span>(<strong>T</strong>, <strong>base</strong>) as above but position is set relative to the
+position of the <span style="color:red">VREP_obj</span> object <strong>base</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.getpos.html">VREP_obj.getpos</a>, <a href="VREP_obj.setorient.html">VREP_obj.setorient</a>, <a href="VREP_obj.setpose.html">VREP_obj.setpose</a></p>
+<hr>
+<a name="setpose"><h1>VREP_obj.setpose</h1></a>
+<p><span class="helptopic">Set pose of V-REP object</span></p><p>
+V.<span style="color:red">setpose</span>(<strong>T</strong>) sets the pose of the corresponding V-REP object
+to <strong>T</strong> (4x4).
+
+</p>
+<p>
+V.<span style="color:red">setpose</span>(<strong>T</strong>, <strong>base</strong>) as above but pose is set relative to the
+pose of the <span style="color:red">VREP_obj</span> object <strong>base</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.getpose.html">VREP_obj.getpose</a>, <a href="VREP_obj.setorient.html">VREP_obj.setorient</a>, <a href="VREP_obj.setpos.html">VREP_obj.setpos</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

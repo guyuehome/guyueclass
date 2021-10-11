@@ -1,0 +1,401 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Link</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Link</td>
+      <td class="subheader-left"><a href="matlab:open Link">View code for Link</a></td>
+    </tr>
+  </table>
+<h1>Link</h1><p><span class="helptopic">Robot manipulator Link class</span></p><p>
+A Link object holds all information related to a robot link such as
+kinematics parameters, rigid-body inertial parameters, motor and
+transmission parameters.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> A </td> <td>link transform matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> RP</td> <td>joint type: 'R' or 'P'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> friction</td> <td>friction force</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> nofriction</td> <td>Link object with friction parameters set to zero</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> dyn</td> <td>display link dynamic parameters</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> islimit</td> <td>test if joint exceeds soft limit</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> isrevolute</td> <td>test if joint is revolute</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> isprismatic</td> <td>test if joint is prismatic</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>print the link parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>Properties (read/write)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>kinematic: joint angle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> d </td> <td>kinematic: link offset</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> a </td> <td>kinematic: link length</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> alpha</td> <td>kinematic: link twist</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> sigma</td> <td>kinematic: 0 if revolute, 1 if prismatic</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> mdh</td> <td>kinematic: 0 if standard D&H, else 1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> offset</td> <td>kinematic: joint variable offset</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> qlim</td> <td>kinematic: joint variable limits [min max]</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> m </td> <td>dynamic: link mass</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> r </td> <td>dynamic: link COG wrt link coordinate frame 3x1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> I </td> <td>dynamic: link inertia matrix, symmetric 3x3, about link COG.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> B </td> <td>dynamic: link viscous friction (motor referred)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Tc</td> <td>dynamic: link Coulomb friction</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> G </td> <td>actuator: gear ratio</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Jm</td> <td>actuator: motor inertia (motor referred)</td></tr>
+</table>
+<h2>Examples</h2>
+<pre style="width: 90%%;" class="examples">
+L&nbsp;=&nbsp;Link([0&nbsp;1.2&nbsp;0.3&nbsp;pi/2]);
+L&nbsp;=&nbsp;Link('revolute',&nbsp;'d',&nbsp;1.2,&nbsp;'a',&nbsp;0.3,&nbsp;'alpha',&nbsp;pi/2);
+L&nbsp;=&nbsp;Revolute('d',&nbsp;1.2,&nbsp;'a',&nbsp;0.3,&nbsp;'alpha',&nbsp;pi/2);
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>This is a reference class object.</li>
+  <li>Link objects can be used in vectors and arrays.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Robotics, Vision & Control, Chap 7,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Link.html">Link</a>, <a href="Revolute.html">Revolute</a>, <a href="Prismatic.html">Prismatic</a>, <a href="SerialLink.html">SerialLink</a>, <a href="RevoluteMDH.html">RevoluteMDH</a>, <a href="PrismaticMDH.html">PrismaticMDH</a></p>
+<hr>
+<a name="Link"><h1>Link.Link</h1></a>
+<p><span class="helptopic">Create robot link object</span></p><p>
+This the class constructor which has several call signatures.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">Link</span>() is a <span style="color:red">Link</span> object with default parameters.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">Link</span>(<strong>lnk</strong>) is a <span style="color:red">Link</span> object that is a deep copy of the link
+object <strong>lnk</strong>.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">Link</span>(<strong>options</strong>) is a link object with the kinematic and dynamic
+parameters specified by the key/value pairs.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'theta', TH</td> <td>joint angle, if not specified joint is revolute</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'d', D</td> <td>joint extension, if not specified joint is prismatic</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'a', A</td> <td>joint offset (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'alpha', A</td> <td>joint twist (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'standard'</td> <td>defined using standard D&H parameters (default).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'modified'</td> <td>defined using modified D&H parameters.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'offset', O</td> <td>joint variable offset (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'qlim', L</td> <td>joint limit (default [])</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'I', I</td> <td>link inertia matrix (3x1, 6x1 or 3x3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'r', R</td> <td>link centre of gravity (3x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'m', M</td> <td>link mass (1x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'G', G</td> <td>motor gear ratio (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'B', B</td> <td>joint friction, motor referenced (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'Jm', J</td> <td>motor inertia, motor referenced (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'Tc', T</td> <td>Coulomb friction, motor referenced (1x1 or 2x1), (default [0 0])</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'revolute'</td> <td>for a revolute joint (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'prismatic'</td> <td>for a prismatic joint 'p'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'standard'</td> <td>for standard D&H parameters (default).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'modified'</td> <td>for modified D&H parameters.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'sym'</td> <td>consider all parameter values as symbolic not numeric</td></tr>
+</table>
+<ul>
+  <li>It is an error to specify both 'theta' and 'd'</li>
+  <li>The link inertia matrix (3x3) is symmetric and can be specified by giving
+a 3x3 matrix, the diagonal elements [Ixx Iyy Izz], or the moments and products
+of inertia [Ixx Iyy Izz Ixy Iyz Ixz].</li>
+  <li>All friction quantities are referenced to the motor not the load.</li>
+  <li>Gear ratio is used only to convert motor referenced quantities such as
+friction and interia to the link frame.</li>
+</ul>
+<h2>Old syntax</h2>
+<p>
+<strong>L</strong> = <span style="color:red">Link</span>(<strong>dh</strong>, <strong>options</strong>) is a link object using the specified kinematic
+convention  and with parameters:
+
+</p>
+<ul>
+  <li>DH = [THETA D A ALPHA SIGMA OFFSET] where OFFSET is a constant displacement
+between the user joint angle vector and the true kinematic solution.</li>
+  <li>DH = [THETA D A ALPHA SIGMA] where SIGMA=0 for a revolute and 1 for a
+prismatic joint, OFFSET is zero.</li>
+  <li>DH = [THETA D A ALPHA], joint is assumed revolute and OFFSET is zero.</li>
+</ul>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'standard'</td> <td>for standard D&H parameters (default).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'modified'</td> <td>for modified D&H parameters.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'revolute'</td> <td>for a revolute joint, can be abbreviated to 'r' (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'prismatic'</td> <td>for a prismatic joint, can be abbreviated to 'p'</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+A standard Denavit-Hartenberg link
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L3&nbsp;=&nbsp;Link('d',&nbsp;0.15005,&nbsp;'a',&nbsp;0.0203,&nbsp;'alpha',&nbsp;-pi/2);
+</pre>
+<p>
+since 'theta' is not specified the joint is assumed to be revolute, and
+since the kinematic convention is not specified it is assumed 'standard'.
+
+</p>
+<p>
+Using the old syntax
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L3&nbsp;=&nbsp;Link([&nbsp;0,&nbsp;0.15005,&nbsp;0.0203,&nbsp;-pi/2],&nbsp;'standard');
+</pre>
+<p>
+the flag 'standard' is not strictly necessary but adds clarity.  Only 4 parameters
+are specified so sigma is assumed to be zero, ie. the joint is revolute.
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L3&nbsp;=&nbsp;Link([&nbsp;0,&nbsp;0.15005,&nbsp;0.0203,&nbsp;-pi/2,&nbsp;0],&nbsp;'standard');
+</pre>
+<p>
+the flag 'standard' is not strictly necessary but adds clarity.  5 parameters
+are specified and sigma is set to zero, ie. the joint is revolute.
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L3&nbsp;=&nbsp;Link([&nbsp;0,&nbsp;0.15005,&nbsp;0.0203,&nbsp;-pi/2,&nbsp;1],&nbsp;'standard');
+</pre>
+<p>
+the flag 'standard' is not strictly necessary but adds clarity.  5 parameters
+are specified and sigma is set to one, ie. the joint is prismatic.
+
+</p>
+<p>
+For a modified Denavit-Hartenberg revolute joint
+
+</p>
+<pre style="width: 90%%;" class="examples">
+L3&nbsp;=&nbsp;Link([&nbsp;0,&nbsp;0.15005,&nbsp;0.0203,&nbsp;-pi/2,&nbsp;0],&nbsp;'modified');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Link object is a reference object, a subclass of Handle object.</li>
+  <li>Link objects can be used in vectors and arrays.</li>
+  <li>The parameter D is unused in a revolute joint, it is simply a placeholder
+in the vector and the value given is ignored.</li>
+  <li>The parameter THETA is unused in a prismatic joint, it is simply a placeholder
+in the vector and the value given is ignored.</li>
+  <li>The joint offset is a constant added to the joint angle variable before
+forward kinematics and subtracted after inverse kinematics.  It is useful
+if you  want the robot to adopt a 'sensible' pose for zero joint angle
+configuration.</li>
+  <li>The link dynamic (inertial and motor) parameters are all set to
+zero.  These must be set by explicitly assigning the object
+properties: m, r, I, Jm, B, Tc.</li>
+  <li>The gear ratio is set to 1 by default, meaning that motor friction and
+inertia will be considered if they are non-zero.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Revolute.html">Revolute</a>, <a href="Prismatic.html">Prismatic</a></p>
+<hr>
+<a name="A"><h1>Link.A</h1></a>
+<p><span class="helptopic">Link transform matrix</span></p><p>
+<strong>T</strong> = L.<span style="color:red">A</span>(<strong>q</strong>) is the link homogeneous transformation matrix (4x4) corresponding
+to the link variable <strong>q</strong> which is either the Denavit-Hartenberg parameter THETA (revolute)
+or D (prismatic).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>For a revolute joint the THETA parameter of the link is ignored, and Q used instead.</li>
+  <li>For a prismatic joint the D parameter of the link is ignored, and Q used instead.</li>
+  <li>The link offset parameter is added to Q before computation of the transformation matrix.</li>
+</ul>
+<hr>
+<a name="char"><h1>Link.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = L.<span style="color:red">char</span>() is a string showing link parameters in a compact single line format.
+If L is a vector of <span style="color:red">Link</span> objects return a string with one line per <span style="color:red">Link</span>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Link.display.html">Link.display</a></p>
+<hr>
+<a name="display"><h1>Link.display</h1></a>
+<p><span class="helptopic">Display parameters</span></p><p>
+L.<span style="color:red">display</span>() displays the link parameters in compact single line format.  If L is a
+vector of <span style="color:red">Link</span> objects displays one line per element.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Link object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Link.char.html">Link.char</a>, <a href="Link.dyn.html">Link.dyn</a>, <a href="SerialLink.showlink.html">SerialLink.showlink</a></p>
+<hr>
+<a name="dyn"><h1>Link.dyn</h1></a>
+<p><span class="helptopic">Show inertial properties of link</span></p><p>
+L.<span style="color:red">dyn</span>() displays the inertial properties of the link object in a multi-line
+format. The properties shown are mass, centre of mass, inertia, friction,
+gear ratio and motor properties.
+
+</p>
+<p>
+If L is a vector of <span style="color:red">Link</span> objects show properties for each link.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.dyn.html">SerialLink.dyn</a></p>
+<hr>
+<a name="friction"><h1>Link.friction</h1></a>
+<p><span class="helptopic">Joint friction force</span></p><p>
+<strong>f</strong> = L.<span style="color:red">friction</span>(<strong>qd</strong>) is the joint <span style="color:red">friction</span> force/torque for link velocity <strong>qd</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The returned friction value is referred to the output of the gearbox.</li>
+  <li>The friction parameters in the Link object are referred to the motor.</li>
+  <li>Motor viscous friction is scaled up by G^2.</li>
+  <li>Motor Coulomb friction is scaled up by G.</li>
+  <li>The appropriate Coulomb friction value to use in the non-symmetric case
+depends on the sign of the joint velocity, not the motor velocity.</li>
+</ul>
+<hr>
+<a name="islimit"><h1>Link.islimit</h1></a>
+<p><span class="helptopic">Test joint limits</span></p><p>
+L.<span style="color:red">islimit</span>(<strong>q</strong>) is true (1) if <strong>q</strong> is outside the soft limits set for this joint.
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>The limits are not currently used by any Toolbox functions.</li>
+</ul>
+<hr>
+<a name="isprismatic"><h1>Link.isprismatic</h1></a>
+<p><span class="helptopic">Test if joint is prismatic</span></p><p>
+L.<span style="color:red">isprismatic</span>() is true (1) if joint is prismatic.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Link.isrevolute.html">Link.isrevolute</a></p>
+<hr>
+<a name="isrevolute"><h1>Link.isrevolute</h1></a>
+<p><span class="helptopic">Test if joint is revolute</span></p><p>
+L.<span style="color:red">isrevolute</span>() is true (1) if joint is revolute.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Link.isprismatic.html">Link.isprismatic</a></p>
+<hr>
+<a name="issym"><h1>Link.issym</h1></a>
+<p><span class="helptopic">Check if link is a symbolic model</span></p><p>
+<strong>res</strong> = L.<span style="color:red">issym</span>() is true if the <span style="color:red">Link</span> L has symbolic parameters.
+
+</p>
+<hr>
+<a name="nofriction"><h1>Link.nofriction</h1></a>
+<p><span class="helptopic">Remove friction</span></p><p>
+<strong>ln</strong> = L.<span style="color:red">nofriction</span>() is a link object with the same parameters as L except
+nonlinear (Coulomb) friction parameter is zero.
+
+</p>
+<p>
+<strong>ln</strong> = L.<span style="color:red">nofriction</span>('all') as above except that viscous and Coulomb friction
+are set to zero.
+
+</p>
+<p>
+<strong>ln</strong> = L.<span style="color:red">nofriction</span>('coulomb') as above except that Coulomb friction is set to zero.
+
+</p>
+<p>
+<strong>ln</strong> = L.<span style="color:red">nofriction</span>('viscous') as above except that viscous friction is set to zero.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Forward dynamic simulation can be very slow with finite Coulomb friction.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.nofriction.html">SerialLink.nofriction</a>, <a href="SerialLink.fdyn.html">SerialLink.fdyn</a></p>
+<hr>
+<a name="RP"><h1>Link.RP</h1></a>
+<p><span class="helptopic">Joint type</span></p><p>
+<strong>c</strong> = L.<span style="color:red">RP</span>() is a character 'R' or 'P' depending on whether joint is revolute or
+prismatic respectively.
+If L is a vector of <span style="color:red">Link</span> objects return a string of characters in joint order.
+
+</p>
+<hr>
+<a name="set.I"><h1>Link.set.I</h1></a>
+<p><span class="helptopic">Set link inertia</span></p><p>
+L.I = [Ixx Iyy Izz] sets link inertia to a diagonal matrix.
+
+</p>
+<p>
+L.I = [Ixx Iyy Izz Ixy Iyz Ixz] sets link inertia to a symmetric matrix with
+specified inertia and product of intertia elements.
+
+</p>
+<p>
+L.I = M set <span style="color:red">Link</span> inertia matrix to M (3x3) which must be symmetric.
+
+</p>
+<hr>
+<a name="set.r"><h1>Link.set.r</h1></a>
+<p><span class="helptopic">Set centre of gravity</span></p><p>
+L.r = R sets the link centre of gravity (COG) to R (3-vector).
+
+</p>
+<hr>
+<a name="set.Tc"><h1>Link.set.Tc</h1></a>
+<p><span class="helptopic">Set Coulomb friction</span></p><p>
+L.Tc = F sets Coulomb friction parameters to [F -F], for a symmetric
+Coulomb friction model.
+
+</p>
+<p>
+L.Tc = [FP FM] sets Coulomb friction to [FP FM], for an asymmetric
+Coulomb friction model. FP&amp;gt;0 and FM&amp;lt;0.  FP is applied for a positive
+joint velocity and FM for a negative joint velocity.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The friction parameters are defined as being positive for a positive
+joint velocity, the friction force computed by Link.friction uses the
+negative of the friction parameter, that is, the force opposing motion of
+the joint.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Link.friction.html">Link.friction</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

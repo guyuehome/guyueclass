@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: hist2d</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: hist2d</td>
+      <td class="subheader-left"><a href="matlab:open hist2d">View code for hist2d</a></td>
+    </tr>
+  </table>
+<h1>hist2d</h1><p><span class="helptopic">MEX file to compute 2-D histogram.</span></p><p>
+[<strong>h</strong>,<strong>vx</strong>,<strong>vy</strong>] = <span style="color:red">hist2d</span>(<strong>x</strong>,<strong>y</strong>)
+
+</p>
+<p>
+or
+
+</p>
+<p>
+[<strong>h</strong>,<strong>vx</strong>,<strong>vy</strong>] = <span style="color:red">hist2d</span>(<strong>x</strong>,<strong>y</strong>,[x0 dx nx],[y0 dy ny])
+
+</p>
+<p>
+Inputs:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+x,y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;points.&nbsp;&nbsp;{x(i),y(i)}&nbsp;is&nbsp;a&nbsp;single&nbsp;data&nbsp;point.
+x0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowest&nbsp;x&nbsp;bin's&nbsp;lower&nbsp;edge
+dx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;bin&nbsp;width
+nx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;x&nbsp;bins
+y0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lowest&nbsp;y&nbsp;bin's&nbsp;lower&nbsp;edge
+dy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;bin&nbsp;width
+ny&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;y&nbsp;bins
+[x0,dx,nx]&nbsp;and&nbsp;[y0,dy,ny]&nbsp;default&nbsp;=&nbsp;[0,1,256]
+</pre>
+<p>
+Outputs:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;histogram&nbsp;matrix.&nbsp;&nbsp;h(i,j)&nbsp;=&nbsp;number&nbsp;of&nbsp;data&nbsp;points
+</pre>
+<pre style="width: 90%%;" class="examples">
+satisfying&nbsp;vx(j)&nbsp;<=&nbsp;x&nbsp;<&nbsp;vx(j+1)&nbsp;and&nbsp;vy(i)&nbsp;<=&nbsp;y&nbsp;<&nbsp;vy(i+1).
+</pre>
+<pre style="width: 90%%;" class="examples">
+vx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin&nbsp;lower&nbsp;x-ordinates&nbsp;(one&nbsp;for&nbsp;each&nbsp;column&nbsp;of&nbsp;h)
+vy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin&nbsp;lower&nbsp;y-ordinates&nbsp;(one&nbsp;for&nbsp;each&nbsp;row&nbsp;of&nbsp;h)
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Data vectors x and y must be double</li>
+</ul>
+<h2>Author</h2>
+<p>
+Michael Maurer, 7 October 1994.
+Copyright 1994 by Michael Maurer.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: isift</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: isift</td>
+      <td class="subheader-left"><a href="matlab:open isift">View code for isift</a></td>
+    </tr>
+  </table>
+<h1>isift</h1><p><span class="helptopic">SIFT feature extractor</span></p><p>
+<strong>sf</strong> = <span style="color:red">isift</span>(<strong>im</strong>, <strong>options</strong>) is a vector of SiftPointFeature objects
+representing scale and rotationally invariant interest points in the
+image <strong>im</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'nfeat', N</td> <td>set the number of features to return (default Inf)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'suppress', R</td> <td>set the suppression radius (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'id', V</td> <td>set the image_id of all features</td></tr>
+</table>
+<h2>Properties and methods</h2>
+<p>
+The SiftPointFeature object has many properties including:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> u </td> <td>horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> v </td> <td>vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> strength</td> <td>feature strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> descriptor</td> <td>feature descriptor (128x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> sigma</td> <td>feature scale</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>feature orientation [rad]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> image_id</td> <td>a value passed as an option to ISIFT</td></tr>
+</table>
+<p>
+The SiftPointFeature object has many methods including:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot feature position</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_scale</td> <td>Plot feature scale</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> distance</td> <td>Descriptor distance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> match</td> <td>Match features</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> ncc</td> <td>Descriptor similarity</td></tr>
+</table>
+<p>
+See SiftPointFeature and PointFeature classes for more details.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Greyscale images only, double or integer pixel format.</li>
+  <li>Features are returned in descending strength order.</li>
+  <li>Wraps a MEX file from www.vlfeat.org</li>
+  <li>Corners are processed in order from strongest to weakest.</li>
+  <li>If IM is HxWxN it is considered to be an image sequence and F is a cell
+array with N elements, each of which is the feature vectors for the
+corresponding image in the sequence.</li>
+  <li>The SIFT algorithm is covered by US Patent 6,711,293 (March 23, 2004) held
+by the Univerity of British Columbia.</li>
+  <li>ISURF is a functional equivalent.</li>
+</ul>
+<h2>Reference</h2>
+<p>
+"Distinctive image features from scale-invariant keypoints",
+David G. Lowe,
+International Journal of Computer Vision, 60, 2 (2004), pp. 91-110.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="SiftPointFeature.html">SiftPointFeature</a>, <a href="isurf.html">isurf</a>, <a href="icorner.html">icorner</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

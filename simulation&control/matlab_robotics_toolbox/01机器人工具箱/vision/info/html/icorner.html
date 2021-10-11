@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: icorner</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: icorner</td>
+      <td class="subheader-left"><a href="matlab:open icorner">View code for icorner</a></td>
+    </tr>
+  </table>
+<h1>icorner</h1><p><span class="helptopic">Corner detector</span></p><p>
+<strong>f</strong> = <span style="color:red">icorner</span>(<strong>im</strong>, <strong>options</strong>) is a vector of PointFeature objects describing
+corner features detected in the image <strong>im</strong>.  This is a non-scale space detector
+and by default the Harris method is used but Shi-Tomasi and Noble are also
+supported.
+
+</p>
+<p>
+If <strong>im</strong> is an image sequence a cell array of PointFeature vectors for the
+correspnding frames of <strong>im</strong>.
+
+</p>
+<p>
+The PointFeature object has many properties including:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> u </td> <td>horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> v </td> <td>vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> strength</td> <td>corner strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> descriptor</td> <td>corner descriptor (vector)</td></tr>
+</table>
+<p>
+See PointFeature for full details
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'detector', D</td> <td>choose the detector where D is one of 'harris' (default),
+'noble' or 'klt'</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'sigma', S</td> <td>kernel width for smoothing (default 2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'deriv', D</td> <td>kernel for gradient (default kdgauss(2))</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'cmin', CM</td> <td>minimum corner strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'cminthresh', CT</td> <td>minimum corner strength as a fraction of maximum corner
+strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'edgegap', E</td> <td>don't return features closer than E pixels to the edge of
+image (default 2)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'suppress', R</td> <td>don't return a feature closer than R pixels to an earlier
+feature (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'nfeat', N</td> <td>return the N strongest corners (default Inf)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'k', K</td> <td>set the value of k for the Harris detector</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'patch', P</td> <td>use a PxP patch of surrounding pixel values as the
+feature vector.  The vector has zero mean and unit norm.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'color'</td> <td>specify that IM is a color image not a sequence</td></tr>
+</table>
+<h2>Example</h2>
+<p>
+Compute the 100 strongest Harris features for the image
+
+</p>
+<pre style="width: 90%%;" class="examples">
+c&nbsp;=&nbsp;icorner(im,&nbsp;'nfeat',&nbsp;100);
+</pre>
+<p>
+and overlay them on the image
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(im);
+c.plot();
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Corners are processed in order from strongest to weakest.</li>
+  <li>The function stops when:</li>
+<ul>
+  <li>the corner strength drops below cmin, or</li>
+  <li>the corner strength drops below cMinThresh x strongest corner, or</li>
+  <li>the list of corners is exhausted</li>
+</ul>
+  <li>Features are returned in descending strength order</li>
+  <li>If IM has more than 2 dimensions it is either a color image or a sequence</li>
+  <li>If IM is NxMxP it is taken as an image sequence and F is a cell array whose
+elements are feature vectors for the corresponding image in the sequence.</li>
+  <li>If IM is NxMx3 it is taken as a sequence unless the option 'color' is given</li>
+  <li>If IM is NxMx3xP it is taken as a sequence of color images and F is a cell
+array whose elements are feature vectors for the corresponding color image
+in the sequence.</li>
+  <li>The default descriptor is a vector [Ix* Iy* Ixy*] which are the unique
+elements of the structure tensor, where * denotes squared and smoothed.</li>
+  <li>The descriptor is a vector of float types to save space</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>"A combined corner and edge detector",
+C.G. Harris and M.J. Stephens,
+Proc. Fourth Alvey Vision Conf., Manchester, pp 147-151, 1988.</li>
+  <li>"Finding corners",
+J.Noble,
+Image and Vision Computing, vol.6, pp.121-128, May 1988.</li>
+  <li>"Good features to track",
+J. Shi and C. Tomasi,
+Proc. Computer Vision and Pattern Recognition, pp. 593-593,
+IEEE Computer Society, 1994.</li>
+<ul>
+  <li>Robotics, Vision & Control, Section 13.3,
+P. Corke, Springer 2011.</li>
+</ul>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="PointFeature.html">PointFeature</a>, <a href="isurf.html">isurf</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

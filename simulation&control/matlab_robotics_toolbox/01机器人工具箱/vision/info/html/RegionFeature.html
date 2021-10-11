@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: RegionFeature</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: RegionFeature</td>
+      <td class="subheader-left"><a href="matlab:open RegionFeature">View code for RegionFeature</a></td>
+    </tr>
+  </table>
+<h1>RegionFeature</h1><p><span class="helptopic">Region feature class</span></p><p>
+This class represents a region feature.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> boundary</td> <td>Return the boundary as a list</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> box</td> <td>Return the bounding box</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot the centroid</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_boundary</td> <td>Plot the boundary</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_box</td> <td>Plot the bounding box</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_ellipse</td> <td>Plot the equivalent ellipse</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display value</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert value to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> pick</td> <td>Return the index of the blob that is clicked</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> uc*</td> <td>centroid, horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> vc*</td> <td>centroid, vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> p </td> <td>centroid (uc, vc)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> umin</td> <td>bounding box, minimum horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> umax</td> <td>bounding box, maximum horizontal coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> vmin</td> <td>bounding box, minimum vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> vmax</td> <td>bounding box, maximum vertical coordinate</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> area*</td> <td>the number of pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> class*</td> <td>the value of the pixels forming this region</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> label*</td> <td>the label assigned to this region</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> children</td> <td>a list of indices of features that are children of this feature</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> edgepoint</td> <td>coordinate of a point on the perimeter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> edge</td> <td>a list of edge points 2xN matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> perimeter*</td> <td>edge length (pixels)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> touch*</td> <td>true if region touches edge of the image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> a </td> <td>major axis length of equivalent ellipse</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> b </td> <td>minor axis length of equivalent ellipse</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta*</td> <td>angle of major ellipse axis to horizontal axis</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> shape*</td> <td>aspect ratio b/a (always <= 1.0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> circularity*</td> <td>1 for a circle, less for other shapes</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> moments</td> <td>a structure containing moments of order 0 to 2</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> bbox*</td> <td>the bounding box, 2x2 matrix [umin umax; vmin vmax]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> bboxarea*</td> <td>bounding box area</td></tr>
+</table>
+<h2>Note</h2>
+<ul>
+  <li>Properties indicated with a * can be determined for a vector of RegionFeatures
+and the result will be a vector of those properties (not a list) with elements
+corresponding to the original vector of RegionFeatures.</li>
+  <li>RegionFeature is a reference object.</li>
+  <li>RegionFeature objects can be used in vectors and arrays</li>
+  <li>This class behaves differently to LineFeature and PointFeature when
+getting properties of a vector of RegionFeature objects.  For example
+R.u_ will be a list not a vector.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="iblobs.html">iblobs</a>, <a href="imoments.html">imoments</a></p>
+<hr>
+<a name="RegionFeature"><h1>RegionFeature.RegionFeature</h1></a>
+<p><span class="helptopic">Create a region feature object</span></p><p>
+<strong>R</strong> = <span style="color:red">RegionFeature</span>() is a region feature object with null parameters.
+
+</p>
+<hr>
+<a name="boundary"><h1>RegionFeature.boundary</h1></a>
+<p><span class="helptopic">Boundary in polar form</span></p><p>
+[<strong>d</strong>,<strong>th</strong>] = R.<span style="color:red">boundary</span>() is a polar representation of the <span style="color:red">boundary</span> with
+respect to the centroid.  <strong>d</strong>(i) and <strong>th</strong>(i) are the distance to the <span style="color:red">boundary</span>
+point and the angle respectively.  These vectors have 400 elements
+irrespective of region size.
+
+</p>
+<hr>
+<a name="box"><h1>RegionFeature.box</h1></a>
+<p><span class="helptopic">Return bounding box</span></p><p>
+<strong>b</strong> = R.<span style="color:red">box</span>() is the bounding <span style="color:red">box</span> in standard Toolbox form [xmin,xmax; ymin, ymax].
+
+</p>
+<hr>
+<a name="char"><h1>RegionFeature.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = R.<span style="color:red">char</span>() is a compact string representation of the region feature.
+If R is a vector then the string has multiple lines, one per element.
+
+</p>
+<hr>
+<a name="contains"><h1>RegionFeature.contains</h1></a>
+<p><span class="helptopic">Test if coordinate is contained within region bounding box</span></p><p>
+R.<span style="color:red">contains</span>(<strong>coord</strong>) true if the coordinate COORD lies within the bounding box
+of the region feature R.  If R is a vector, return a vector of logical
+values, one per input region.
+
+</p>
+<hr>
+<a name="display"><h1>RegionFeature.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+R.<span style="color:red">display</span>() is a compact string representation of the region feature.
+If R is a vector then the elements are printed one per line.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>this method is invoked implicitly at the command line when the result
+of an expression is a RegionFeature object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RegionFeature.char.html">RegionFeature.char</a></p>
+<hr>
+<a name="pick"><h1>RegionFeature.pick</h1></a>
+<p><span class="helptopic">Select blob from mouse click</span></p><p>
+<strong>i</strong> = R.<span style="color:red">pick</span>() is the index of the region feature within the vector of
+RegionFeatures R to which the clicked point corresponds.  Since regions
+can overlap of be contained in other regions, the region with the
+smallest area of bounding box that contains the selected point is
+returned.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="ginput.html">ginput</a>, <a href="RegionFeature.inbox.html">RegionFeature.inbox</a></p>
+<hr>
+<a name="plot"><h1>RegionFeature.plot</h1></a>
+<p><span class="helptopic">Plot centroid</span></p><p>
+R.<span style="color:red">plot</span>() overlay the centroid on current <span style="color:red">plot</span>.  It is indicated with
+overlaid o- and x-markers.
+
+</p>
+<p>
+R.<span style="color:red">plot</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to <span style="color:red">plot</span>.
+
+</p>
+<p>
+If R is a vector then each element is plotted.
+
+</p>
+<hr>
+<a name="plot_boundary"><h1>RegionFeature.plot_boundary</h1></a>
+<p><span class="helptopic">Plot boundary</span></p><p>
+R.<span style="color:red">plot_boundary</span>() overlay perimeter points on current plot.
+
+</p>
+<p>
+R.<span style="color:red">plot_boundary</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to plot.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>If R is a vector then each element is plotted.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="boundmatch.html">boundmatch</a></p>
+<hr>
+<a name="plot_box"><h1>RegionFeature.plot_box</h1></a>
+<p><span class="helptopic">Plot bounding box</span></p><p>
+R.<span style="color:red">plot_box</span>() overlay the the bounding box of the region on current plot.
+
+</p>
+<p>
+R.<span style="color:red">plot_box</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to plot.
+
+</p>
+<p>
+If R is a vector then each element is plotted.
+
+</p>
+<hr>
+<a name="plot_ellipse"><h1>RegionFeature.plot_ellipse</h1></a>
+<p><span class="helptopic">Plot equivalent ellipse</span></p><p>
+R.<span style="color:red">plot_ellipse</span>() overlay the the equivalent ellipse of the region on current plot.
+
+</p>
+<p>
+R.<span style="color:red">plot_ellipse</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to plot.
+
+</p>
+<p>
+If R is a vector then each element is plotted.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

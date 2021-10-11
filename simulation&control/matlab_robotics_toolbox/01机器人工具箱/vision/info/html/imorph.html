@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: imorph</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: imorph</td>
+      <td class="subheader-left"><a href="matlab:open imorph">View code for imorph</a></td>
+    </tr>
+  </table>
+<h1>imorph</h1><p><span class="helptopic">Morphological neighbourhood processing</span></p><p>
+<strong>out</strong> = <span style="color:red">imorph</span>(<strong>im</strong>, <strong>se</strong>, <strong>op</strong>) is the image <strong>im</strong> after morphological processing
+with the operator <strong>op</strong> and structuring element <strong>se</strong>.
+
+</p>
+<p>
+The structuring element <strong>se</strong> is a small matrix with binary values that indicate
+which elements of the template window are used in the operation.
+
+</p>
+<p>
+The operation <strong>op</strong> is:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'min'</td> <td>minimum value over the structuring element</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'max'</td> <td>maximum value over the structuring element</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'diff'</td> <td>maximum - minimum value over the structuring element</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'plusmin'</td> <td>the minimum of the pixel value and the pixelwise sum of the
+structuring element and source neighbourhood.</td></tr>
+</table>
+<p>
+<strong>out</strong> = <span style="color:red">imorph</span>(<strong>im</strong>, <strong>se</strong>, <strong>op</strong>, <strong>edge</strong>) as above but performance of edge pixels
+can be controlled.  The value of <strong>edge</strong> is:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'border'</td> <td>the border value is replicated (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'none'</td> <td>pixels beyond the border are not included in the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'trim'</td> <td>output is not computed for pixels where the structuring element
+crosses the image border, hence output image had reduced
+dimensions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'wrap'</td> <td>the image is assumed to wrap around, left to right, top to
+bottom.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Is a MEX file.</li>
+  <li>Performs greyscale morphology.</li>
+  <li>The structuring element should have an odd side length.</li>
+  <li>For binary image 'min' = EROSION, 'max' = DILATION.</li>
+  <li>The 'plusmin' operation can be used to compute the distance transform.</li>
+  <li>The input can be logical, uint8, uint16, float or double, the output is
+always double</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="irank.html">irank</a>, <a href="ivar.html">ivar</a>, <a href="hitormiss.html">hitormiss</a>, <a href="iopen.html">iopen</a>, <a href="iclose.html">iclose</a>, <a href="dtransform.html">dtransform</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

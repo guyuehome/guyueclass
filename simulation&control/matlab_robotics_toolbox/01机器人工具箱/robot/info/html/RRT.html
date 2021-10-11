@@ -1,0 +1,177 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: RRT</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: RRT</td>
+      <td class="subheader-left"><a href="matlab:open RRT">View code for RRT</a></td>
+    </tr>
+  </table>
+<h1>RRT</h1><p><span class="helptopic">Class for rapidly-exploring random tree navigation</span></p><p>
+A concrete subclass of the abstract Navigation class that implements the rapidly
+exploring random tree (RRT) algorithm.  This is a kinodynamic planner
+that takes into account the motion constraints of the vehicle.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plan</td> <td>Compute the tree</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> path</td> <td>Compute a path</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Display the tree</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display the parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert to string</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+goal&nbsp;=&nbsp;[0,0,0];
+start&nbsp;=&nbsp;[0,2,0];
+veh&nbsp;=&nbsp;Vehicle([],&nbsp;'stlim',&nbsp;1.2);
+rrt&nbsp;=&nbsp;RRT([],&nbsp;veh,&nbsp;'goal',&nbsp;goal,&nbsp;'range',&nbsp;5);
+rrt.plan()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;navigation&nbsp;tree
+rrt.path(start,&nbsp;goal)&nbsp;&nbsp;%&nbsp;animate&nbsp;path&nbsp;from&nbsp;this&nbsp;start&nbsp;location
+</pre>
+<p>
+Robotics, Vision &amp; Control compatability mode:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+goal&nbsp;=&nbsp;[0,0,0];
+start&nbsp;=&nbsp;[0,2,0];
+rrt&nbsp;=&nbsp;RRT();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;navigation&nbsp;object
+rrt.plan()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;create&nbsp;navigation&nbsp;tree
+rrt.path(start,&nbsp;goal)&nbsp;&nbsp;%&nbsp;animate&nbsp;path&nbsp;from&nbsp;this&nbsp;start&nbsp;location
+</pre>
+<h2>References</h2>
+<ul>
+  <li>Randomized kinodynamic planning,
+S. LaValle and J. Kuffner,
+International Journal of Robotics Research vol. 20, pp. 378-400, May 2001.</li>
+  <li>Probabilistic roadmaps for path planning in high dimensional configuration spaces,
+L. Kavraki, P. Svestka, J. Latombe, and M. Overmars,
+IEEE Transactions on Robotics and Automation, vol. 12, pp. 566-580, Aug 1996.</li>
+  <li>Robotics, Vision & Control, Section 5.2.5,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Navigation.html">Navigation</a>, <a href="PRM.html">PRM</a>, <a href="DXform.html">DXform</a>, <a href="Dstar.html">Dstar</a>, <a href="PGraph.html">PGraph</a></p>
+<hr>
+<a name="RRT"><h1>RRT.RRT</h1></a>
+<p><span class="helptopic">Create an RRT navigation object</span></p><p>
+<strong>R</strong> = <span style="color:red">RRT</span>.<span style="color:red">RRT</span>(<strong>map</strong>, <strong>veh</strong>, <strong>options</strong>) is a rapidly exploring tree navigation
+object for a region with obstacles defined by the map object <strong>map</strong>.
+
+</p>
+<p>
+<strong>R</strong> = <span style="color:red">RRT</span>.<span style="color:red">RRT</span>() as above but internally creates a Vehicle class object
+and does not support any <strong>map</strong> or <strong>options</strong>.  For compatibility with
+RVC book.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'npoints', N</td> <td>Number of nodes in the tree (default 500)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'time', T</td> <td>Interval over which to simulate dynamic model toward
+random point (default 0.5s)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'range', R</td> <td>Specify rectangular bounds</td></tr>
+</table>
+<ul>
+  <li>R scalar; X: -R to +R, Y: -R to +R</li>
+  <li>R (1x2); X: -R(1) to +R(1), Y: -R(2) to +R(2)</li>
+  <li>R (1x4); X: R(1) to R(2), Y: R(3) to R(4)</li>
+</ul>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'goal', P</td> <td>Goal position (1x2) or pose (1x3) in workspace</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'speed', S</td> <td>Speed of vehicle [m/s] (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'steermax', S</td> <td>Steering angle of vehicle in the range -S to +S [rad] (default 1.2)</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Does not (yet) support obstacles, ie. MAP is ignored but must be given.</li>
+  <li>'steermax' selects the range of steering angles that the vehicle will
+be asked to track.  If not given the steering angle range of the vehicle
+object will be used.</li>
+  <li>There is no check that the steering range or speed is within the limits
+of the vehicle object.</li>
+</ul>
+<h2>Reference</h2>
+<ul>
+  <li>Robotics, Vision & Control
+Peter Corke, Springer 2011.  p102.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a></p>
+<hr>
+<a name="char"><h1>RRT.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+R.<span style="color:red">char</span>() is a string representing the state of the <span style="color:red">RRT</span>
+object in human-readable form.
+
+</p>
+<hr>
+<a name="path"><h1>RRT.path</h1></a>
+<p><span class="helptopic">Find a path between two points</span></p><p>
+<strong>x</strong> = R.<span style="color:red">path</span>(<strong>start</strong>, <strong>goal</strong>) finds a <span style="color:red">path</span> (Nx3) from state <strong>start</strong> (1x3)
+to the <strong>goal</strong> (1x3).
+
+</p>
+<p>
+R.<span style="color:red">path</span>(<strong>start</strong>, <strong>goal</strong>) as above but plots the <span style="color:red">path</span> in 3D.  The nodes
+are shown as circles and the line segments are blue for forward motion
+and red for backward motion.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The path starts at the vertex closest to the START state, and ends
+at the vertex closest to the GOAL state.  If the tree is sparse this
+might be a poor approximation to the desired start and end.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="RRT.plot.html">RRT.plot</a></p>
+<hr>
+<a name="plan"><h1>RRT.plan</h1></a>
+<p><span class="helptopic">Create a rapidly exploring tree</span></p><p>
+R.<span style="color:red">plan</span>(<strong>options</strong>) creates the tree roadmap by driving the vehicle
+model toward random goal points.  The resulting graph is kept
+within the object.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'goal', P</td> <td>Goal pose (1x3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'ntrials', N</td> <td>Number of path trials (default 50)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noprogress'</td> <td>Don't show the progress bar</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'samples'</td> <td>Show progress in a plot of the workspace</td></tr>
+</table>
+<ul>
+  <li>'.' for each random point x_rand</li>
+  <li>'o' for the nearest point which is added to the tree</li>
+  <li>red line for the best path</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+  <li>At each iteration we need to find a vehicle path/control that moves it
+from a random point towards a point on the graph.  We sample ntrials of
+random steer angles and velocities and choose the one that gets us
+closest (computationally slow, since each path has to be integrated
+over time).</li>
+</ul>
+<hr>
+<a name="plot"><h1>RRT.plot</h1></a>
+<p><span class="helptopic">Visualize navigation environment</span></p><p>
+R.<span style="color:red">plot</span>() displays the navigation tree in 3D.
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

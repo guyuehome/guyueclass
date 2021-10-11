@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: colorize</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: colorize</td>
+      <td class="subheader-left"><a href="matlab:open colorize">View code for colorize</a></td>
+    </tr>
+  </table>
+<h1>colorize</h1><p><span class="helptopic">Colorize a greyscale image</span></p><p>
+<strong>out</strong> = <span style="color:red">colorize</span>(<strong>im</strong>, <strong>mask</strong>, <strong>color</strong>) is a color image where each pixel in <strong>out</strong>
+is set to the corresponding element of the greyscale image <strong>im</strong> or a specified
+<strong>color</strong> according to whether the corresponding value of <strong>mask</strong> is true or false
+respectively.  The color is specified as a 3-vector (R,G,B).
+
+</p>
+<p>
+<strong>out</strong> = <span style="color:red">colorize</span>(<strong>im</strong>, <strong>func</strong>, <strong>color</strong>) as above but a the mask is the return value
+of the function handle <strong>func</strong> applied to the image <strong>im</strong>, and returns a per-pixel
+logical result, eg. @isnan.
+
+</p>
+<h2>Examples</h2>
+<p>
+Display image with values &amp;lt; 100 in blue
+
+</p>
+<pre style="width: 90%%;" class="examples">
+out&nbsp;=&nbsp;colorize(im,&nbsp;im<100,&nbsp;[0&nbsp;0&nbsp;1])
+</pre>
+<p>
+Display image with NaN values shown in red
+
+</p>
+<pre style="width: 90%%;" class="examples">
+out&nbsp;=&nbsp;colorize(im,&nbsp;@isnan,&nbsp;[1&nbsp;0&nbsp;0])
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>With no output arguments the image is displayed.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="imono.html">imono</a>, <a href="icolor.html">icolor</a>, <a href="ipixswitch.html">ipixswitch</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

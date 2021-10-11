@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: trplot2</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: trplot2</td>
+      <td class="subheader-left"><a href="matlab:open trplot2">View code for trplot2</a></td>
+    </tr>
+  </table>
+<h1>trplot2</h1><p><span class="helptopic">Plot a planar transformation</span></p><p>
+<span style="color:red">trplot2</span>(<strong>T</strong>, <strong>options</strong>) draws a 2D coordinate frame represented by the SE(2)
+homogeneous transform <strong>T</strong> (3x3).
+
+</p>
+<p>
+<strong>H</strong> = <span style="color:red">trplot2</span>(<strong>T</strong>, <strong>options</strong>) as above but returns a handle.
+
+</p>
+<p>
+<span style="color:red">trplot2</span>(<strong>H</strong>, <strong>T</strong>) moves the coordinate frame described by the handle <strong>H</strong> to
+the SE(2) pose <strong>T</strong> (3x3).
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'axis', A</td> <td>Set dimensions of the MATLAB axes to A=[xmin xmax ymin ymax]</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'color',  c</td> <td>The color to draw the axes, MATLAB colorspec</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noaxes'</td> <td>Don't display axes on the plot</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'frame', F</td> <td>The frame is named {F} and the subscript on the axis labels is F.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'text_opts',  opt</td> <td>A cell array of Matlab text properties</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'handle',  h</td> <td>Draw in the MATLAB axes specified by h</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'view', V</td> <td>Set plot view parameters V=[az el] angles, or 'auto'
+for view toward origin of coordinate frame</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'length', s</td> <td>Length of the coordinate frame arms (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'arrow'</td> <td>Use arrows rather than line segments for the axes</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'width',  w</td> <td>Width of arrow tips</td></tr>
+</table>
+<h2>Examples</h2>
+<pre style="width: 90%%;" class="examples">
+trplot2(T,&nbsp;'frame',&nbsp;'A')
+trplot2(T,&nbsp;'frame',&nbsp;'A',&nbsp;'color',&nbsp;'b')
+trplot2(T1,&nbsp;'frame',&nbsp;'A',&nbsp;'text_opts',&nbsp;{'FontSize',&nbsp;10,&nbsp;'FontWeight',&nbsp;'bold'})
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The arrow option requires the third party package arrow3 from File
+Exchange.</li>
+  <li>When using the form TRPLOT(H, ...) to animate a frame it is best to set
+the axis bounds.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="trplot.html">trplot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

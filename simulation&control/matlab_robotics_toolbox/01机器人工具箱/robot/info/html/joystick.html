@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: joystick</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: joystick</td>
+      <td class="subheader-left"><a href="matlab:open joystick">View code for joystick</a></td>
+    </tr>
+  </table>
+<h1>joystick</h1><p><span class="helptopic">Input from joystick</span></p><p>
+<strong>J</strong> = <span style="color:red">joystick</span>() returns a vector of <span style="color:red">joystick</span> values in the range -1 to +1.
+
+</p>
+<p>
+[<strong>J</strong>,<strong>b</strong>] = <span style="color:red">joystick</span>() as above but also returns a vector of button values,
+either 0 (not pressed) or 1 (pressed).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This is a MEX file that uses SDL (www.libsdl.org) to interface to a standard
+gaming joystick.</li>
+  <li>The length of the vectors J and B depend on the capabilities of the
+joystick identified when it is first opened.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="joy2tr.html">joy2tr</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

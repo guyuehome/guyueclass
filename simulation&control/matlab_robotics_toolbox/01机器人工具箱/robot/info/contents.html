@@ -1,0 +1,306 @@
+<html>
+<body>
+<div style="float:left; margin-left:20px;">
+<h1><a name="3dtransforms">3D transforms</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/angvec2r.html">angvec2r</a></td><td width="300">angle/vector to SO3</td></tr>
+<tr><td width="150"><a href="html/angvec2tr.html">angvec2tr</a></td><td width="300">angle/vector to SE3</td></tr>
+<tr><td width="150"><a href="html/eul2r.html">eul2r</a></td><td width="300">Euler angles to SO3</td></tr>
+<tr><td width="150"><a href="html/eul2tr.html">eul2tr</a></td><td width="300">Euler angles to SE3</td></tr>
+<tr><td width="150"><a href="html/ishomog.html">ishomog</a></td><td width="300">true if argument is SE3</td></tr>
+<tr><td width="150"><a href="html/isrot.html">isrot</a></td><td width="300">true if argument is a SO3 matrix</td></tr>
+<tr><td width="150"><a href="html/oa2r.html">oa2r</a></td><td width="300">orientation and approach vector to SO3</td></tr>
+<tr><td width="150"><a href="html/oa2tr.html">oa2tr</a></td><td width="300">orientation and approach vector to SE3</td></tr>
+<tr><td width="150"><a href="html/r2t.html">r2t</a></td><td width="300">SO3 to SE3</td></tr>
+<tr><td width="150"><a href="html/rt2tr.html">rt2tr</a></td><td width="300">(R,t) to SE3</td></tr>
+<tr><td width="150"><a href="html/rotx.html">rotx</a></td><td width="300">SO3 for rotation about X-axis</td></tr>
+<tr><td width="150"><a href="html/roty.html">roty</a></td><td width="300">SO3 for rotation about Y-axis</td></tr>
+<tr><td width="150"><a href="html/rotz.html">rotz</a></td><td width="300">SO3 for rotation about Z-axis</td></tr>
+<tr><td width="150"><a href="html/rpy2r.html">rpy2r</a></td><td width="300">roll/pitch/yaw angles to SO3</td></tr>
+<tr><td width="150"><a href="html/rpy2tr.html">rpy2tr</a></td><td width="300">roll/pitch/yaw angles to SE3</td></tr>
+<tr><td width="150"><a href="html/t2r.html">t2r</a></td><td width="300">SE3 to SO3</td></tr>
+<tr><td width="150"><a href="html/tr2angvec.html">tr2angvec</a></td><td width="300">SE3/SO3 to angle/vector form</td></tr>
+<tr><td width="150"><a href="html/tr2eul.html">tr2eul</a></td><td width="300">SE3/SO3 to Euler angles</td></tr>
+<tr><td width="150"><a href="html/tr2rpy.html">tr2rpy</a></td><td width="300">SE3/SO3 to roll/pitch/yaw angles</td></tr>
+<tr><td width="150"><a href="html/tr2rt.html">tr2rt</a></td><td width="300">SE3 to (R,t)</td></tr>
+<tr><td width="150"><a href="html/tranimate.html">tranimate</a></td><td width="300">animate a coordinate frame</td></tr>
+<tr><td width="150"><a href="html/trchain.html">trchain</a></td><td width="300">evaluate a series of transforms</td></tr>
+<tr><td width="150"><a href="html/tripleangle.html">tripleangle</a></td><td width="300">graphical interactive three angle rotation</td></tr>
+<tr><td width="150"><a href="html/transl.html">transl</a></td><td width="300">set or extract the translational component of SE3</td></tr>
+<tr><td width="150"><a href="html/trnorm.html">trnorm</a></td><td width="300">normalize SE3</td></tr>
+<tr><td width="150"><a href="html/trchain.html">trchain</a></td><td width="300">chain of SE(3) transforms</td></tr>
+<tr><td width="150"><a href="html/trplot.html">trplot</a></td><td width="300">plot SE3 as a coordinate frame</td></tr>
+<tr><td width="150"><a href="html/trprint.html">trprint</a></td><td width="300">print an SE3</td></tr>
+<tr><td width="150"><a href="html/trotx.html">trotx</a></td><td width="300">SE3 for rotation about X-axis</td></tr>
+<tr><td width="150"><a href="html/troty.html">troty</a></td><td width="300">SE3 for rotation about Y-axis</td></tr>
+<tr><td width="150"><a href="html/trotz.html">trotz</a></td><td width="300">SE3 for rotation about Z-axis</td></tr>
+<tr><td width="150"><a href="html/trscale.html">trscale</a></td><td width="300">SE3 for scale change</td></tr>
+</table></p>
+<p><ul>
+<li>SE3: homogeneous transformation, a 4x4 matrix, in SE(3)</li>
+<li>SO3: rotation matrix, orthonormal 3x3 matrix, in SO(3)</li>
+<li>Functions of the form tr2XX will also accept an SE3 or SO3 as the argument</li>
+</ul></p>
+<h1><a name="2dtransforms">2D transforms</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/ishomog2.html">ishomog2</a></td><td width="300">true if argument is a 3x3 matrix</td></tr>
+<tr><td width="150"><a href="html/isrot2.html">isrot2</a></td><td width="300">true if argument is a 2x2 matrix</td></tr>
+<tr><td width="150"><a href="html/rot2.html">rot2</a></td><td width="300">SO2  rotation</td></tr>
+<tr><td width="150"><a href="html/se2.html">se2</a></td><td width="300">create SE2</td></tr>
+<tr><td width="150"><a href="html/se3.html">se3</a></td><td width="300">lift SE2 to SE3</td></tr>
+<tr><td width="150"><a href="html/transl2.html">transl2</a></td><td width="300">set or extract the translational component of SE2</td></tr>
+<tr><td width="150"><a href="html/trchain2.html">trchain2</a></td><td width="300">chain of SE2 transforms</td></tr>
+<tr><td width="150"><a href="html/trot2.html">trot2</a></td><td width="300">SO2 rotation</td></tr>
+<tr><td width="150"><a href="html/trplot2.html">trplot2</a></td><td width="300">plot SE2 as a coordinate frame</td></tr>
+</table></p>
+<p><ul>
+<li>SE2: homogeneous transformation, a 3x3 matrix, in SE(2)</li>
+<li>SO2: rotation matrix, orthonormal 2x2 matrix, in SO(2)</li>
+</ul></p>
+<h1><a name="homogeneouspointsandlines">Homogeneous points and lines</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/e2h.html">e2h</a></td><td width="300">Euclidean coordinates to homogeneous</td></tr>
+<tr><td width="150"><a href="html/h2e.html">h2e</a></td><td width="300">homogeneous coordinates to Euclidean</td></tr>
+<tr><td width="150"><a href="html/homline.html">homline</a></td><td width="300">create line from 2 points</td></tr>
+<tr><td width="150"><a href="html/homtrans.html">homtrans</a></td><td width="300">transform points</td></tr>
+</table></p>
+<h1><a name="differentialmotion">Differential motion</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/delta2tr.html">delta2tr</a></td><td width="300">differential motion vector to SE3</td></tr>
+<tr><td width="150"><a href="html/eul2jac.html">eul2jac</a></td><td width="300">Euler angles to Jacobian</td></tr>
+<tr><td width="150"><a href="html/rpy2jac.html">rpy2jac</a></td><td width="300">RPY angles to Jacobian</td></tr>
+<tr><td width="150"><a href="html/skew.html">skew</a></td><td width="300">vector to skew symmetric matrix</td></tr>
+<tr><td width="150"><a href="html/tr2delta.html">tr2delta</a></td><td width="300">SE3 to differential motion vector</td></tr>
+<tr><td width="150"><a href="html/tr2jac.html">tr2jac</a></td><td width="300">SE3 to Jacobian</td></tr>
+<tr><td width="150"><a href="html/vex.html">vex</a></td><td width="300">skew symmetric matrix to vector</td></tr>
+<tr><td width="150"><a href="html/wtrans.html">wtrans</a></td><td width="300">transform wrench between frames</td></tr>
+</table></p>
+<h1><a name="trajectorygeneration">Trajectory generation</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/ctraj.html">ctraj</a></td><td width="300">Cartesian trajectory</td></tr>
+<tr><td width="150"><a href="html/jtraj.html">jtraj</a></td><td width="300">joint space trajectory</td></tr>
+<tr><td width="150"><a href="html/lspb.html">lspb</a></td><td width="300">1D trapezoidal trajectory</td></tr>
+<tr><td width="150"><a href="html/mtraj.html">mtraj</a></td><td width="300">multi-axis trajectory for arbitrary function</td></tr>
+<tr><td width="150"><a href="html/mstraj.html">mstraj</a></td><td width="300">multi-axis multi-segment trajectory</td></tr>
+<tr><td width="150"><a href="html/tpoly.html">tpoly</a></td><td width="300">1D polynomial trajectory</td></tr>
+<tr><td width="150"><a href="html/trinterp.html">trinterp</a></td><td width="300">interpolate SE3 s</td></tr>
+</table></p>
+<h1><a name="quaternion">Quaternion</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/Quaternion.html">Quaternion</a></td><td width="300">constructor</td></tr>
+<tr><td width="150"><a href="html//.html">/</a></td><td width="300">divide quaternion by quaternion or scalar</td></tr>
+<tr><td width="150"><a href="html/*.html">*</a></td><td width="300">multiply quaternion by a quaternion or vector</td></tr>
+<tr><td width="150"><a href="html/Quaternion.inv.html">Quaternion.inv</a></td><td width="300">invert a quaternion</td></tr>
+<tr><td width="150"><a href="html/Quaternion.norm.html">Quaternion.norm</a></td><td width="300">norm of a quaternion</td></tr>
+<tr><td width="150"><a href="html/Quaternion.plot.html">Quaternion.plot</a></td><td width="300">display a quaternion as a 3D rotation</td></tr>
+<tr><td width="150"><a href="html/Quaternion.unit.html">Quaternion.unit</a></td><td width="300">unitize a quaternion</td></tr>
+<tr><td width="150"><a href="html/Quaternion.interp.html">Quaternion.interp</a></td><td width="300">interpolate a quaternion</td></tr>
+</table></p>
+<h1><a name="serial-linkmanipulator">Serial-link manipulator</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/CodeGenerator.html">CodeGenerator</a></td><td width="300">construct a robot specific code generator object</td></tr>
+<tr><td width="150"><a href="html/SerialLink.html">SerialLink</a></td><td width="300">construct a serial-link robot object</td></tr>
+<tr><td width="150"><a href="html/Link.html">Link</a></td><td width="300">construct a general robot link object</td></tr>
+<tr><td width="150"><a href="html/Prismatic.html">Prismatic</a></td><td width="300">construct a prismatic robot link object</td></tr>
+<tr><td width="150"><a href="html/Revolute.html">Revolute</a></td><td width="300">construct a revolute robot link object</td></tr>
+<tr><td width="150"><a href="html/PrismaticMDH.html">PrismaticMDH</a></td><td width="300">construct a prismatic robot link object</td></tr>
+<tr><td width="150"><a href="html/RevoluteMDH.html">RevoluteMDH</a></td><td width="300">construct a revolute robot link object</td></tr>
+<tr><td width="150"><a href="html/*.html">*</a></td><td width="300">compound two robots</td></tr>
+<tr><td width="150"><a href="html/SerialLink.edit.html">SerialLink.edit</a></td><td width="300">interactively edit a robot object</td></tr>
+<tr><td width="150"><a href="html/SerialLink.friction.html">SerialLink.friction</a></td><td width="300">return joint friction torques</td></tr>
+<tr><td width="150"><a href="html/SerialLink.nofriction.html">SerialLink.nofriction</a></td><td width="300">return a robot object with no friction</td></tr>
+<tr><td width="150"><a href="html/SerialLink.perturb.html">SerialLink.perturb</a></td><td width="300">return a robot object with perturbed parameters</td></tr>
+<tr><td width="150"><a href="html/SerialLink.plot.html">SerialLink.plot</a></td><td width="300">plot/animate robot</td></tr>
+<tr><td width="150"><a href="html/SerialLink.plot3d.html">SerialLink.plot3d</a></td><td width="300">plot/animate robot as solid model</td></tr>
+<tr><td width="150"><a href="html/SerialLink.teach.html">SerialLink.teach</a></td><td width="300">drive a graphical  robot</td></tr>
+</table></p>
+<h2><a name="models">Models</a></h2>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/mdl_baxter.html">mdl_baxter</a></td><td width="300">Baxter 2-arm robot (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_Fanuc10L.html">mdl_Fanuc10L</a></td><td width="300">Fanuc 10L (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_irb140.html">mdl_irb140</a></td><td width="300">ABB IRB140 (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_irb140_mdh.html">mdl_irb140_mdh</a></td><td width="300">ABB IRB140 (MDH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_jaco.html">mdl_jaco</a></td><td width="300">Kinova Jaco arm (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_KR5.html">mdl_KR5</a></td><td width="300">Kuka KR5 (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_m16.html">mdl_m16</a></td><td width="300">Fanuc M16 (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_mico.html">mdl_mico</a></td><td width="300">Kinova Mico arm (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_MotomanHP6.html">mdl_MotomanHP6</a></td><td width="300">Motoman HP6 (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_nao.html">mdl_nao</a></td><td width="300">Alderabaran NAO arms and legs (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_phantomx.html">mdl_phantomx</a></td><td width="300">PhantomX pincher 4DOF hobby arm (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_puma560.html">mdl_puma560</a></td><td width="300">Puma 560 data (DH, kine, dyn)</td></tr>
+<tr><td width="150"><a href="html/mdl_puma560akb.html">mdl_puma560akb</a></td><td width="300">Puma 560 data (MDH, kine, dyn)</td></tr>
+<tr><td width="150"><a href="html/mdl_p8.html">mdl_p8</a></td><td width="300">Puma 560 on an XY base (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_S4ABB2p8.html">mdl_S4ABB2p8</a></td><td width="300">ABB S4 2.8 (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_stanford.html">mdl_stanford</a></td><td width="300">Stanford arm data (DH, kine, dyn)</td></tr>
+<tr><td width="150"><a href="html/mdl_stanford_mdh.html">mdl_stanford_mdh</a></td><td width="300">Stanford arm data (MDH, kine, dyn)</td></tr>
+<tr><td width="150"><a href="html/mdl_onelink.html">mdl_onelink</a></td><td width="300">simple 1-link example (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_planar1.html">mdl_planar1</a></td><td width="300">simple 1 link planar model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_planar2.html">mdl_planar2</a></td><td width="300">simple 2 link planar model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_planar3.html">mdl_planar3</a></td><td width="300">simple 3 link planar model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_3link3d.html">mdl_3link3d</a></td><td width="300">Simple 3DOF arm, no shoulder offset (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_twolink.html">mdl_twolink</a></td><td width="300">simple 2-link example (DH, kine, dyn)</td></tr>
+<tr><td width="150"><a href="html/mdl_twolink_mdh.html">mdl_twolink_mdh</a></td><td width="300">simple 2-link example (MDH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_simple6.html">mdl_simple6</a></td><td width="300">simple 6 link model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_offset6.html">mdl_offset6</a></td><td width="300">simple 6 link model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_offset3.html">mdl_offset3</a></td><td width="300">simple 3 link model (DH, kine)</td></tr>
+<tr><td width="150"><a href="html/mdl_ball.html">mdl_ball</a></td><td width="300">high DOF chain that forms a ball</td></tr>
+<tr><td width="150"><a href="html/mdl_coil.html">mdl_coil</a></td><td width="300">high DOF chain that forms a coil</td></tr>
+<tr><td width="150"><a href="html/mdl_hyper2d.html">mdl_hyper2d</a></td><td width="300">2D high DOF chain</td></tr>
+<tr><td width="150"><a href="html/mdl_hyper3d.html">mdl_hyper3d</a></td><td width="300">3D high DOF chain</td></tr>
+<tr><td width="150"><a href="html/mdl_quadrotor.html">mdl_quadrotor</a></td><td width="300">simple quadrotor model</td></tr>
+</table></p>
+<h2><a name="kinematic">Kinematic</a></h2>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/DHFactor.html">DHFactor</a></td><td width="300">transform sequence to DH description</td></tr>
+<tr><td width="150"><a href="html/jsingu.html">jsingu</a></td><td width="300">find dependent joints</td></tr>
+<tr><td width="150"><a href="html/SerialLink.fellipse.html">SerialLink.fellipse</a></td><td width="300">plot force ellipsoid</td></tr>
+<tr><td width="150"><a href="html/SerialLink.fkine.html">SerialLink.fkine</a></td><td width="300">forward kinematics</td></tr>
+<tr><td width="150"><a href="html/SerialLink.ikine.html">SerialLink.ikine</a></td><td width="300">inverse kinematics (numeric)</td></tr>
+<tr><td width="150"><a href="html/SerialLink.ikine_sym.html">SerialLink.ikine_sym</a></td><td width="300">inverse kinematics (symbolic)</td></tr>
+<tr><td width="150"><a href="html/SerialLink.ikine6s.html">SerialLink.ikine6s</a></td><td width="300">inverse kinematics for 6-axis arm with sph.wrist</td></tr>
+<tr><td width="150"><a href="html/SerialLink.jacob0.html">SerialLink.jacob0</a></td><td width="300">Jacobian in base coordinate frame</td></tr>
+<tr><td width="150"><a href="html/SerialLink.jacobn.html">SerialLink.jacobn</a></td><td width="300">Jacobian in end-effector coordinate frame</td></tr>
+<tr><td width="150"><a href="html/SerialLink.maniplty.html">SerialLink.maniplty</a></td><td width="300">compute manipulability</td></tr>
+<tr><td width="150"><a href="html/SerialLink.trchain.html">SerialLink.trchain</a></td><td width="300">express as chain of SE(3) transforms</td></tr>
+<tr><td width="150"><a href="html/SerialLink.vellipse.html">SerialLink.vellipse</a></td><td width="300">plot velocity ellipsoid</td></tr>
+</table></p>
+<h2><a name="dynamics">Dynamics</a></h2>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/SerialLink.accel.html">SerialLink.accel</a></td><td width="300">forward dynamics</td></tr>
+<tr><td width="150"><a href="html/SerialLink.cinertia.html">SerialLink.cinertia</a></td><td width="300">Cartesian manipulator inertia matrix</td></tr>
+<tr><td width="150"><a href="html/SerialLink.coriolis.html">SerialLink.coriolis</a></td><td width="300">centripetal/coriolis torque</td></tr>
+<tr><td width="150"><a href="html/SerialLink.fdyn.html">SerialLink.fdyn</a></td><td width="300">forward dynamics</td></tr>
+<tr><td width="150"><a href="html/wtrans.html">wtrans</a></td><td width="300">transform a force/moment</td></tr>
+<tr><td width="150"><a href="html/SerialLink.gravload.html">SerialLink.gravload</a></td><td width="300">gravity loading</td></tr>
+<tr><td width="150"><a href="html/SerialLink.inertia.html">SerialLink.inertia</a></td><td width="300">manipulator inertia matrix</td></tr>
+<tr><td width="150"><a href="html/SerialLink.itorque.html">SerialLink.itorque</a></td><td width="300">inertia torque</td></tr>
+<tr><td width="150"><a href="html/SerialLink.rne.html">SerialLink.rne</a></td><td width="300">inverse dynamics</td></tr>
+</table></p>
+<h1><a name="mobilerobot">Mobile robot</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/Map.html">Map</a></td><td width="300">point feature map object</td></tr>
+<tr><td width="150"><a href="html/RandomPath.html">RandomPath</a></td><td width="300">driver for Vehicle object</td></tr>
+<tr><td width="150"><a href="html/RangeBearingSensor.html">RangeBearingSensor</a></td><td width="300">"laser scanner" object</td></tr>
+<tr><td width="150"><a href="html/Vehicle.html">Vehicle</a></td><td width="300">construct a mobile robot object</td></tr>
+<tr><td width="150"><a href="html/sl_bicycle.html">sl_bicycle</a></td><td width="300">Simulink "bicycle model" of non-holonomic wheeled vehicle</td></tr>
+<tr><td width="150"><a href="html/Navigation.html">Navigation</a></td><td width="300">Navigation superclass</td></tr>
+<tr><td width="150"><a href="html/Sensor.html">Sensor</a></td><td width="300">robot sensor superclass</td></tr>
+<tr><td width="150"><a href="html/makemap.html">makemap</a></td><td width="300">build an occupancy grid</td></tr>
+<tr><td width="150"><a href="html/plot_vehicle.html">plot_vehicle</a></td><td width="300">plot vehicle</td></tr>
+</table></p>
+<h2><a name="localization">Localization</a></h2>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/EKF.html">EKF</a></td><td width="300">extended Kalman filter object</td></tr>
+<tr><td width="150"><a href="html/ParticleFilter.html">ParticleFilter</a></td><td width="300">Monte Carlo estimator</td></tr>
+</table></p>
+<h2><a name="pathplanning">Path planning</a></h2>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/Bug2.html">Bug2</a></td><td width="300">bug navigation</td></tr>
+<tr><td width="150"><a href="html/DXform.html">DXform</a></td><td width="300">distance transform from map</td></tr>
+<tr><td width="150"><a href="html/Dstar.html">Dstar</a></td><td width="300">D* planner</td></tr>
+<tr><td width="150"><a href="html/PRM.html">PRM</a></td><td width="300">probabilistic roadmap planner</td></tr>
+<tr><td width="150"><a href="html/RRT.html">RRT</a></td><td width="300">rapidly exploring random tree</td></tr>
+</table></p>
+<h1><a name="graphics">Graphics</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/Animate.html">Animate</a></td><td width="300">record a graphical animation sequence</td></tr>
+<tr><td width="150"><a href="html/plot2.html">plot2</a></td><td width="300">plot trajectory</td></tr>
+<tr><td width="150"><a href="html/plotp.html">plotp</a></td><td width="300">plot points</td></tr>
+<tr><td width="150"><a href="html/plot_arrow.html">plot_arrow</a></td><td width="300">draw an arrow</td></tr>
+<tr><td width="150"><a href="html/plot_box.html">plot_box</a></td><td width="300">draw a box</td></tr>
+<tr><td width="150"><a href="html/plot_circle.html">plot_circle</a></td><td width="300">draw a circle</td></tr>
+<tr><td width="150"><a href="html/plot_ellipse.html">plot_ellipse</a></td><td width="300">draw an ellipse</td></tr>
+<tr><td width="150"><a href="html/plot_ellipse_inv.html">plot_ellipse_inv</a></td><td width="300">draw an ellipse</td></tr>
+<tr><td width="150"><a href="html/plot_homline.html">plot_homline</a></td><td width="300">plot homogeneous line</td></tr>
+<tr><td width="150"><a href="html/plot_point.html">plot_point</a></td><td width="300">plot points</td></tr>
+<tr><td width="150"><a href="html/plot_poly.html">plot_poly</a></td><td width="300">plot polygon</td></tr>
+<tr><td width="150"><a href="html/plot_sphere.html">plot_sphere</a></td><td width="300">draw a sphere</td></tr>
+<tr><td width="150"><a href="html/qplot.html">qplot</a></td><td width="300">plot joint angle trajectories</td></tr>
+<tr><td width="150"><a href="html/plot2.html">plot2</a></td><td width="300">Plot trajectories</td></tr>
+<tr><td width="150"><a href="html/plotp.html">plotp</a></td><td width="300">Plot trajectories</td></tr>
+<tr><td width="150"><a href="html/xaxis.html">xaxis</a></td><td width="300">set x-axis scaling</td></tr>
+<tr><td width="150"><a href="html/yaxis.html">yaxis</a></td><td width="300">set y-axis scaling</td></tr>
+<tr><td width="150"><a href="html/xyzlabel.html">xyzlabel</a></td><td width="300">label axes x, y and z</td></tr>
+</table></p>
+<h1><a name="utility">Utility</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/about.html">about</a></td><td width="300">summary of object size and type</td></tr>
+<tr><td width="150"><a href="html/angdiff.html">angdiff</a></td><td width="300">subtract 2 angles modulo 2pi</td></tr>
+<tr><td width="150"><a href="html/arrow3.html">arrow3</a></td><td width="300">draw a 3D arrow (third party code)</td></tr>
+<tr><td width="150"><a href="html/bresenham.html">bresenham</a></td><td width="300">Bresenhan line drawing</td></tr>
+<tr><td width="150"><a href="html/circle.html">circle</a></td><td width="300">compute/draw points on a circle</td></tr>
+<tr><td width="150"><a href="html/colnorm.html">colnorm</a></td><td width="300">columnwise norm of matrix</td></tr>
+<tr><td width="150"><a href="html/colorname.html">colorname</a></td><td width="300">map color name to RGB</td></tr>
+<tr><td width="150"><a href="html/diff2.html">diff2</a></td><td width="300">elementwise diff</td></tr>
+<tr><td width="150"><a href="html/dockfigs.html">dockfigs</a></td><td width="300">control figure docking with GUI</td></tr>
+<tr><td width="150"><a href="html/edgelist.html">edgelist</a></td><td width="300">trace edge of a shape</td></tr>
+<tr><td width="150"><a href="html/gauss2d.html">gauss2d</a></td><td width="300">Gaussian distribution in 2D</td></tr>
+<tr><td width="150"><a href="html/ismatrix.html">ismatrix</a></td><td width="300">true if non scalar</td></tr>
+<tr><td width="150"><a href="html/isvec.html">isvec</a></td><td width="300">true if argument is a 3-vector</td></tr>
+<tr><td width="150"><a href="html/numcols.html">numcols</a></td><td width="300">number of columns in matrix</td></tr>
+<tr><td width="150"><a href="html/numrows.html">numrows</a></td><td width="300">number of rows in matrix</td></tr>
+<tr><td width="150"><a href="html/peak.html">peak</a></td><td width="300">find peak in 1D signal</td></tr>
+<tr><td width="150"><a href="html/peak2.html">peak2</a></td><td width="300">find peak in 2D signal</td></tr>
+<tr><td width="150"><a href="html/PGraph.html">PGraph</a></td><td width="300">general purpose graph class</td></tr>
+<tr><td width="150"><a href="html/polydiff.html">polydiff</a></td><td width="300">derivative of polynomial</td></tr>
+<tr><td width="150"><a href="html/Polygon.html">Polygon</a></td><td width="300">general purpose polygon class</td></tr>
+<tr><td width="150"><a href="html/randinit.html">randinit</a></td><td width="300">initialize random number generator</td></tr>
+<tr><td width="150"><a href="html/ramp.html">ramp</a></td><td width="300">create linear ramp</td></tr>
+<tr><td width="150"><a href="html/rvcpath.html">rvcpath</a></td><td width="300">path to RVC install</td></tr>
+<tr><td width="150"><a href="html/unit.html">unit</a></td><td width="300">unitize a vector</td></tr>
+<tr><td width="150"><a href="html/tb_optparse.html">tb_optparse</a></td><td width="300">toolbox argument parser</td></tr>
+<tr><td width="150"><a href="html/distancexform.html">distancexform</a></td><td width="300">compute distance transform</td></tr>
+<tr><td width="150"><a href="html/runscript.html">runscript</a></td><td width="300">interactively step through a script</td></tr>
+<tr><td width="150"><a href="html/multidfprintf.html">multidfprintf</a></td><td width="300">printf extension</td></tr>
+</table></p>
+<h1><a name="demonstrations">Demonstrations</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/rtbdemo.html">rtbdemo</a></td><td width="300">Serial-link manipulator demonstration</td></tr>
+<tr><td width="150"><a href="html/tripleangle.html">tripleangle</a></td><td width="300">demonstrate angle sequences</td></tr>
+</table></p>
+<h1><a name="interfacing">Interfacing</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/Arbotix.html">Arbotix</a></td><td width="300">Interface to Arbotix robot controller</td></tr>
+<tr><td width="150"><a href="html/Machine.html">Machine</a></td><td width="300">Abstract robot interface class</td></tr>
+<tr><td width="150"><a href="html/RobotArm.html">RobotArm</a></td><td width="300">Connect SerialLink object to real robot</td></tr>
+<tr><td width="150"><a href="html/joystick.html">joystick</a></td><td width="300">Help for joystick interface mex file</td></tr>
+<tr><td width="150"><a href="html/joy2tr.html">joy2tr</a></td><td width="300">Update SE3 based on joystick input</td></tr>
+<tr><td width="150"><a href="html/VREP.html">VREP</a></td><td width="300">VREP interface class</td></tr>
+<tr><td width="150"><a href="html/VREP_mirror.html">VREP_mirror</a></td><td width="300">MATLAB mirror for VREP object</td></tr>
+<tr><td width="150"><a href="html/VREP_arm.html">VREP_arm</a></td><td width="300">MATLAB mirror for VREP robot arm</td></tr>
+<tr><td width="150"><a href="html/VREP_obj.html">VREP_obj</a></td><td width="300">MATLAB mirror for VREP object</td></tr>
+<tr><td width="150"><a href="html/VREP_camera.html">VREP_camera</a></td><td width="300">MATLAB mirror for VREP camera object</td></tr>
+</table></p>
+<p><ul>
+<li> Arbotix class in the folder robot/interfaces</li>
+<li> VREP classes are in the folder robot/interfaces/VREP</li>
+</ul></p>
+<h1><a name="codegeneration">Code generation</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/ccodefunctionstring.html">ccodefunctionstring</a></td><td width="300">Converts a symbolic expression into a C-code function</td></tr>
+<tr><td width="150"><a href="html/distributeblocks.html">distributeblocks</a></td><td width="300">Distribute blocks in Simulink block library</td></tr>
+<tr><td width="150"><a href="html/doesblockexist.html">doesblockexist</a></td><td width="300">Check existence of block in Simulink model</td></tr>
+<tr><td width="150"><a href="html/getprofilefunctionstats.html">getprofilefunctionstats</a></td><td width="300">[ funstats] = getprofilefunctionstats( pstats , desfun, varargin)</td></tr>
+<tr><td width="150"><a href="html/simulinkext.html">simulinkext</a></td><td width="300">Return file extension of Simulink block diagrams.</td></tr>
+<tr><td width="150"><a href="html/symexpr2slblock.html">symexpr2slblock</a></td><td width="300">Create symbolic embedded MATLAB Function block</td></tr>
+</table></p>
+<h1><a name="examples">Examples</a></h1>
+<p><table border="1px" style="background-color:lightgray" cellpadding=3>
+<tr><td width="150"><a href="html/sl_quadcopter.html">sl_quadcopter</a></td><td width="300">Simulink model of a flying quadcopter</td></tr>
+<tr><td width="150"><a href="html/sl_braitenberg.html">sl_braitenberg</a></td><td width="300">Simulink model a Braitenberg vehicle</td></tr>
+<tr><td width="150"><a href="html/movepoint.html">movepoint</a></td><td width="300">non-holonomic vehicle moving to a point</td></tr>
+<tr><td width="150"><a href="html/moveline.html">moveline</a></td><td width="300">non-holonomic vehicle moving to a line</td></tr>
+<tr><td width="150"><a href="html/movepose.html">movepose</a></td><td width="300">non-holonomic vehicle moving to a pose</td></tr>
+<tr><td width="150"><a href="html/joytest.html">joytest</a></td><td width="300">demo of gaming joystick input</td></tr>
+<tr><td width="150"><a href="html/walking.html">walking</a></td><td width="300">example of 4-legged walking robot</td></tr>
+<tr><td width="150"><a href="html/eg_inertia.html">eg_inertia</a></td><td width="300">joint 1 inertia I(q1,q2)</td></tr>
+<tr><td width="150"><a href="html/eg_inertia22.html">eg_inertia22</a></td><td width="300">joint 2 inertia I(q3)</td></tr>
+<tr><td width="150"><a href="html/eg_grav.html">eg_grav</a></td><td width="300">joint 2 gravity load g(q2,q3)</td></tr>
+</table></p>
+<p><ul>
+<li> located in the examples folder</li>
+</ul></p>
+</div><br clear="all" /><hr />
+<p>Copyright &copy; 1990-2011 <a href="http://www.petercorke.com">Peter Corke</a></p>
+</body>
+</html>

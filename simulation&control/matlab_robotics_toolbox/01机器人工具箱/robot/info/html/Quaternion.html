@@ -1,0 +1,428 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Quaternion</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Quaternion</td>
+      <td class="subheader-left"><a href="matlab:open Quaternion">View code for Quaternion</a></td>
+    </tr>
+  </table>
+<h1>Quaternion</h1><p><span class="helptopic">Quaternion class</span></p><p>
+A quaternion is a compact method of representing a 3D rotation that has
+computational advantages including speed and numerical robustness.
+A quaternion has 2 parts, a scalar s, and a vector v and is typically
+written: q = s &amp;lt;vx, vy, vz&amp;gt;.
+
+</p>
+<p>
+A unit-quaternion is one for which s&circ;2+vx&circ;2+vy&circ;2+vz&circ;2 = 1.  It can be
+considered as a rotation by an angle theta about a unit-vector V in space where
+
+</p>
+<pre style="width: 90%%;" class="examples">
+q&nbsp;=&nbsp;cos&nbsp;(theta/2)&nbsp;<&nbsp;v&nbsp;sin(theta/2)>
+</pre>
+<p>
+<strong>q</strong> = <span style="color:red">quaternion</span>(<strong>x</strong>) is a unit-<span style="color:red">quaternion</span> equivalent to <strong>x</strong> which can be any
+of:
+
+</p>
+<ul>
+  <li>orthonormal rotation matrix.</li>
+  <li>homogeneous transformation matrix (rotation part only).</li>
+  <li>rotation angle and vector</li>
+</ul>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> inv</td> <td>inverse of quaterion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> norm</td> <td>norm of quaternion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> unit</td> <td>unitized quaternion</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>same options as trplot()</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> interp</td> <td>interpolation (slerp) between q and q2, 0<=s<=1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> scale</td> <td>interpolation (slerp) between identity and q, 0<=s<=1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> dot</td> <td>derivative of quaternion with angular velocity w</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R </td> <td>equivalent 3x3 rotation matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> T </td> <td>equivalent 4x4 homogeneous transform matrix</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> double</td> <td>quaternion elements as 4-vector</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> inner</td> <td>inner product of two quaternions</td></tr>
+</table>
+<h2>Overloaded operators</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> q1==q2</td> <td>test for quaternion equality</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q1~=q2</td> <td>test for quaternion inequality</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q+q2</td> <td>elementwise sum of quaternions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q-q2</td> <td>elementwise difference of quaternions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q*q2</td> <td>quaternion product</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q*v</td> <td>rotate vector by quaternion, v is 3x1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> s*q</td> <td>elementwise multiplication of quaternion by scalar</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q/q2</td> <td>q*q2.inv</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> q^n</td> <td>q to power n (integer only)</td></tr>
+</table>
+<h2>Properties (read only)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> s </td> <td>real part</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> v </td> <td>vector part</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Quaternion objects can be used in vectors and arrays.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Animating rotation with quaternion curves,
+K. Shoemake,
+in Proceedings of ACM SIGGRAPH, (San Fran cisco), pp. 245-254, 1985.</li>
+  <li>On homogeneous transforms, quaternions, and computational efficiency,
+J. Funda, R. Taylor, and R. Paul,
+IEEE Transactions on Robotics and Automation, vol. 6, pp. 382-388, June 1990.</li>
+  <li>Robotics, Vision & Control,
+P. Corke, Springer 2011.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="trinterp.html">trinterp</a>, <a href="trplot.html">trplot</a></p>
+<hr>
+<a name="Quaternion"><h1>Quaternion.Quaternion</h1></a>
+<p><span class="helptopic">Constructor for quaternion objects</span></p><p>
+Construct a <span style="color:red">quaternion</span> from various other orientation representations.
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>() is the identitity unit-quaternion 1&amp;lt;0,0,0&amp;gt; representing a null rotation.
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>q1</strong>) is a copy of the quaternion <strong>q1</strong>
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>([S V1 V2 V3]) is a quaternion formed by specifying directly its 4 elements
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>s</strong>) is a quaternion formed from the scalar <strong>s</strong> and zero vector part: <strong>s</strong>&amp;lt;0,0,0&amp;gt;
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>v</strong>) is a pure quaternion with the specified vector part: 0&amp;lt;<strong>v</strong>&amp;gt;
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>th</strong>, <strong>v</strong>) is a unit-quaternion corresponding to rotation of <strong>th</strong> about the
+vector <strong>v</strong>.
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>R</strong>) is a unit-quaternion corresponding to the SO(3)
+orthonormal rotation matrix <strong>R</strong> (3x3).  If <strong>R</strong> (3x3xN) is a sequence then <strong>q</strong>
+(Nx1) is a vector of Quaternions corresponding to the elements of <strong>R</strong>.
+
+</p>
+<p>
+<strong>q</strong> = <span style="color:red">Quaternion</span>(<strong>T</strong>) is a unit-quaternion equivalent to the rotational part
+of the SE(3) homogeneous transform <strong>T</strong> (4x4). If <strong>T</strong> (4x4xN) is a sequence
+then <strong>q</strong> (Nx1) is a vector of Quaternions corresponding to the elements of
+<strong>T</strong>.
+
+</p>
+<hr>
+<a name="char"><h1>Quaternion.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = Q.<span style="color:red">char</span>() is a compact string representation of the quaternion's value
+as a 4-tuple.  If Q is a vector then <strong>s</strong> has one line per element.
+
+</p>
+<hr>
+<a name="display"><h1>Quaternion.display</h1></a>
+<p><span class="helptopic">Display quaternion</span></p><p>
+Q.<span style="color:red">display</span>() displays a compact string representation of the quaternion's value
+as a 4-tuple.  If Q is a vector then S has one line per element.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Quaternion object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.char.html">Quaternion.char</a></p>
+<hr>
+<a name="dot"><h1>Quaternion.dot</h1></a>
+<p><span class="helptopic">Quaternion derivative</span></p><p>
+<strong>qd</strong> = Q.<span style="color:red">dot</span>(<strong>omega</strong>) is the rate of change of a frame with attitude Q and
+angular velocity OMEGA (1x3) expressed as a quaternion.
+
+</p>
+<hr>
+<a name="double"><h1>Quaternion.double</h1></a>
+<p><span class="helptopic">Convert a quaternion to a 4-element vector</span></p><p>
+<strong>v</strong> = Q.<span style="color:red">double</span>() is a 4-vector comprising the quaternion
+elements [s vx vy vz].
+
+</p>
+<hr>
+<a name="eq"><h1>Quaternion.eq</h1></a>
+<p><span class="helptopic">Test quaternion equality</span></p><p>
+Q1==Q2 is true if the quaternions Q1 and Q2 are equal.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '=='.</li>
+  <li>Note that for unit Quaternions Q and -Q are the equivalent
+rotation, so non-equality does not mean rotations are not
+equivalent.</li>
+  <li>If Q1 is a vector of quaternions, each element is compared to
+Q2 and the result is a logical array of the same length as Q1.</li>
+  <li>If Q2 is a vector of quaternions, each element is compared to
+Q1 and the result is a logical array of the same length as Q2.</li>
+  <li>If Q1 and Q2 are vectors of the same length, then the result
+is a logical array of the same length.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.ne.html">Quaternion.ne</a></p>
+<hr>
+<a name="inner"><h1>Quaternion.inner</h1></a>
+<p><span class="helptopic">Quaternion inner product</span></p><p>
+<strong>v</strong> = Q1.<span style="color:red">inner</span>(<strong>q2</strong>) is the <span style="color:red">inner</span> (dot) product of two vectors (1x4),
+comprising the elements of Q1 and <strong>q2</strong> respectively.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Q1.inner(Q1) is the same as Q1.norm().</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.norm.html">Quaternion.norm</a></p>
+<hr>
+<a name="interp"><h1>Quaternion.interp</h1></a>
+<p><span class="helptopic">Interpolate quaternions</span></p><p>
+<strong>qi</strong> = Q1.<span style="color:red">interp</span>(<strong>q2</strong>, <strong>s</strong>) is a unit-quaternion that interpolates a rotation
+between Q1 for <strong>s</strong>=0 and <strong>q2</strong> for <strong>s</strong>=1.
+
+</p>
+<p>
+If <strong>s</strong> is a vector <strong>qi</strong> is a vector of quaternions, each element
+corresponding to sequential elements of <strong>s</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This is a spherical linear interpolation (slerp) that can be interpretted
+as interpolation along a great circle arc on a sphere.</li>
+  <li>The value of S is clipped to the interval 0 to 1.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>Animating rotation with quaternion curves,
+K. Shoemake,
+in Proceedings of ACM SIGGRAPH, (San Fran cisco), pp. 245-254, 1985.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.scale.html">Quaternion.scale</a>, <a href="ctraj.html">ctraj</a></p>
+<hr>
+<a name="inv"><h1>Quaternion.inv</h1></a>
+<p><span class="helptopic">Invert a unit-quaternion</span></p><p>
+<strong>qi</strong> = Q.<span style="color:red">inv</span>() is a quaternion object representing the inverse of Q.
+
+</p>
+<hr>
+<a name="minus"><h1>Quaternion.minus</h1></a>
+<p><span class="helptopic">Subtract quaternions</span></p><p>
+Q1-Q2 is the element-wise difference of quaternion elements.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '-'</li>
+  <li>The result is not guaranteed to be a unit-quaternion.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.plus.html">Quaternion.plus</a>, <a href="Quaternion.mtimes.html">Quaternion.mtimes</a></p>
+<hr>
+<a name="mpower"><h1>Quaternion.mpower</h1></a>
+<p><span class="helptopic">Raise quaternion to integer power</span></p><p>
+Q&circ;N is the quaternion Q raised to the integer power N.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '^'</li>
+  <li>Computed by repeated multiplication.</li>
+  <li>If the argument is a unit-quaternion, the result will be a
+unit quaternion.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.mrdivide.html">Quaternion.mrdivide</a>, <a href="Quaternion.mpower.html">Quaternion.mpower</a>, <a href="Quaternion.plus.html">Quaternion.plus</a>, <a href="Quaternion.minus.html">Quaternion.minus</a></p>
+<hr>
+<a name="mrdivide"><h1>Quaternion.mrdivide</h1></a>
+<p><span class="helptopic">Quaternion quotient.</span></p><table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> Q1/Q2</td> <td>is a quaternion formed by Hamilton product of Q1 and inv(Q2).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Q/S</td> <td>is the element-wise division of quaternion elements by the scalar S.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '/'</li>
+  <li>If the dividend and divisor are unit-quaternions, the quotient will be a
+unit quaternion.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.mtimes.html">Quaternion.mtimes</a>, <a href="Quaternion.mpower.html">Quaternion.mpower</a>, <a href="Quaternion.plus.html">Quaternion.plus</a>, <a href="Quaternion.minus.html">Quaternion.minus</a></p>
+<hr>
+<a name="mtimes"><h1>Quaternion.mtimes</h1></a>
+<p><span class="helptopic">Multiply a quaternion object</span></p><table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> Q1*Q2</td> <td>is a quaternion formed by the Hamilton product of two quaternions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Q*V</td> <td>is a vector formed by rotating the vector V by the quaternion Q.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Q*S</td> <td>is the element-wise multiplication of quaternion elements by the scalar S.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '*'</li>
+  <li>If the two multiplicands are unit-quaternions, the product will be a
+unit quaternion.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.mrdivide.html">Quaternion.mrdivide</a>, <a href="Quaternion.mpower.html">Quaternion.mpower</a>, <a href="Quaternion.plus.html">Quaternion.plus</a>, <a href="Quaternion.minus.html">Quaternion.minus</a></p>
+<hr>
+<a name="ne"><h1>Quaternion.ne</h1></a>
+<p><span class="helptopic">Test quaternion inequality</span></p><p>
+Q1~=Q2 is true if the quaternions Q1 and Q2 are not equal.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '~='</li>
+  <li>Note that for unit Quaternions Q and -Q are the equivalent
+rotation, so non-equality does not mean rotations are not
+equivalent.</li>
+  <li>If Q1 is a vector of quaternions, each element is compared to
+Q2 and the result is a logical array of the same length as Q1.</li>
+  <li>If Q2 is a vector of quaternions, each element is compared to
+Q1 and the result is a logical array of the same length as Q2.</li>
+  <li>If Q1 and Q2 are vectors of the same length, then the result
+is a logical array of the same length.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.eq.html">Quaternion.eq</a></p>
+<hr>
+<a name="norm"><h1>Quaternion.norm</h1></a>
+<p><span class="helptopic">Quaternion magnitude</span></p><p>
+<strong>qn</strong> = <strong>q</strong>.<span style="color:red">norm</span>(<strong>q</strong>) is the scalar <span style="color:red">norm</span> or magnitude of the quaternion <strong>q</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This is the Euclidean norm of the quaternion written as a 4-vector.</li>
+  <li>A unit-quaternion has a norm of one.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.inner.html">Quaternion.inner</a>, <a href="Quaternion.unit.html">Quaternion.unit</a></p>
+<hr>
+<a name="plot"><h1>Quaternion.plot</h1></a>
+<p><span class="helptopic">Plot a quaternion object</span></p><p>
+Q.<span style="color:red">plot</span>(<strong>options</strong>) plots the quaternion as an oriented coordinate frame.
+
+</p>
+<h2>Options</h2>
+<p>
+Options are passed to trplot and include:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'color', C</td> <td>The color to draw the axes, MATLAB colorspec C</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'frame', F</td> <td>The frame is named {F} and the subscript on the axis labels is F.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'view', V</td> <td>Set plot view parameters V=[az el] angles, or 'auto'
+for view toward origin of coordinate frame</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="trplot.html">trplot</a></p>
+<hr>
+<a name="plus"><h1>Quaternion.plus</h1></a>
+<p><span class="helptopic">Add quaternions</span></p><p>
+Q1+Q2 is the element-wise sum of quaternion elements.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Overloaded operator '+'</li>
+  <li>The result is not guaranteed to be a unit-quaternion.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.minus.html">Quaternion.minus</a>, <a href="Quaternion.mtimes.html">Quaternion.mtimes</a></p>
+<hr>
+<a name="R"><h1>Quaternion.R</h1></a>
+<p><span class="helptopic">Convert to orthonormal rotation matrix</span></p><p>
+<span style="color:red">R</span> = Q.<span style="color:red">R</span>() is the equivalent SO(3) orthonormal rotation matrix (3x3).  If
+Q represents a sequence (Nx1) then <span style="color:red">R</span> is 3x3xN.
+
+</p>
+<hr>
+<a name="scale"><h1>Quaternion.scale</h1></a>
+<p><span class="helptopic">Interpolate rotations expressed by quaternion objects</span></p><p>
+<strong>qi</strong> = Q.<span style="color:red">scale</span>(<strong>s</strong>) is a unit-quaternion that interpolates between a null
+rotation (identity quaternion) for <strong>s</strong>=0 to Q for <strong>s</strong>=1.  This is a spherical
+linear interpolation (slerp) that can be interpretted as interpolation
+along a great circle arc on a sphere.
+
+</p>
+<p>
+If <strong>s</strong> is a vector <strong>qi</strong> is a vector of quaternions, each element
+corresponding to sequential elements of <strong>s</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This is a spherical linear interpolation (slerp) that can be interpretted
+as interpolation along a great circle arc on a sphere.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.interp.html">Quaternion.interp</a>, <a href="ctraj.html">ctraj</a></p>
+<hr>
+<a name="T"><h1>Quaternion.T</h1></a>
+<p><span class="helptopic">Convert to homogeneous transformation matrix</span></p><p>
+<span style="color:red">T</span> = Q.<span style="color:red">T</span>() is the equivalent SE(3) homogeneous transformation matrix
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> (4x4).</td> <td>If Q represents a sequence (Nx1) then T is 4x4xN.</td></tr>
+</table>
+<p>
+Notes:
+
+</p>
+<ul>
+  <li>Has a zero translational component.</li>
+</ul>
+<hr>
+<a name="unit"><h1>Quaternion.unit</h1></a>
+<p><span class="helptopic">Unitize a quaternion</span></p><p>
+<strong>qu</strong> = Q.<span style="color:red">unit</span>() is a <span style="color:red">unit</span>-quaternion representing the same orientation as Q.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Quaternion.norm.html">Quaternion.norm</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

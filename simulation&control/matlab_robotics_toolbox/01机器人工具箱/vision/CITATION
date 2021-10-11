@@ -1,0 +1,12 @@
+Citing the Toolbox:
+------------------
+
+@book{Corke11a,
+    Author = {Peter I. Corke},
+    Date-Added = {2011-01-12 08:19:32 +1000},
+    Date-Modified = {2012-07-29 20:07:27 +1000},
+    Note = {ISBN 978-3-642-20143-1},
+    Publisher = {Springer},
+    Title = {Robotics, Vision \& Control: Fundamental Algorithms in {MATLAB}},
+    Year = {2011}}
+

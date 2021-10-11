@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: YUV</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: YUV</td>
+      <td class="subheader-left"><a href="matlab:open YUV">View code for YUV</a></td>
+    </tr>
+  </table>
+<h1>YUV</h1><p><span class="helptopic">Class to read YUV4MPEG file</span></p><p>
+A concrete subclass of ImageSource that returns images from a YUV4MPEG format
+uncompressed video file.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> grab</td> <td>Aquire and return the next image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> size</td> <td>Size of image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> close</td> <td>Close the image source</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert the object parameters to human readable string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> curFrame</td> <td>The index of the frame just read</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="ImageSource.html">ImageSource</a>, <a href="video.html">video</a></p>
+<p>
+SEE ALSO: Video
+
+</p>
+<hr>
+<a name="YUV"><h1>YUV.YUV</h1></a>
+<p><span class="helptopic">YUV4MPEG sequence constructor</span></p><p>
+<strong>y</strong> = <span style="color:red">YUV</span>(<strong>file</strong>, <strong>options</strong>) is a YUV4MPEG object that returns frames
+from the yuv4mpeg format file <strong>file</strong>.  This file contains uncompressed
+color images in 4:2:0 format, with a full resolution luminance plane
+followed by U and V planes at half resolution both directions.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'uint8'</td> <td>Return image with uint8 pixels (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'float'</td> <td>Return image with float pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'double'</td> <td>Return image with double precision pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey'</td> <td>Return greyscale image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'gamma', G</td> <td>Apply gamma correction with gamma=G</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>Subsample the image by S in both directions</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'skip', S</td> <td>Read every S'th frame from the movie</td></tr>
+</table>
+<hr>
+<a name="char"><h1>YUV.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+M.<span style="color:red">char</span>() is a string representing the state of the movie object in
+human readable form.
+
+</p>
+<hr>
+<a name="close"><h1>YUV.close</h1></a>
+<p><span class="helptopic">Close the image source</span></p><p>
+M.<span style="color:red">close</span>() closes the connection to the movie.
+
+</p>
+<hr>
+<a name="grab"><h1>YUV.grab</h1></a>
+<p><span class="helptopic">Acquire next frame from movie</span></p><p>
+<strong>im</strong> = Y.<span style="color:red">grab</span>(<strong>options</strong>) is the next frame from the file.
+
+</p>
+<p>
+[<strong>y</strong>,<strong>u</strong>,<strong>v</strong>] = <strong>y</strong>.<span style="color:red">grab</span>(<strong>options</strong>) is the next frame from the file
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'skip', S</td> <td>Skip frames, and return current+S frame (default 1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'rgb'</td> <td>Return as an RGB image, Y image is downsized by two (default).</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'rgb2'</td> <td>Return as an RGB image, U and V images are upsized by two.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'yuv'</td> <td>Return Y, U and V images.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>If no output argument given the image is displayed using IDISP.</li>
+  <li>For the 'yuv' option three output arguments must be given.</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

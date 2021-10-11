@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: kdog</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: kdog</td>
+      <td class="subheader-left"><a href="matlab:open kdog">View code for kdog</a></td>
+    </tr>
+  </table>
+<h1>kdog</h1><p><span class="helptopic">Difference of Gaussian kernel</span></p><p>
+<strong>k</strong> = <span style="color:red">kdog</span>(<strong>sigma1</strong>) is a 2-dimensional difference of Gaussian kernel equal
+to KGAUSS(<strong>sigma1</strong>) - KGAUSS(SIGMA2), where <strong>sigma1</strong> &amp;gt; SIGMA2.  By default
+SIGMA2 = 1.6*<strong>sigma1</strong>.  The kernel is centred within the matrix <strong>k</strong> whose
+half-width H = 3xSIGMA and W=2xH+1.
+
+</p>
+<p>
+<strong>k</strong> = <span style="color:red">kdog</span>(<strong>sigma1</strong>, <strong>sigma2</strong>) as above but <strong>sigma2</strong> is specified directly.
+
+</p>
+<p>
+<strong>k</strong> = <span style="color:red">kdog</span>(<strong>sigma1</strong>, <strong>sigma2</strong>, <strong>H</strong>) as above but the kernel half-width is specified.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This kernel is similar to the Laplacian of Gaussian and is often used
+as an efficient approximation.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="kgauss.html">kgauss</a>, <a href="kdgauss.html">kdgauss</a>, <a href="klog.html">klog</a>, <a href="iconv.html">iconv</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: kmeans</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: kmeans</td>
+      <td class="subheader-left"><a href="matlab:open kmeans">View code for kmeans</a></td>
+    </tr>
+  </table>
+<h1>kmeans</h1><p><span class="helptopic">K-means clustering</span></p><p>
+[<strong>L</strong>,<strong>C</strong>] = <span style="color:red">kmeans</span>(<strong>x</strong>, <strong>k</strong>, <strong>options</strong>) is a <strong>k</strong>-means clustering of multi-dimensional
+data points <strong>x</strong> (DxN) where N is the number of points, and D is the dimension.
+The data is organized into <strong>k</strong> clusters based on Euclidean distance from cluster
+centres <strong>C</strong> (DxK). <strong>L</strong> is a vector (Nx1) whose elements indicates which
+cluster the corresponding element of <strong>x</strong> belongs to.
+
+</p>
+<p>
+[<strong>L</strong>,<strong>C</strong>] = <span style="color:red">kmeans</span>(<strong>x</strong>, <strong>k</strong>, <strong>c0</strong>) as above but the initial clusters <strong>c0</strong> (DxK) is given
+and column I is the initial estimate of the centre of cluster I.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">kmeans</span>(<strong>x</strong>, <strong>C</strong>) is similar to above but the clustering step is not performed,
+it is assumed to have been completed previously.  <strong>C</strong> (DxK) contains the cluster
+centroids and <strong>L</strong> (Nx1) indicates which cluster the corresponding element of <strong>x</strong>
+is closest to.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'random'</td> <td>initial cluster centres are chosen randomly from the set of
+data points X (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'spread'</td> <td>initial cluster centres are chosen randomly from within the
+hypercube spanned by X.</td></tr>
+</table>
+<h2>Reference</h2>
+<p>
+"Pattern Recognition Principles",
+Tou and Gonzalez,
+Addison-Wesley 1977, pp 94
+
+</p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

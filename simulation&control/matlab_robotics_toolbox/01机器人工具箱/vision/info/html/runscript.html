@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: runscript</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: runscript</td>
+      <td class="subheader-left"><a href="matlab:open runscript">View code for runscript</a></td>
+    </tr>
+  </table>
+<h1>runscript</h1><p><span class="helptopic">Run an M-file in interactive fashion</span></p><p>
+<span style="color:red">runscript</span>(<strong>fname</strong>, <strong>options</strong>) runs the M-file <strong>fname</strong> and pauses after every
+executable line in the file until a key is pressed.  Comment lines are shown
+without any delay between lines.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'delay', D</td> <td>Don't wait for keypress, just delay of D seconds (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'cdelay', D</td> <td>Pause of D seconds after each comment line (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'begin'</td> <td>Start executing the file after the comment line %%begin (default false)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'dock'</td> <td>Cause the figures to be docked when created</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'path', P</td> <td>Look for the file FNAME in the folder P (default .)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'dock'</td> <td>Dock figures within GUI</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>If no file extension is given in FNAME, .m is assumed.</li>
+  <li>If the executable statement has comments immediately afterward (no blank lines)
+then the pause occurs after those comments are displayed.</li>
+  <li>A simple '-' prompt indicates when the script is paused, hit enter.</li>
+  <li>If the function cprintf() is in your path, the display is more
+colorful, you can get this file from MATLAB Central.</li>
+  <li>If the file has a lot of boilerplate, you can skip over and not display
+it by giving the 'begin' option which searchers for the first line
+starting with %%begin and commences execution at the line after that.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="eval.html">eval</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

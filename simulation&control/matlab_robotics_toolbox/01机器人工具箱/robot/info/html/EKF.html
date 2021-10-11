@@ -1,0 +1,498 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: EKF</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: EKF</td>
+      <td class="subheader-left"><a href="matlab:open EKF">View code for EKF</a></td>
+    </tr>
+  </table>
+<h1>EKF</h1><p><span class="helptopic">Extended Kalman Filter for navigation</span></p><p>
+Extended Kalman filter for optimal estimation of state from noisy
+measurments given a non-linear dynamic model.  This class is specific to
+the problem of state estimation for a vehicle moving in SE(2).
+
+</p>
+<p>
+This class can be used for:
+
+</p>
+<ul>
+  <li>dead reckoning localization</li>
+  <li>map-based localization</li>
+  <li>map making</li>
+  <li>simultaneous localization and mapping (SLAM)</li>
+</ul>
+<p>
+It is used in conjunction with:
+
+</p>
+<ul>
+  <li>a kinematic vehicle model that provides odometry output, represented
+by a Vehicle object.</li>
+  <li>The vehicle must be driven within the area of the map and this is
+achieved by connecting the Vehicle object to a Driver object.</li>
+  <li>a map containing the position of a number of landmark points and is
+represented by a Map object.</li>
+  <li>a sensor that returns measurements about landmarks relative to the
+vehicle's location and is represented by a Sensor object subclass.</li>
+</ul>
+<p>
+The EKF object updates its state at each time step, and invokes the
+state update methods of the Vehicle.  The complete history of estimated
+state and covariance is stored within the EKF object.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> run</td> <td>run the filter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_xy</td> <td>plot the actual path of the vehicle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_P</td> <td>plot the estimated covariance norm along the path</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_map</td> <td>plot estimated feature points and confidence limits</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_ellipse</td> <td>plot estimated path with covariance ellipses</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> plot_error</td> <td>plot estimation error with standard deviation bounds</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>print the filter state in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert the filter state to human readable string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> x_est</td> <td>estimated state</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> P </td> <td>estimated covariance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> V_est</td> <td>estimated odometry covariance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> W_est</td> <td>estimated sensor covariance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> features</td> <td>maps sensor feature id to filter state element</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> robot</td> <td>reference to the Vehicle object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> sensor</td> <td>reference to the Sensor subclass object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> history</td> <td>vector of structs that hold the detailed filter state from
+each time step</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> verbose</td> <td>show lots of detail (default false)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> joseph</td> <td>use Joseph form to represent covariance (default true)</td></tr>
+</table>
+<h2>Vehicle position estimation (localization)</h2>
+<p>
+Create a vehicle with odometry covariance V, add a driver to it,
+create a Kalman filter with estimated covariance V_est and initial
+state covariance P0
+
+</p>
+<pre style="width: 90%%;" class="examples">
+veh&nbsp;=&nbsp;Vehicle(V);
+veh.add_driver(&nbsp;RandomPath(20,&nbsp;2)&nbsp;);
+ekf&nbsp;=&nbsp;EKF(veh,&nbsp;V_est,&nbsp;P0);
+</pre>
+<p>
+We run the simulation for 1000 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.run(1000);
+</pre>
+<p>
+then plot true vehicle path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+veh.plot_xy('b');
+</pre>
+<p>
+and overlay the estimated path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_xy('r');
+</pre>
+<p>
+and overlay uncertainty ellipses at every 20 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_ellipse(20,&nbsp;'g');
+</pre>
+<p>
+We can plot the covariance against time as
+
+</p>
+<pre style="width: 90%%;" class="examples">
+clf
+ekf.plot_P();
+</pre>
+<h2>Map-based vehicle localization</h2>
+<p>
+Create a vehicle with odometry covariance V, add a driver to it,
+create a map with 20 point features, create a sensor that uses the map
+and vehicle state to estimate feature range and bearing with covariance
+W, the Kalman filter with estimated covariances V_est and W_est and initial
+vehicle state covariance P0
+
+</p>
+<pre style="width: 90%%;" class="examples">
+veh&nbsp;=&nbsp;Vehicle(V);
+veh.add_driver(&nbsp;RandomPath(20,&nbsp;2)&nbsp;);
+map&nbsp;=&nbsp;Map(20);
+sensor&nbsp;=&nbsp;RangeBearingSensor(veh,&nbsp;map,&nbsp;W);
+ekf&nbsp;=&nbsp;EKF(veh,&nbsp;V_est,&nbsp;P0,&nbsp;sensor,&nbsp;W_est,&nbsp;map);
+</pre>
+<p>
+We run the simulation for 1000 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.run(1000);
+</pre>
+<p>
+then plot the map and the true vehicle path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map.plot();
+veh.plot_xy('b');
+</pre>
+<p>
+and overlay the estimatd path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_xy('r');
+</pre>
+<p>
+and overlay uncertainty ellipses at every 20 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_ellipse([],&nbsp;'g');
+</pre>
+<p>
+We can plot the covariance against time as
+
+</p>
+<pre style="width: 90%%;" class="examples">
+clf
+ekf.plot_P();
+</pre>
+<h2>Vehicle-based map making</h2>
+<p>
+Create a vehicle with odometry covariance V, add a driver to it,
+create a sensor that uses the map and vehicle state to estimate feature range
+and bearing with covariance W, the Kalman filter with estimated sensor
+covariance W_est and a "perfect" vehicle (no covariance),
+then run the filter for N time steps.
+
+</p>
+<pre style="width: 90%%;" class="examples">
+veh&nbsp;=&nbsp;Vehicle(V);
+veh.add_driver(&nbsp;RandomPath(20,&nbsp;2)&nbsp;);
+sensor&nbsp;=&nbsp;RangeBearingSensor(veh,&nbsp;map,&nbsp;W);
+ekf&nbsp;=&nbsp;EKF(veh,&nbsp;[],&nbsp;[],&nbsp;sensor,&nbsp;W_est,&nbsp;[]);
+</pre>
+<p>
+We run the simulation for 1000 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.run(1000);
+</pre>
+<p>
+Then plot the true map
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map.plot();
+</pre>
+<p>
+and overlay the estimated map with 3 sigma ellipses
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_map(3,&nbsp;'g');
+</pre>
+<h2>Simultaneous localization and mapping (SLAM)</h2>
+<p>
+Create a vehicle with odometry covariance V, add a driver to it,
+create a map with 20 point features, create a sensor that uses the map
+and vehicle state to estimate feature range and bearing with covariance
+W, the Kalman filter with estimated covariances V_est and W_est and initial
+state covariance P0, then run the filter to estimate the vehicle state at
+each time step and the map.
+
+</p>
+<pre style="width: 90%%;" class="examples">
+veh&nbsp;=&nbsp;Vehicle(V);
+veh.add_driver(&nbsp;RandomPath(20,&nbsp;2)&nbsp;);
+map&nbsp;=&nbsp;Map(20);
+sensor&nbsp;=&nbsp;RangeBearingSensor(veh,&nbsp;map,&nbsp;W);
+ekf&nbsp;=&nbsp;EKF(veh,&nbsp;V_est,&nbsp;P0,&nbsp;sensor,&nbsp;W,&nbsp;[]);
+</pre>
+<p>
+We run the simulation for 1000 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.run(1000);
+</pre>
+<p>
+then plot the map and the true vehicle path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map.plot();
+veh.plot_xy('b');
+</pre>
+<p>
+and overlay the estimated path
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_xy('r');
+</pre>
+<p>
+and overlay uncertainty ellipses at every 20 time steps
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_ellipse([],&nbsp;'g');
+</pre>
+<p>
+We can plot the covariance against time as
+
+</p>
+<pre style="width: 90%%;" class="examples">
+clf
+ekf.plot_P();
+</pre>
+<p>
+Then plot the true map
+
+</p>
+<pre style="width: 90%%;" class="examples">
+map.plot();
+</pre>
+<p>
+and overlay the estimated map with 3 sigma ellipses
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ekf.plot_map(3,&nbsp;'g');
+</pre>
+<h2>References</h2>
+<p>
+Robotics, Vision &amp; Control, Chap 6,
+Peter Corke,
+Springer 2011
+
+</p>
+<p>
+Stochastic processes and filtering theory,
+AH Jazwinski
+Academic Press 1970
+
+</p>
+<h2>Acknowledgement</h2>
+<p>
+Inspired by code of Paul Newman, Oxford University,
+http://www.robots.ox.ac.uk/~pnewman
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a>, <a href="RandomPath.html">RandomPath</a>, <a href="RangeBearingSensor.html">RangeBearingSensor</a>, <a href="Map.html">Map</a>, <a href="ParticleFilter.html">ParticleFilter</a></p>
+<hr>
+<a name="EKF"><h1>EKF.EKF</h1></a>
+<p><span class="helptopic">EKF object constructor</span></p><p>
+<strong>E</strong> = <span style="color:red">EKF</span>(<strong>vehicle</strong>, <strong>v_est</strong>, <strong>p0</strong>, <strong>options</strong>) is an <span style="color:red">EKF</span> that estimates the state
+of the <strong>vehicle</strong> with estimated odometry covariance <strong>v_est</strong> (2x2) and
+initial covariance (3x3).
+
+</p>
+<p>
+<strong>E</strong> = <span style="color:red">EKF</span>(<strong>vehicle</strong>, <strong>v_est</strong>, <strong>p0</strong>, <strong>sensor</strong>, <strong>w_est</strong>, <strong>map</strong>, <strong>options</strong>) as above but
+uses information from a <strong>vehicle</strong> mounted sensor, estimated
+sensor covariance <strong>w_est</strong> and a <strong>map</strong>.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'verbose'</td> <td>Be verbose.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'nohistory'</td> <td>Don't keep history.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'joseph'</td> <td>Use Joseph form for covariance</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'dim', D</td> <td>Dimension of the robot's workspace.  Scalar D is DxD,
+2-vector D(1)xD(2), 4-vector is D(1)<x<D(2), D(3)<y<D(4).</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>If MAP is [] then it will be estimated.</li>
+  <li>If V_EST and P0 are [] the vehicle is assumed error free and
+the filter will only estimate the landmark positions (map).</li>
+  <li>If V_EST and P0 are finite the filter will estimate the
+vehicle pose and the landmark positions (map).</li>
+  <li>EKF subclasses Handle, so it is a reference object.</li>
+  <li>Dimensions of workspace are normally taken from the map if given.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Vehicle.html">Vehicle</a>, <a href="Sensor.html">Sensor</a>, <a href="RangeBearingSensor.html">RangeBearingSensor</a>, <a href="Map.html">Map</a></p>
+<hr>
+<a name="char"><h1>EKF.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+E.<span style="color:red">char</span>() is a string representing the state of the <span style="color:red">EKF</span>
+object in human-readable form.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="EKF.display.html">EKF.display</a></p>
+<hr>
+<a name="display"><h1>EKF.display</h1></a>
+<p><span class="helptopic">Display status of EKF object</span></p><p>
+E.<span style="color:red">display</span>() displays the state of the <span style="color:red">EKF</span> object in
+human-readable form.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a EKF object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="EKF.char.html">EKF.char</a></p>
+<hr>
+<a name="init"><h1>EKF.init</h1></a>
+<p><span class="helptopic">Reset the filter</span></p><p>
+E.<span style="color:red">init</span>() resets the filter state and clears the history.
+
+</p>
+<hr>
+<a name="plot_ellipse"><h1>EKF.plot_ellipse</h1></a>
+<p><span class="helptopic">Plot vehicle covariance as an ellipse</span></p><p>
+E.<span style="color:red">plot_ellipse</span>() overlay the current plot with the estimated
+vehicle position covariance ellipses for 20 points along the
+path.
+
+</p>
+<p>
+E.<span style="color:red">plot_ellipse</span>(<strong>i</strong>) as above but for <strong>i</strong> points along the path.
+
+</p>
+<p>
+E.<span style="color:red">plot_ellipse</span>(<strong>i</strong>, <strong>ls</strong>) as above but pass line style arguments
+<strong>ls</strong> to <span style="color:red">plot_ellipse</span>.  If <strong>i</strong> is [] then assume 20.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="plot_ellipse.html">plot_ellipse</a></p>
+<hr>
+<a name="plot_error"><h1>EKF.plot_error</h1></a>
+<p><span class="helptopic">Plot vehicle position</span></p><p>
+E.<span style="color:red">plot_error</span>(<strong>options</strong>) plot the error between actual and estimated vehicle
+path (x, y, theta).  Heading error is wrapped into the range [-pi,pi)
+
+</p>
+<p>
+<strong>out</strong> = E.<span style="color:red">plot_error</span>() is the estimation error versus time as a matrix (Nx3)
+where each row is x, y, theta.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'bound', S</td> <td>Display the S sigma confidence bounds (default 3).
+If S =0 do not display bounds.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'boundcolor', C</td> <td>Display the bounds using color C</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> LS</td> <td>Use MATLAB linestyle LS for the plots</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The bounds show the instantaneous standard deviation associated
+with the state.  Observations tend to decrease the uncertainty
+while periods of dead-reckoning increase it.</li>
+  <li>Ideally the error should lie "mostly" within the +/-3sigma
+bounds.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="EKF.plot_xy.html">EKF.plot_xy</a>, <a href="EKF.plot_ellipse.html">EKF.plot_ellipse</a>, <a href="EKF.plot_P.html">EKF.plot_P</a></p>
+<hr>
+<a name="plot_map"><h1>EKF.plot_map</h1></a>
+<p><span class="helptopic">Plot landmarks</span></p><p>
+E.<span style="color:red">plot_map</span>() overlay the current plot with the estimated landmark
+position (a +-marker) and a covariance ellipses.
+
+</p>
+<p>
+E.<span style="color:red">plot_map</span>(<strong>ls</strong>) as above but pass line style arguments
+<strong>ls</strong> to plot_ellipse.
+
+</p>
+<p>
+<strong>p</strong> = E.<span style="color:red">plot_map</span>() is the estimated landmark locations (2xN)
+and column I is the I'th map feature.  If the landmark was not
+estimated the corresponding column contains NaNs.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="plot_ellipse.html">plot_ellipse</a></p>
+<hr>
+<a name="plot_P"><h1>EKF.plot_P</h1></a>
+<p><span class="helptopic">Plot covariance magnitude</span></p><p>
+E.<span style="color:red">plot_P</span>() plots the estimated covariance magnitude against
+time step.
+
+</p>
+<p>
+E.<span style="color:red">plot_P</span>(<strong>ls</strong>) as above but the optional line style arguments
+<strong>ls</strong> are passed to plot.
+
+</p>
+<p>
+<strong>m</strong> = E.<span style="color:red">plot_P</span>() is the estimated covariance magnitude at
+all time steps as a vector.
+
+</p>
+<hr>
+<a name="plot_xy"><h1>EKF.plot_xy</h1></a>
+<p><span class="helptopic">Plot vehicle position</span></p><p>
+E.<span style="color:red">plot_xy</span>() overlay the current plot with the estimated vehicle path in
+the xy-plane.
+
+</p>
+<p>
+E.<span style="color:red">plot_xy</span>(<strong>ls</strong>) as above but the optional line style arguments
+<strong>ls</strong> are passed to plot.
+
+</p>
+<p>
+<strong>p</strong> = E.<span style="color:red">plot_xy</span>() is the estimated vehicle pose trajectory
+as a matrix (Nx3) where each row is x, y, theta.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="EKF.plot_error.html">EKF.plot_error</a>, <a href="EKF.plot_ellipse.html">EKF.plot_ellipse</a>, <a href="EKF.plot_P.html">EKF.plot_P</a></p>
+<hr>
+<a name="run"><h1>EKF.run</h1></a>
+<p><span class="helptopic">Run the filter</span></p><p>
+E.<span style="color:red">run</span>(<strong>n</strong>, <strong>options</strong>) runs the filter for <strong>n</strong> time steps and shows an animation
+of the vehicle moving.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'plot'</td> <td>Plot an animation of the vehicle moving</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>All previously estimated states and estimation history are initially
+cleared.</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,183 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: Hough</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: Hough</td>
+      <td class="subheader-left"><a href="matlab:open Hough">View code for Hough</a></td>
+    </tr>
+  </table>
+<h1>Hough</h1><p><span class="helptopic">Hough transform class</span></p><p>
+The Hough transform is a technique for finding lines in an image using
+a voting scheme.  For every edge pixel in the input image a set of cells
+in the Hough accumulator (voting array) are incremented.
+
+</p>
+<p>
+In this version of the Hough transform lines are described
+by:
+
+</p>
+<pre style="width: 90%%;" class="examples">
+d&nbsp;=&nbsp;y&nbsp;cos(theta)&nbsp;+&nbsp;x&nbsp;sin(theta)
+</pre>
+<p>
+where theta is the angle the line makes to horizontal axis, and d is the
+perpendicular distance between (0,0) and the line.  A horizontal  line has
+theta = 0, a vertical line has theta = pi/2 or -pi/2.
+
+</p>
+<p>
+The voting array is 2-dimensional, with columns corresponding to theta and
+rows corresponding to offset (d). Theta spans the range -pi/2 to pi/2 in Ntheta
+steps.  Offset is in the range -rho_max to rho_max where rho_max=max(W,H).
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Overlay detected lines</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> show</td> <td>Display the Hough accumulator</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> lines</td> <td>Return line features</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert Hough parameters to string</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display Hough parameters</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> Nrho</td> <td>Number of bins in rho direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> Ntheta</td> <td>Number of bins in theta direction</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> A </td> <td>The Hough accumulator (Nrho x Ntheta)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> rho</td> <td>rho values for the centre of each bin vertically</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>Theta values for the centre of each bin horizontally</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> edgeThresh</td> <td>Threshold on relative edge pixel strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> houghThresh</td> <td>Threshold on relative peak strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> suppress</td> <td>Radius of accumulator cells cleared around peak</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> interpWidth</td> <td>Width of region used for peak interpolation</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Hough is a reference object.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="LineFeature.html">LineFeature</a></p>
+<hr>
+<a name="Hough"><h1>Hough.Hough</h1></a>
+<p><span class="helptopic">Create Hough transform object</span></p><p>
+<strong>ht</strong> = <span style="color:red">Hough</span>(<strong>E</strong>, <strong>options</strong>) is the <span style="color:red">Hough</span> transform of the edge image <strong>E</strong>.
+
+</p>
+<p>
+For every pixel in the edge image <strong>E</strong> (HxW) greater than a threshold
+the corresponding elements of the accumulator are incremented.  By
+default the vote is incremented by the edge strength but votes
+can be made equal with the option 'equal'.  The threshold is
+determined from the maximum edge strength value x <strong>ht</strong>.edgeThresh.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'equal'</td> <td>All edge pixels have equal weight, otherwise the
+edge pixel value is the vote strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'points'</td> <td>Pass set of points rather than an edge image, in
+this case E (2xN) is a set of N points, or E (3xN)
+is a set of N points with corresponding vote strengths
+as the third row</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'interpwidth', W</td> <td>Interpolation width (default 3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'houghthresh', T</td> <td>Set HT.houghThresh (default 0.5)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'edgethresh', T</td> <td>Set HT.edgeThresh (default 0.1);</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'suppress', W</td> <td>Set HT.suppress (default 0)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'nbins', N</td> <td>Set number of bins, if N is scalar set Nrho=Ntheta=N, else
+N = [Ntheta, Nrho].  Default 400x401.</td></tr>
+</table>
+<hr>
+<a name="char"><h1>Hough.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = HT.<span style="color:red">char</span>() is a compact string representation of the <span style="color:red">Hough</span> transform parameters.
+
+</p>
+<hr>
+<a name="display"><h1>Hough.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+HT.<span style="color:red">display</span>() displays a compact human-readable string representation of the
+<span style="color:red">Hough</span> transform parameters.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a Hough object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Hough.char.html">Hough.char</a></p>
+<hr>
+<a name="lines"><h1>Hough.lines</h1></a>
+<p><span class="helptopic">Find lines</span></p><p>
+<strong>L</strong> = HT.<span style="color:red">lines</span>() is a vector of LineFeature objects that
+represent the dominant <span style="color:red">lines</span> in the <span style="color:red">Hough</span> accumulator.
+
+</p>
+<p>
+<strong>L</strong> = HT.<span style="color:red">lines</span>(<strong>n</strong>) as above but returns no more than <strong>n</strong> LineFeature
+objects.
+
+</p>
+<p>
+Lines are the coordinates of peaks in the <span style="color:red">Hough</span> accumulator.
+The highest peak is found, refined to subpixel precision, then
+all elements in an HT.suppress radius around are zeroed so as to eliminate
+multiple close minima.  The process is repeated for all peaks.
+
+</p>
+<p>
+The peak detection loop breaks early if the remaining peak has a strength
+less than HT.houghThresh times the maximum vote value.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Hough.plot.html">Hough.plot</a>, <a href="LineFeature.html">LineFeature</a></p>
+<hr>
+<a name="plot"><h1>Hough.plot</h1></a>
+<p><span class="helptopic">Plot line features</span></p><p>
+HT.<span style="color:red">plot</span>() overlays all detected lines on the current figure.
+
+</p>
+<p>
+HT.<span style="color:red">plot</span>(<strong>n</strong>) overlays a maximum of <strong>n</strong> strongest lines on the current figure.
+
+</p>
+<p>
+HT.<span style="color:red">plot</span>(<strong>n</strong>, <strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to <span style="color:red">plot</span>.
+
+</p>
+<p>
+<strong>H</strong> = HT.<span style="color:red">plot</span>() as above but returns a vector of graphics handles for each
+line.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="Hough.lines.html">Hough.lines</a></p>
+<hr>
+<a name="show"><h1>Hough.show</h1></a>
+<p><span class="helptopic">Display the Hough accumulator as image</span></p><p>
+<strong>s</strong> = HT.<span style="color:red">show</span>() displays the <span style="color:red">Hough</span> vote accumulator as an image using the
+hot colormap, where 'heat' is proportional to the number of votes.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="colormap.html">colormap</a>, <a href="hot.html">hot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

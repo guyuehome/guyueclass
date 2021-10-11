@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: filt1d</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: filt1d</td>
+      <td class="subheader-left"><a href="matlab:open filt1d">View code for filt1d</a></td>
+    </tr>
+  </table>
+<h1>filt1d</h1><p><span class="helptopic">1-dimensional rank filter</span></p><p>
+<strong>y</strong> = <span style="color:red">filt1d</span>(<strong>x</strong>, <strong>options</strong>) is the minimum, maximum or median value (1xN) of the
+vector <strong>x</strong> (1xN) compute over an odd length sliding window.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'max'</td> <td>Compute maximum value over the window (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'min'</td> <td>Compute minimum value over the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'median'</td> <td>Compute minimum value over the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'width', W</td> <td>Width of the window (default 5)</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>If the window width is even, it is incremented by one.</li>
+  <li>The first and last elements of X are replicated so the output vector is the
+same length as the input vector.</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

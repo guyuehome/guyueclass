@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: homtrans</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: homtrans</td>
+      <td class="subheader-left"><a href="matlab:open homtrans">View code for homtrans</a></td>
+    </tr>
+  </table>
+<h1>homtrans</h1><p><span class="helptopic">Apply a homogeneous transformation</span></p><p>
+<strong>p2</strong> = <span style="color:red">homtrans</span>(<strong>T</strong>, <strong>p</strong>) applies homogeneous transformation <strong>T</strong> to the points
+stored columnwise in <strong>p</strong>.
+
+</p>
+<ul>
+  <li>If T is in SE(2) (3x3) and</li>
+<ul>
+  <li>P is 2xN (2D points) they are considered Euclidean (R^2)</li>
+  <li>P is 3xN (2D points) they are considered projective (P^2)</li>
+</ul>
+  <li>If T is in SE(3) (4x4) and</li>
+<ul>
+  <li>P is 3xN (3D points) they are considered Euclidean (R^3)</li>
+  <li>P is 4xN (3D points) they are considered projective (P^3)</li>
+</ul>
+</ul>
+<p>
+<strong>tp</strong> = <span style="color:red">homtrans</span>(<strong>T</strong>, <strong>T1</strong>) applies homogeneous transformation <strong>T</strong> to the
+homogeneous transformation <strong>T1</strong>, that is <strong>tp</strong>=<strong>T</strong>*<strong>T1</strong>.  If <strong>T1</strong> is a 3-dimensional
+transformation then <strong>T</strong> is applied to each plane as defined by the first two
+dimensions, ie. if <strong>T</strong> = NxN and <strong>T</strong>=NxNxP then the result is NxNxP.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="e2h.html">e2h</a>, <a href="h2e.html">h2e</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

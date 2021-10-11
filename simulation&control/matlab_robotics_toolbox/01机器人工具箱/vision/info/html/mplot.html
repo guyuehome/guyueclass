@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: mplot</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: mplot</td>
+      <td class="subheader-left"><a href="matlab:open mplot">View code for mplot</a></td>
+    </tr>
+  </table>
+<h1>mplot</h1><p><span class="helptopic">time series data</span></p><p>
+<span style="color:red">mplot</span>(<strong>y</strong>, <strong>options</strong>) plots the time series data <strong>y</strong>(NxM) in multiple
+subplots.  The first column is assumed to be time, so M-1 plots are
+produced.
+
+</p>
+<p>
+<span style="color:red">mplot</span>(<strong>T</strong>, <strong>y</strong>, <strong>options</strong>) plots the time series data <strong>y</strong>(NxM) in multiple
+subplots.  Time is provided explicitly as the first argument so M plots
+are produced.
+
+</p>
+<p>
+<span style="color:red">mplot</span>(<strong>s</strong>, <strong>options</strong>) as above but <strong>s</strong> is a structure.  Each field is assumed
+to be a time series which is plotted.  Time is taken from the field
+called 't'.
+
+</p>
+<p>
+<span style="color:red">mplot</span>(<strong>w</strong>, <strong>options</strong>) as above but <strong>w</strong> is a structure created by the Simulink
+write to workspace block where the save format is set to "Structure
+with time". Each field in the signals substructure is plotted.
+
+</p>
+<p>
+<span style="color:red">mplot</span>(<strong>R</strong>, <strong>options</strong>) as above but <strong>R</strong> is a Simulink.SimulationOutput object
+returned by the Simulink sim() function.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'col', C</td> <td>Select columns to plot, a boolean of length M-1 or a list of
+column indices in the range 1 to M-1</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'label', L</td> <td>Label the axes according to the cell array of strings L</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'date'</td> <td>Add a datestamp in the top right corner</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>In all cases a simple GUI is created which is invoked by a right
+click anywhere on one of the plots.  The supported options are:</li>
+<ul>
+  <li></li>
+</ul>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

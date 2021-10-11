@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: tr2rt</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: tr2rt</td>
+      <td class="subheader-left"><a href="matlab:open tr2rt">View code for tr2rt</a></td>
+    </tr>
+  </table>
+<h1>tr2rt</h1><p><span class="helptopic">Convert homogeneous transform to rotation and translation</span></p><p>
+[<strong>R</strong>,<strong>t</strong>] = <span style="color:red">tr2rt</span>(<strong>TR</strong>) splits a homogeneous transformation matrix (NxN) into an
+orthonormal rotation matrix <strong>R</strong> (MxM) and a translation vector <strong>t</strong> (Mx1), where
+N=M+1.
+
+</p>
+<p>
+Works for <strong>TR</strong> in SE(2) or SE(3)
+
+</p>
+<ul>
+  <li>If TR is 4x4, then R is 3x3 and T is 3x1.</li>
+  <li>If TR is 3x3, then R is 2x2 and T is 2x1.</li>
+</ul>
+<p>
+A homogeneous transform sequence <strong>TR</strong> (NxNxK) is split into rotation matrix
+sequence <strong>R</strong> (MxMxK) and a translation sequence <strong>t</strong> (KxM).
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The validity of R is not checked.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="rt2tr.html">rt2tr</a>, <a href="r2t.html">r2t</a>, <a href="t2r.html">t2r</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

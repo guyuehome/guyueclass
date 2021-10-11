@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: homography</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: homography</td>
+      <td class="subheader-left"><a href="matlab:open homography">View code for homography</a></td>
+    </tr>
+  </table>
+<h1>homography</h1><p><span class="helptopic">Estimate homography</span></p><p>
+<strong>H</strong> = <span style="color:red">homography</span>(<strong>p1</strong>, <strong>p2</strong>) is the <span style="color:red">homography</span> (3x3) that relates two
+sets of corresponding points <strong>p1</strong> (2xN) and <strong>p2</strong> (2xN) from two different
+camera views of a planar object.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The points must be corresponding, no outlier rejection is performed.</li>
+  <li>The points must be projections of points lying on a world plane</li>
+  <li>Contains a RANSAC driver, which means it can be passed to ransac().</li>
+</ul>
+<h2>Author</h2>
+<p>
+Based on <span style="color:red">homography</span> code by
+Peter Kovesi,
+School of Computer Science &amp; Software Engineering,
+The University of Western Australia,
+http://www.csse.uwa.edu.au/,
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="ransac.html">ransac</a>, <a href="invhomog.html">invhomog</a>, <a href="fmatrix.html">fmatrix</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

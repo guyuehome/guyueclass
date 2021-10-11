@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VideoCamera_fg</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VideoCamera_fg</td>
+      <td class="subheader-left"><a href="matlab:open VideoCamera_fg">View code for VideoCamera_fg</a></td>
+    </tr>
+  </table>
+<h1>VideoCamera_fg</h1><p><span class="helptopic">Class to read from local video camera</span></p><p>
+A concrete subclass of ImageSource that acquires images from a local
+camera using a simple open-source frame grabber interface.
+
+</p>
+<p>
+This class is not intended to be used directly, instead use the factory
+method VideoCamera.which will return an instance of this class if the interface
+is supported on your platform (Mac or Linux), for example
+
+</p>
+<pre style="width: 90%%;" class="examples">
+vid&nbsp;=&nbsp;VideoCamera.amera();
+</pre>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> grab</td> <td>Aquire and return the next image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> size</td> <td>Size of image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> close</td> <td>Close the image source</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert the object parameters to human readable string</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="ImageSource.html">ImageSource</a>, <a href="AxisWebCamera.html">AxisWebCamera</a>, <a href="Movie.html">Movie</a></p>
+<hr>
+<a name="VideoCamera_fg"><h1>VideoCamera_fg.VideoCamera_fg</h1></a>
+<p><span class="helptopic">Video camera constructor</span></p><p>
+V = <span style="color:red">VideoCamera_fg</span>.CAMERA, OPTIONS) is a <span style="color:red">VideoCamera_fg</span>.object that acquires
+images from the local video camera specified by the string CAMERA.
+
+</p>
+<p>
+If CAMERA is '?' a list of available cameras, and their
+characteristics is displayed.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'uint8'</td> <td>Return image with uint8 pixels (default)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'float'</td> <td>Return image with float pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'double'</td> <td>Return image with double precision pixels</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey'</td> <td>Return greyscale image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'gamma', G</td> <td>Apply gamma correction with gamma=G</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'scale', S</td> <td>Subsample the image by S in both directions.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'resolution', S</td> <td>Obtain an image of size S=[W H].</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'id', I</td> <td>ID of camera</td></tr>
+</table>
+<p>
+Notes:
+
+</p>
+<ul>
+  <li>The specified 'resolution' must match one that the camera is capable of,
+otherwise the result is not predictable.</li>
+</ul>
+<hr>
+<a name="char"><h1>VideoCamera_fg.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+V.<span style="color:red">char</span>() is a string representing the state of the camera object in
+human readable form.
+
+</p>
+<hr>
+<a name="close"><h1>VideoCamera_fg.close</h1></a>
+<p><span class="helptopic">Close the image source</span></p><p>
+V.<span style="color:red">close</span>() closes the connection to the camera.
+
+</p>
+<hr>
+<a name="grab"><h1>VideoCamera_fg.grab</h1></a>
+<p><span class="helptopic">Acquire image from the camera</span></p><p>
+<strong>im</strong> = V.<span style="color:red">grab</span>() acquires an image from the camera.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>the function will block until the next frame is acquired.</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,657 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VREP</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VREP</td>
+      <td class="subheader-left"><a href="matlab:open VREP">View code for VREP</a></td>
+    </tr>
+  </table>
+<h1>VREP</h1><p><span class="helptopic">V-REP simulator communications object</span></p><p>
+A VREP object holds all information related to the state of a connection
+to an instance of the V-REP simulator running on this or a networked
+computer. Allows the creation of references to other objects/models in
+V-REP which can be manipulated in MATLAB.
+
+</p>
+<p>
+This class handles the interface to the simulator and low-level object
+handle operations.
+
+</p>
+<p>
+Methods throw exception if an error occurs.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> gethandle</td> <td>get handle to named object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getchildren</td> <td>get children belonging to handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getobjname</td> <td>get names of objects</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> object</td> <td>return a VREP_obj object for named object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> arm</td> <td>return a VREP_arm object for named robot</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> camera</td> <td>return a VREP_camera object for named vosion sensor</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> hokuyo</td> <td>return a VREP_hokuyo object for named Hokuyo scanner</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> getpos</td> <td>return position of object given handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpos</td> <td>set position of object given handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getorient</td> <td>return orientation of object given handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setorient</td> <td>set orientation of object given handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getpose</td> <td>return pose of object given handle</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpose</td> <td>set pose of object given handle</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setobjparam_bool</td> <td>set object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setobjparam_int</td> <td>set object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setobjparam_float</td> <td>set object float parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getobjparam_bool</td> <td>get object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getobjparam_int</td> <td>get object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getobjparam_float</td> <td>get object float parameter</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> signal_int</td> <td>send named integer signal</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> signal_float</td> <td>send named float signal</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> signal_str</td> <td>send named string signal</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setparam_bool</td> <td>set simulator boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_int</td> <td>set simulator integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_str</td> <td>set simulator string parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_float</td> <td>set simulator float parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_bool</td> <td>get simulator boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_int</td> <td>get simulator integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_str</td> <td>get simulator string parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_float</td> <td>get simulator float parameter</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> delete</td> <td>shutdown the connection and cleanup</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> simstart</td> <td>start the simulator running</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> simstop</td> <td>stop the simulator running</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> simpause</td> <td>pause the simulator</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getversion</td> <td>get V-REP version number</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> checkcomms</td> <td>return status of connection</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> pausecomms</td> <td>pause the comms</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> loadscene</td> <td>load a scene file</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> clearscene</td> <td>clear the current scene</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> loadmodel</td> <td>load a model into current scene</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>print the link parameters in human readable form</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>convert to string</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.html">VREP_obj</a>, <a href="VREP_arm.html">VREP_arm</a>, <a href="VREP_camera.html">VREP_camera</a>, <a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="VREP"><h1>VREP.VREP</h1></a>
+<p><span class="helptopic">VREP object constructor</span></p><p>
+<strong>v</strong> = <span style="color:red">VREP</span>(<strong>options</strong>) create a connection to an instance of the V-REP
+simulator.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'timeout', T</td> <td>Timeout T in ms (default 2000)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'cycle', C</td> <td>Cycle time C in ms (default 5)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'port', P</td> <td>Override communications port</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'reconnect'</td> <td>Reconnect on error (default noreconnect)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'path', P</td> <td>The path to VREP install directory</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The default path is taken from the environment variable VREP</li>
+</ul>
+<hr>
+<a name="arm"><h1>VREP.arm</h1></a>
+<p><span class="helptopic">Return VREP_arm object</span></p><p>
+V.<span style="color:red">arm</span>(<strong>name</strong>) is a factory method that returns a VREP_arm object for the V-REP robot
+object named NAME.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep.arm('IRB&nbsp;140');
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP_arm.html">VREP_arm</a></p>
+<hr>
+<a name="camera"><h1>VREP.camera</h1></a>
+<p><span class="helptopic">Return VREP_camera object</span></p><p>
+V.<span style="color:red">camera</span>(<strong>name</strong>) is a factory method that returns a VREP_camera object for the V-REP vision
+sensor object named NAME.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_camera.html">VREP_camera</a></p>
+<hr>
+<a name="char"><h1>VREP.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+V.<span style="color:red">char</span>() is a string representation the <span style="color:red">VREP</span> parameters in human
+readable foramt.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.display.html">VREP.display</a></p>
+<hr>
+<a name="checkcomms"><h1>VREP.checkcomms</h1></a>
+<p><span class="helptopic">Check communications to V-REP simulator</span></p><p>
+V.<span style="color:red">checkcomms</span>() is true if a valid connection to the V-REP simulator exists.
+
+</p>
+<hr>
+<a name="clearscene"><h1>VREP.clearscene</h1></a>
+<p><span class="helptopic">Clear current scene in the V-REP simulator</span></p><p>
+V.<span style="color:red">clearscene</span>() clears the current scene and switches to another open
+scene, if none, a new (default) scene is created.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.loadscene.html">VREP.loadscene</a></p>
+<hr>
+<a name="delete"><h1>VREP.delete</h1></a>
+<p><span class="helptopic">VREP object destructor</span></p><p>
+<span style="color:red">delete</span>(<strong>v</strong>) closes the connection to the V-REP simulator
+
+</p>
+<hr>
+<a name="display"><h1>VREP.display</h1></a>
+<p><span class="helptopic">Display parameters</span></p><p>
+V.<span style="color:red">display</span>() displays the <span style="color:red">VREP</span> parameters in compact format.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a VREP object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP.char.html">VREP.char</a></p>
+<hr>
+<a name="getchildren"><h1>VREP.getchildren</h1></a>
+<p><span class="helptopic">Find children of object</span></p><p>
+<strong>C</strong> = V.<span style="color:red">getchildren</span>(<strong>H</strong>) is a vector of integer handles for the children of
+the V-REP object denoted by the integer handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="gethandle"><h1>VREP.gethandle</h1></a>
+<p><span class="helptopic">Return handle to VREP object</span></p><p>
+<strong>H</strong> = V.<span style="color:red">gethandle</span>(<strong>name</strong>) is an integer handle for named V-REP object.
+
+</p>
+<p>
+<strong>H</strong> = V.<span style="color:red">gethandle</span>(<strong>fmt</strong>, <strong>arglist</strong>) as above but the name is formed
+from sprintf(<strong>fmt</strong>, <strong>arglist</strong>).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="sprintf.html">sprintf</a></p>
+<hr>
+<a name="getjoint"><h1>VREP.getjoint</h1></a>
+<p><span class="helptopic">Get value of V-REP joint object</span></p><p>
+V.<span style="color:red">getjoint</span>(<strong>H</strong>, <strong>q</strong>) is the position of joint object with integer handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="getobjname"><h1>VREP.getobjname</h1></a>
+<p><span class="helptopic">Find names of objects</span></p><p>
+V.<span style="color:red">getobjname</span>() will display the names and object handle (integers) for
+all objects in the current scene.
+
+</p>
+<p>
+<strong>name</strong> = V.<span style="color:red">getobjname</span>(<strong>H</strong>) will return the name of the object with handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="getobjparam_bool"><h1>VREP.getobjparam_bool</h1></a>
+<p><span class="helptopic">Get boolean parameter of a V-REP object</span></p><p>
+V.<span style="color:red">getobjparam_bool</span>(<strong>H</strong>, <strong>param</strong>) gets the boolean parameter
+with identifier <strong>param</strong> of object with integer handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="getobjparam_float"><h1>VREP.getobjparam_float</h1></a>
+<p><span class="helptopic">Get float parameter of a V-REP object</span></p><p>
+V.<span style="color:red">getobjparam_float</span>(<strong>H</strong>, <strong>param</strong>) gets the float parameter
+with identifier <strong>param</strong> of object with integer handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="getobjparam_int"><h1>VREP.getobjparam_int</h1></a>
+<p><span class="helptopic">Get integer parameter of a V-REP object</span></p><p>
+V.<span style="color:red">getobjparam_int</span>(<strong>H</strong>, <strong>param</strong>) gets the integer parameter
+with identifier <strong>param</strong> of object with integer handle <strong>H</strong>.
+
+</p>
+<hr>
+<a name="getorient"><h1>VREP.getorient</h1></a>
+<p><span class="helptopic">Get orientation of V-REP object</span></p><p>
+<strong>R</strong> = V.<span style="color:red">getorient</span>(<strong>H</strong>) is the orientation  of the V-REP object with integer
+handle <strong>H</strong> as a rotation matrix (3x3).
+
+</p>
+<p>
+EUL = V.<span style="color:red">getorient</span>(<strong>H</strong>, 'euler', OPTIONS) as above but returns ZYZ Euler
+angles.
+
+</p>
+<p>
+V.<span style="color:red">getorient</span>(<strong>H</strong>, <strong>hrr</strong>) as above but orientation is relative to the
+position of object with integer handle HR.
+
+</p>
+<p>
+V.<span style="color:red">getorient</span>(<strong>H</strong>, <strong>hrr</strong>, 'euler', OPTIONS) as above but returns ZYZ Euler
+angles.
+
+</p>
+<h2>Options</h2>
+<p>
+See tr2eul.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.setorient.html">VREP.setorient</a>, <a href="VREP.getpos.html">VREP.getpos</a>, <a href="VREP.getpose.html">VREP.getpose</a></p>
+<hr>
+<a name="getparam_bool"><h1>VREP.getparam_bool</h1></a>
+<p><span class="helptopic">Get boolean parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">getparam_bool</span>(<strong>name</strong>) is the boolean parameter with name <strong>name</strong>
+from the V-REP simulation engine.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+v&nbsp;=&nbsp;VREP();
+v.getparam_bool('sim_boolparam_mirrors_enabled')
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP.setparam_bool.html">VREP.setparam_bool</a></p>
+<hr>
+<a name="getparam_float"><h1>VREP.getparam_float</h1></a>
+<p><span class="helptopic">Get float parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">getparam_float</span>(<strong>name</strong>) gets the float parameter with name <strong>name</strong>
+from the V-REP simulation engine.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+v&nbsp;=&nbsp;VREP();
+v.getparam_float('sim_floatparam_simulation_time_step')
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP.setparam_float.html">VREP.setparam_float</a></p>
+<hr>
+<a name="getparam_int"><h1>VREP.getparam_int</h1></a>
+<p><span class="helptopic">Get integer parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">getparam_int</span>(<strong>name</strong>) is the integer parameter with name <strong>name</strong>
+from the V-REP simulation engine.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+v&nbsp;=&nbsp;VREP();
+v.getparam_int('sim_intparam_settings')
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP.setparam_int.html">VREP.setparam_int</a></p>
+<hr>
+<a name="getparam_str"><h1>VREP.getparam_str</h1></a>
+<p><span class="helptopic">Get string parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">getparam_str</span>(<strong>name</strong>) is the string parameter with name <strong>name</strong>
+from the V-REP simulation engine.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+v&nbsp;=&nbsp;VREP();
+v.getparam_str('sim_stringparam_application_path')
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP.setparam_str.html">VREP.setparam_str</a></p>
+<hr>
+<a name="getpos"><h1>VREP.getpos</h1></a>
+<p><span class="helptopic">Get position of V-REP object</span></p><p>
+V.<span style="color:red">getpos</span>(<strong>H</strong>) is the position (1x3) of the V-REP object with integer
+handle <strong>H</strong>.
+
+</p>
+<p>
+V.<span style="color:red">getpos</span>(<strong>H</strong>, <strong>hr</strong>) as above but position is relative to the
+position of object with integer handle <strong>hr</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.setpose.html">VREP.setpose</a>, <a href="VREP.getpose.html">VREP.getpose</a>, <a href="VREP.getorient.html">VREP.getorient</a></p>
+<hr>
+<a name="getpose"><h1>VREP.getpose</h1></a>
+<p><span class="helptopic">Get pose of V-REP object</span></p><p>
+<strong>T</strong> = V.<span style="color:red">getpose</span>(<strong>H</strong>) is the pose of the V-REP object with integer
+handle <strong>H</strong> as a homogeneous transformation matrix (4x4).
+
+</p>
+<p>
+<strong>T</strong> = V.<span style="color:red">getpose</span>(<strong>H</strong>, <strong>hr</strong>) as above but pose is relative to the
+pose of object with integer handle R.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.setpose.html">VREP.setpose</a>, <a href="VREP.getpos.html">VREP.getpos</a>, <a href="VREP.getorient.html">VREP.getorient</a></p>
+<hr>
+<a name="getversion"><h1>VREP.getversion</h1></a>
+<p><span class="helptopic">Get version of the V-REP simulator</span></p><p>
+V.<span style="color:red">getversion</span>() is the version of the V-REP simulator
+server as an integer MNNNN where M is the major version
+number and NNNN is the minor version number.
+
+</p>
+<hr>
+<a name="hokuyo"><h1>VREP.hokuyo</h1></a>
+<p><span class="helptopic">Return VREP_hokuyo object</span></p><p>
+V.<span style="color:red">hokuyo</span>(<strong>name</strong>) is a factory method that returns a VREP_hokuyo
+object for the V-REP Hokuyo laser scanner object named NAME.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="loadmodel"><h1>VREP.loadmodel</h1></a>
+<p><span class="helptopic">Load a model into the V-REP simulator</span></p><p>
+<strong>m</strong> = V.<span style="color:red">loadmodel</span>(<strong>file</strong>, <strong>options</strong>) loads the model file <strong>file</strong> with extension .ttm
+into the simulator and returns a VREP_obj object that mirrors it in
+MATLAB.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'local'</td> <td>The file is loaded relative to the MATLAB client's current
+folder, otherwise from the V-REP root folder.</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep.loadmodel('people/Walking&nbsp;Bill');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>If a relative filename is given in non-local (server) mode it is
+relative to the V-REP models folder.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP.arm.html">VREP.arm</a>, <a href="VREP.camera.html">VREP.camera</a>, <a href="VREP.object.html">VREP.object</a></p>
+<hr>
+<a name="loadscene"><h1>VREP.loadscene</h1></a>
+<p><span class="helptopic">Load a scene into the V-REP simulator</span></p><p>
+V.<span style="color:red">loadscene</span>(<strong>file</strong>, <strong>options</strong>) loads the scene file <strong>file</strong> with extension .ttt
+into the simulator.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'local'</td> <td>The file is loaded relative to the MATLAB client's current
+folder, otherwise from the V-REP root folder.</td></tr>
+</table>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep.loadscene('2IndustrialRobots');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>If a relative filename is given in non-local (server) mode it is
+relative to the V-REP scenes folder.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP.clearscene.html">VREP.clearscene</a></p>
+<hr>
+<a name="mobile"><h1>VREP.mobile</h1></a>
+<p><span class="helptopic">Return VREP_mobile object</span></p><p>
+V.<span style="color:red">mobile</span>(<strong>name</strong>) is a factory method that returns a
+VREP_mobile object for the V-REP <span style="color:red">mobile</span> base object named NAME.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_mobile.html">VREP_mobile</a></p>
+<hr>
+<a name="object"><h1>VREP.object</h1></a>
+<p><span class="helptopic">Return VREP_obj object</span></p><p>
+V.<span style="color:red">objet</span>(<strong>name</strong>) is a factory method that returns a VREP_obj object for the V-REP
+object or model named NAME.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep.obj('Walking&nbsp;Bill');
+</pre>
+<h2>See also</h2>
+<p>
+<a href="VREP_obj.html">VREP_obj</a></p>
+<hr>
+<a name="pausecomms"><h1>VREP.pausecomms</h1></a>
+<p><span class="helptopic">Pause communcations to the V-REP simulator</span></p><p>
+V.<span style="color:red">pausecomms</span>(<strong>p</strong>) pauses communications to the V-REP simulation engine if <strong>p</strong> is true
+else resumes it.  Useful to ensure an atomic update of
+simulator state.
+
+</p>
+<hr>
+<a name="setjoint"><h1>VREP.setjoint</h1></a>
+<p><span class="helptopic">Set value of V-REP joint object</span></p><p>
+V.<span style="color:red">setjoint</span>(<strong>H</strong>, <strong>q</strong>) sets the position of joint object with integer handle <strong>H</strong>
+to the value <strong>q</strong>.
+
+</p>
+<hr>
+<a name="setjointtarget"><h1>VREP.setjointtarget</h1></a>
+<p><span class="helptopic">Set target value of V-REP joint object</span></p><p>
+V.<span style="color:red">setjointtarget</span>(<strong>H</strong>, <strong>q</strong>) sets the target position of joint object with integer handle <strong>H</strong>
+to the value <strong>q</strong>.
+
+</p>
+<hr>
+<a name="setjointvel"><h1>VREP.setjointvel</h1></a>
+<p><span class="helptopic">Set velocity of V-REP joint object</span></p><p>
+V.<span style="color:red">setjointvel</span>(<strong>H</strong>, <strong>qd</strong>) sets the target velocity of joint object with integer handle <strong>H</strong>
+to the value <strong>qd</strong>.
+
+</p>
+<hr>
+<a name="setobjparam_bool"><h1>VREP.setobjparam_bool</h1></a>
+<p><span class="helptopic">Set boolean parameter of a V-REP object</span></p><p>
+V.<span style="color:red">setobjparam_bool</span>(<strong>H</strong>, <strong>param</strong>, <strong>val</strong>) sets the boolean parameter
+with identifier <strong>param</strong> of object <strong>H</strong> to value <strong>val</strong>.
+
+</p>
+<hr>
+<a name="setobjparam_float"><h1>VREP.setobjparam_float</h1></a>
+<p><span class="helptopic">Set float parameter of a V-REP object</span></p><p>
+V.<span style="color:red">setobjparam_float</span>(<strong>H</strong>, <strong>param</strong>, <strong>val</strong>) sets the float parameter
+with identifier <strong>param</strong> of object <strong>H</strong> to value <strong>val</strong>.
+
+</p>
+<hr>
+<a name="setobjparam_int"><h1>VREP.setobjparam_int</h1></a>
+<p><span class="helptopic">Set Integer parameter of a V-REP object</span></p><p>
+V.<span style="color:red">setobjparam_int</span>(<strong>H</strong>, <strong>param</strong>, <strong>val</strong>) sets the integer parameter
+with identifier <strong>param</strong> of object <strong>H</strong> to value <strong>val</strong>.
+
+</p>
+<hr>
+<a name="setorient"><h1>VREP.setorient</h1></a>
+<p><span class="helptopic">Set orientation of V-REP object</span></p><p>
+V.<span style="color:red">setorient</span>(<strong>H</strong>, <strong>R</strong>) sets the orientation of V-REP object with integer
+handle <strong>H</strong> to that given by rotation matrix <strong>R</strong> (3x3).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>H</strong>, <strong>T</strong>) sets the orientation of V-REP object with integer
+handle <strong>H</strong> to rotational component of homogeneous transformation matrix
+<strong>T</strong> (4x4).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>H</strong>, <strong>E</strong>) sets the orientation of V-REP object with integer
+handle <strong>H</strong> to ZYZ Euler angles (1x3).
+
+</p>
+<p>
+V.<span style="color:red">setorient</span>(<strong>H</strong>, <strong>x</strong>, <strong>hr</strong>) as above but orientation is set relative to the
+orientation of object with integer handle <strong>hr</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getorient.html">VREP.getorient</a>, <a href="VREP.setpos.html">VREP.setpos</a>, <a href="VREP.setpose.html">VREP.setpose</a></p>
+<hr>
+<a name="setparam_bool"><h1>VREP.setparam_bool</h1></a>
+<p><span class="helptopic">Set boolean parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">setparam_bool</span>(<strong>name</strong>, <strong>val</strong>) sets the boolean parameter with name <strong>name</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getparam_bool.html">VREP.getparam_bool</a></p>
+<hr>
+<a name="setparam_float"><h1>VREP.setparam_float</h1></a>
+<p><span class="helptopic">Set float parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">setparam_float</span>(<strong>name</strong>, <strong>val</strong>) sets the float parameter with name <strong>name</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getparam_float.html">VREP.getparam_float</a></p>
+<hr>
+<a name="setparam_int"><h1>VREP.setparam_int</h1></a>
+<p><span class="helptopic">Set integer parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">setparam_int</span>(<strong>name</strong>, <strong>val</strong>) sets the integer parameter with name <strong>name</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getparam_int.html">VREP.getparam_int</a></p>
+<hr>
+<a name="setparam_str"><h1>VREP.setparam_str</h1></a>
+<p><span class="helptopic">Set string parameter of the V-REP simulator</span></p><p>
+V.<span style="color:red">setparam_str</span>(<strong>name</strong>, <strong>val</strong>) sets the integer parameter with name <strong>name</strong>
+to value <strong>val</strong> within the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getparam_str.html">VREP.getparam_str</a></p>
+<hr>
+<a name="setpos"><h1>VREP.setpos</h1></a>
+<p><span class="helptopic">Set position of V-REP object</span></p><p>
+V.<span style="color:red">setpos</span>(<strong>H</strong>, <strong>T</strong>) sets the position of V-REP object with integer
+handle <strong>H</strong> to <strong>T</strong> (1x3).
+
+</p>
+<p>
+V.<span style="color:red">setpos</span>(<strong>H</strong>, <strong>T</strong>, <strong>hr</strong>) as above but position is set relative to the
+position of object with integer handle <strong>hr</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getpos.html">VREP.getpos</a>, <a href="VREP.setpose.html">VREP.setpose</a>, <a href="VREP.setorient.html">VREP.setorient</a></p>
+<hr>
+<a name="setpose"><h1>VREP.setpose</h1></a>
+<p><span class="helptopic">Set pose of V-REP object</span></p><p>
+V.<span style="color:red">setpos</span>(<strong>H</strong>, <strong>T</strong>) sets the pose of V-REP object with integer
+handle <strong>H</strong> according to homogeneous transform <strong>T</strong> (4x4).
+
+</p>
+<p>
+V.<span style="color:red">setpos</span>(<strong>H</strong>, <strong>T</strong>, <strong>hr</strong>) as above but pose is set relative to the
+pose of object with integer handle <strong>hr</strong>.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.getpose.html">VREP.getpose</a>, <a href="VREP.setpos.html">VREP.setpos</a>, <a href="VREP.setorient.html">VREP.setorient</a></p>
+<hr>
+<a name="signal_float"><h1>VREP.signal_float</h1></a>
+<p><span class="helptopic">Send a float signal to the V-REP simulator</span></p><p>
+V.<span style="color:red">signal_float</span>(<strong>name</strong>, <strong>val</strong>) send a float signal with name <strong>name</strong>
+and value <strong>val</strong> to the V-REP simulation engine.
+
+</p>
+<hr>
+<a name="signal_int"><h1>VREP.signal_int</h1></a>
+<p><span class="helptopic">Send an integer signal to the V-REP simulator</span></p><p>
+V.<span style="color:red">signal_int</span>(<strong>name</strong>, <strong>val</strong>) send an integer signal with name <strong>name</strong>
+and value <strong>val</strong> to the V-REP simulation engine.
+
+</p>
+<hr>
+<a name="signal_str"><h1>VREP.signal_str</h1></a>
+<p><span class="helptopic">Send a string signal to the V-REP simulator</span></p><p>
+V.<span style="color:red">signal_str</span>(<strong>name</strong>, <strong>val</strong>) send a string signal with name <strong>name</strong>
+and value <strong>val</strong> to the V-REP simulation engine.
+
+</p>
+<hr>
+<a name="simpause"><h1>VREP.simpause</h1></a>
+<p><span class="helptopic">Pause V-REP simulation</span></p><p>
+V.<span style="color:red">simpause</span>() pauses the V-REP simulation engine.  Use
+V.simstart() to resume the simulation.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.simstart.html">VREP.simstart</a></p>
+<hr>
+<a name="simstart"><h1>VREP.simstart</h1></a>
+<p><span class="helptopic">Start V-REP simulation</span></p><p>
+V.<span style="color:red">simstart</span>() starts the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.simstop.html">VREP.simstop</a>, <a href="VREP.simpause.html">VREP.simpause</a></p>
+<hr>
+<a name="simstop"><h1>VREP.simstop</h1></a>
+<p><span class="helptopic">Stop V-REP simulation</span></p><p>
+V.<span style="color:red">simstop</span>() stops the V-REP simulation engine.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP.simstart.html">VREP.simstart</a></p>
+<hr>
+<a name="youbot"><h1>VREP.youbot</h1></a>
+<p><span class="helptopic">Return VREP_youbot object</span></p><p>
+V.<span style="color:red">youbot</span>(<strong>name</strong>) is a factory method that returns a VREP_youbot
+object for the V-REP YouBot object named NAME.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="vrep_youbot.html">vrep_youbot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

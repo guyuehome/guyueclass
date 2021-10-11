@@ -1,0 +1,72 @@
+------------------------------
+     pHRIWARE change log      
+
++ Indicates an addition
+- Indicates a removal
+> Indicates a change
+------------------------------
+
+------------------------------
+         VERSION  1.1
+          27/12/2014          
+------------------------------
+
++ sym property added to Shape class to detect symbolic math toolbox
+> check method of Box, Ellipsoid and Curvilinear classes modified to
+   return function handle if symbolic math toolbox not installed
++ SerialLinked subclass added for direct use of SerialLink methods
++ Getting Started help file added
++ SerialLinked help file added
+> Licence info corrected in pHRIWARE.m
+
+------------------------------
+         VERSION  1.0
+          19/10/2014          
+------------------------------
+
++ cloud method added to Shape class - get point cloud of shape
+> plot method of Shape subclasses edited to use cloud
+> animate method of Shape updated due to above
+> demo_collisionmodel has note about concavity added to it
+> demo_collisions has note about concavity added to it
+> sumsqr subfunction fixed in inverse kinematics
+- installer thing removed
+> Sphere default values bug fixed
++ addCM method added to HAL class
++ plot3d method added to HAL class
+> empty input(s) to HAL class constructor use default value(s)
+> demo_collisions2 updated
+> licence changed to LGPL
+> reachable method of HAL has a syntax update
+> h2fsu bug fix: when defaults to h2g, uses goal vector from AP now
+> demo_hal updated
+> demo_hal2 updated
+> demo_collisions updated
++ plot3d method of HAL overloaded to use collision models
++ addCM method of HAL added for plot3d
+
+------------------------------
+         VERSION  0.2
+          24/07/2014          
+------------------------------
+
+> Tw renamed to Th throughout
++ note property added to CollisionModel Class
+> CollisionModel now accepts arrays and cells of primitives
+- humanARM has been removed
++ cmdl_arm has been added (replaces humanARM)
+- humanHAT has been removed
++ cmdl_hat has been added (replaces humanHAT)
++ anthroData has been added
+> check methods now accepts points in x, y, z triplets as separate arguments
+> gre default for HAL now uses value from anthroData
+> erw default for HAL now uses value from anthroData
+> wikine has order of inputs swapped
+- w2fsu has been removed
++ h2fsu has been added (replaces w2fsu)
++ HAL wrapper functions for gikine, wikine and h2fsu added
+> ikcon inputs changed
+> ikunc inputs changed
+> qmincon inputs changed
+> ikcon uses active-set algorithm (no gradient required)
+> ikunc uses quasi-newton algorithm (no gradient required)

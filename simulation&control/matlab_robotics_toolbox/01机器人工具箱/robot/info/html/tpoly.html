@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: tpoly</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: tpoly</td>
+      <td class="subheader-left"><a href="matlab:open tpoly">View code for tpoly</a></td>
+    </tr>
+  </table>
+<h1>tpoly</h1><p><span class="helptopic">Generate scalar polynomial trajectory</span></p><p>
+[<strong>s</strong>,<strong>sd</strong>,<strong>sdd</strong>] = <span style="color:red">tpoly</span>(<strong>s0</strong>, <strong>sf</strong>, <strong>m</strong>) is a scalar trajectory (Mx1) that varies
+smoothly from <strong>s0</strong> to <strong>sf</strong> in <strong>m</strong> steps using a quintic (5th order) polynomial.
+Velocity and acceleration can be optionally returned as <strong>sd</strong> (Mx1) and <strong>sdd</strong> (Mx1).
+
+</p>
+<p>
+<span style="color:red">tpoly</span>(<strong>s0</strong>, <strong>sf</strong>, <strong>m</strong>) as above but plots <strong>s</strong>, <strong>sd</strong> and <strong>sdd</strong> versus time in a single
+figure.
+
+</p>
+<p>
+[<strong>s</strong>,<strong>sd</strong>,<strong>sdd</strong>] = <span style="color:red">tpoly</span>(<strong>s0</strong>, <strong>sf</strong>, <strong>T</strong>) as above but specifies the trajectory in
+terms of the length of the time vector <strong>T</strong> (Mx1).
+
+</p>
+<p>
+Reference:
+
+</p>
+<p>
+Robotics, Vision &amp; Control
+Chap 3
+Springer 2011
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="lspb.html">lspb</a>, <a href="jtraj.html">jtraj</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

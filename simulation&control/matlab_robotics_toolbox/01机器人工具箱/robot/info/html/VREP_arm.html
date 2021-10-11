@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: VREP_arm</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: VREP_arm</td>
+      <td class="subheader-left"><a href="matlab:open VREP_arm">View code for VREP_arm</a></td>
+    </tr>
+  </table>
+<h1>VREP_arm</h1><p><span class="helptopic">Mirror of V-REP robot arm object</span></p><p>
+Mirror objects are MATLAB objects that reflect the state of objects in
+the V-REP environment.  Methods allow the V-REP state to be examined or
+changed.
+
+</p>
+<p>
+This is a concrete class, derived from VREP_mirror, for all V-REP robot
+arm objects and allows access to joint variables.
+
+</p>
+<p>
+Methods throw exception if an error occurs.
+
+</p>
+<h2>Example</h2>
+<pre style="width: 90%%;" class="examples">
+vrep&nbsp;=&nbsp;VREP();
+arm&nbsp;=&nbsp;vrep.arm('IRB140');
+q&nbsp;=&nbsp;arm.getq();
+arm.setq(zeros(1,6));
+arm.setpose(T);&nbsp;&nbsp;%&nbsp;set&nbsp;pose&nbsp;of&nbsp;base
+</pre>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getq</td> <td>get joint coordinates</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setq</td> <td>set joint coordinates</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setjointmode</td> <td>set joint control parameters</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> animate</td> <td>animate a joint coordinate trajectory</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> teach</td> <td>graphical teach pendant</td></tr>
+</table>
+<h2>Superclass methods (VREP_obj)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getpos</td> <td>get position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpos</td> <td>set position of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getorient</td> <td>get orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setorient</td> <td>set orientation of object</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getpose</td> <td>get pose of object given</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setpose</td> <td>set pose of object</td></tr>
+</table>
+<p>
+can be used to set/get the pose of the robot base.
+
+</p>
+<h2>Superclass methods (VREP_mirror)</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getname</td> <td>get object name</td></tr>
+  <tr></tr>
+  <tr></tr>  <tr><td style="white-space: nowrap;" class="col1"> setparam_bool</td> <td>set object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_int</td> <td>set object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> setparam_float</td> <td>set object float parameter</td></tr>
+</table>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_bool</td> <td>get object boolean parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_int</td> <td>get object integer parameter</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> getparam_float</td> <td>get object float parameter</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> n </td> <td>Number of joints</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="VREP_mirror.html">VREP_mirror</a>, <a href="VREP_obj.html">VREP_obj</a>, <a href="VREP_arm.html">VREP_arm</a>, <a href="VREP_camera.html">VREP_camera</a>, <a href="VREP_hokuyo.html">VREP_hokuyo</a></p>
+<hr>
+<a name="VREP_arm"><h1>VREP_arm.VREP_arm</h1></a>
+<p><span class="helptopic">Create a robot arm mirror object</span></p><p>
+<strong>arm</strong> = <span style="color:red">VREP_arm</span>(<strong>name</strong>, <strong>options</strong>) is a mirror object that corresponds to the
+robot arm named <strong>name</strong> in the V-REP environment.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'fmt', F</td> <td>Specify format for joint object names (default '%s_joint%d')</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The number of joints is found by searching for objects
+with names systematically derived from the root object name, by
+default named NAME_N where N is the joint number starting at 0.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="VREP.arm.html">VREP.arm</a></p>
+<hr>
+<a name="animate"><h1>VREP_arm.animate</h1></a>
+<p><span class="helptopic">Animate V-REP robot</span></p><p>
+R.<span style="color:red">animate</span>(<strong>qt</strong>, <strong>options</strong>) animates the corresponding V-REP robot with
+configurations taken from consecutive rows of <strong>qt</strong> (MxN) which represents
+an M-point trajectory and N is the number of robot joints.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'delay', D</td> <td>Delay (s) betwen frames for animation (default 0.1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'fps', fps</td> <td>Number of frames per second for display, inverse of 'delay' option</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> '[no]loop'</td> <td>Loop over the trajectory forever</td></tr>
+</table>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.plot.html">SerialLink.plot</a></p>
+<hr>
+<a name="getq"><h1>VREP_arm.getq</h1></a>
+<p><span class="helptopic">Get joint angles of V-REP robot</span></p><p>
+ARM.<span style="color:red">getq</span>() is the vector of joint angles (1xN) from the corresponding
+robot arm in the V-REP simulation.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_arm.setq.html">VREP_arm.setq</a></p>
+<hr>
+<a name="setjointmode"><h1>VREP_arm.setjointmode</h1></a>
+<p><span class="helptopic">Set joint mode</span></p><p>
+ARM.<span style="color:red">setjointmode</span>(<strong>m</strong>, <strong>C</strong>) sets the motor enable <strong>m</strong> (0 or 1) and motor control
+<strong>C</strong> (0 or 1) parameters for all joints of this robot arm.
+
+</p>
+<hr>
+<a name="setq"><h1>VREP_arm.setq</h1></a>
+<p><span class="helptopic">Set joint angles of V-REP robot</span></p><p>
+ARM.<span style="color:red">setq</span>(<strong>q</strong>) sets the joint angles of the corresponding
+robot arm in the V-REP simulation to <strong>q</strong> (1xN).
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="VREP_arm.getq.html">VREP_arm.getq</a></p>
+<hr>
+<a name="setqt"><h1>VREP_arm.setqt</h1></a>
+<p><span class="helptopic">Set joint angles of V-REP robot</span></p><p>
+ARM.<span style="color:red">setq</span>(<strong>q</strong>) sets the joint angles of the corresponding
+robot arm in the V-REP simulation to <strong>q</strong> (1xN).
+
+</p>
+<hr>
+<a name="teach"><h1>VREP_arm.teach</h1></a>
+<p><span class="helptopic">Graphical teach pendant</span></p><p>
+R.<span style="color:red">teach</span>(<strong>options</strong>) drive a V-REP robot by means of a graphical slider panel.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'degrees'</td> <td>Display angles in degrees (default radians)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'q0', q</td> <td>Set initial joint coordinates</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>The slider limits are all assumed to be [-pi, +pi]</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="SerialLink.plot.html">SerialLink.plot</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

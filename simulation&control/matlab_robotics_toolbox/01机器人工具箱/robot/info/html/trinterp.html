@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: trinterp</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: trinterp</td>
+      <td class="subheader-left"><a href="matlab:open trinterp">View code for trinterp</a></td>
+    </tr>
+  </table>
+<h1>trinterp</h1><p><span class="helptopic">Interpolate homogeneous transformations</span></p><p>
+<strong>T</strong> = <span style="color:red">trinterp</span>(<strong>T0</strong>, <strong>T1</strong>, <strong>s</strong>) is a homogeneous transform (4x4) interpolated
+between <strong>T0</strong> when <strong>s</strong>=0 and <strong>T1</strong> when <strong>s</strong>=1.  <strong>T0</strong> and <strong>T1</strong> are both homogeneous
+transforms (4x4).  Rotation is interpolated using quaternion spherical
+linear interpolation (slerp).  If <strong>s</strong> (Nx1) then <strong>T</strong> (4x4xN) is a sequence of
+homogeneous transforms corresponding to the interpolation values in <strong>s</strong>.
+
+</p>
+<p>
+<strong>T</strong> = <span style="color:red">trinterp</span>(<strong>T1</strong>, <strong>s</strong>) as above but interpolated between the identity matrix
+when <strong>s</strong>=0 to <strong>T1</strong> when <strong>s</strong>=1.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="ctraj.html">ctraj</a>, <a href="quaternion.html">quaternion</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

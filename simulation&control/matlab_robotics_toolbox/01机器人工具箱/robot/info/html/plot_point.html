@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: plot_point</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: plot_point</td>
+      <td class="subheader-left"><a href="matlab:open plot_point">View code for plot_point</a></td>
+    </tr>
+  </table>
+<h1>plot_point</h1><p><span class="helptopic">a feature point</span></p><p>
+<span style="color:red">plot_point</span>(<strong>p</strong>, <strong>options</strong>) adds point markers to the current plot, where <strong>p</strong> (2xN)
+and each column is the point coordinate.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'textcolor',  colspec</td> <td>Specify color of text</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'textsize',  size</td> <td>Specify size of text</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'bold'</td> <td>Text in bold font.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'printf',  {fmt, data}</td> <td>Label points according to printf format
+string and corresponding element of data</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'sequence'</td> <td>Label points sequentially</td></tr>
+</table>
+<p>
+Additional options are passed through to PLOT for creating the marker.
+
+</p>
+<h2>Examples</h2>
+<p>
+Simple point plot
+
+</p>
+<pre style="width: 90%%;" class="examples">
+P&nbsp;=&nbsp;rand(2,4);
+plot_point(P);
+</pre>
+<p>
+Plot points with markers
+
+</p>
+<pre style="width: 90%%;" class="examples">
+plot_point(P,&nbsp;'*');
+</pre>
+<p>
+Plot points with square markers and labels 1 to 4
+
+</p>
+<pre style="width: 90%%;" class="examples">
+plot_point(P,&nbsp;'sequence',&nbsp;'s');
+</pre>
+<p>
+Plot points with circles and annotations P1 to P4
+
+</p>
+<pre style="width: 90%%;" class="examples">
+data&nbsp;=&nbsp;[1&nbsp;2&nbsp;4&nbsp;8];
+plot_point(P,&nbsp;'printf',&nbsp;{'&nbsp;P%d',&nbsp;data},&nbsp;'o');
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>The point(s) is added to the current plot.</li>
+  <li>2D points only.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="plot.html">plot</a>, <a href="text.html">text</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: EarthView</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: EarthView</td>
+      <td class="subheader-left"><a href="matlab:open EarthView">View code for EarthView</a></td>
+    </tr>
+  </table>
+<h1>EarthView</h1><p><span class="helptopic">Image from Google maps</span></p><p>
+A concrete subclass of ImageSource that acquires images from Google
+maps.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> grab</td> <td>Grab a frame from Google maps</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> size</td> <td>Size of image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> close</td> <td>Close the image source</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert the object parameters to human readable string</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+Create an EarthView camera
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ev&nbsp;=&nbsp;EarthView();
+</pre>
+<p>
+Zoom into QUT campus in Brisbane
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ev.grab(-27.475722,153.0285,&nbsp;17);
+</pre>
+<p>
+Show aerial view of Brisbane in satellite and map view
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ev.grab('brisbane',&nbsp;14)
+ev.grab('brisbane',&nbsp;14,&nbsp;'map')
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>Google limit the number of map queries limit to 1000 unique (different)
+image requests per viewer per day.  A 403 error is returned if the daily
+quota is exceeded.</li>
+  <li>Maximum size is 640x640 for free access, business users can get more.</li>
+  <li>There are lots of conditions on what you can do with the images,
+particularly with respect to publication.  See the Google web site for
+details.</li>
+</ul>
+<h2>Author</h2>
+<p>
+Peter Corke, with some lines of code from from get_google_map by Val
+Schmidt.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="ImageSource.html">ImageSource</a></p>
+<hr>
+<a name="EarthView"><h1>EarthView.EarthView</h1></a>
+<p><span class="helptopic">Create EarthView object</span></p><p>
+<strong>ev</strong> = <span style="color:red">EarthView</span>(<strong>options</strong>)
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'satellite'</td> <td>Retrieve satellite image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'map'</td> <td>Retrieve map image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'hybrid'</td> <td>Retrieve satellite image with map overlay</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'scale'</td> <td>Google map scale (default 18)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'width', W</td> <td>Set image width to W (default 640)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'height', H</td> <td>Set image height to H (default 640)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'key', S</td> <td>The Google maps key string</td></tr>
+</table>
+<p>
+see also options for ImageSource.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>A key is required before you can use the Google Static Maps API.
+The key is a long string that can be passed to the constructor or
+saved as an environment variable GOOGLE_KEY.  You need a Google
+account before you can register for a key.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+  <li>Scale is 1 for the whole world, ~20 is about as high a resolution
+as you can get.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="ImageSource.html">ImageSource</a>, <a href="EarthView.grab.html">EarthView.grab</a></p>
+<hr>
+<a name="char"><h1>EarthView.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+EV.<span style="color:red">char</span>() is a string representing the state of the <span style="color:red">EarthView</span> object in
+human readable form.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="EarthView.display.html">EarthView.display</a></p>
+<hr>
+<a name="grab"><h1>EarthView.grab</h1></a>
+<p><span class="helptopic">Grab an aerial image</span></p><p>
+<strong>im</strong> = EV.<span style="color:red">grab</span>(<strong>lat</strong>, <strong>long</strong>, <strong>options</strong>) is an image of the Earth
+centred at the geographic coordinate (lat, long).
+
+</p>
+<p>
+<strong>im</strong> = <span style="color:red">EarthView</span>.<span style="color:red">grab</span>(<strong>lat</strong>, <strong>long</strong>, <strong>zoom</strong>, <strong>options</strong>) as above with the
+specified zoom.  <strong>zoom</strong> is an integer between 1 (zoom right out)
+to a maximum of 18-20 depending on where in the world you
+are looking.
+
+</p>
+<p>
+[<strong>im</strong>,<strong>E</strong>,<strong>n</strong>] = <span style="color:red">EarthView</span>.<span style="color:red">grab</span>(<strong>lat</strong>, <strong>long</strong>, <strong>options</strong>) as above but also
+returns the estimated easting <strong>E</strong> and northing <strong>n</strong>.  <strong>E</strong> and <strong>n</strong> are both
+matrices, the same size as <strong>im</strong>, whose corresponding elements are
+the easting and northing are the coordinates of the pixel.
+
+</p>
+<p>
+[<strong>im</strong>,<strong>E</strong>,<strong>n</strong>] = <span style="color:red">EarthView</span>.<span style="color:red">grab</span>(<strong>name</strong>, <strong>options</strong>) as above but uses a
+geocoding web site to resolve the name to a location.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'satellite'</td> <td>Retrieve satellite image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'map'</td> <td>Retrieve map image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'hybrid'</td> <td>Retrieve satellite image with map overlay</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'roadmap'</td> <td>Retrieve a binary image that shows only roads, no labels.
+Roads are white, everything else is black.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noplacenames'</td> <td>Don't show placenames.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noroadnames'</td> <td>Don't show roadnames.</td></tr>
+</table>
+<h2>Examples</h2>
+<p>
+Zoom into QUT campus in Brisbane
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ev.grab(-27.475722,153.0285,&nbsp;17);
+</pre>
+<p>
+Show aerial view of Brisbane in satellite and map view
+
+</p>
+<pre style="width: 90%%;" class="examples">
+ev.grab('brisbane',&nbsp;14)
+ev.grab('brisbane',&nbsp;14,&nbsp;'map')
+</pre>
+<h2>Notes</h2>
+<ul>
+  <li>If northing/easting outputs are requested the function
+deg2utm is required (from MATLAB Central)</li>
+  <li>The easting/northing is somewhat approximate, see
+get_google_map on MATLAB Central.</li>
+  <li>If no output argument is given the image is displayed using idisp.</li>
+</ul>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

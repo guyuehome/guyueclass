@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: LineFeature</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: LineFeature</td>
+      <td class="subheader-left"><a href="matlab:open LineFeature">View code for LineFeature</a></td>
+    </tr>
+  </table>
+<h1>LineFeature</h1><p><span class="helptopic">Line feature class</span></p><p>
+This class represents a line feature.
+
+</p>
+<h2>Methods</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> plot</td> <td>Plot the line segment</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> seglength</td> <td>Determine length of line segment</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> display</td> <td>Display value</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> char</td> <td>Convert value to string</td></tr>
+</table>
+<h2>Properties</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> rho</td> <td>Offset of the line</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> theta</td> <td>Orientation of the line</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> strength</td> <td>Feature strength</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> length</td> <td>Length of the line</td></tr>
+</table>
+<p>
+Properties of a vector of LineFeature objects are returned as a vector.
+If L is a vector (Nx1) of LineFeature objects then L.rho is an Nx1 vector
+of the rho element of each feature.
+
+</p>
+<h2>Note</h2>
+<ul>
+  <li>LineFeature is a reference object.</li>
+  <li>LineFeature objects can be used in vectors and arrays</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="Hough.html">Hough</a>, <a href="RegionFeature.html">RegionFeature</a>, <a href="PointFeature.html">PointFeature</a></p>
+<hr>
+<a name="LineFeature"><h1>LineFeature.LineFeature</h1></a>
+<p><span class="helptopic">Create a line feature object</span></p><p>
+<strong>L</strong> = <span style="color:red">LineFeature</span>() is a line feature object with null parameters.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">LineFeature</span>(<strong>rho</strong>, <strong>theta</strong>, <strong>strength</strong>) is a line feature object with
+the specified properties.  LENGTH is undefined.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">LineFeature</span>(<strong>rho</strong>, <strong>theta</strong>, <strong>strength</strong>, <strong>length</strong>) is a line feature object
+with the specified properties.
+
+</p>
+<p>
+<strong>L</strong> = <span style="color:red">LineFeature</span>(<strong>l2</strong>) is a deep copy of the line feature <strong>l2</strong>.
+
+</p>
+<hr>
+<a name="char"><h1>LineFeature.char</h1></a>
+<p><span class="helptopic">Convert to string</span></p><p>
+<strong>s</strong> = L.<span style="color:red">char</span>() is a compact string representation of the line feature.
+If L is a vector then the string has multiple lines, one per element.
+
+</p>
+<hr>
+<a name="display"><h1>LineFeature.display</h1></a>
+<p><span class="helptopic">Display value</span></p><p>
+L.<span style="color:red">display</span>() displays a compact human-readable representation of the feature.
+If L is a vector then the elements are printed one per line.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>This method is invoked implicitly at the command line when the result
+of an expression is a LineFeature object and the command has no trailing
+semicolon.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="LineFeature.char.html">LineFeature.char</a></p>
+<hr>
+<a name="plot"><h1>LineFeature.plot</h1></a>
+<p><span class="helptopic">Plot line</span></p><p>
+L.<span style="color:red">plot</span>() overlay the line on current <span style="color:red">plot</span>.
+
+</p>
+<p>
+L.<span style="color:red">plot</span>(<strong>ls</strong>) as above but the optional line style arguments <strong>ls</strong> are
+passed to <span style="color:red">plot</span>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>If L is a vector then each element is plotted.</li>
+</ul>
+<hr>
+<a name="points"><h1>LineFeature.points</h1></a>
+<p><span class="helptopic">Return points on line segments</span></p><p>
+<strong>p</strong> = L.<span style="color:red">points</span>(<strong>edge</strong>) is the set of <span style="color:red">points</span> that lie along the
+line in the edge image <strong>edge</strong> are determined.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="icanny.html">icanny</a></p>
+<hr>
+<a name="seglength"><h1>LineFeature.seglength</h1></a>
+<p><span class="helptopic">Compute length of line segments</span></p><p>
+The Hough transform identifies lines but cannot determine their length.
+This method examines the edge pixels in the original image and determines
+the longest stretch of non-zero pixels along the line.
+
+</p>
+<p>
+<strong>l2</strong> = L.<span style="color:red">seglength</span>(<strong>edge</strong>, <strong>gap</strong>) is a copy of the line feature object with the
+property length updated to the length of the line (pixels).  Small gaps,
+less than <strong>gap</strong> pixels are tolerated.
+
+</p>
+<p>
+<strong>l2</strong> = L.<span style="color:red">seglength</span>(<strong>edge</strong>) as above but the maximum allowable gap is
+5 pixels.
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="icanny.html">icanny</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

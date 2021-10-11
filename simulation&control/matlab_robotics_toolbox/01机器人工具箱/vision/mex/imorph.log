@@ -1,0 +1,17 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=mex 2012.6.30)  23 SEP 2012 10:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**imorph.c
+(./imorph.c
+This is MeX  Version 1.05  18 XII 1993  (B. Jackowski & M. Ry\'cko)
+! You can't use `macro parameter character #' in horizontal mode.
+l.31 #
+      include "mex.h"
+? 
+! Emergency stop.
+l.31 #
+      include "mex.h"
+End of file on the terminal!
+
+No pages of output.

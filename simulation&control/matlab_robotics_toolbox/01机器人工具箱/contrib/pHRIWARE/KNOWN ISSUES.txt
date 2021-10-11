@@ -1,0 +1,33 @@
+----------------------------------------------------------------
+   OUTSTANDING
+----------------------------------------------------------------
+
+File:    swivelData.m
+Date:    24/07/14
+Version: 0.2
+--------------------------------
+The model for the shoulder range of motion seems to give some
+outlier results, which causes in a large swivel angle range
+--------------------------------
+Remedy:   Test/make function to detect outliers
+Priority: Medium
+
+
+----------------------------------------------------------------
+   ACCEPTED
+----------------------------------------------------------------
+
+File:    swivelData.m
+Date:    24/07/14
+Version: 0.2
+--------------------------------
+When interpolating to find a value, when near the surface of the
+arm's reacahble workspace, a NaN may be returned though it is
+reachable
+--------------------------------
+Remedy:   Write own interpolation function
+Priority: None
+
+----------------------------------------------------------------
+   REMEDIED
+----------------------------------------------------------------

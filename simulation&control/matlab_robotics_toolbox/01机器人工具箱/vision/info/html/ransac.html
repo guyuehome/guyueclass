@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: ransac</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: ransac</td>
+      <td class="subheader-left"><a href="matlab:open ransac">View code for ransac</a></td>
+    </tr>
+  </table>
+<h1>ransac</h1><p><span class="helptopic">Random sample and consensus</span></p><p>
+<strong>m</strong> = <span style="color:red">ransac</span>(<strong>func</strong>, <strong>x</strong>, <strong>T</strong>, <strong>options</strong>) is the <span style="color:red">ransac</span> algorithm that robustly fits
+data <strong>x</strong> to the model represented by the function <strong>func</strong>.  <span style="color:red">ransac</span> classifies
+Points that support the model as inliers and those that do not as outliers.
+
+</p>
+<p>
+<strong>x</strong> typically contains corresponding point data, one column per point pair.
+<span style="color:red">ransac</span> determines the subset of points (inliers) that best fit the model
+described by the function <strong>func</strong> and the parameter <strong>m</strong>.  <strong>T</strong> is a threshold on
+how well a point fits the estimated, if the fit residual is aboe the
+the threshold the point is considered an outlier.
+
+</p>
+<p>
+[<strong>m</strong>,<strong>in</strong>] = <span style="color:red">ransac</span>(<strong>func</strong>, <strong>x</strong>, <strong>T</strong>, <strong>options</strong>) as above but returns the vector <strong>in</strong> of
+column indices of <strong>x</strong> that describe the inlier point set.
+
+</p>
+<p>
+[<strong>m</strong>,<strong>in</strong>,<strong>resid</strong>] = <span style="color:red">ransac</span>(<strong>func</strong>, <strong>x</strong>, <strong>T</strong>, <strong>options</strong>) as above but returns the final
+residual of applying <strong>func</strong> to the inlier set.
+
+</p>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1">'maxTrials', N</td> <td>maximum number of iterations (default 2000)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'maxDataTrials', N</td> <td>maximum number of attempts to select a non-degenerate
+data set (default 100)</td></tr>
+</table>
+<h2>Model function</h2>
+<p>
+<strong>out</strong> = <span style="color:red">func</span>(<strong>R</strong>) is the function passed to RANSAC and it must accept
+a single argument <strong>R</strong> which is a structure:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> R.cmd</td> <td>the operation to perform which is either (string)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R.debug</td> <td>display what's going on (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R.X</td> <td>data to work on, N point pairs (6xN)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R.t</td> <td>threshold (1x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R.theta</td> <td>estimated quantity to test (3x3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> R.misc</td> <td>private data (cell array)</td></tr>
+</table>
+<p>
+The function return value is also a structure:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.s</td> <td>sample size (1x1)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.X</td> <td>conditioned data (2DxN)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.misc</td> <td>private data (cell array)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.inliers</td> <td>list of inliers (1xM)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.valid</td> <td>if data is valid for estimation (logical)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.theta</td> <td>estimated quantity (3x3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> OUT.resid</td> <td>model fit residual (1x1)</td></tr>
+</table>
+<p>
+The values of <strong>R</strong>.cmd are:
+
+</p>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'size'</td> <td>OUT.s is the minimum number of points required to compute
+an estimate to OUT.s</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'condition'</td> <td>OUT.X = CONDITION(R.X) condition the point data</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'decondition'</td> <td>OUT.theta = DECONDITION(R.theta) decondition the estimated
+model data</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'valid'</td> <td>OUT.valid is true if a set of points is not degenerate,
+that is they will produce a model.  This is used to discard
+random samples that do not result in useful models.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'estimate'</td> <td>[OUT.theta,OUT.resid] = EST(R.X) returns the best fit model
+and residual for the subset of points R.X.  If this function
+cannot fit a model then OUT.theta = [].  If multiple models
+are found OUT.theta is a cell array.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'error'</td> <td>[OUT.inliers,OUT.theta] = ERR(R.theta,R.X,T) evaluates the
+distance from the model(s) R.theta to the points R.X and
+returns the best model OUT.theta and the subset of R.X that
+best supports (most inliers) that model.</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>For some algorithms (eg. fundamental matrix) it is necessary to condition
+the data to improve the accuracy of model estimation.  For efficiency
+the data is conditioned once, and the data transform parameters are kept
+in the .misc element.  The inverse conditioning operation is applied to
+the model to transform the estimate based on conditioned data to a model
+applicable to the original data.</li>
+  <li>The functions FMATRIX and HOMOG are written so as to be callable from
+RANSAC, that is, they detect a structure argument.</li>
+</ul>
+<h2>References</h2>
+<ul>
+  <li>M.A. Fishler and  R.C. Boles. "Random sample concensus: A paradigm
+for model fitting with applications to image analysis and automated
+cartography". Comm. Assoc. Comp, Mach., Vol 24, No 6, pp 381-395, 1981</li>
+  <li>Richard Hartley and Andrew Zisserman. "Multiple View Geometry in
+Computer Vision". pp 101-113. Cambridge University Press, 2001</li>
+</ul>
+<h2>Author</h2>
+<p>
+Peter Kovesi
+School of Computer Science &amp; Software Engineering
+The University of Western Australia
+pk at csse uwa edu au
+http://www.csse.uwa.edu.au/~pk
+
+</p>
+<h2>See also</h2>
+<p>
+<a href="fmatrix.html">fmatrix</a>, <a href="homography.html">homography</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

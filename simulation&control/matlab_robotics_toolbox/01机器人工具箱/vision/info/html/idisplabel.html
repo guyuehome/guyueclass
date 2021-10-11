@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: idisplabel</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: idisplabel</td>
+      <td class="subheader-left"><a href="matlab:open idisplabel">View code for idisplabel</a></td>
+    </tr>
+  </table>
+<h1>idisplabel</h1><p><span class="helptopic">Display an image with mask</span></p><p>
+<span style="color:red">idisplabel</span>(<strong>im</strong>, <strong>labelimage</strong>, <strong>labels</strong>) displays only those image pixels which
+belong to a specific class.  <strong>im</strong> is a greyscale (HxW) or color (HxWx3) image,
+and <strong>labelimage</strong> (HxW) contains integer pixel class labels for the
+corresponding pixels in <strong>im</strong>.  The pixel classes to be displayed are given by
+<strong>labels</strong> which is either a scalar or a vector of class labels.
+Non-selected pixels are displayed as white by default.
+
+</p>
+<p>
+<span style="color:red">idisplabel</span>(<strong>im</strong>, <strong>labelimage</strong>, <strong>labels</strong>, <strong>bg</strong>) as above but the grey level of the
+non-selected pixels is specified by <strong>bg</strong> in the range 0 to 1 for a float
+image or 0 to 255 for a uint8 image..
+
+</p>
+<h2>Example</h2>
+<p>
+We will segment the image flowers into 7 color classes
+
+</p>
+<pre style="width: 90%%;" class="examples">
+cls&nbsp;=&nbsp;colorkemans(flowers,&nbsp;7);
+</pre>
+<p>
+where the matrix cls is the same size as flowers and the elements are
+the corresponding pixel class, a value in the range 1 to 7.  To display
+pixels of class 5 we use
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisplabel(flowers,&nbsp;cls,&nbsp;5)
+</pre>
+<p>
+and to display pixels belong to class 1 or 5 we use
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisplabel(flowers,&nbsp;cls,&nbsp;[1&nbsp;5])
+</pre>
+<h2>See also</h2>
+<p>
+<a href="iblobs.html">iblobs</a>, <a href="icolorize.html">icolorize</a>, <a href="colorseg.html">colorseg</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

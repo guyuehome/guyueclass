@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: closest</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: closest</td>
+      <td class="subheader-left"><a href="matlab:open closest">View code for closest</a></td>
+    </tr>
+  </table>
+<h1>closest</h1><p><span class="helptopic">Find closest points in N-dimensional space.</span></p><p>
+<strong>k</strong> = <span style="color:red">closest</span>(<strong>a</strong>, <strong>b</strong>) is the correspondence for N-dimensional point sets <strong>a</strong> (NxNA)
+and <strong>b</strong> (NxNB).  <strong>k</strong> (1 x NA) is such that the element J = <strong>k</strong>(I), that is, that
+the I'th column of <strong>a</strong> is <span style="color:red">closest</span> to the Jth column of <strong>b</strong>.
+
+</p>
+<p>
+[<strong>k</strong>,<strong>d1</strong>] = <span style="color:red">closest</span>(<strong>a</strong>, <strong>b</strong>) as above and <strong>d1</strong>(I)=|<strong>a</strong>(I)-<strong>b</strong>(J)| is the distance of the
+<span style="color:red">closest</span> point.
+
+</p>
+<p>
+[<strong>k</strong>,<strong>d1</strong>,<strong>d2</strong>] = <span style="color:red">closest</span>(<strong>a</strong>, <strong>b</strong>) as above but also returns the distance to the
+second <span style="color:red">closest</span> point.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>Is a MEX file.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="distance.html">distance</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

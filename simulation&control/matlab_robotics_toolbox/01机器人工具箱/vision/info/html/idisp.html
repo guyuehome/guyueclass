@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: idisp</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: idisp</td>
+      <td class="subheader-left"><a href="matlab:open idisp">View code for idisp</a></td>
+    </tr>
+  </table>
+<h1>idisp</h1><p><span class="helptopic">image display tool</span></p><p>
+<span style="color:red">idisp</span>(<strong>im</strong>, <strong>options</strong>) displays an image and allows interactive investigation
+of pixel values, linear profiles, histograms and zooming.  The image is
+displayed in a figure with a toolbar across the top.  If <strong>im</strong> is a cell
+array of images, they are first concatenated (horizontally).
+
+</p>
+<h2>User interface</h2>
+<ul>
+  <li>Left clicking on a pixel will display its value in a box at the top.</li>
+  <li>The "line" button allows two points to be specified and a new figure
+displays intensity along a line between those points.</li>
+  <li>The "histo" button displays a histogram of the pixel values in a new
+figure.  If the image is zoomed, the histogram is computed over only
+those pixels in view.</li>
+  <li>The "zoom" button requires a left-click and drag to specify a box
+which defines the zoomed view.</li>
+  <li>The "colormap" button is displayed only for greyscale images, and is
+a popup button that allows different color maps to be selected.</li>
+</ul>
+<h2>Options</h2>
+<table class="list">
+  <tr><td style="white-space: nowrap;" class="col1"> 'nogui'</td> <td>don't display the GUI</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noaxes'</td> <td>don't display axes on the image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'noframe'</td> <td>don't display axes or frame on the image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'plain'</td> <td>don't display axes, frame or GUI</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'axis', A</td> <td>display the image in the axes given by handle A, the
+'nogui' option is enforced.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'here'</td> <td>display the image in the current axes</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'title', T</td> <td>put the text T in the title bar of the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'clickfunc', F</td> <td>invoke the function handle F(x,y) on a down-click in
+the window</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'ncolors', N</td> <td>number of colors in the color map (default 256)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'bar'</td> <td>add a color bar to the image</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'print', F</td> <td>write the image to file F in EPS format</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'square'</td> <td>display aspect ratio so that pixels are square</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'wide'</td> <td>make figure full screen width, useful for displaying stereo pair</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'flatten'</td> <td>display image planes (colors or sequence) as horizontally
+adjacent images</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'ynormal'</td> <td>y-axis increases upward, image is inverted</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'histeq'</td> <td>apply histogram equalization</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'cscale', C</td> <td>C is a 2-vector that specifies the grey value range that
+spans the colormap.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'xydata', XY</td> <td>XY is a cell array whose elements are vectors that span
+the x- and y-axes respectively.</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1">'colormap', C</td> <td>set the colormap to C (Nx3)</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'grey'</td> <td>color map: greyscale unsigned, zero is black, maximum
+value is white</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'invert'</td> <td>color map: greyscale unsigned, zero is white, maximum
+value is black</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'signed'</td> <td>color map: greyscale signed, positive is blue, negative
+is red, zero is black</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'invsigned'</td> <td>color map: greyscale signed, positive is blue, negative
+is red, zero is white</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'random'</td> <td>color map: random values, highlights fine structure</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'dark'</td> <td>color map: greyscale unsigned, darker than 'grey',
+good for superimposed graphics</td></tr>
+  <tr><td style="white-space: nowrap;" class="col1"> 'new'</td> <td>create a new figure</td></tr>
+</table>
+<h2>Notes</h2>
+<ul>
+  <li>Is a wrapper around the MATLAB builtin function IMAGE. See the MATLAB help
+on "Display Bit-Mapped Images" for details of color mapping.</li>
+  <li>Color images are displayed in MATLAB true color mode: pixel triples map to
+display RGB values.  (0,0,0) is black, (1,1,1) is white.</li>
+  <li>Greyscale images are displayed in indexed mode: the image pixel value is
+mapped through the color map to determine the display pixel value.</li>
+  <li>For grey scale images the minimum and maximum image values are mapped to
+the first and last element of the color map, which by default ('greyscale')
+is the range black to white. To set your own scaling between displayed
+grey level and pixel value use the 'cscale' option.</li>
+  <li>The title of the figure window by default is the name of the variable
+passed in as the image, this can't work if the first argument is an expression.</li>
+</ul>
+<h2>Examples</h2>
+<p>
+Display 2 images side by side
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp({im1,&nbsp;im2})
+</pre>
+<p>
+Display image in a subplot
+
+</p>
+<pre style="width: 90%%;" class="examples">
+subplot(211)
+idisp(im,&nbsp;'axis',&nbsp;gca);
+</pre>
+<p>
+Call a user function when you click a pixel
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(im,&nbsp;'clickfunc',&nbsp;@(x,y)&nbsp;fprintf('hello&nbsp;%d&nbsp;%d\n',&nbsp;x,y))
+</pre>
+<p>
+Set a colormap, in this case a MATLAB builtin one
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(im,&nbsp;'colormap',&nbsp;cool);
+</pre>
+<p>
+Display an image which contains a map of a region, perhaps an obstacle grid,
+that spans real world dimensions x, y in the range -10 to 10.
+
+</p>
+<pre style="width: 90%%;" class="examples">
+idisp(map,&nbsp;'xyscale',&nbsp;{[-10&nbsp;10],&nbsp;[-10&nbsp;10]});
+</pre>
+<h2>See also</h2>
+<p>
+<a href="image.html">image</a>, <a href="caxis.html">caxis</a>, <a href="colormap.html">colormap</a>, <a href="iconcat.html">iconcat</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://www.petercorke.com/RVC/common/toolboxhelp.css">
+    <title>M-File Help: iprofile</title>
+  </head>
+  <body>
+  <table border="0" cellspacing="0" width="100%">
+    <tr class="subheader">
+      <td class="headertitle">M-File Help: iprofile</td>
+      <td class="subheader-left"><a href="matlab:open iprofile">View code for iprofile</a></td>
+    </tr>
+  </table>
+<h1>iprofile</h1><p><span class="helptopic">Extract pixels along a line</span></p><p>
+<strong>v</strong> = <span style="color:red">iprofile</span>(<strong>im</strong>, <strong>p1</strong>, <strong>p2</strong>) is a vector of pixel values extracted from the
+image <strong>im</strong> (HxWxP) between the points <strong>p1</strong> (2x1) and <strong>p2</strong> (2x1).  <strong>v</strong> (NxP) has
+one row for each point along the line and the row is the pixel value
+which will be a vector for a multi-plane image.
+
+</p>
+<p>
+[<strong>p</strong>,<strong>uv</strong>] = <span style="color:red">iprofile</span>(<strong>im</strong>, <strong>p1</strong>, <strong>p2</strong>) as above but also returns the coordinates of
+the pixels for each point along the line.  Each row of <strong>uv</strong> is the pixel
+coordinate (u,v) for the corresponding row of <strong>p</strong>.
+
+</p>
+<h2>Notes</h2>
+<ul>
+  <li>The Bresenham algorithm is used to find points along the line.</li>
+</ul>
+<h2>See also</h2>
+<p>
+<a href="bresenham.html">bresenham</a>, <a href="iline.html">iline</a></p>
+<hr>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr class="subheader" valign="top"><td>&nbsp;</td></tr></table>
+<p class="copy">&copy; 1990-2014 Peter Corke.</p>
+</body></html>
