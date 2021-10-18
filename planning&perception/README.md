@@ -8,6 +8,7 @@
 6. moveit_skill：[《Moveit编程技巧》](https://class.guyuehome.com/detail/p_5e99807f9ac65_rWrEfAGO/6) 
 7. qr_code：[《ROS二维码识别应用指南》](https://class.guyuehome.com/detail/p_607927b2e4b071a81eb28e86/6) 
 8. calibration_camera_laser：[《ROS激光相机联合标定》](https://class.guyuehome.com/detail/p_613ecdeee4b04518c6137c0b/6) 
+9. matlab_raspberry_pi：[《MATLAB玩转树莓派》](https://class.guyuehome.com/detail/p_61679f2de4b01fea4dcc6f96/6) 
 
 ------
 

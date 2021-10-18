@@ -25,6 +25,7 @@
 6. [《Moveit编程技巧》](https://class.guyuehome.com/detail/p_5e99807f9ac65_rWrEfAGO/6) ：moveit_skill
 7. [《ROS二维码识别应用指南》](https://class.guyuehome.com/detail/p_607927b2e4b071a81eb28e86/6) ：qr_code
 8. [《ROS激光相机联合标定》](https://class.guyuehome.com/detail/p_613ecdeee4b04518c6137c0b/6) ：calibration_camera_laser
+9. [《MATLAB玩转树莓派》](https://class.guyuehome.com/detail/p_61679f2de4b01fea4dcc6f96/6) ：matlab_raspberry_pi
 
 ### 仿真控制（simulation&control）
 
