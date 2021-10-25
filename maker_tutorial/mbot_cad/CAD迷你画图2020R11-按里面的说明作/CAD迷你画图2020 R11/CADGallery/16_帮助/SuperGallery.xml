@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>		
+<root>													
+<Folder id="101" name="01_室内平面">	
+<Num>1057个</Num>										
+						<Parent id="10101" name="01_床"></Parent>				
+						<Parent id="10102" name="02_沙发"></Parent>				
+						<Parent id="10103" name="03_柜类玄关"></Parent>				
+						<Parent id="10104" name="04_卫生间"></Parent>				
+						<Parent id="10105" name="05_厨房"></Parent>				
+						<Parent id="10106" name="06_餐桌"></Parent>				
+						<Parent id="10107" name="07_桌椅"></Parent>				
+						<Parent id="10108" name="08_电器"></Parent>				
+						<Parent id="10109" name="09_灯具"></Parent>				
+						<Parent id="10110" name="10_开关插座"></Parent>				
+						<Parent id="10111" name="11_绿植"></Parent>				
+						<Parent id="10112" name="12_地毯拼花"></Parent>				
+						<Parent id="10113" name="13_装饰品"></Parent>				
+						<Parent id="10114" name="14_其他家具"></Parent>				
+						<Parent id="10115" name="15_大理石"></Parent>				
+						<Parent id="10116" name="16_图标符号"></Parent>				
+																	
+</Folder>
+
+<Folder id="102" name="02_室内立面">
+<Num>458个</Num>											
+						<Parent id="10201" name="01_床"></Parent>				
+						<Parent id="10202" name="02_沙发"></Parent>				
+						<Parent id="10203" name="03_餐桌"></Parent>				
+						<Parent id="10204" name="04_桌椅"></Parent>				
+						<Parent id="10205" name="05_厨房"></Parent>				
+						<Parent id="10206" name="06_卫生间"></Parent>				
+						<Parent id="10207" name="07_电器"></Parent>				
+						<Parent id="10208" name="08_灯具"></Parent>				
+						<Parent id="10209" name="09_窗帘"></Parent>				
+						<Parent id="10210" name="10_绿植"></Parent>				
+						<Parent id="10211" name="11_装饰品"></Parent>				
+						<Parent id="10212" name="12_雕花"></Parent>				
+</Folder>
+
+<Folder id="103" name="03_建筑">
+<Num>1830个</Num>											
+		
+						<Parent id="10302" name="02_门窗样式">					
+												<Child id="10302001">01_平面门窗</Child>
+												<Child id="10302002">02_立面门窗</Child>
+						</Parent>				
+						<Parent id="10303" name="03_楼梯阳台"></Parent>				
+						<Parent id="10304" name="04_电梯起重"></Parent>				
+						<Parent id="10305" name="05_总图图例"></Parent>				
+						<Parent id="10306" name="06_道路铁路"></Parent>				
+						<Parent id="10307" name="07_管线绿化"></Parent>				
+							
+				
+						<Parent id="10310" name="10_人物车船"></Parent>				
+						<Parent id="10311" name="11_规划单体"></Parent>				
+		
+						<Parent id="10313" name="13_立面柱子"></Parent>				
+						<Parent id="10314" name="14_立面路灯"></Parent>				
+						<Parent id="10315" name="15_立面车船"></Parent>				
+						<Parent id="10316" name="16_立面人物"></Parent>				
+						<Parent id="10317" name="17_常用建材"></Parent>				
+						<Parent id="10318" name="18_其他">					
+												<Child id="10318001">01_图标符号</Child>
+												<Child id="10318002">02_风玫瑰</Child>
+												<Child id="10318003">03_指北针</Child>
+						</Parent>				
+</Folder>
+
+<Folder id="104" name="04_结构">
+<Num>467个</Num>											
+						<Parent id="10401" name="01_一般钢筋"></Parent>				
+						<Parent id="10402" name="02_预应力钢筋"></Parent>				
+						<Parent id="10403" name="03_钢筋网片"></Parent>				
+						<Parent id="10404" name="04_钢筋的焊接接头"></Parent>				
+						<Parent id="10405" name="05_钢筋的画法"></Parent>				
+						<Parent id="10406" name="06_常用型钢标注"></Parent>				
+						<Parent id="10407" name="07_螺栓、孔、电焊铆钉的表示方法"></Parent>				
+						<Parent id="10408" name="08_常用木构件断面表示方法"></Parent>				
+						<Parent id="10409" name="09_木构件连接的表示方法"></Parent>				
+						<Parent id="10410" name="10_钢结构节点大洋">					
+												<Child id="10410001">01_屋盖钢桁架结构</Child>
+												<Child id="10410002">02_钢桁架节点</Child>
+												<Child id="10410003">03_梁与柱的连接</Child>
+												<Child id="10410004">04_梁与梁的连接</Child>
+												<Child id="10410005">05_柱脚节点</Child>
+												<Child id="10410006">06_梁的补强措施</Child>
+												<Child id="10410007">07_格构式门式刚架</Child>
+												<Child id="10410008">08_梁柱连接节点</Child>
+												<Child id="10410009">09_雨篷、吊车梁等结构</Child>
+												<Child id="10410010">10_牛腿结构</Child>
+												<Child id="10410011">11_门式刚架柱结构</Child>
+												<Child id="10410012">12_支撑与梁柱连接</Child>
+												<Child id="10410013">13_ 网架屋面节点</Child>
+												<Child id="10410014">14_网架墙面、檐口、雨篷等节点</Child>
+												<Child id="10410015">15_网架支座节点</Child>
+						</Parent>				
+</Folder>
+
+<Folder id="105" name="05_给排水">
+<Num>341个</Num>											
+						<Parent id="10501" name="01_管道"></Parent>				
+						<Parent id="10502" name="02_管道附件"></Parent>				
+						<Parent id="10503" name="03_管道连接"></Parent>				
+						<Parent id="10504" name="04_管件"></Parent>				
+						<Parent id="10505" name="05_阀门"></Parent>				
+						<Parent id="10506" name="06_给水配件"></Parent>				
+						<Parent id="10507" name="07_消防设施"></Parent>				
+						<Parent id="10508" name="08_卫生设备及水池"></Parent>				
+						<Parent id="10509" name="09_小型给水排水构筑物"></Parent>				
+						<Parent id="10510" name="10_给水排水设备"></Parent>				
+						<Parent id="10511" name="11_给水排水设备(流程图用）"></Parent>				
+						<Parent id="10512" name="12_仪表"></Parent>				
+						<Parent id="10513" name="13_标准图集"></Parent>				
+</Folder>
+
+<Folder id="106" name="06_暖通">
+<Num>160个</Num>											
+						<Parent id="10601" name="01_水、汽管道阀门和附件"></Parent>				
+						<Parent id="10602" name="02_风道、阀门及附件"></Parent>				
+						<Parent id="10603" name="03_暖通空调设备"></Parent>				
+						<Parent id="10604" name="04_调控装置及仪表"></Parent>				
+</Folder>
+
+<Folder id="107" name="07_电气">
+<Num>574个</Num>											
+						<Parent id="10701" name="01_常用符号">					
+												<Child id="10701001">01_理想电路元件符号</Child>
+												<Child id="10701002">02_接地、接地壳和等电位符号</Child>
+												<Child id="10701003">03_机械控制符号</Child>
+												<Child id="10701004">04_非电量控制符号</Child>
+												<Child id="10701005">05_操作件和操作方法符号</Child>
+						</Parent>				
+						<Parent id="10702" name="02_电力照明,变电站、所"></Parent>				
+						<Parent id="10703" name="03_无源元件">					
+												<Child id="10703001">01_压电晶体和驻极体符号</Child>
+												<Child id="10703002">02_电阻器符号</Child>
+												<Child id="10703003">03_电容器符号</Child>
+												<Child id="10703004">04_电感器符号</Child>
+						</Parent>				
+						<Parent id="10704" name="04_半导体管、电子管">					
+												<Child id="10704001">01_半导体管二极管符号</Child>
+												<Child id="10704002">02_半导体管符号</Child>
+												<Child id="10704003">03_符号要素、特有的限定符号</Child>
+												<Child id="10704004">04_光电子、光敏、磁敏器件</Child>
+												<Child id="10704005">05_晶闸管符号</Child>
+												<Child id="10704006">06_普通电子管符号</Child>
+												<Child id="10704007">07_其他电子管符号</Child>
+												<Child id="10704008">08_数字符号显示器符号</Child>
+						</Parent>				
+						<Parent id="10705" name="05_电能的发生和转换">					
+												<Child id="10705001">01_变流器方框图形</Child>
+												<Child id="10705002">02_变压器和电抗器一般符号</Child>
+												<Child id="10705003">03_电机零部件及类型符号</Child>
+												<Child id="10705004">04_互感器和脉冲变压器、和其他符号</Child>
+												<Child id="10705005">05_具有独立绕组的变压器符号</Child>
+												<Child id="10705006">06_内部连接绕组符号</Child>
+												<Child id="10705007">07_同步电机、异步电机符号</Child>
+												<Child id="10705008">08_微电机符号、变流机符号</Child>
+												<Child id="10705009">09_直流电机、交流换向器电机符号</Child>
+												<Child id="10705010">10_自藕变压器、感应调压器和移相器</Child>
+						</Parent>				
+						<Parent id="10706" name="06_开关控制和保护装置">					
+												<Child id="10706001">01_测量继电器和其他器件符号</Child>
+												<Child id="10706002">02_电动机气动器的方框符号</Child>
+												<Child id="10706003">03_方框符号和限定符号</Child>
+												<Child id="10706004">04_过渡触点符号</Child>
+												<Child id="10706005">05_机电式有或无继电器的操作器件符</Child>
+												<Child id="10706006">06_接近和接触敏感器件符号</Child>
+												<Child id="10706007">07_开关符号</Child>
+												<Child id="10706008">08_提前或滞后动作及延时的触点符号</Child>
+												<Child id="10706009">09_限定符号</Child>
+												<Child id="10706010">10_有弹性返回和无弹性返回触点符号</Child>
+						</Parent>				
+						<Parent id="10707" name="07_测量仪表、灯和信号器件">					
+												<Child id="10707001">01_灯和信号器件符号</Child>
+												<Child id="10707002">02_计数器件、热电偶符号</Child>
+												<Child id="10707003">03_记录仪表和积算仪表</Child>
+												<Child id="10707004">04_一般符号，指示仪表符号</Child>
+						</Parent>				
+</Folder>
+
+<Folder id="108" name="08_弱电安防">	
+<Num>476个</Num>										
+						<Parent id="10801" name="01_站所、线路"></Parent>				
+						<Parent id="10802" name="02_设备、箱盒"></Parent>				
+						<Parent id="10803" name="03_安防系统"></Parent>				
+						<Parent id="10804" name="04_电视系统"></Parent>				
+						<Parent id="10805" name="05_综合布线"></Parent>				
+						<Parent id="10806" name="06_自控系统"></Parent>				
+						<Parent id="10807" name="07_广播"></Parent>				
+						<Parent id="10808" name="08_消防"></Parent>				
+						<Parent id="10809" name="09_消防设施"></Parent>				
+						<Parent id="10810" name="10_电气"></Parent>				
+						<Parent id="10811" name="11_其他"></Parent>				
+</Folder>
+
+<Folder id="110" name="10_机械">
+<Num>4863个</Num>											
+						<Parent id="11001" name="01_螺钉">					
+												<Child id="11001001">01_沉头螺钉GB_68_85</Child>
+												<Child id="11001002">02_方头紧定螺钉 - 凹端 - GB 84-88</Child>
+												<Child id="11001003">03_方头紧定螺钉 - 短圆柱锥端 - GB 86-88</Child>
+												<Child id="11001004">04_方头紧定螺钉 - 平端 - GB 821-88</Child>
+												<Child id="11001005">05_方头紧定螺钉 - 长圆柱端 - GB 85-88</Child>
+												<Child id="11001006">06_滚花高头螺钉 - GB 834-88</Child>
+												<Child id="11001007">07_滚花平头螺钉 - GB 835-88</Child>
+												<Child id="11001008">08_滚花头不脱出螺钉 - GB 839-88 - A</Child>
+												<Child id="11001009">09_滚花头不脱出螺钉 - GB 839-88 - B</Child>
+												<Child id="11001010">10_滚花小头螺钉 - GB 836-88</Child>
+												<Child id="11001011">11_开槽半沉头不脱出螺钉GB_949_88</Child>
+												<Child id="11001012">12_开槽半沉头螺钉GB_69_85</Child>
+												<Child id="11001013">13_开槽沉头不脱出螺钉GB_948_88</Child>
+												<Child id="11001014">14_开槽大圆柱头螺钉 - GB 65-85</Child>
+												<Child id="11001015">15_开槽大圆柱头螺钉 - GB 833-88</Child>
+												<Child id="11001016">16_开槽带孔球面圆柱头螺钉 - GB 832-88 - A</Child>
+												<Child id="11001017">17_开槽带孔球面圆柱头螺钉 - GB 832-88 - B</Child>
+												<Child id="11001018">18_开槽带孔球面圆柱头螺钉 - GB 832-88 - C M</Child>
+												<Child id="11001019">19_开槽盘头不脱出螺钉 - GB 837-88</Child>
+												<Child id="11001020">20_开槽盘头定位螺钉 - GB 828-88</Child>
+												<Child id="11001021">21_开槽盘头螺钉 - GB 67-85</Child>
+												<Child id="11001022">22_开槽球面大圆柱头螺钉 - GB 947-88</Child>
+												<Child id="11001023">23_开槽球面圆柱头螺钉 - GB 946</Child>
+												<Child id="11001024">24_开槽无头紧定螺钉 - 凹端 - GB 74-85</Child>
+												<Child id="11001025">25_开槽无头紧定螺钉 - 平端 - GB 73-85</Child>
+												<Child id="11001026">26_开槽无头紧定螺钉 - 圆柱端 - GB 79-85</Child>
+												<Child id="11001027">27_开槽无头紧定螺钉 - 长圆柱端 - GB 75-85</Child>
+												<Child id="11001028">28_开槽无头紧定螺钉 - 长圆柱球面端 - GB 83-88</Child>
+												<Child id="11001029">29_开槽无头紧定螺钉 - 锥端 - GB 72-88</Child>
+												<Child id="11001030">30_开槽无头轴位螺钉 - GB 831</Child>
+												<Child id="11001031">31_开槽圆柱端定位螺钉 - GB 829-88</Child>
+												<Child id="11001032">32_开槽圆柱头轴位螺钉 - GB 830</Child>
+												<Child id="11001033">33_开槽锥端紧定螺钉 - GB 71-85</Child>
+												<Child id="11001034">34_六角头不脱出螺钉 - GB 838-88</Child>
+												<Child id="11001035">35_内六角花形半沉头螺钉GB_2674_86</Child>
+												<Child id="11001036">36_内六角花形盘头螺钉 - GB 2672-86</Child>
+												<Child id="11001037">37_内六角花形圆柱头螺钉 - GB 6190-86</Child>
+												<Child id="11001038">38_内六角花形圆柱头螺钉 - GB 6191-86</Child>
+												<Child id="11001039">39_内六角紧定螺钉 - 凹端 - GB 80-85</Child>
+												<Child id="11001040">40_内六角紧定螺钉 - 平端 - GB 77-85</Child>
+												<Child id="11001041">41_内六角紧定螺钉 - 锥端 - GB 78-85</Child>
+												<Child id="11001042">42_内六角圆柱头螺钉 - GB 70-85</Child>
+												<Child id="11001043">43_内六角圆柱头轴肩螺钉 - GB 5281</Child>
+												<Child id="11001044">44_十字槽半沉头螺钉 H_GB_820_85</Child>
+												<Child id="11001045">45_十字槽半沉头螺钉 Z GB_820_85</Child>
+												<Child id="11001046">46_十字槽沉头螺钉 H_GB_819_85</Child>
+												<Child id="11001047">47_十字槽沉头螺钉 Z_GB_819_85</Child>
+												<Child id="11001048">48_十字槽小盘头螺钉 型式 H - GB 818-85</Child>
+												<Child id="11001049">49_十字槽小盘头螺钉 型式 H - GB 823-88</Child>
+												<Child id="11001050">50_十字槽圆柱头螺钉 - GB 822-88</Child>
+												<Child id="11001051">51_塑料滚花头螺钉 - GB 840-88 - A</Child>
+												<Child id="11001052">52_塑料滚花头螺钉 - GB 840-88 - B</Child>
+												<Child id="11001053">53_自攻螺钉(GEFMSG geffill 10) - GB 9456-88 - F</Child>
+												<Child id="11001054">54_自攻螺钉(GEFMSG geffill 3) - GB-T 13806.2-92 - A</Child>
+												<Child id="11001055">55_自攻螺钉(GEFMSG geffill 4) - GB-T 13806.2-92 - B</Child>
+												<Child id="11001056">56_自攻螺钉(GEFMSG geffill 5) - GB-T 13806.2-92 - C</Child>
+												<Child id="11001057">57_自攻螺钉(GEFMSG gefrefill 15) - GB 6563-86</Child>
+												<Child id="11001058">58_自攻螺钉(GEFMSG gefrefill 16) - GB 6561-86</Child>
+												<Child id="11001059">59_自攻螺钉(GEFMSG gefrefill 17) - GB 6562-86</Child>
+												<Child id="11001060">60_自攻螺钉(GEFMSG gefrefill 18) - GB 6560-86</Child>
+												<Child id="11001061">61_自攻螺钉(GEFMSG gefrefill 19) - GB 6564-86</Child>
+												<Child id="11001062">62_自攻螺钉(钣金用) - GB 5282-85 - C</Child>
+												<Child id="11001063">63_自攻螺钉(钣金用) - GB 5282-85 - F</Child>
+												<Child id="11001064">64_自攻螺钉(钣金用) - GB 5283-85-C</Child>
+												<Child id="11001065">65_自攻螺钉(钣金用) - GB 5283-85-F</Child>
+												<Child id="11001066">66_自攻螺钉(钣金用) - GB 5284-85-C</Child>
+												<Child id="11001067">67_自攻螺钉(钣金用) - GB 5284-85-F</Child>
+												<Child id="11001068">68_自攻螺钉(钣金用) - GB 5285-85 - C</Child>
+												<Child id="11001069">69_自攻螺钉(钣金用) - GB 5285-85 - F</Child>
+												<Child id="11001070">70_自攻螺钉(钣金用) - GB 845-85 - C - H</Child>
+												<Child id="11001071">71_自攻螺钉(钣金用) - GB 845-85 - C - Z</Child>
+												<Child id="11001072">72_自攻螺钉(钣金用) - GB 845-85 - F - H</Child>
+												<Child id="11001073">73_自攻螺钉(钣金用) - GB 845-85 - F - Z</Child>
+												<Child id="11001074">74_自攻螺钉(钣金用) - GB 846-85 - C - H</Child>
+												<Child id="11001075">75_自攻螺钉(钣金用) - GB 846-85 - C - Z</Child>
+												<Child id="11001076">76_自攻螺钉(钣金用) - GB 846-85 - F - H</Child>
+												<Child id="11001077">77_自攻螺钉(钣金用) - GB 846-85 - F - Z</Child>
+												<Child id="11001078">78_自攻螺钉(钣金用) - GB 847-85 - C - H</Child>
+												<Child id="11001079">79_自攻螺钉(钣金用) - GB 847-85 - C - Z</Child>
+												<Child id="11001080">80_自攻螺钉(钣金用) - GB 847-85 - F - H</Child>
+												<Child id="11001081">81_自攻螺钉(钣金用) - GB 847-85 - F - Z</Child>
+						</Parent>				
+						<Parent id="11002" name="02_螺母">					
+												<Child id="11002001">01_侧面带孔圆螺母 - GB 816-88</Child>
+												<Child id="11002002">02_蝶形螺母 普通- GB 62-88 - A</Child>
+												<Child id="11002003">03_蝶形螺母 普通- GB 62-88 - B</Child>
+												<Child id="11002004">04_蝶形螺母 细牙- GB 62-88 - A</Child>
+												<Child id="11002005">05_蝶形螺母 细牙- GB 62-88 - B</Child>
+												<Child id="11002006">06_端面带孔圆螺母 - GB 815-88 A</Child>
+												<Child id="11002007">07_端面带孔圆螺母 - GB 815-88 B</Child>
+												<Child id="11002008">08_滚花螺母 - GB 806-88</Child>
+												<Child id="11002009">09_滚花螺母 - GB 807-88</Child>
+												<Child id="11002010">10_环形螺母 - GB 63-88</Child>
+												<Child id="11002011">11_六角盖形螺母 - GB 802-88</Child>
+												<Child id="11002012">12_六角盖形螺母 - GB 923-88</Child>
+												<Child id="11002013">13_六角开槽螺母 - GB 6178-86</Child>
+												<Child id="11002014">14_六角开槽螺母 - GB 6179-86</Child>
+												<Child id="11002015">15_六角开槽螺母 - GB 6180-86</Child>
+												<Child id="11002016">16_六角开槽螺母 - GB 6181-86</Child>
+												<Child id="11002017">17_六角开槽螺母 - GB 9457-88</Child>
+												<Child id="11002018">18_六角开槽螺母 - GB 9458-88</Child>
+												<Child id="11002019">19_六角开槽螺母 - GB 9459-88</Child>
+												<Child id="11002020">20_圆螺母 - GB 809-88 A</Child>
+												<Child id="11002021">21_圆螺母 - GB 809-88 B</Child>
+						</Parent>				
+						<Parent id="11003" name="03_螺栓">					
+												<Child id="11003001">01_T 形槽用螺栓 - GB 37-88</Child>
+												<Child id="11003002">02_半圆头方颈螺栓 - GB 12-88</Child>
+												<Child id="11003003">03_半圆头方颈螺栓 - GB 14-88</Child>
+												<Child id="11003004">04_半圆头方颈螺栓 - GB 801-88</Child>
+												<Child id="11003005">05_沉头带榫螺栓_GB_11_88</Child>
+												<Child id="11003006">06_沉头双榫螺栓</Child>
+												<Child id="11003007">07_大半圆头带榫螺栓 - GB 15-88</Child>
+												<Child id="11003008">08_方头螺栓 - GB 35-88</Child>
+												<Child id="11003009">09_方头螺栓 - GB 8-88</Child>
+												<Child id="11003010">10_活节螺栓 - GB 798-88</Child>
+												<Child id="11003011">11_活节螺栓 - GB 799-88</Child>
+												<Child id="11003012">12_活节螺栓 - GB 825-88</Child>
+												<Child id="11003013">13_活节螺栓 - GB 825-88-B</Child>
+												<Child id="11003014">14_六角法兰面螺栓 - GB 5787-86</Child>
+												<Child id="11003015">15_六角法兰面螺栓 - GB 5788-86</Child>
+												<Child id="11003016">16_六角法兰面螺栓 - GB 5789-86</Child>
+												<Child id="11003017">17_六角法兰面螺栓 - GB 5790-86</Child>
+												<Child id="11003018">18_六角头螺栓 - GB 27-88</Child>
+												<Child id="11003019">19_六角头螺栓 - GB 28-88</Child>
+												<Child id="11003020">20_六角头螺栓 - GB 29.2-88</Child>
+												<Child id="11003021">21_六角头螺栓 - GB 31.1-88</Child>
+												<Child id="11003022">22_六角头螺栓 - GB 31.3-88</Child>
+												<Child id="11003023">23_六角头螺栓 - GB 32.2-88</Child>
+												<Child id="11003024">24_六角头螺栓 - GB 5780-86</Child>
+												<Child id="11003025">25_六角头螺栓 - GB 5781-86</Child>
+												<Child id="11003026">26_六角头螺栓 - GB 5782-86</Child>
+												<Child id="11003027">27_六角头螺栓 - GB 5783-86</Child>
+												<Child id="11003028">28_六角头螺栓 - GB 5784-86</Child>
+												<Child id="11003029">29_六角头螺栓 - GB 5785-86</Child>
+												<Child id="11003030">30_六角头螺栓 - GB 5786-86</Child>
+												<Child id="11003031">31_六角头螺栓 - GB-T 1228-91</Child>
+												<Child id="11003032">32_双头螺柱 - GB 897-88</Child>
+												<Child id="11003033">33_双头螺柱 - GB 898-88</Child>
+												<Child id="11003034">34_双头螺柱 - GB 899-88</Child>
+												<Child id="11003035">35_双头螺柱 - GB 900-88</Child>
+												<Child id="11003036">36_双头螺柱 - GB 901-88</Child>
+												<Child id="11003037">37_双头螺柱 - GB 953-88</Child>
+						</Parent>				
+						<Parent id="11004" name="04_螺纹_GB_196-81"></Parent>				
+						<Parent id="11005" name="05_销">					
+												<Child id="11005001">01_带孔销 - GB 880-86</Child>
+												<Child id="11005002">02_弹性圆柱销 - GB 879-86</Child>
+												<Child id="11005003">03_沟槽销 - GB-T 13829.1 - 92-B</Child>
+												<Child id="11005004">04_沟槽销 - GB-T 13829.1-92-A</Child>
+												<Child id="11005005">05_沟槽销 - GB-T 13829.1-92-C</Child>
+												<Child id="11005006">06_沟槽销 - GB-T 13829.1-92-D</Child>
+												<Child id="11005007">07_沟槽销 - GB-T 13829.2-92-A</Child>
+												<Child id="11005008">08_沟槽销 - GB-T 13829.2-92-B</Child>
+												<Child id="11005009">09_沟槽销 - GB-T 13829.2-92-C</Child>
+												<Child id="11005010">10_沟槽销 - GB-T 13829.3-92-A</Child>
+												<Child id="11005011">11_开囗销 - GB 91-86</Child>
+												<Child id="11005012">12_开尾圆锥销 - GB 877-86</Child>
+												<Child id="11005013">13_螺纹圆柱销 - GB 878-86</Child>
+												<Child id="11005014">14_内螺纹圆锥销 - GB 118-86</Child>
+												<Child id="11005015">15_销 - 圆头带槽销 - GB-T 13829.3-92</Child>
+												<Child id="11005016">16_圆柱销 - GB 119-86 - A</Child>
+												<Child id="11005017">17_圆柱销 - GB 119-86 - B</Child>
+												<Child id="11005018">18_圆柱销 - GB 119-86 - C</Child>
+												<Child id="11005019">19_圆柱销 - GB 120-86</Child>
+												<Child id="11005020">20_圆锥销 - GB 117-86</Child>
+						</Parent>				
+						<Parent id="11006" name="06_铆钉">					
+												<Child id="11006001">01_半沉头铆钉 - GB 870-86</Child>
+												<Child id="11006002">02_沉头铆钉 - GB 869-86</Child>
+												<Child id="11006003">03_埋头铆钉 - GB 954-86</Child>
+												<Child id="11006004">04_铆钉 - GB 863.1-86</Child>
+												<Child id="11006005">05_铆钉 - GB 863.2-86</Child>
+												<Child id="11006006">06_铆钉 - GB 867-86</Child>
+												<Child id="11006007">07_平头铆钉 - GB 109-86</Child>
+												<Child id="11006008">08_平锥头铆钉 - GB 868-86</Child>
+												<Child id="11006009">09_圆头半空心铆钉 - GB 876-86</Child>
+						</Parent>				
+						<Parent id="11007" name="07_垫圈">					
+												<Child id="11007001">01_带齿锁紧垫圈 - GB 861.1-87</Child>
+												<Child id="11007002">02_带齿锁紧垫圈 - GB 862.1-87</Child>
+												<Child id="11007003">03_弹簧垫圈 - GB 7244-87</Child>
+												<Child id="11007004">04_弹簧垫圈 - GB 859-87</Child>
+												<Child id="11007005">05_弹簧垫圈 - GB 93-87</Child>
+												<Child id="11007006">06_垫圈 - GB 5287-85</Child>
+												<Child id="11007007">07_垫圈 - GB 848-85</Child>
+												<Child id="11007008">08_垫圈 - GB 849-88</Child>
+												<Child id="11007009">09_垫圈 - GB 850-88</Child>
+												<Child id="11007010">10_垫圈 - GB 851-88</Child>
+												<Child id="11007011">11_垫圈 - GB 851-88 - B</Child>
+												<Child id="11007012">12_垫圈 - GB 860-87</Child>
+												<Child id="11007013">13_垫圈 - GB 955-87</Child>
+												<Child id="11007014">14_垫圈 - GB 95-85</Child>
+												<Child id="11007015">15_垫圈 - GB 96-85</Child>
+												<Child id="11007016">16_垫圈 - GB 97.1-85</Child>
+												<Child id="11007017">17_垫圈 - GB 97.2-85</Child>
+												<Child id="11007018">18_垫圈 - GB-T 1230-91</Child>
+												<Child id="11007019">19_方斜垫圈 - GB 852-88</Child>
+												<Child id="11007020">20_方斜垫圈 - GB 853-88</Child>
+												<Child id="11007021">21_锯齿锁紧垫圈 - GB 861.2-87</Child>
+												<Child id="11007022">22_锯齿锁紧垫圈 - GB 862.2-87</Child>
+						</Parent>					
+</Folder>
+
+<Folder id="112" name="12_其他">
+<Num>148个</Num>											
+						<Parent id="11201" name="01_指北针"></Parent>				
+						<Parent id="11202" name="02_地质符号"></Parent>				
+</Folder>																
+
+</root>
