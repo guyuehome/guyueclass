@@ -5,6 +5,7 @@
 3. ros_arm_tutorial：[《软硬结合带你玩转ROS机械臂》](https://class.guyuehome.com/detail/p_6030c2cae4b029faba18eaaa/6) 
 4. moveit_double_arm：[《MoveIt玩转双臂机器人》](https://class.guyuehome.com/detail/p_61011464e4b0a27d0e36c1f1/6) 
 5. mbot_cad：[《mbot机器人系列——极简CAD设计小车底盘》](https://class.guyuehome.com/detail/p_6172190ee4b071201fdca505/6) 
+6. mbot_eda：[《mbot机器人系列——立创EDA设计驱动板》](https://class.guyuehome.com/detail/p_61721b03e4b0cf90f9bc4c47/6) 
 
 **更多内容，欢迎关注古月居**
 
