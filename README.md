@@ -52,6 +52,8 @@
 2. [《基于栅格地图的机器人路径规划算法指南》](https://class.guyuehome.com/detail/p_6098db8ce4b071a81eb8befa/6) ：path_planning
 3. [《机器人正运动学》](https://class.guyuehome.com/detail/p_60a7277de4b0c7264217a87d/6) ：forward_kinematics
 4. [《基于群智能的三维路径规划算法》](https://class.guyuehome.com/detail/p_60f6844ce4b08f7ad23ebc2f/6) ：path_planning_3d
+5. [《3、4自由度机械臂正逆解推导与代码实现》](https://class.guyuehome.com/detail/p_61839a62e4b0ac1ecd65bf47/6) ：3_4_dof_kinematics
+
 ### 人机交互（interaction）
 
 1. [《如何用语音控制ROS小车移动》](https://class.guyuehome.com/detail/p_5fd06a5ae4b04db7c093bf63/6) ：xfei_robot
