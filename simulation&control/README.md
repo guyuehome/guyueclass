@@ -13,6 +13,7 @@
 11. simulink_pid_carsim：[《通过车道保持来学习PID控制》](https://class.guyuehome.com/detail/p_60ef9e6fe4b0041622bc75c0/6)
 12. webots_ros_darwin_op3：[《人形机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_60f8dbdae4b08f7ad23f5fd6/6)
 13. matlab_robotics_toolbox：[《Matlab机器人工具箱入门指南》](https://class.guyuehome.com/detail/p_615fb0e4e4b0dfaf7faa9725/6)
+14. deeplearning_plane_grasp：[《基于深度学习的机器人平面抓取》](https://class.guyuehome.com/detail/p_61c9287be4b09ac9b9113173/6)
 
 ------
 
