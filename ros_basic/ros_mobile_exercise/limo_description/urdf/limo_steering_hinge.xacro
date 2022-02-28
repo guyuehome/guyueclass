@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<robot name="limo_steering_hinge" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:macro name="limo_left_steering_hinge" params="parent_prefix wheel_prefix *joint_pose">
+        <link name="${wheel_prefix}">
+            <inertial>
+              <mass value="0.25" />
+              <inertia ixx="0.00525" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.00525" />
+              <origin xyz="0 0 0" />
+
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                  <cylinder length="0.0001" radius="0.0001" />
+                </geometry>
+            </visual>
+            <collision>
+              <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+              <geometry>
+                  <cylinder length="${wheel_length}" radius="${wheel_radius-0.01}" />
+              </geometry>
+            </collision>
+        </link>
+
+        <joint name="${wheel_prefix}_wheel" type="revolute">
+            <parent link="${parent_prefix}"/>
+            <child link="${wheel_prefix}"/>
+            <xacro:insert_block name="joint_pose"/>
+            <axis xyz="0 0 1" />
+            <limit lower="-0.523598767" upper="0.523598767" effort="5" velocity="0.5" />
+            <dynamics damping="1.0" friction="2.0"/>
+
+        </joint>
+
+        <link name="front_left_wheel_link">
+          <inertial>
+            <mass value="0.25" />
+            <inertia ixx="0.00525" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.00525" />
+            <origin xyz="0 0 0" />
+
+          </inertial>
+          <visual>
+              <origin xyz="0 0 0" rpy="0 0 0" />
+              <geometry>
+                  <mesh filename="package://limo_description/meshes/limo_wheel.dae" />
+              </geometry>
+          </visual>
+          <collision>
+            <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}" />
+            </geometry>
+          </collision>
+      </link>
+
+      <joint name="front_left_wheel" type="continuous">
+          <parent link="${wheel_prefix}"/>
+          <child link="front_left_wheel_link"/>
+          <origin xyz="0 0 0" rpy="0 0  0" />
+          <axis xyz="0 1 0"/>
+      </joint>
+    </xacro:macro>
+
+    <xacro:macro name="limo_right_steering_hinge" params="parent_prefix wheel_prefix *joint_pose">
+        <link name="${wheel_prefix}">
+          <inertial>
+            <mass value="0.25" />
+            <inertia ixx="0.00525" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.00525" />
+            <origin xyz="0 0 0" />
+
+          </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                  <cylinder length="0.0001" radius="0.0001" />
+                </geometry>
+            </visual>
+            <collision>
+              <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+              <geometry>
+                  <cylinder length="${wheel_length}" radius="${wheel_radius-0.01}" />
+              </geometry>
+            </collision>
+        </link>
+
+        <joint name="${wheel_prefix}_wheel" type="revolute">
+            <parent link="${parent_prefix}"/>
+            <child link="${wheel_prefix}"/>
+            <xacro:insert_block name="joint_pose"/>
+            <axis xyz="0 0 -1"/>
+            <limit lower="-0.523598767" upper="0.523598767" effort="5" velocity="0.5" />
+            <dynamics damping="1.0" friction="2.0"/>
+        </joint>
+
+        <link name="front_right_wheel_link">
+          <inertial>
+            <mass value="0.25" />
+            <inertia ixx="0.00525" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.00525" />
+            <origin xyz="0 0 0" />
+          </inertial>
+          <visual>
+              <origin xyz="0 0 0" rpy="0 0 0" />
+              <geometry>
+                  <mesh filename="package://limo_description/meshes/limo_wheel.dae" />
+              </geometry>
+          </visual>
+          <collision>
+            <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder length="${wheel_length}" radius="${wheel_radius}" />
+            </geometry>
+          </collision>
+      </link>
+
+      <joint name="front_right_wheel" type="continuous">
+          <parent link="${wheel_prefix}"/>
+          <child link="front_right_wheel_link"/>
+          <origin xyz="0 0 0" rpy="0 0  0" />
+          <axis xyz="0 -1 0"/>
+      </joint>
+    </xacro:macro>
+</robot>

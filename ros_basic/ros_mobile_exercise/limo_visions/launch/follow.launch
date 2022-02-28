@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find limo_base)/launch/limo_base.launch" />
+    <include file="$(find astra_camera)/launch/dabai_u3.launch" />
+    <node name="object_detect" pkg="limo_visions" type="object_detect.py" output="screen" />
+    <node name="follow_object" pkg="limo_visions" type="follow.py" output="screen" />
+</launch>

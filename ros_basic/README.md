@@ -5,6 +5,7 @@
 4. solidworks_to_urdf：[《如何从Solidworks导出URDF模型》](https://class.guyuehome.com/detail/p_5e32dce7906e0_6TqS7BwX/6) 
 5. moveit_setup_assistant：[《MoveIt可视化配置及仿真指南》](https://class.guyuehome.com/detail/p_5e71966b3fdfd_g4DpRGg9/6) 
 6. mbot_gazebo：[《如何在Gazebo中实现移动机器人仿真》](https://class.guyuehome.com/detail/p_5eb2366befe4a_E4rbNmXt/6) 
+6. ros_mobile_exercise：[《ROS移动机器人实战》](https://class.guyuehome.com/detail/p_621c37b6e4b0beaee42e6ff9/6) 
 
 ------
 

@@ -1,0 +1,347 @@
+Ubuntu镜像下载地址：https://ubuntu.com/download/desktop
+
+VMware Workstation 16 Pro：https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html 
+ROS系统安装：
+1.添加ROS软件源 
+$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+2. 添加密钥
+$ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+3. 安装ROS
+$ sudo apt update
+$ sudo apt install ros-noetic-desktop-full  
+4. 设置环境变量
+$ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+$ source ~/.bashrc
+5.构建包的依赖项
+$ sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+6. 初始化rosdep
+$ sudo rosdep init
+$ rosdep update
+
+ROS安装方法：http://wiki.ros.org/noetic/Installation/Ubuntu
+移动机器人运行架构分析
+启动ROS Master
+$ roscore
+启动小海龟仿真器
+$ rosrun turtlesim turtlesim_node
+启动海龟控制节点
+$ rosrun turtlesim turtle_teleop_key
+
+
+机器人运动控制
+$ roslaunch limo_base limo_base.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+
+1.机器人命令调试方法
+查看话题列表
+$ rosnode list
+发布话题消息
+$ rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "linear:
+      x: 1.0
+      y: 0.0
+      z: 0.0
+    angular:
+      x: 0.0
+      y: 0.0
+      z: 0.0"
+发布服务请求
+$ rosservice call /spawn "x: 5.0
+      y: 5.0
+      theta: 0.0
+      name: 'turtle2'"
+
+启动机器人底盘
+$  roslaunch limo_base limo_base.launch 
+启动键盘控制
+$ roslaunch limo_bringup limo_teletop_keyboard.launch
+
+查看节点列表
+$ rosnode list
+
+查看节点相关信息
+$ rosnode info /limo_base_node 
+--------------------------------------------------------------Node [/limo_base_node]
+Publications: 
+ * /imu [sensor_msgs/Imu]
+ * /limo_status [limo_msgs/LimoStatus]
+ * /odom [nav_msgs/Odometry]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+
+……
+
+
+
+查看话题列表
+$ rostopic list
+
+发布话题消息
+$ rostopic pub -r 100 /cmd_vel geometry_msgs/Twist "linear:
+  x: 1.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0"
+
+订阅话题消息
+$ rostopic echo /odom 
+header: 
+  seq: 76561
+  stamp: 
+    secs: 1632280908
+    nsecs: 485733056
+  frame_id: "odom"
+child_frame_id: "base_link"
+
+2. Launch启动文件
+启动节点
+<node pkg="package-name" type="executable-name" name="node-name" />
+
+<param> /
+<rosparam>
+设置ROS系统运行中的参数，存储在参数服务器中。
+<param name="output_frame" value="odom"/>
+•name：参数名
+•value：参数值
+加载参数文件中的多个参数：
+<rosparam file="params.yaml" command="load" ns=“params" />
+
+
+<arg>
+launch文件内部的局部变量，仅限于launch文件使用
+<arg name="robot_name"  default=“limo" />
+•name：参数名
+•value：参数值
+调用：
+<param name="robot" value="$(arg robot_name)" />
+<node name="node" pkg="package" type="type " args="$(arg robot_name)" />
+
+<include>
+包含其他launch文件，类似C语言中的头文件包含。
+
+<include file="$(dirname)/other.launch" />
+•file：包含的其他launch文件路径
+
+<remap>
+重映射ROS计算图资源的命名。
+
+<remap from="imu_data" to="imu" />
+•from：原命名
+•to：映射之后的命名
+
+更多标签可参见：http://wiki.ros.org/roslaunch/XML 
+
+移动机器人开发流程
+创建工作空间
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/src
+$ catkin_init_workspace
+
+编译工作空间
+$ cd ~/catkin_ws/
+$ catkin_make
+设置环境变量
+$ source ~/catkin_ws/devel/setup.bash
+检查环境变量
+$ echo $ROS_PACKAGE_PATH
+
+
+$ catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
+创建功能包
+$ cd ~/catkin_ws/src
+$ catkin_create_pkg limo_demo rospy roscpp std_msgs std_srvs
+编译功能包
+$ cd ~/catkin_ws
+$ catkin_make
+$ source ~/catkin_ws/devel/setup.bash
+
+
+控制机器人圆周运动
+$ roslaunch limo_bringup limo_start.launch
+$ rosrun limo_bringup draw_circle.py
+
+查看机器人实时位置
+$ roslaunch limo_bringup limo_start.launch
+$ rosrun limo_demo limo_subscriber.py
+$ roslaunch limo_bringup limo_teletop_keyboard.launch
+
+编辑终端配置文件
+$ gedit ~/.bashrc
+
+分布式控制
+（机器人端）$ roslaunch limo_base limo_base.launch
+（笔记本端）$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+
+控制机器人圆周运动
+（分布式）
+（机器人端） $ roslaunch limo_bringup limo_start.launch
+（笔记本端） $ rosrun limo_demo draw_circle.py
+
+查看机器人实时位置
+（分布式）
+（机器人端） $ roslaunch limo_bringup limo_start.launch
+（笔记本端） $ roslaunch limo_bringup limo_teletop_keyboard.launch 
+（笔记本端） $ rosrun limo_demo limo_subscriber.py
+
+差速运动控制
+差速运动控制
+$ roslaunch limo_base limo_base.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+
+阿克曼运动控制
+$ roslaunch limo_base limo_base.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+
+全向运动控制
+$ roslaunch limo_base limo_base.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+机器视觉原理
+$ sudo apt-get install ros-noetic-usb-cam
+$ roslaunch usb_cam usb_cam-test.launch
+$ rqt_image_view
+
+sensor_msgs/Image
+
+
+安装SDK（https://github.com/intel-ros/realsense/releases）
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+
+安装ROS驱动（https://github.com/IntelRealSense/librealsense/releases）
+$ catkin_make -DCATKIN_ENABLE_TESTING=False -DCMAKE_BUILD_TYPE=Release
+$ catkin_make install
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrcsource ~/.bashrc
+
+点云可视化
+$ roslaunch realsense2_camera rs_rgbd.launch
+$ rosrun rviz rviz 
+
+参考链接：  
+https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
+https://blog.csdn.net/u012926144/article/details/80761342 
+
+安装OpenCV
+$ sudo apt-get install ros-noetic-vision-opencv libopencv-dev python3-opencv
+
+获取HSV值
+
+启动摄像头
+$ roslaunch astra_camera dabai_u3.launch 
+
+使用rqt查看图像并保存
+$ rqt_image_view 
+
+检测hsv值
+$ roscd limo_visions/scripts/ && python hsv_test.py
+
+物体识别与跟踪
+$ roslaunch limo_visions follow.launch
+
+安装ar-track-alvar
+创建二维码
+
+$ sudo apt-get install ros-melodic-ar-track-alvar
+$ rosrun ar_track_alvar createMarker -s 5 0
+
+二维码识别
+启动摄像头
+$ roslaunch astra_camera dabai_u3.launch 
+
+启动二维码识别
+$ roslaunch limo_visions ar_code.launch
+
+查看识别到的二维码的位姿
+$ rostopic echo /ar_pose_marker
+
+limo_visions/launch/ar_code.launch
+limo_visions/launch/ar_control.launch
+limo_visions/scripts/move_to_target_ar.py
+
+二维码识别与跟踪
+$ roslaunch astra_camera dabai_u3.launch
+$ roslaunch limo_visions ar_control.launch
+
+参考链接：http://wiki.ros.org/navigation
+参考链接： http://wiki.ros.org/move_base 
+参考链接：https://www.guyuehome.com/5652  、https://www.guyuehome.com/6560 
+参考论文《The Dynamic Window Approach to Collision Avoidance》
+参考论文《Trajectory modification considering dynamic constraints of autonomous robots》
+
+差速导航：
+$ roslaunch limo_bringup limo_start.launch pub_odom_tf:=false
+$ roslaunch limo_bringup limo_navigation_diff.launch
+
+limo_bringup/launch/limo_navigation_diff.launch
+
+limo_bringup/param/diff/global_costmap_params.yaml
+
+limo_bringup/param/diff/local_costmap_params.yaml
+
+limo_bringup/param/diff/costmap_common_params.yaml
+
+limo_bringup/param/diff/planner.yaml
+
+参考：http://wiki.ros.org/global_planner 、http://wiki.ros.org/base_local_planner、 http://wiki.ros.org/dwa_local_planner
+
+全向导航：
+$ roslaunch limo_bringup limo_start.launch pub_odom_tf:=false
+$ roslaunch limo_bringup limo_navigation_mcnamu.launch
+
+limo_bringup/launch/limo_navigation_mcnamu.launch
+
+limo_bringup/param/diff/global_costmap_params.yaml
+
+limo_bringup/param/diff/local_costmap_params.yaml
+
+limo_bringup/param/diff/costmap_common_params.yaml
+
+limo_bringup/param/mcnamu/teb_local_planner.yaml
+
+参考：http://wiki.ros.org/teb_local_planner
+
+阿克曼导航：
+$ roslaunch limo_bringup limo_start.launch pub_odom_tf:=false
+$ roslaunch limo_bringup limo_navigation_ackerman.launch
+
+limo_bringup/launch/ limo_navigation_ackerman.launch
+
+limo_bringup/param/ackerman/global_costmap_params.yaml
+
+limo_bringup/param/ackerman/local_costmap_params.yaml
+
+limo_bringup/param/ackerman/costmap_common_params.yaml
+
+limo_bringup/param/ackerman/teb_local_planner_params.yaml
+
+参考：http://wiki.ros.org/teb_local_planner
+
+配置gmapping节点：
+limo_bringup/launch/limo_gmapping.launch
+
+gmapping地图构建：
+$ roslaunch limo_bringup limo_start.launch pub_odom_tf:=false
+$ roslaunch limo_bringup limo_gmapping.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch 
+
+保存地图：
+$ cd /agilex_ws/limo_bringup/maps/
+$ rosrun map_server map_saver –f map1
+
+cartographer官网：https://google-cartographer.readthedocs.io/en/latest/
+
+rtabmap地图构建：
+$ roslaunch limo_bringup limo_start.launch pub_odom_tf:=true
+$ roslaunch astra_camera dabai_u3.launch
+$ roslaunch limo_bringup limo_rtabmap_orbbec.launch
+$ roslaunch limo_bringup rtabmap_rviz.launch
+$ roslaunch limo_bringup limo_teletop_keyboard.launch
+
+查看建图结果：
+$ rtabmap-databaseViewer ~/.ros/rtabmap.db
+
+

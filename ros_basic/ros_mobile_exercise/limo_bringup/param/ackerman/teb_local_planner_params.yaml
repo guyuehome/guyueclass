@@ -1,0 +1,114 @@
+TebLocalPlannerROS:
+
+ odom_topic: odom
+    
+ # Trajectory
+ teb_autosize: True
+ dt_ref: 0.3
+ dt_hysteresis: 0.1
+ max_samples: 500
+ global_plan_overwrite_orientation: False
+ allow_init_with_backwards_motion: True
+ max_global_plan_lookahead_dist: 0.8   #0.5 0.8 1.0
+ global_plan_viapoint_sep: -1
+ global_plan_prune_distance: 1.0
+ exact_arc_length: False
+ feasibility_check_no_poses: 5
+ publish_feedback: False
+    
+ # Robot     
+ max_vel_x: 0.5
+ max_vel_x_backwards: 0.3
+ max_vel_y: 0.0
+ max_vel_theta: 1.0 # the angular velocity is also bounded by min_turning_radius in case of a carlike robot (r = v / omega)
+ acc_lim_x: 0.5
+ acc_lim_theta: 0.5
+ # GoalTolerance
+ xy_goal_tolerance: 0.2
+ yaw_goal_tolerance: 0.52359876
+ free_goal_vel: False
+ complete_global_plan: True
+    
+ # ********************** Carlike robot parameters ********************
+ # max_steer_angle_=25 deg; r= wheelbase/tan(max_steer_angle_)=0.42890138
+ min_turning_radius: 1.0    # Min turning radius of the carlike robot (compute value using a model or adjust with rqt_reconfigure manually)
+ wheelbase: 0.2                 # Wheelbase of our robot
+ cmd_angle_instead_rotvel: False # stage simulator takes the angle instead of the rotvel as input (twist message)
+ # ********************************************************************
+ footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
+   type: "line"
+   #radius: 0.2 # for type "circular"
+   line_start: [0.0, 0.0] # for type "line"
+   line_end: [0.2, 0.0] # for type "line"
+   #front_offset: 0.2 # for type "two_circles"
+   #front_radius: 0.2 # for type "two_circles"
+   #rear_offset: 0.2 # for type "two_circles"
+   #rear_radius: 0.2 # for type "two_circles"
+   #vertices: [ [0.25, -0.05], [0.18, -0.05], [0.18, -0.18], [-0.19, -0.18], [-0.25, 0], [-0.19, 0.18], [0.18, 0.18], [0.18, 0.05], [0.25, 0.05] ] # for type "polygon"
+
+ # Obstacles
+ min_obstacle_dist: 0.03 # 0.05 0.08  0.1 This value must also include our robot's expansion, since footprint_model is set to "line".
+ inflation_dist: 0.03
+ include_costmap_obstacles: True
+ costmap_obstacles_behind_robot_dist: 1.0
+ obstacle_poses_affected: 15
+ dynamic_obstacle_inflation_dist: 0.6
+ include_dynamic_obstacles: True 
+
+ costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
+ costmap_converter_spin_thread: True
+ costmap_converter_rate: 5
+
+ # Optimization
+ no_inner_iterations: 5
+ no_outer_iterations: 4
+ optimization_activate: True
+ optimization_verbose: False
+ penalty_epsilon: 0.1
+ obstacle_cost_exponent: 4
+ weight_max_vel_x: 2
+ weight_max_vel_theta: 1
+ weight_acc_lim_x: 1
+ weight_acc_lim_theta: 1
+ weight_kinematics_nh: 1000
+ weight_kinematics_forward_drive: 1
+ weight_kinematics_turning_radius: 1
+ weight_optimaltime: 1 # must be > 0
+ weight_shortest_path: 0
+ weight_obstacle: 150
+ weight_inflation: 0.2
+ weight_dynamic_obstacle: 10 # not in use yet
+ weight_dynamic_obstacle_inflation: 0.2
+ weight_viapoint: 2
+ weight_adapt_factor: 2
+
+ # Homotopy Class Planner
+ enable_homotopy_class_planning: True
+ enable_multithreading: True
+ max_number_classes: 4
+ selection_cost_hysteresis: 1.0
+ selection_prefer_initial_plan: 0.95
+ selection_obst_cost_scale: 1.0
+ selection_alternative_time_cost: False
+
+ roadmap_graph_no_samples: 15
+ roadmap_graph_area_width: 5
+ roadmap_graph_area_length_scale: 1.0
+ h_signature_prescaler: 0.5
+ h_signature_threshold: 0.1
+ obstacle_heading_threshold: 0.45
+ switching_blocking_period: 0.0
+ viapoints_all_candidates: True
+ delete_detours_backwards: True
+ max_ratio_detours_duration_best_duration: 3.0
+ visualize_hc_graph: False
+ visualize_with_time_as_z_axis_scale: False
+
+# Recovery
+ shrink_horizon_backup: True
+ shrink_horizon_min_duration: 10
+ oscillation_recovery: True
+ oscillation_v_eps: 0.8
+ oscillation_omega_eps: 0.8
+ oscillation_recovery_min_duration: 5
+ oscillation_filter_duration: 5

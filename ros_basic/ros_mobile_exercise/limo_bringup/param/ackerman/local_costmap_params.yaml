@@ -1,0 +1,26 @@
+local_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  publish_frequency: 2.0
+  static_map: false
+  rolling_window: true
+  width: 4.5
+  height: 4.5
+  resolution: 0.05
+  transform_tolerance: 0.5
+  obstacle_layer:
+    enabled: true
+    obstacle_range: 5.5
+    raytrace_range: 6.0
+    inflation_radius: 0.1
+    track_unknown_space: true
+    combination_method: 1
+    observation_sources: laser_scan_sensor
+    laser_scan_sensor: {data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+
+  plugins:
+   - {name: static_layer,        type: "costmap_2d::StaticLayer"}
+   - {name: obstacle_layer,      type: "costmap_2d::ObstacleLayer"}
+   - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}

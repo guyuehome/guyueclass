@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch> 
+    <arg name="repeat_rate" value="50.0" />
+    <node name="teleop_keybord" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+        <param name="repeat_rate" value="$(arg repeat_rate)" />
+    </node>
+</launch>

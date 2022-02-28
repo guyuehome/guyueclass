@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find limo_base)/launch/limo_base.launch" />
+    <!--include file="$(find astra_camera)/launch/dabai_u3.launch" /-->
+    <include file="$(find limo_visions)/launch/ar_code.launch" />
+    <node name="move_to_target_ar" pkg="limo_visions" type="move_to_target_ar.py" output="screen" />
+</launch>

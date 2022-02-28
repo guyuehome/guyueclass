@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot name="limo_ackerman" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find limo_description)/urdf/limo_gazebo.gazebo" />
+
+    <!-- Actuator configurations -->
+    <xacro:limo_wheel_transmission wheel_prefix="front_right" />
+    <xacro:limo_wheel_transmission wheel_prefix="front_left" />
+    <xacro:limo_wheel_transmission wheel_prefix="rear_left" />
+    <xacro:limo_wheel_transmission wheel_prefix="rear_right" />
+    <xacro:limo_steering_hinge_transmission wheel_prefix="left_steering_hinge" />
+    <xacro:limo_steering_hinge_transmission wheel_prefix="right_steering_hinge" />
+    <!-- Controller configurations -->
+    <xacro:gazebo_laser frame_prefix="laser" />
+    <xacro:gazebo_depth_camera frame_prefix="depth_camera" />
+    <xacro:gazebo_imu frame_prefix="imu" />
+
+    <gazebo>
+        <mu1 value="10"/>
+        <mu2 value="10"/>
+        <kp value="10000000.0" />
+        <kd value="1.0" />
+        <fdir1 value="1 0 0"/>
+        <minDepth value="0.001" />
+        <maxContacts value="64"/>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>$(arg robot_namespace)</robotNamespace>
+        </plugin>
+
+        <plugin name="four_diff_controller" filename="libgazebo_ros_ackerman.so">
+            <updateRate>100.0</updateRate>
+            <robotNamespace>$(arg robot_namespace)</robotNamespace>
+            <leftFrontJoint>front_left_wheel</leftFrontJoint>
+            <rightFrontJoint>front_right_wheel</rightFrontJoint>
+            <leftRearJoint>rear_left_wheel</leftRearJoint>
+            <rightRearJoint>rear_right_wheel</rightRearJoint>
+            <leftHingeJoint>left_steering_hinge_wheel</leftHingeJoint>
+            <rightHingeJoint>right_steering_hinge_wheel</rightHingeJoint>
+            <wheelSeparation>0.172</wheelSeparation>
+            <wheelDiameter>0.09</wheelDiameter>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <commandTopic>cmd_vel</commandTopic>
+            <torque>50</torque>
+            <broadcastTF>true</broadcastTF>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <covariance_x>0.000100</covariance_x>
+            <covariance_y>0.000100</covariance_y>
+            <covariance_yaw>0.010000</covariance_yaw>
+        </plugin>
+    </gazebo>
+</robot>

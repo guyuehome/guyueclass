@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+<robot name="limo_ackerman" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:arg name="robot_namespace" default="/" />
+    <xacro:include filename="$(find limo_description)/urdf/limo_xacro.xacro" />
+    <xacro:include filename="$(find limo_description)/urdf/limo_steering_hinge.xacro" />
+    <xacro:include filename="$(find limo_description)/urdf/limo_ackerman.gazebo" />
+
+    <!-- Variables -->
+    <xacro:property name="M_PI" value="3.14159"/>
+
+    <!-- Vehicle Geometries -->
+    <xacro:property name="base_x_size" value="0.13" />
+    <xacro:property name="base_y_size" value="0.12" />
+    <xacro:property name="base_z_size" value="0.10" />
+
+    <xacro:property name="wheelbase" value="0.2"/>
+    <xacro:property name="track" value="0.14"/>
+    <xacro:property name="wheel_vertical_offset" value="-0.100998" />
+    <xacro:property name="base_mass" value="2.1557"/>
+
+    <xacro:property name="wheel_length" value="0.045" />
+    <xacro:property name="wheel_radius" value="0.045" />
+    <link name="base_footprint"/>
+
+    <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
+    </joint>
+    <!-- Base link -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 -0.15" rpy="0 0 1.57" />
+            <geometry>
+                <mesh filename="package://limo_description/meshes/limo_base.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+              <box size="${base_x_size} ${base_y_size} ${base_z_size}"/>
+          </geometry>
+        </collision>
+    </link>
+
+    <link name="inertial_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" />
+            <mass value="${base_mass}" />
+            <inertia ixx="0.24" ixy="0" ixz="0" 
+                     iyy="0.96" iyz="0" 
+                     izz="0.96" />
+        </inertial>
+    </link>
+
+    <joint name="inertial_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="inertial_link" />
+    </joint>
+
+    <xacro:limo_laser parent_prefix="base_link" frame_prefix="laser">
+        <origin xyz="0.103 0 -0.034" rpy="0 0 0"/>
+    </xacro:limo_laser>
+
+    <xacro:limo_depth_camera parent_prefix="base_link" frame_prefix="depth_camera">
+        <origin xyz="0.084 0 0.03" rpy="0 0 0"/>
+    </xacro:limo_depth_camera>
+
+    <xacro:limo_imu parent_prefix="base_link" frame_prefix="imu">
+        <origin xyz="0.0 0 -0.1" rpy="0 0 0"/>
+    </xacro:limo_imu>
+    
+    <xacro:limo_left_steering_hinge parent_prefix="base_link" wheel_prefix="left_steering_hinge">
+        <origin xyz="${wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0  0" />
+    </xacro:limo_left_steering_hinge>
+
+    <xacro:limo_right_steering_hinge parent_prefix="base_link" wheel_prefix="right_steering_hinge">
+        <origin xyz="${wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="${M_PI} 0 0" />
+    </xacro:limo_right_steering_hinge>
+
+
+    <link name="rear_left_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="0.5" />
+            <inertia ixx="0.01055" ixy="0" ixz="0" iyy="0.00075" iyz="0" izz="0.01055" /> 
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://limo_description/meshes/limo_wheel.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+          <geometry>
+              <cylinder length="${wheel_length}" radius="${wheel_radius}" />
+          </geometry>
+        </collision>
+    </link>
+    <joint name="rear_left_wheel" type="continuous">
+        <parent link="base_link"/>
+        <child link="rear_left_wheel_link"/>
+        <origin xyz="${-wheelbase/2} ${track/2} ${wheel_vertical_offset}" rpy="0 0 0" />
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="rear_right_wheel_link">
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="0.5" />
+            <inertia ixx="0.01055" ixy="0" ixz="0" iyy="0.00075" iyz="0" izz="0.01055" /> 
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://limo_description/meshes/limo_wheel.dae" />
+            </geometry>
+        </visual>
+            <collision>
+                <origin xyz="0 ${wheel_length/2} 0" rpy="1.57 0 0" />
+              <geometry>
+                  <cylinder length="${wheel_length}" radius="${wheel_radius}" />
+              </geometry>
+            </collision>
+        </link>
+
+        <joint name="rear_right_wheel" type="continuous">
+            <parent link="base_link"/>
+            <child link="rear_right_wheel_link"/>
+            <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="${M_PI} 0 0" />
+            <axis xyz="0 -1 0"/>
+        </joint>
+</robot>
