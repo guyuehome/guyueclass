@@ -1,0 +1,114 @@
+源码位置：https://github.com/pjreddie/darknet
+
+YOLOv1、v2、v3相关论文见：https://pjreddie.com/
+YOLOv4相关论文见：https://arxiv.org/abs/2004.10934
+
+https://github.com/ultralytics/yolov5
+
+下载v6.0版本
+git clone -b v6.0
+https://github.com/ultralytics/yolov5
+
+到pytorch官网https://pytorch.org/get-started/previous-versions去查看选择下载命令
+
+pip install torch==1.8.0+cpu torchvision==0.9.0+cpu torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+
+sudo apt update，sudo apt upgrade
+
+nvidia-smi
+
+显卡驱动与对应的cuda版本见：https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
+
+cuda版本下载见：https://developer.nvidia.cn/cuda-toolkit-archive
+
+参照链接https://developer.nvidia.cn/cuda-toolkit-archive
+页面的CUDA版本后的文档添加环境变量：
+export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64\
+${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+检验cuda是否正确安装
+nvcc -V
+
+
+进入pytorch官网查看安装torch对应的cuda版本，见https://pytorch.org/get-started/previous-versions/
+
+例如cuda 11.1，安装torch 1.8.0
+运行pip3 install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+
+安装后运行python3 / import torch / print(torch.cuda.is_available())
+返回True代表成功了
+
+针对jetson的torch版本见https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048
+
+下载对应版本的whl文件，安装命令如pip3 install torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+
+安装后运行python3 / import torch / print(torch.cuda.is_available())
+返回True代表成功了
+
+
+从源码安装torchvision
+
+首先找到torch版本与torchvision版本的对应，见https://pytorch.org/get-started/previous-versions/
+
+下载源码
+git clone -b v0.9.0 https://github.com/pytorch/vision.git
+这里的-b v0.9.0对应我的torchvision版本
+
+
+在vision源码目录下运行sudo python3 setup.py install安装
+
+在源码目录下打开requirements.txt，可以看到需要哪些依赖包，手动安装
+
+不建议yolov5使用github主页推荐的pip install -r requirements.txt命令
+
+使用pip3 install依次安装这些依赖，例如
+pip3 install matplotlib==3.2.2
+
+注意在此之前，我们应该已经先安装好torch和torchvision
+
+
+
+https://github.com/ultralytics/yolov5/releases
+parser.add_argument
+
+
+https://github.com/tzutalin/labelImg
+pip3 install labelImg
+
+
+$(YOLOV5_SOURCE)/sample_data/
+
+ROOT / 'yolov5s.pt'
+
+ROOT /'models/test.yaml'
+
+ROOT / 'data/test.yaml'
+
+tensorboard --logdir=./runs
+
+http://localhost:6006/
+
+parse_opt()
+
+@torch.no_grad()
+
+model = attempt_load(weights, map_location=device)
+
+
+dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=True)
+
+
+img = torch.from_numpy(img).to(device)
+
+pred = model(img)[0]
+
+pred = non_max_suppression( ... )
+
+for path, img, im0s, vid_cap in dataset:、for i, det in enumerate(pred):  、for *xyxy, conf, cls in reversed(det):
+
+
+pip3 install rospkg
+pip3 install catkin-tools
+
+

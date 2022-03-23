@@ -27,6 +27,7 @@
 7. [《ROS二维码识别应用指南》](https://class.guyuehome.com/detail/p_607927b2e4b071a81eb28e86/6) ：qr_code
 8. [《ROS激光相机联合标定》](https://class.guyuehome.com/detail/p_613ecdeee4b04518c6137c0b/6) ：calibration_camera_laser
 9. [《MATLAB玩转树莓派》](https://class.guyuehome.com/detail/p_61679f2de4b01fea4dcc6f96/6) ：matlab_raspberry_pi
+10. [《移动机器人目标检测YOLOv5》](https://class.guyuehome.com/detail/p_623962a0e4b0f7cb7c75124d/6) ：yolov5_mobile_robot
 
 ### 仿真控制（simulation&control）
 
