@@ -1,0 +1,9 @@
+imageio==2.9.0
+numpy==1.21.2
+stable_baselines3==1.2.0
+ale_py==0.7.1
+pybullet==3.1.0
+easy_logx==0.0.3
+opencv_python==4.5.3.56
+matplotlib==3.4.3
+gym==0.21.0
