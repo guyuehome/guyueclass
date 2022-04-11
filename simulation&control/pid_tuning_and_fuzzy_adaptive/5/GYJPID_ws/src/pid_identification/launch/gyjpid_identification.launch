@@ -1,0 +1,16 @@
+<launch>
+
+   <node pkg="joy" type="joy_node" name="F710">
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.1" />
+    <param name="autorepeat_rate" value="50" />
+   </node>
+
+   <node pkg="rosserial_python" type="serial_node.py" name="ArduinoMega">
+    <param name="port" value="/dev/ttyACM0" />
+    <param name="baud" value="57600" />
+   </node>
+
+   <node pkg="pid_identification" type="PID_identification" name="pid_identification_node" />
+
+</launch>

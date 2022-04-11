@@ -1,0 +1,20 @@
+程序文件说明
+
+GYJ\程序文件\2			PID定量计算Simulink演示模型
+
+GYJ\程序文件\5\Arduino		Arduino程序
+GYJ\程序文件\5\GYJPID_ws		ROS工作空间及源码
+GYJ\程序文件\5\rosbag2mat		记录的ROS数据包及Matlab数据解析脚本
+GYJ\程序文件\5\Simulink		手柄发送控制量话题进行数据采集PID_identification.slx；离线系统辨识及PID参数自整定PID_identification2.slx；在线PID参数微调PID_tuning.slx
+
+GYJ\程序文件\6\GYJPID_ws		ROS工作空间及源码
+GYJ\程序文件\6\Matlab Simulink	模糊PID文件，及在线和离线模糊PID模型
+
+注：Simulink模型均保存为了2015a版
+
+
+参考链接
+Joystick Driver			http://wiki.ros.org/joystick_drivers
+Matlab System Identification App	https://www.mathworks.com/help/ident/ug/working-with-the-system-identification-tool-gui.html
+Matlab Control System Tuner		https://ww2.mathworks.cn/help/control/ug/tuning-control-systems-with-control-system-tuner.html 
+Rosserial				https://github.com/ros-drivers/rosserial 

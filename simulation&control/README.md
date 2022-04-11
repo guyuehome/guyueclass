@@ -14,6 +14,7 @@
 12. webots_ros_darwin_op3：[《人形机器人控制与仿真入门》](https://class.guyuehome.com/detail/p_60f8dbdae4b08f7ad23f5fd6/6)
 13. matlab_robotics_toolbox：[《Matlab机器人工具箱入门指南》](https://class.guyuehome.com/detail/p_615fb0e4e4b0dfaf7faa9725/6)
 14. deeplearning_plane_grasp：[《基于深度学习的机器人平面抓取》](https://class.guyuehome.com/detail/p_61c9287be4b09ac9b9113173/6)
+15. pid_tuning_and_fuzzy_adaptive：[《PID参数整定与模糊自适应PID》](https://class.guyuehome.com/detail/p_62414bd7e4b0f7cb7c77a51a/6)
 
 ------
 
