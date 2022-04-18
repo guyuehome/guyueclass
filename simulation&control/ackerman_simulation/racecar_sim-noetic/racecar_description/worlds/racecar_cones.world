@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+<world name="racecar_tunnel">
+  <scene>
+    <ambient>0.75 0.75 0.75 1.0</ambient>
+  </scene>
+
+  <include>
+    <uri>model://sun</uri>
+  </include>
+
+  <model name="ground_plane">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>150 150</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>150 150</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+  <include>
+    <uri>model://racecar_description/models/cone</uri>
+    <pose>1 0 0 0 0 0</pose>
+    <name>cone_1</name>
+  </include>
+  <include>
+    <uri>model://racecar_description/models/cone</uri>
+    <pose>2 0 0 0 0 0</pose>
+    <name>cone_2</name>
+  </include>
+  <include>
+    <uri>model://racecar_description/models/cone</uri>
+    <pose>3 0 0 0 0 0</pose>
+    <name>cone_3</name>
+  </include>
+  <include>
+    <uri>model://racecar_description/models/cone</uri>
+    <pose>4 0 0 0 0 0</pose>
+    <name>cone_4</name>
+  </include>
+  <include>
+    <uri>model://racecar_description/models/cone</uri>
+    <pose>5 0 0 0 0 0</pose>
+    <name>cone_5</name>
+  </include>
+</world>
+</sdf>

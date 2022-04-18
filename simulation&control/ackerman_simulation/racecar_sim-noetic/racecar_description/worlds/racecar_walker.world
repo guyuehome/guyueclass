@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+<world name="racecar_walker">
+
+  <scene>
+    <ambient>0.5 0.5 0.5 1.0</ambient>
+    <shadows>0</shadows>
+  </scene>
+
+  <include>
+    <uri>model://sun</uri>
+    <pose>0.0 0.0 15.0 0 0 0</pose>
+    <cast_shadows>false</cast_shadows>
+    <attenuation>
+      <constant>0.5</constant>
+      <linear>0.01</linear>
+      <quadratic>0.0</quadratic>
+      <range>100</range>
+    </attenuation>
+  </include>
+
+  <light type="point" name="Light 1">
+              <pose>0 0 15 0 0 0</pose>
+              <diffuse>.9 .9 .9 1</diffuse>
+              <specular>.1 .1 .1 1</specular>
+              <attenuation>
+              <constant>0.5</constant>
+              <linear>0.01</linear>
+              <quadratic>0.0</quadratic>
+              <range>50</range>
+              </attenuation>
+              <direction>0 0 -1</direction>
+              <cast_shadows>false</cast_shadows>
+          </light>
+
+  <include>
+    <uri>model://racecar_description/models/walker_racecourse</uri>
+    <pose>-4 2 -.5 0 0 -1.57</pose>
+    <name>walker_racecourse</name>
+  </include>
+
+
+
+</world>
+</sdf>

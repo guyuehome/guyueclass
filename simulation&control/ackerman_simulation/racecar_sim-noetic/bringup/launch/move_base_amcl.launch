@@ -1,0 +1,111 @@
+<launch>
+
+<!--加载move_base参数-->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find bringup)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find bringup)/param/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+   </node>
+   
+           <!--  ************** Navigation ***************  -->
+
+           
+	<!--<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  	  	<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  	 	<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/local_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/global_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/teb_local_planner_params.yaml" command="load" />
+
+		<param name="base_global_planner" value="global_planner/GlobalPlanner" />
+		<param name="planner_frequency" value="1.0" />
+		<param name="planner_patience" value="5.0" />
+
+		<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+		<param name="controller_frequency" value="5.0" />
+		<param name="controller_patience" value="15.0" />
+ <param name="clearing_rotation_allowed" value="false" /> 
+	</node>-->
+
+
+<!-- ××××××××××××××××××××××××××××××××××××××××××××　华丽分割线　××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××　-->  
+	<!--<node name="map_server" pkg="map_server" type="map_server" args="$(find bringup)/map/school.yaml" output="screen">
+                <param name="frame_id" value="map"/>
+    </node>-->
+
+    <!--<node pkg="tf" type="static_transform_publisher"
+        name="odom_to_map"
+        args="0 0 0 0 0 0 1  /odom /map 100" />-->
+
+
+ <!--<node pkg="fake_localization" type="fake_localization" name="fake_localization" output="screen" >
+<remap from="base_pose_ground_truth" to="odom"/>
+</node>-->
+
+ <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <!-- Publish scans from best pose at a max of 10 Hz -->
+
+
+    <param name="kld_err" value="0.05"/>    
+
+<param name="update_min_a" value="0.5"/>  
+    <param name="resample_interval" value="1"/>  
+    <param name="transform_tolerance" value="0.1"/>  
+    <param name="recovery_alpha_slow" value="0.0"/>
+    <param name="recovery_alpha_fast" value="0.0"/>  
+    <param name="gui_publish_rate" value="10.0"/>  
+    <param name="save_pose_rate" value="0.5"/> 
+    <param name="use_map_topic" value="false"/>  
+    <param name="first_map_only" value="false"/> 
+ 
+
+    <param name="laser_min_range" value="-1.0"/> 
+    <param name="laser_max_range" value="-1.0"/> 
+    <param name="laser_max_beams" value="30"/>   
+<!--
+这4个laser_z参数，在动态环境下的定位时用于异常值去除技术（还有一种状态增广技术-将隐藏状态包含进状态估计，缺点是计算复杂，acml定位未使用这种定位）
+这种定位思想是环境中的动态物体总是会获得比静态地图障碍物更短的读数（人在障碍物后面是扫描不到的-假如不考虑体积，比如单个激光光束不用考虑体积），利用这样的不对称性去除异常值
+缺点是：在其他可改变环境的其他类型情景（如去除障碍物）时，这样的非对称性可能不存在，但相同概率分析通常是可适用的。因为每一个异常值都被舍弃了，缺少对称性的缺点可能是从全局定位失效中恢复变得不可能。这种情况下，×××强加额外约束（如限制部分可能已被破坏的测量值）是有意义的（×××怎么约束）。（这里说的舍弃与likelihood_field模型的舍弃有区别，这里定位是先计算测量值对应非预期物体的概率（意外对象概率/混合概率）大于用户设定的阀值（amcl配置参数里貌似没有这个？）舍弃，而似然域概率是舍弃的超出最大测量范围的值，不计算概率。）
+（针对这个缺点不想改代码的粗暴又好用省心的处理方式可能是构图的时候将可移动的障碍物搬走，还有更直接的办法就是PS）
+最后，概率由这4个权重乘他们对应的概率然后相加，算法中4个权重相加等于1(这里默认值不等于1，估计做了归一化)。
+这6个laser_参数可以用learn_intrinsic_parameters算法计算，该算法是期望值极大化算法，是估计极大似然参数的迭代过程。（×××好吧，amcl好像并没有做这个工作）
+-->
+    <param name="laser_z_hit" value="0.5"/> 
+    <param name="laser_z_short" value="0.05"/> 
+    <param name="laser_z_max" value="0.05"/> 
+    <param name="laser_z_rand" value="0.5"/> 
+    <param name="laser_sigma_hit" value="0.2"/> 
+    <param name="laser_lambda_short" value="0.1"/> 
+    <param name="laser_likelihood_max_dist" value="2.0"/> 
+    <param name="laser_model_type" value="likelihood_field"/> 
+    <!--
+    ×××里程计模型并没有涉及机器人漂移或打滑的情况，一旦出现这样的情况，后续定位基本废了，虽然Augmented_MCL有失效恢复，但是实际运行中耗时太长且结果不太理想（位置居然跳，这很不合理，可能参数配置不太好）
+    -->
+    <param name="odom_model_type" value="diff"/> 
+    <param name="odom_alpha1" value="0.2"/> 
+    <param name="odom_alpha2" value="0.2"/> 
+    <!-- translation std dev, m -->
+    <param name="odom_alpha3" value="0.8"/> 
+    <param name="odom_alpha4" value="0.2"/> 
+    <param name="odom_alpha5" value="0.1"/> 
+    <param name="odom_frame_id" value="odom"/>  
+    <param name="base_frame_id" value="base_link"/>  
+    <param name="global_frame_id" value="map"/>  
+    <param name="tf_broadcast" value="true"/>  
+
+    <param name="initial_pose_x" value="0.0"/> 
+    <param name="initial_pose_y" value="0.0"/> 
+    <param name="initial_pose_a" value="0.0"/> 
+    <param name="initial_cov_xx" value="0.5*0.5"/> 
+    <param name="initial_cov_yy" value="0.5*0.5"/> 
+    <param name="initial_cov_aa" value="(π/12)*(π/12)"/> 
+  </node>
+
+
+
+
+</launch> 

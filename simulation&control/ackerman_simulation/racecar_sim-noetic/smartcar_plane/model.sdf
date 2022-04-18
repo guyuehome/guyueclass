@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.4">
+   <model name="smartcar_plane">
+      <static>true</static>
+      <link name="link">
+         <collision name="collision">
+            <geometry>
+		<box>
+			<size>0.8 3.9 0.001</size>
+		</box>
+            </geometry>
+            <surface>
+               <friction>
+                  <ode>
+                     <mu>100</mu>
+                     <mu2>50</mu2>
+                  </ode>
+               </friction>
+            </surface>
+         </collision>
+         <visual name="visual">
+            <cast_shadows>true</cast_shadows>
+            <geometry>
+		<box>
+			<size>0.8 3.9 0.001</size>
+		</box>
+            </geometry>
+            <material>
+               <script>
+                  <uri>model://smartcar_plane/materials/scripts</uri>
+                  <uri>model://smartcar_plane/materials/textures/</uri>
+                  <name>SmartcarPlane/Image</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+   </model>
+</sdf>
