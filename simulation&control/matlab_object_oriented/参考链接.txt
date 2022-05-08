@@ -1,0 +1,64 @@
+1.什么是面向对象编程
+（1）MATLAB 类的定义
+https://www.mathworks.com/help/releases/R2021b/matlab/ref/classdef.html?s_tid=doc_srchtitle
+
+（2）MATLAB 类导引页
+https://www.mathworks.com/help/releases/R2021b/fixedpoint/matlab-classes.html?s_tid=doc_srchtitle
+
+2.面向对象的基本操作
+（1）允许重载的运算符https://ww2.mathworks.cn/help/matlab/matlab_oop/implementing-operators-for-your-class.html
+
+（2）MATLAB 继承
+https://ww2.mathworks.cn/help/releases/R2021b/matlab/matlab_oop/modifying-superclass-methods-and-properties.html?requestedDomain=cn
+
+（3）MATLAB 句柄对象
+https://www.mathworks.com/help/releases/R2021b/matlab/ref/handle-class.html
+
+3.面向对象的应用案例
+（1）鸢尾花数据来源
+http://archive.ics.uci.edu/ml/datasets/Iris
+
+（2）关于k-均值聚类
+https://zh.wikipedia.org/wiki/K-平均算法
+
+https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+
+4.多重继承
+（1）MATLAB 多重继承
+https://ww2.mathworks.cn/help/releases/R2016a/matlab/matlab_oop/subclassing-multiple-classes.html
+
+https://blogs.mathworks.com/developer/2015/06/08/diamond-of-death/?from=cn
+
+5.对象数组
+（1）MATLAB 对象数组引导
+https://ww2.mathworks.cn/help/matlab/object-arrays.html
+
+（2）MATLAB 构建对象数组
+https://ww2.mathworks.cn/help/matlab/matlab_oop/creating-object-arrays.html
+
+6.其他知识点
+（1）MATLAB 抽象类
+https://ww2.mathworks.cn/help/matlab/matlab_oop/abstract-classes-and-interfaces.html
+
+（2）MATLAB  saveobj
+https://ww2.mathworks.cn/help/matlab/ref/saveobj.html
+
+7.遗传算法案例
+（1）遗传算法
+https://en.wikipedia.org/wiki/Multi-objective_optimization
+
+https://yarpiz.com/56/ypea120-nsga2
+
+https://ww2.mathworks.cn/matlabcentral/fileexchange/10429-nsga-ii-a-multi-objective-optimization-algorithm
+
+（2）测试函数
+https://en.wikipedia.org/wiki/File:Kursawe_function.pdf
+
+https://en.wikipedia.org/wiki/Test_functions_for_optimization#Test_functions_for_single-objective_optimization_problems
+
+8.玻璃桥案例
+（1）蒙特卡洛方法
+https://en.wikipedia.org/wiki/Monte_Carlo_method
+
+https://ww2.mathworks.cn/support/search.html/videos/monte-carlo-method-made-easy-92783.html?fq[]=asset_type_name:video&fq[]=category:stats/index&page=1
+

@@ -15,6 +15,7 @@
 13. matlab_robotics_toolbox：[《Matlab机器人工具箱入门指南》](https://class.guyuehome.com/detail/p_615fb0e4e4b0dfaf7faa9725/6)
 14. deeplearning_plane_grasp：[《基于深度学习的机器人平面抓取》](https://class.guyuehome.com/detail/p_61c9287be4b09ac9b9113173/6)
 15. pid_tuning_and_fuzzy_adaptive：[《PID参数整定与模糊自适应PID》](https://class.guyuehome.com/detail/p_62414bd7e4b0f7cb7c77a51a/6)
+16. matlab_object_oriented：[《Matlab面向对象入门教学》](https://sdv.xet.tech/s/42yfth)
 
 ------
 
