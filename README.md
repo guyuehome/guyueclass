@@ -47,7 +47,8 @@
 14. [《基于深度学习的机器人平面抓取》](https://class.guyuehome.com/detail/p_61c9287be4b09ac9b9113173/6)：deeplearning_plane_grasp
 15. [《PID参数整定与模糊自适应PID》](https://class.guyuehome.com/detail/p_62414bd7e4b0f7cb7c77a51a/6)：pid_tuning_and_fuzzy_adaptive
 16. [《Matlab面向对象入门教学》](https://sdv.xet.tech/s/42yfth)：matlab_object_oriented
-17. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+17. [《MuJoCo机器人阻抗控制仿真》](https://sdv.xet.tech/s/YMWX6)：MuJoCo_impedance_control
+18. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
 16. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ------
