@@ -1,0 +1,9 @@
+cornell数据集：https://blog.csdn.net/qq_40081208/article/details/104547339（官方链接已失效，此链接为本人保存的数据集副本）
+Jacquard数据集：https://jacquard.liris.cnrs.fr/files/database/download.php
+Dex-Net数据集：https://berkeleyautomation.github.io/dex-net/?spm=a2c4e.10696291.0.0.5fd719a4RrpfUk
+GraspNet数据集：https://graspnet.net/
+GGCNN：https://github.com/dougsm/ggcnn
+realsense win10驱动安装教程：https://blog.csdn.net/Pabebe/article/details/85096174
+pyrealsense2 安装教程：https://blog.csdn.net/qq_44847636/article/details/113821588
+realsense-ros：https://github.com/IntelRealSense/realsense-ros
+bullet-github：https://github.com/bulletphysics/bullet3
