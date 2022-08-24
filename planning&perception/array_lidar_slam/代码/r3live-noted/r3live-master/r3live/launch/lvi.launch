@@ -1,0 +1,22 @@
+
+<launch>
+
+
+    <include file="$(find r3live)/launch/r3live_avia.launch">
+    
+    </include>
+
+
+
+    <include file="$(find r3live)/launch/sc_qjf.launch">
+    
+    </include>
+
+
+
+</launch>
+
+
+
+
+

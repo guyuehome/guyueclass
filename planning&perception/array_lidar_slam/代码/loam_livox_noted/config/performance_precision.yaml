@@ -1,0 +1,57 @@
+common:
+    lidar_type: "livox"             #
+    maximum_parallel_thread: 1      #number of thread use for interative pose optimization
+    odom_mode: 1                    #0时只发布一帧livox中的第1段，否则会发布3段
+    if_motion_deblur: 0             #0 piesewise processing;  1 linear interpolation； default 0
+    if_save_to_pcd_files: 0
+    if_update_mean_and_cov_incrementally: 1 #是否以迭代形式计算cell's mean and covariance
+    threshold_cell_revisit: 2000            #if update frame index bigger than this threshold, treat target cell as revisited
+
+feature_extraction:
+    scan_line: 64                    #only support velodyne with 16 or 64 scan line   
+    mapping_line_resolution: 0.1
+    mapping_plane_resolution: 0.4
+    livox_min_sigma: 7e-4            #lidar min intensity?
+    livox_min_dis: 0.1               #lidar min dist
+    corner_curvature: 0.1
+    surface_curvature: 0.005
+    minimum_view_angle: 5            #horizon angle or vertical angle?
+
+optimization:
+    minimum_icp_R_diff: 0.01         #0.01 rad, 计算位姿时，（上上一帧到上一帧的delta） 与 （上一帧到当前帧的delta) diff，diff_angle < 0.01 && diff_t < 0.01, 提前终止
+    minimum_icp_T_diff: 0.01         #0.01 m
+    maximum_residual_blocks: 200     #registration计算位姿时，最多保存多少个残差项
+    max_allow_final_cost: 2.0        #计算位姿结束后，delta_angle > 4度 或 最终的cost > 2.0, 认为本次计算失败，当前帧的位姿置为上一帧的位姿
+    icp_maximum_iteration: 15        #registration计算位姿时，迭代ceres次数
+    ceres_maximum_iteration: 50      #一次ceres迭代次数
+
+mapping:
+    matching_mode: 0                   #0 = history（用history 数据建立local map corners/plannes）, 1 = cube
+    input_downsample_mode: 1           #是否对当前帧点云降采样，0 不进行降采样
+    init_accumulate_frames: 50         #最开始要积累多少帧作为local map
+    maximum_mapping_buffer: 20000000   #最多保存回调函数中多少帧points
+    maximum_histroy_buffer: 400        #history corners和history plannes, history full(corners+plannes), 包含当前帧在内，往前最多保存400帧数据
+    maximum_in_fov_angle: 45           #laser conic(圆锥形) FOV
+    maximum_pointcloud_delay_time: 0.1 #laser 10 hz
+    maximum_search_range_corner: 100   #当matching_mode=1时，在整个corners map中找离上一帧位置(x,y,z)100m以内的所有points且在视野内，构建local map corners
+    maximum_search_range_surface: 100  #同上
+    surround_pointcloud_resolution: 0.30 #local map的降采样分辨率
+    #max_allow_incre_R: 20              #not used
+    #max_allow_incre_T: 0.3             #not used
+    #max_allow_final_cost: 2.0          #not used
+
+loop_closure:
+    if_enable_loop_closure: 0        #是否开启闭环
+    if_dump_keyframe_data: 0         #是否把关键帧的points保存到pcd文件
+    scans_of_each_keyframe: 300      #每个finished keyframe插入多少帧points
+    scans_between_two_keyframe: 100  #
+    minimum_keyframe_differen: 200   #当前finished keyframe与距自己200帧以上的每个history keyframes逐一作比较
+    minimum_similarity_linear: 0.65  #关键帧的line histogram 最小相似thresh  闭环前提条件： line_simi > 0.65 && planne_simi > 0.92 或者 planne_simi > 0.94
+    minimum_similarity_planar: 0.94  #关键帧的planne histogram 最小相似thresh
+    map_alignment_resolution: 0.1    #闭环对齐时，当前帧点云和历史帧点云，降采样时分辨率
+    maximum_keyframe_in_waiting_list: 10          #最多10帧finished keyframes in m_keyframe_need_precession_list
+
+    map_alignment_maximum_icp_iteration: 15        #计算闭环时，迭代ceres次数，default 10 in code, 5 in yaml
+    map_alignment_inlier_threshold: 0.20          #接受对齐的阈值
+    map_alignment_if_dump_matching_result: 0      #是否把对齐结果写到disk
+    scene_alignment_maximum_residual_block: 90000  #计算闭环时，default 5000 in code, default: 3000 in yaml

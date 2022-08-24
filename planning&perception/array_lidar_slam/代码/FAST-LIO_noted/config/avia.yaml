@@ -1,0 +1,29 @@
+common:
+    lid_topic:  "/livox/lidar"
+    imu_topic:  "/livox/imu"
+    time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
+
+preprocess:
+    lidar_type: 1                # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 
+    scan_line: 6
+    blind: 4                    #最小距离阈值，即过滤掉0～blind范围内的点云   留下的点满足当前点和上一点的间距足够大
+
+mapping:
+    acc_cov: 0.1                #IMU加速度计的协方差
+    gyr_cov: 0.1                #IMU陀螺仪的协方差
+    b_acc_cov: 0.0001           #IMU加速度计偏置的协方差
+    b_gyr_cov: 0.0001           #IMU陀螺仪偏置的协方差
+    fov_degree:    70           #激光雷达的视场角
+    det_range:     260.0        #最大探测范围
+    extrinsic_T: [ 0.04165, 0.02326, -0.0284 ]
+    # extrinsic_T: [ 0.0, 0.00, -0.0284 ]
+    extrinsic_R: [ 1, 0, 0,
+                   0, 1, 0,
+                   0, 0, 1]
+
+publish:     
+    scan_publish_en:  true       # 'false' will close all the point cloud output    是否发布当前正在扫描的点云的topic
+    dense_publish_en: ture       # false will low down the points number in a global-frame point clouds scan.   发布经过运动畸变校正注册到IMU坐标系的点云的topic，
+    scan_bodyframe_pub_en: true  # output the point cloud scans in IMU-body-frame   同上
+
+    

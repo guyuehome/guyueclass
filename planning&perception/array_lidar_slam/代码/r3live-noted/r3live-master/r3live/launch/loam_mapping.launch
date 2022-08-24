@@ -1,0 +1,22 @@
+
+<launch>
+
+    
+    <!-- <node pkg="r3live" type="r3live_LiDAR_front_end" name="r3live_LiDAR_front_end"  output="log" required="true"/> -->
+    <!-- <rosparam command="load" file="$(find r3live)/../config/r3live_config_horizon.yaml" /> -->
+
+    <node pkg="r3live" type="loam_scanRegistration" name="scanRegistration" output="screen" /> -->
+  
+   <node pkg="r3live" type="loam_laserMapping" name="laserMapping" output="screen">
+  <param name="map_file_path" type="string" value="$(find r3live)/../r3live_output" />
+  <param name="filter_parameter_corner" type="double" value="0.1" />
+  <param name="filter_parameter_surf" type="double" value="0.2" />
+  </node>
+
+
+        <!-- <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find r3live)/../config/rviz/loam_livox.rviz" /> -->
+
+</launch>
+
+
+

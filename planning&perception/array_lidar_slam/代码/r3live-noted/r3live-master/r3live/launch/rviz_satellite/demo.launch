@@ -1,0 +1,12 @@
+<launch>
+    <!-- Send a static GPS fix to every new subscriber. Edit latitude and longitude in launch/demo.gps to use your own position. -->
+    <node pkg="rostopic" type="rostopic" name="fake_gps_fix" args="pub /gps/fix sensor_msgs/NavSatFix --latch --file=$(find r3live)/launch/rviz_satellite/demo.gps" />
+
+    <!-- Start rviz with a pre-configured AerialMap instance. It will use the fake GPS fix from above. -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find r3live)/launch/rviz_satellite/demo.rviz"/>
+
+    <!-- Static fake TF transform -->
+ <!-- <node pkg="tf" type="static_transform_publisher" name="r3_transform2" args="0 0 0 0 0 0  camera_init base_link  100"  /> -->
+ <node pkg="tf" type="static_transform_publisher" name="r3_transform1" args="1 -6 0 -90 0 0  base_link world   100"  />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_fake" args="100 200 5 0.3 0 0 map base_link" />
+</launch>
