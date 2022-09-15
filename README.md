@@ -50,8 +50,9 @@
 16. [《Matlab面向对象入门教学》](https://sdv.xet.tech/s/42yfth)：matlab_object_oriented
 17. [《MuJoCo机器人阻抗控制仿真》](https://sdv.xet.tech/s/YMWX6)：MuJoCo_impedance_control
 18. [《智能车辆轨迹跟踪控制及安全策略》](https://sdv.h5.xeknow.com/s/3X4v79)：simulink_carsim
-19. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-16. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+19. [《基于MATLAB的十字路口交通流仿真》](https://sdv.h5.xeknow.com/s/Q9GI6)：matlab_traffic_simulation
+20. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+21. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ------
 

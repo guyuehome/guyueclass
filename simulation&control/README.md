@@ -18,6 +18,7 @@
 16. matlab_object_oriented：[《Matlab面向对象入门教学》](https://sdv.xet.tech/s/42yfth)
 17. MuJoCo_impedance_control：[《MuJoCo机器人阻抗控制仿真》](https://sdv.xet.tech/s/YMWX6)
 18. simulink_carsim：[《智能车辆轨迹跟踪控制及安全策略》](https://sdv.h5.xeknow.com/s/3X4v79)
+19. matlab_traffic_simulation：[《基于MATLAB的十字路口交通流仿真》](https://sdv.h5.xeknow.com/s/Q9GI6)
 
 ------
 
