@@ -1,0 +1,15 @@
+<launch>
+    <arg name="description_name"           default="robot_description"/>
+    <arg name="description_file"           default="$(find yobotics_description)/xacro/robot_with_kinect.xacro"/>
+    <arg name="user_debug"           default="false"/>
+
+    <!-- <param name="$(arg description_name)" textfile="$(arg description_file)"/> -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro --inorder '$(arg description_file)' DEBUG:=$(arg user_debug)"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <param name="use_tf_static"     value="true"/>
+        <param name="publish_frequency" value="200"/>
+        <remap from="robot_description" to="$(arg description_name)"/>
+    </node>
+</launch>

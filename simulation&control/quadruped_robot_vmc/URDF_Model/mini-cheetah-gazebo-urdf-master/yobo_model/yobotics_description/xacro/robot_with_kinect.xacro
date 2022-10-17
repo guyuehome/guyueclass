@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<robot name="yobotics" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find yobotics_description)/xacro/robot.xacro"/>
+	<xacro:include filename="$(find yobotics_description)/xacro/kinect.xacro" />
+
+	<!-- <xacro:property name="kinect_offset_x" value="0.12" /> -->
+	<xacro:property name="kinect_offset_x" value="0.25" />
+	<xacro:property name="kinect_offset_y" value="0" />
+	<xacro:property name="kinect_offset_z" value="0.01" />
+
+	<!-- Body of yobotics, with plates, standoffs and Create (including sim sensors) -->
+	<robot/>
+
+	<!-- Attach the Kinect -->
+	<joint name="kinect_frame_joint" type="fixed">
+		<origin xyz="${kinect_offset_x} ${kinect_offset_y} ${kinect_offset_z}" rpy="0 0.523 0" />
+		<parent link="trunk"/>
+		<child link="camera_link"/>
+	</joint>
+	<xacro:kinect_camera prefix="camera"/>
+
+</robot>

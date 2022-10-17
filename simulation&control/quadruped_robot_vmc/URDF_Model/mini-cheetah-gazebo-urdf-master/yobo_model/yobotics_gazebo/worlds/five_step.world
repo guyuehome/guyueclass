@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+  <!--blue sky-->
+  <scene>
+          <shadows>0</shadows>
+          <sky>
+                  <sunrise> 7</sunrise>
+                  <time>12</time>
+                  <sunset>19</sunset>
+          </sky>
+  </scene>
+  <!-- It has a bright white directional light with some ambient light.-->
+<!--  <light type="directional" name="some_light">
+        <diffuse>0.7 0.7 0.7 0</diffuse>
+        <specular>1 1 1 0</specular>
+        <direction>-1 -1 -1</direction>
+      </light>-->
+
+    <physics type='ode'>
+      <gravity>0 0 -9.81</gravity>
+      <!-- max step size has to be a multiple of the desired task rate-->
+      <max_step_size>0.001</max_step_size> 
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- <include>
+      <name>floor2</name>
+      <uri>model://floor2</uri>
+      <pose>0 0 0.01 0 0 0</pose>
+    </include> -->
+
+    <include>
+      <name>five_step</name>
+      <uri>model://five_step</uri>
+      <pose>2.00 0 0.02 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <name>white_box</name>
+      <uri>model://white_box</uri>
+      <pose>0.00 0 0.00 0 0 0</pose>
+    </include>
+
+    <!-- <include>
+      <name>red_box</name>
+      <uri>model://black_box</uri>
+      <pose>3.6 0.0 0.43 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>green_box</name>
+      <uri>model://black_box</uri>
+      <pose>3.6 0.0 0.43 0 0 0</pose>
+    </include> -->
+
+
+    <!-- <include>
+      <name>step</name>
+      <uri>model://step</uri>
+      <pose>3.05 0 0.02 0 0 0</pose>
+    </include> -->
+
+    <!-- <include>
+      <name>step</name>
+      <uri>model://step</uri>
+      <pose>3.05 0 0.02 0 0 0</pose>
+    </include> -->
+  </world>
+</sdf>

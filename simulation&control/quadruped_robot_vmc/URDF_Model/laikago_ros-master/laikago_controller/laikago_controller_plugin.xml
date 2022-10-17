@@ -1,0 +1,8 @@
+<library path="lib/liblaikago_joint_controller">
+    <class name="laikago_controller/LaikagoJointController" 
+            type="laikago_controller::LaikagoJointController"           
+            base_class_type="controller_interface::ControllerBase"/>
+        <description>
+            The laikago joint controller.
+        </description>
+</library>

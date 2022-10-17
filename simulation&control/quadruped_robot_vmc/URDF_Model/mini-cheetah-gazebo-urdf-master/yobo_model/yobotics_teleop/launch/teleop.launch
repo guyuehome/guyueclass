@@ -1,0 +1,13 @@
+<launch>
+    <arg name="joy"  default="false"/>
+    <arg name="dev"  default="/dev/input/js0"/>
+
+    <node if="$(arg joy)" name="joy" pkg="joy" type="joy_node" required="true">
+        <param name="autorepeat_rate" value="5" />
+        <param name="dev" value="$(arg dev)" />
+    </node>
+
+    <node name="yobotics_teleop" pkg="yobotics_teleop" type="yobotics_teleop.py" output="screen" required="true">
+        <param name="joy" value="$(arg joy)" />
+    </node>
+</launch>

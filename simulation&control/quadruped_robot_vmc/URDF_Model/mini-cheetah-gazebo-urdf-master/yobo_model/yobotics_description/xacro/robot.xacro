@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<robot name="yobotics_description" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find yobotics_description)/xacro/const.xacro"/>
+    <xacro:include filename="$(find yobotics_description)/xacro/materials.xacro"/>
+    <xacro:include filename="$(find yobotics_description)/xacro/leg.xacro"/>
+    <xacro:include filename="$(find yobotics_description)/xacro/gazebo.xacro"/>
+
+    <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
+
+     
+    <!-- <link name="base_link">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="floating_base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="trunk"/>
+    </joint> -->
+
+    <link name="trunk"/>
+    <link name="trunk_interia">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://yobotics_description/meshes/trunk.STL" scale="1 1 1"/>
+            </geometry>
+            <material name="white_gray"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+               <!-- <mesh filename="package://yobotics_description/meshes/trunk.STL" scale="1 1 1"/> -->
+               <box size="${trunk_length} ${trunk_width} ${trunk_height}"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="${trunk_com_x} ${trunk_com_y} ${trunk_com_z}"/>
+            <mass value="${trunk_mass}"/>
+            <inertia
+                ixx="${trunk_ixx}" ixy="${trunk_ixy}" ixz="${trunk_ixz}"
+                iyy="${trunk_iyy}" iyz="${trunk_iyz}"
+                izz="${trunk_izz}"/>  
+        </inertial>
+    </link>
+   <joint name="trunk_to_trunk_inertia" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <parent link="trunk"/>
+        <child link="trunk_interia"/>
+    </joint>
+
+<!-- 
+    <joint name="imu_joint" type="fixed">
+        <parent link="trunk"/>
+        <child link="imu_link"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+    </joint>
+
+    <link name="imu_link">
+        <inertial>
+            <mass value="0.001"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size=".001 .001 .001"/>
+            </geometry>
+        </collision>
+    </link> -->
+    
+    <xacro:leg name="RL" mirror="-1" mirror_dae="False" front_hind="1" front_hind_dae="True">
+        <origin rpy="0 0 0" xyz="${leg_offset_x} ${-leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg name="FL" mirror="-1" mirror_dae="False" front_hind="-1" front_hind_dae="False">
+   
+        <origin rpy="0 0 0" xyz="${-leg_offset_x} ${-leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg name="RR" mirror="1" mirror_dae="True" front_hind="1" front_hind_dae="True">
+        <origin rpy="0 0 0" xyz="${leg_offset_x} ${leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg name="FR" mirror="1" mirror_dae="True" front_hind="-1" front_hind_dae="False">
+    
+        <origin rpy="0 0 0" xyz="${-leg_offset_x} ${leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:include filename="$(find yobotics_description)/xacro/accessories.urdf.xacro" />
+</robot>

@@ -1,0 +1,13 @@
+uint8 levelFlag
+uint8 mode
+float32 forwardSpeed
+float32 sideSpeed
+float32 rotateSpeed	
+float32 bodyHeight
+float32 footRaiseHeight
+float32 yaw
+float32 pitch
+float32 roll
+LED[4] led
+uint8[40] wirelessRemote
+int32 crc

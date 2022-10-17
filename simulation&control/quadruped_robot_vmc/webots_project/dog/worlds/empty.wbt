@@ -1,0 +1,102 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.11037935008713536 0.15645625067227445 0.9814977537925985 1.6479014768725206
+  position 0.18257443560399694 -0.7966319197415322 0.48263206777306683
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 3 3
+}
+Robot {
+  translation 0 0 0.1
+  children [
+    DEF motor1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.1
+        axis 0 1 0
+        anchor 0 0 0.382
+      }
+      device [
+        PositionSensor {
+          name "motor1 position sensor"
+        }
+        RotationalMotor {
+          name "motor1"
+          controlPID 5 0 0
+        }
+      ]
+      endPoint Solid {
+        translation -0.009983341664682796 0 0.2824995834721974
+        rotation 0 1 0 0.09999999999999855
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.3
+              axis 0 1 0
+              anchor 0 0 -0.1
+            }
+            device [
+              RotationalMotor {
+                name "motor2"
+              }
+              PositionSensor {
+                name "motor2 position sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.029552020666133955 0 -0.1955336489125606
+              rotation 0 -0.9999999999999999 0 0.3000000000000006
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0.498039
+                  }
+                  geometry Box {
+                    size 0.01 0.01 0.2
+                  }
+                }
+              ]
+              physics Physics {
+                density -1
+                mass 4
+              }
+            }
+          }
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 0.01 0.01 0.2
+            }
+          }
+        ]
+        name "solid(1)"
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+    }
+    Solid {
+      translation 0 0 0.382
+      rotation 1 0 0 1.57
+      children [
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.666667 0.498039
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.01
+          }
+        }
+      ]
+    }
+  ]
+  controller "my_controller"
+}

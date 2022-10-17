@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:include filename="$(find hector_sensors_description)/urdf/asus_camera.urdf.xacro" />
+
+    <xacro:hokuyo_utm30lx 
+        name="hokuyo" 
+        parent="trunk" 
+        ros_topic="scan" 
+        update_rate="30" 
+        ray_count="1040" 
+        min_angle="130" 
+        max_angle="-130" >
+        <origin xyz="0.0 0.0 ${trunk_height}" rpy="0 0 0"/>
+    </xacro:hokuyo_utm30lx>
+    
+    <gazebo reference="hokuyo_frame">
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+
+    <xacro:asus_camera 
+        parent="trunk" 
+        name="camera">
+        <origin xyz="0.1 0.0 -0.06" rpy="0 0.261799612195482 0"/>
+    </xacro:asus_camera>
+
+    <gazebo>
+        <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+            <updateRate>50.0</updateRate>
+            <bodyName>imu_link</bodyName>
+            <topicName>imu/data</topicName>
+            <accelDrift>0.005 0.005 0.005</accelDrift>
+            <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+            <rateDrift>0.005 0.005 0.005 </rateDrift>
+            <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+            <headingDrift>0.005</headingDrift>
+            <headingGaussianNoise>0.005</headingGaussianNoise>
+        </plugin>
+    </gazebo>
+
+    <link name="imu_link">
+        <inertial>
+            <mass value="0.001"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1e-09" ixy="0.0" ixz="0.0" iyy="1e-09" iyz="0.0" izz="1e-09"/>
+        </inertial>
+    </link>
+    <joint name="imu_joint" type="fixed">
+        <parent link="trunk" />
+        <child link="imu_link" />
+    </joint>
+
+    <!-- <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+    <xacro:VLP-16 parent="trunk" name="velodyne" topic="velodyne_points" hz="10" samples="1024" gpu="false" lasers="16" max_range="100">
+        <origin xyz="0 0 ${base_z_length / 2}" rpy="0 0 0" />
+    </xacro:VLP-16>
+
+    <xacro:include filename="$(find champ_arm_description)/urdf/champ_arm.urdf.xacro" />
+    <xacro:champ_arm parent="trunk">
+        <origin xyz="0.07 0.0 ${base_z_length / 2}" rpy="0 0 0"/>
+    </xacro:champ_arm> -->
+</robot>

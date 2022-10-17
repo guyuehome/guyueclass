@@ -1,0 +1,49 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.014750571498476854 0.03413660223353118 0.9993083173017314 1.8526538373829124
+  position 12.284326763737056 -20.30757139753425 6.176571700591526
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+UnevenTerrain {
+}
+Solid {
+  translation 10 0 5
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Sphere {
+      }
+    }
+  ]
+  name "3"
+  boundingObject Sphere {
+  }
+  physics Physics {
+    mass 10
+  }
+}
+Solid {
+  translation 5 0 5
+  children [
+    Shape {
+      geometry Sphere {
+      }
+    }
+  ]
+  name "2"
+  physics Physics {
+    mass 5
+  }
+}
+Ball {
+  translation 0 0 5
+  rotation 0 1 0 0
+  name "1"
+  radius 1
+}
