@@ -52,8 +52,9 @@
 18. [《智能车辆轨迹跟踪控制及安全策略》](https://sdv.h5.xeknow.com/s/3X4v79)：simulink_carsim
 19. [《基于MATLAB的十字路口交通流仿真》](https://sdv.h5.xeknow.com/s/Q9GI6)：matlab_traffic_simulation
 20. [《四足机器人VMC算法仿真实现》](https://sdv.xet.tech/s/25iWOI)：quadruped_robot_vmc
-21. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-22. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+21. [《多刚体系统动力学建模及MATLAB仿真》](https://sdv.xet.tech/s/2xtPGx)：multiple_body_dynamic_modeling
+22. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+23. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ------
 
