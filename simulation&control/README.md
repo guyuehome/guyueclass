@@ -21,6 +21,7 @@
 19. matlab_traffic_simulation：[《基于MATLAB的十字路口交通流仿真》](https://sdv.h5.xeknow.com/s/Q9GI6)
 20. quadruped_robot_vmc：[《四足机器人VMC算法仿真实现》](https://sdv.xet.tech/s/25iWOI)
 21. multiple_body_dynamic_modeling：[《多刚体系统动力学建模及MATLAB仿真》](https://sdv.xet.tech/s/2xtPGx)
+22. robot_safe_navigation：[《移动机器人安全控制与安全强化学习》](https://zyesr.xet.tech/s/1mMXR1)
 
 ------
 
