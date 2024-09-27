@@ -29,6 +29,7 @@
 9. [《MATLAB玩转树莓派》](https://class.guyuehome.com/detail/p_61679f2de4b01fea4dcc6f96/6) ：matlab_raspberry_pi
 10. [《移动机器人目标检测YOLOv5》](https://class.guyuehome.com/detail/p_623962a0e4b0f7cb7c75124d/6) ：yolov5_mobile_robot
 11. [《面阵激光雷达SLAM》](https://class.guyuehome.com/detail/p_62fb0690e4b0eca59c2375c0/6) ：array_lidar_slam
+12. [《ROS自动驾驶障碍物检测》](https://zyesr.xetslk.com/s/3GzIb9) ：obstacle_detection_autonomous_driving
 
 ### 仿真控制（simulation&control）
 
@@ -54,8 +55,9 @@
 20. [《四足机器人VMC算法仿真实现》](https://sdv.xet.tech/s/25iWOI)：quadruped_robot_vmc
 21. [《多刚体系统动力学建模及MATLAB仿真》](https://sdv.xet.tech/s/2xtPGx)：multiple_body_dynamic_modeling
 22. [《移动机器人安全控制与安全强化学习》](https://zyesr.xet.tech/s/1mMXR1)：robot_safe_navigation
-23. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
-24. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
+23. [《三轴机械臂运动学与动力学控制》](https://zyesr.xetslk.com/s/dSP8a)：kinematics_and_dynamics_control_of_three_axis_arm
+24. [《自动驾驶入门：从建模到跟随》](https://class.guyuehome.com/detail/p_5f72a976e4b0e95a89c1ab42/6) 
+25. [《无人机仿真开发》](https://class.guyuehome.com/detail/p_5f041b74e4b036f1c0cf25a2/6) 
 
 ------
 

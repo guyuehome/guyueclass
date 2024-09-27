@@ -22,6 +22,7 @@
 20. quadruped_robot_vmc：[《四足机器人VMC算法仿真实现》](https://sdv.xet.tech/s/25iWOI)
 21. multiple_body_dynamic_modeling：[《多刚体系统动力学建模及MATLAB仿真》](https://sdv.xet.tech/s/2xtPGx)
 22. robot_safe_navigation：[《移动机器人安全控制与安全强化学习》](https://zyesr.xet.tech/s/1mMXR1)
+23. kinematics_and_dynamics_control_of_three_axis_arm：[《三轴机械臂运动学与动力学控制》](https://zyesr.xetslk.com/s/dSP8a)
 
 ------
 

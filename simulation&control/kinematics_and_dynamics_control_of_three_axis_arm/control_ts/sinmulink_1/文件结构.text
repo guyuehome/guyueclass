@@ -1,0 +1,22 @@
+
+Dof_3
+*****三自由度控制系统仿真。
+
+work_space_trace
+*****工作空间的期望轨迹。
+
+ikinematic
+*****计算出关节位置速度加速度。
+
+kinematic
+*****计算出末端位置速度加速度。
+
+control
+*****控制器
+
+Model_Parameter.m
+*****储存了sinmulink模型中机械臂的参数，在进行仿真时需要提前加载这个文件：
+*****MODLING->BaseWorkspase->Model Workspase(左侧)->MATLAB File(右侧)->Reinitialize from Source
+
+
+

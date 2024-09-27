@@ -1,0 +1,32 @@
+# clip
+roi_x_min: 4.0
+roi_x_max: 100.0
+roi_y_min: -20.0
+roi_y_max: 20.0
+roi_z_min: -1.75
+roi_z_max: 2.0
+
+vehicle_x_min: -1.2 #转换到车辆坐标系下后，将车身点云切除，车辆坐标系中心为后轴中心０点
+vehicle_x_max: 3.5
+vehicle_y_min: -1.0
+vehicle_y_max: 1.0
+vehicle_z_min: -0.5
+vehicle_z_max: 2.5
+
+# Enable pointcloud downsampling via VoxelGrid filter
+is_downsample: false
+# downsampling leaf size
+leaf_size: 0.1
+
+# remove ground
+
+
+#  euclidean_cluster
+cluster_tolerance: 0.5
+min_cluster_size: 4
+max_cluster_size: 10000
+use_multiple_thres: true
+
+# boundingBox
+in_estimate_pose: false
+cluster_merge_threshold: 0.75

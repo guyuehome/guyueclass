@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="lidar_obstacle_detection" type="lidar_obstacle_detection_node" name="lidar_obstacle_detection_node" output="screen" />
+        <rosparam file="$(find lidar_obstacle_detection)/config/lidar_obstacle_detection.yaml" command="load" />
+    <!-- Start lidar_obstacle_detection.rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" output = "screen" args="-d $(find lidar_obstacle_detection)/rviz/lidar_obstacle_detection.rviz" required="true" />
+</launch>

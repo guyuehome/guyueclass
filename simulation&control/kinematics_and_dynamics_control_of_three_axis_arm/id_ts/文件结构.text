@@ -1,0 +1,9 @@
+
+matlab：2020a
+
+注意：sinmulink模型的参数更改后，要重新加载参数才能起效果。
+
+
+Model_Parameter.m
+*****储存了sinmulink模型中机械臂的参数，在进行仿真时需要提前加载这个文件：
+*****MODLING->BaseWorkspase->Model Workspase(左侧)->MATLAB File(右侧)->Reinitialize from Source
