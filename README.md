@@ -16,6 +16,10 @@
 2. [《如何在MoveIt中集成自定义运动规划算法》](https://class.guyuehome.com/detail/p_5fa4b3d9e4b0e81f36cd0c79/6) ：moveit_motion_planner
 3. [《动手学ROS2-Foxy》](https://class.guyuehome.com/detail/p_619314d1e4b09b5fe0b31219/6) ：ROS2_Foxy
 
+### 具身智能（embodied_intelligence）
+
+1. [《机器人触觉与灵巧操作入门》](https://zyesr.xetslk.com/s/SBCR0) ：robot_tactile_and_agile_operations
+
 ### 规划感知（planning&perception）
 
 1. [《ROS常用SLAM功能包使用指南》](https://class.guyuehome.com/detail/p_5ed700a841cc8_UpE7PGXW/6) ：mbot_slam

@@ -1,0 +1,15 @@
+传感器制作：
+https://softroboticstoolkit.com/tactip
+https://digit.ml/
+https://github.com/linchangyi1/9DTact
+
+仿真环境：
+https://github.com/ac-93/tactile_gym
+https://github.com/facebookresearch/tacto
+https://github.com/ErickRosete/gym_tacto
+
+强化学习：
+https://github.com/DLR-RM/stable-baselines3
+https://stable-baselines3.readthedocs.io/en/master/
+https://github.com/openai/gym
+https://www.gymlibrary.dev/index.html
